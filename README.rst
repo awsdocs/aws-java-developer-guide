@@ -8,27 +8,15 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-############################
+########################
 aws-java-developer-guide
-############################
+########################
 
-.. Links used in the README. For sanity's sake, keep this list sorted alphabetically. ;)
-.. _`available sphinx builders`: http://www.sphinx-doc.org/en/stable/builders.html
-.. _`aws sdk for java developer guide`: http://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/welcome.html
-.. _`forking the repository`: https://help.github.com/articles/fork-a-repo/
-.. _`pull request`: https://help.github.com/articles/using-pull-requests/
-.. _`shared content`: https://github.com/awsdocs/aws-doc-shared-content
-.. _extlinks: http://www.sphinx-doc.org/en/stable/ext/extlinks.html
-.. _issues: https://github.com/awsdocs/aws-java-developer-guide/issues
-.. _restructuredtext: http://docutils.sourceforge.net/rst.html
-.. _sphinx: http://www.sphinx-doc.org/en/stable/
-.. _substitutions: http://www.sphinx-doc.org/en/stable/rest.html#substitutions
+This repository contains source content for the official `AWS SDK for Java Developer Guide`_. The
+source code for the `AWS SDK for Java`_ is also on GitHub, at https://github.com/aws/aws-sdk-java/.
 
-
-This repository contains content for the official `AWS SDK for Java Developer Guide`_.
-
-The developer guide is written in reStructuredText_ and built using Sphinx_. It relies on shared
-content that is provided in the `shared content`_ repository, which is also provided on GitHub.
+The guide content is written in reStructuredText_ and built using Sphinx_. It relies upon content
+which is provided in the AWS documentation team's `shared content`_ repository.
 
 
 Reporting issues
@@ -88,4 +76,20 @@ Attribution-NonCommercial-ShareAlike 4.0 International License
 human-readable summary of the license terms. The full license text is available at:
 http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode and in the LICENSE file accompanying this
 repository.
+
+.. =================================================================================
+.. Links used in the README. For sanity's sake, keep this list sorted alphabetically
+.. =================================================================================
+
+.. _`available sphinx builders`: http://www.sphinx-doc.org/en/stable/builders.html
+.. _`aws sdk for java developer guide`: http://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/welcome.html
+.. _`aws sdk for java`: https://aws.amazon.com/sdk-for-java/
+.. _`forking the repository`: https://help.github.com/articles/fork-a-repo/
+.. _`pull request`: https://help.github.com/articles/using-pull-requests/
+.. _`shared content`: https://github.com/awsdocs/aws-doc-shared-content
+.. _extlinks: http://www.sphinx-doc.org/en/stable/ext/extlinks.html
+.. _issues: https://github.com/awsdocs/aws-java-developer-guide/issues
+.. _restructuredtext: http://docutils.sourceforge.net/rst.html
+.. _sphinx: http://www.sphinx-doc.org/en/stable/
+.. _substitutions: http://www.sphinx-doc.org/en/stable/rest.html#substitutions
 
