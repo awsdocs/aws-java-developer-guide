@@ -366,12 +366,18 @@ epub_exclude_files = ['search.html']
 # If false, no index is generated.
 #epub_use_index = True
 
+if 'extlinks' not in globals():
+    global extlinks
+    extlinks = {}
+
 # These URLs make maintaining the extlinks easier.
 java_api_url = 'http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/'
-extlinks = {
-    # 'role' : (url_string, term_prepended_by),
-    'java-api': (java_api_url + '?com/amazonaws/%s.html', ''),
-    'java-ref': (java_api_url + '?%s', ''),
-    'java-ref-nf': (java_api_url + '%s', ''),
-}
-
+javase_api_url = 'https://docs.oracle.com/javase/7/docs/api/'
+javadoc_f = 'index.html?%s.html' # javadoc link + frames
+javadoc_nf = '%s.html' # javadoc link - frames
+# extlinks['role'] = (url_string, term_prepended_by)
+extlinks['java-api'] = (java_api_url + 'index.html?com/amazonaws/%s.html', '')
+extlinks['java-ref'] = (java_api_url + javadoc_f, '')
+extlinks['java-ref-nf'] = (java_api_url + javadoc_nf, '')
+extlinks['javase-ref'] = (javase_api_url + javadoc_f, '')
+extlinks['javase-ref-nf'] = (javase_api_url + javadoc_nf, '')

@@ -62,7 +62,9 @@ developers:
 
 * GitHub:
 
-  + `source <https://github.com/aws/aws-sdk-java>`_
+  + `SDK source <https://github.com/aws/aws-sdk-java>`_
+
+  + `Documentation source <https://github.com/awsdocs/aws-java-developer-guide>`_
 
   + `samples <https://github.com/aws/aws-sdk-java/tree/master/src/samples>`_
 

@@ -16,6 +16,21 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **Last documentation update:** |today|
 
+Mar 04, 2016
+    The :doc:`prog-services-swf` section has been updated with new content:
+
+    * :doc:`swf-basics` |ndash| Provides basic information about how to include SWF in your
+      projects.
+
+    * :doc:`swf-hello` |ndash| A new tutorial that provides step-by-step guidance for Java
+      developers new to |SWF|.
+
+    * :doc:`swf-graceful-shutdown` |ndash| Describes how you can gracefully shut down |SWF|
+      worker classes using Java's concurrency classes.
+
+Feb 23, 2016
+    The source for the |sdk-java-dg| has been moved to :github:`<awsdocs/aws-java-developer-guide>`.
+
 Dec 28, 2015
     :doc:`java-dg-jvm-ttl` has been moved from :doc:`advanced` into the :doc:`basics` section, and
     has been rewritten for clarity.

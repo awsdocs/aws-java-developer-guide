@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-################################################
-Registering an |SWF| Domain Using the |sdk-java|
-################################################
+###################
+Registering Domains
+###################
 
 Every workflow and activity in |SWF|_ needs a :emphasis:`domain` to run in.
 

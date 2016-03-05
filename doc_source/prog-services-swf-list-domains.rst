@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##########################################
-Listing |SWF| Domains Using the |sdk-java|
-##########################################
+###############
+Listing Domains
+###############
 
 You can list the |SWF|_ domains associated with your account and AWS region by registration type.
 

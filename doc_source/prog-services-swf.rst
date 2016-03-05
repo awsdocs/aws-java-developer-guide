@@ -12,11 +12,26 @@
 |SWF|
 #####
 
-This section provides examples of programming |SWF|_ with the |sdk-java|.
+|SWF|_ is a workflow-management service that helps developers build and scale distributed
+workflows that can have parallel or sequential steps consisting of activities, child workflows or
+even |LAM|_ tasks.
+
+There are two ways to work with |SWF| using the |sdk-java|, by using the SWF *client* object, or by
+using the |jflow|. The |jflow| is more difficult to configure initially, since it makes heavy use of
+annotations and relies on additional libraries such as AspectJ and the Spring Framework. However,
+for large or complex projects, you will save coding time by using the |jflow|. For more information,
+see the |jflow-dg|_.
+
+This section provides examples of programming |SWF| by using the |sdk-java| client directly.
 
 .. toctree::
    :maxdepth: 1
    :titlesonly:
 
+   swf-basics
+   swf-hello
+   swf-graceful-shutdown
    prog-services-swf-register-domain
    prog-services-swf-list-domains
+
+
