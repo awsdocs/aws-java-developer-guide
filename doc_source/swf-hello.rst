@@ -409,7 +409,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 
    .. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/WorkflowWorker.java
        :language: java
-       :lines: 24-27, 137
+       :lines: 24-27, 141
 
 #. Add the ``main`` method. The method loops continuously, polling for decision tasks using the SWF
    client's ``pollForDecisionTask`` method. The :java-api:`PollForDecisionTaskRequest
@@ -417,7 +417,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 
    .. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/WorkflowWorker.java
        :language: java
-       :lines: 28-50
+       :lines: 28-52
        :dedent: 4
 
    Once a task is received, we call its ``getTaskToken`` method, which returns a string that can be
@@ -430,7 +430,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 
    .. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/WorkflowWorker.java
        :language: java
-       :lines: 58-65, 136
+       :lines: 60-67, 140
        :dedent: 4
 
    We also set up some data members to keep track of things such as:
@@ -448,7 +448,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 
    .. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/WorkflowWorker.java
        :language: java
-       :lines: 67-98
+       :lines: 69-102
        :dedent: 8
 
    For the purposes of our workflow, we are most interested in:
@@ -480,7 +480,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 
    .. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/WorkflowWorker.java
        :language: java
-       :lines: 100-128
+       :lines: 104-132
        :dedent: 8
 
    * If the activity hasn't been scheduled yet, we respond with a ``ScheduleActivityTask`` decision,
@@ -505,7 +505,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 
    .. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/WorkflowWorker.java
        :language: java
-       :lines: 130-135
+       :lines: 136-139
        :dedent: 8
 
    The SWF client's ``respondDecisionTaskCompleted`` method takes the task token that identifies the
@@ -650,6 +650,15 @@ window (unless you ran your workers as new spawned processes by using the ``&`` 
 Once you begin the workflow execution, you should start seeing output delivered by both workers and
 by the workflow execution itself. When the workflow finally completes, its output will be printed to
 the screen.
+
+
+Complete source for this example
+================================
+
+You can browse the `complete source
+<https://github.com/awsdocs/aws-java-developer-guide/tree/master/doc_source/snippets/helloswf/>`_
+for this example on Github in the *aws-java-developer-guide* repository.
+
 
 For more information
 ====================

@@ -30,8 +30,8 @@ This section provides examples of programming |SWF| by using the |sdk-java| clie
 
    swf-basics
    swf-hello
+   swf-lambda-task
    swf-graceful-shutdown
    prog-services-swf-register-domain
    prog-services-swf-list-domains
-
 

@@ -26,14 +26,16 @@ public class WorkflowWorker {
     private static AmazonSimpleWorkflowClient swf = new AmazonSimpleWorkflowClient();
 
     public static void main(String[] args) {
-       PollForDecisionTaskRequest task_request =
-           new PollForDecisionTaskRequest()
-               .withDomain(HelloTypes.DOMAIN)
-               .withTaskList(new TaskList().withName(HelloTypes.TASKLIST));
+        PollForDecisionTaskRequest task_request =
+            new PollForDecisionTaskRequest()
+                .withDomain(HelloTypes.DOMAIN)
+                .withTaskList(new TaskList().withName(HelloTypes.TASKLIST));
 
         while (true) {
-            System.out.println("Polling for a decision task from the tasklist '" +
-                    HelloTypes.TASKLIST + "' in the domain '" + HelloTypes.DOMAIN + "'.");
+            System.out.println(
+                    "Polling for a decision task from the tasklist '" +
+                    HelloTypes.TASKLIST + "' in the domain '" +
+                    HelloTypes.DOMAIN + "'.");
 
             DecisionTask task = swf.pollForDecisionTask(task_request);
 
@@ -56,7 +58,7 @@ public class WorkflowWorker {
      * as the output of the workflow.
      */
     private static void executeDecisionTask(String taskToken, List<HistoryEvent> events)
-        throws Throwable {
+            throws Throwable {
         List<Decision> decisions = new ArrayList<Decision>();
         String workflow_input = null;
         int scheduled_activities = 0;
@@ -68,31 +70,33 @@ public class WorkflowWorker {
         for (HistoryEvent event : events) {
             System.out.println("  " + event);
             switch(event.getEventType()) {
-            case "WorkflowExecutionStarted":
-                workflow_input = event.getWorkflowExecutionStartedEventAttributes()
-                                     .getInput();
-                break;
-            case "ActivityTaskScheduled":
-                scheduled_activities++;
-                break;
-            case "ScheduleActivityTaskFailed":
-                scheduled_activities--;
-                break;
-            case "ActivityTaskStarted":
-                scheduled_activities--;
-                open_activities++;
-                break;
-            case "ActivityTaskCompleted":
-                open_activities--;
-                activity_completed = true;
-                result = event.getActivityTaskCompletedEventAttributes().getResult();
-                break;
-            case "ActivityTaskFailed":
-                open_activities--;
-                break;
-            case "ActivityTaskTimedOut":
-                open_activities--;
-                break;
+                case "WorkflowExecutionStarted":
+                    workflow_input =
+                        event.getWorkflowExecutionStartedEventAttributes()
+                             .getInput();
+                    break;
+                case "ActivityTaskScheduled":
+                    scheduled_activities++;
+                    break;
+                case "ScheduleActivityTaskFailed":
+                    scheduled_activities--;
+                    break;
+                case "ActivityTaskStarted":
+                    scheduled_activities--;
+                    open_activities++;
+                    break;
+                case "ActivityTaskCompleted":
+                    open_activities--;
+                    activity_completed = true;
+                    result = event.getActivityTaskCompletedEventAttributes()
+                                  .getResult();
+                    break;
+                case "ActivityTaskFailed":
+                    open_activities--;
+                    break;
+                case "ActivityTaskTimedOut":
+                    open_activities--;
+                    break;
             }
         }
         System.out.println("]");
@@ -111,8 +115,8 @@ public class WorkflowWorker {
                 ScheduleActivityTaskDecisionAttributes attrs =
                     new ScheduleActivityTaskDecisionAttributes()
                         .withActivityType(new ActivityType()
-                        .withName(HelloTypes.ACTIVITY)
-                        .withVersion(HelloTypes.ACTIVITY_VERSION))
+                            .withName(HelloTypes.ACTIVITY)
+                            .withVersion(HelloTypes.ACTIVITY_VERSION))
                         .withActivityId(UUID.randomUUID().toString())
                         .withInput(workflow_input);
 
@@ -123,7 +127,7 @@ public class WorkflowWorker {
             }
             else {
                 // an instance of HelloActivity is already scheduled or running. Do nothing, another
-                // decision task will be scheduled once the activity completes, fails or times out
+                // task will be scheduled once the activity completes, fails or times out
             }
         }
 

@@ -9,7 +9,7 @@
    limitations under the License.
 
 ######################################
-Sign Up for AWS and create an IAM User
+Sign Up for AWS and Create an IAM User
 ######################################
 
 To use the |sdk-java| to access |AWSlong| (AWS), you will need an AWS account and AWS credentials.

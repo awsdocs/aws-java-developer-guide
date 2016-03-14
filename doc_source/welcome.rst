@@ -74,8 +74,5 @@ developers:
 
 * `@awsforjava (Twitter) <https://twitter.com/awsforjava>`_
 
-* `release notes`_
+* `release notes <https://aws.amazon.com/releasenotes/Java>`_
 
-* `license <http://aws.amazon.com/apache2.0/>`_
-
-.. _`release notes`: https://aws.amazon.com/releasenotes/Java
