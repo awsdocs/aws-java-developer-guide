@@ -16,7 +16,7 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **Last documentation update:** |today|
 
-Mar 11, 2016
+Mar 14, 2016
     Added a new topic to the |SWF| section: :doc:`swf-lambda-task`, which describes how to implement
     a |SWF| workflow that calls |LAM| functions as tasks as an alternative to using traditional
     |SWF| activities.
