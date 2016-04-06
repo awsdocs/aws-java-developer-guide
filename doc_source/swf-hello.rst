@@ -579,18 +579,20 @@ Setting the Java classpath
 
 Although Maven has handled the dependencies for you, to run the example, you'll need to provide the
 AWS SDK library and its dependencies on your Java classpath. You can either set the ``CLASSPATH``
-environment variable to the location of your AWS SDK libraries:
+environment variable to the location of your AWS SDK libraries and the ``third-party/lib`` directory
+in the SDK, which includes necessary dependencies:
 
 .. code-block:: sh
 
-   export CLASSPATH='target/helloswf-1.0.jar:/path/to/sdk/libs/*'
+   export CLASSPATH='target/helloswf-1.0.jar:/path/to/sdk/lib/*:/path/to/sdk/third-party/lib/*'
    java example.swf.hello.HelloTypes
 
 or use the ``java`` command's ``-cp`` option to set the classpath while running each applications.
 
 .. code-block:: sh
 
-   java -cp target/helloswf-1.0.jar:/path/to/sdk/libs/* example.swf.hello.HelloTypes
+   java -cp target/helloswf-1.0.jar:/path/to/sdk/lib/*:/path/to/sdk/third-party/lib/* \
+     example.swf.hello.HelloTypes
 
 The style that you use is up to you. If you had no trouble building the code, buth then try to run
 the examples and get a series of "NoClassDefFound" errors, it is likely because the classpath is set
