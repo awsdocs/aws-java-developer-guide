@@ -59,9 +59,9 @@ The build process will automatically download a snapshot of the `shared content`
 ``build`` directory and will generate output into the ``output`` directory.
 
 ``build_docs.py`` can take any of the `available Sphinx builders`_ as its argument. For example, to
-build the docs into a single HTML page, you can use the ``htmlsingle`` target, like so::
+build the docs into a single HTML page, you can use the ``singlehtml`` target, like so::
 
- python build_docs.py htmlsingle
+ python build_docs.py singlehtml
 
 
 Copyright and license
