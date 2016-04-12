@@ -116,7 +116,7 @@ using AWS' new SHA256 certificates into your environment.
 
 4.  Import the root certificate using the following command:
 
-    .. code-block:: java
+    .. code-block:: sh
 
         keytool -keystore cacerts -storepass changeit -importcert -alias verisignclass3g5ca \
         -file path/to/certpemfile
@@ -131,7 +131,7 @@ using AWS' new SHA256 certificates into your environment.
 5.  Verify the root certificate that you've installed. From within your
     :code:`$JAVA_HOME/jre/lib/security` directory, type the following command:
 
-    .. code-block:: java
+    .. code-block:: sh
 
         keytool -keystore cacerts -storepass changeit -list -v|grep -A8 -B6 \
         -i 18dad19e267de8bb4a2158cdcc6b3b4a

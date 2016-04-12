@@ -175,7 +175,7 @@ public DNS name of your instance, select it in the |EC2| console, and then look 
 :guilabel:`Public DNS` in the :guilabel:`Description` tab (for example,
 ec2-198-51-100-1.compute-1.amazonaws.com).
 
-.. code-block:: java
+.. code-block:: sh
 
      scp -p -i {my-key-pair}.pem GetS3Object.class ec2-user@{public_dns}:GetS3Object.class
      scp -p -i {my-key-pair}.pem build.xml ec2-user@{public_dns}:build.xml
@@ -193,9 +193,9 @@ The :code:`-p` switch indicates that :literal:`scp` should preserve the permissi
 files when it copies them to the destination. If you are copying the files from Windows, you might
 need to fix the permissions on your instance using the following command:
 
-.. code-block:: java
+.. code-block:: sh
 
-    :userinput:`chmod -R u+rwx GetS3Object.class build.xml lib third-party`
+    chmod -R u+rwx GetS3Object.class build.xml lib third-party
 
 
 .. _java-dg-run-the-program:
@@ -209,15 +209,15 @@ Linux Instance <AccessingInstances>` in the |EC2-ug|.
 If ant is not installed on your instance, you can install it using the `yum
 <http://yum.baseurl.org/>`_ installer as follows:
 
-.. code-block:: java
+.. code-block:: sh
 
-     :userinput:`sudo yum install ant`
+    sudo yum install ant
 
 Run the program using :code:`ant` as follows:
 
-.. code-block:: java
+.. code-block:: sh
 
-     :userinput:`ant getS3Object`
+    ant getS3Object
 
 The program should write the contents of your |S3| object to your command window.
 

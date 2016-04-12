@@ -18,7 +18,7 @@ You may not need (or want) to install the SDK if you use any of the following:
   which will automatically download, install and update the Java SDK for you. For more information
   and setup instructions, see the |tke-ug|_.
 
-* **Apache Maven** |ndash| If you use `Apache Maven <Maven>`_, you can specify the entire SDK (or
+* **Apache Maven** |ndash| If you use `Apache Maven <maven>`_, you can specify the entire SDK (or
   specific SDK components) as dependencies in your project. See :doc:`java-dg-using-maven` for
   details about how to set up the SDK when using Maven.
 
