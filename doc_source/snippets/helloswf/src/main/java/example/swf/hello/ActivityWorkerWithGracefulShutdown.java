@@ -33,7 +33,6 @@ public class ActivityWorkerWithGracefulShutdown {
     private static volatile boolean terminate = false;
 
     private static String executeActivityTask(String input) throws Throwable {
-        // if (new Random().nextBoolean()) throw new Error("oops!");
         return "Hello, " + input + "!";
     }
 

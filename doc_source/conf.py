@@ -366,8 +366,7 @@ epub_exclude_files = ['search.html']
 # If false, no index is generated.
 #epub_use_index = True
 
-if 'extlinks' not in globals():
-    global extlinks
+if 'extlinks' not in vars():
     extlinks = {}
 
 # These URLs make maintaining the extlinks easier.

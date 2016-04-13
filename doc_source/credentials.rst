@@ -124,7 +124,7 @@ You can specify additional fields, such as :code:`aws_session_token`,
 :code:`metadata_service_timeout` and :code:`metadata_service_num_attempts`. These are not
 configurable with the CLI |mdash| you must edit the file by hand if you wish to use them. For more
 information about the configuration file and its available fields, see :cli-ug:`Configuring the AWS
-Command Line Interface <cli-chap-getting-started>`_ in the |cli-ug|.
+Command Line Interface <cli-chap-getting-started>` in the |cli-ug|.
 
 
 Loading Credentials
