@@ -19,11 +19,10 @@ The |sdk-java| requires J2SE Development Kit *6.0 or later*. You can download th
 software from http://developers.sun.com/downloads/.
 
 .. important:: Java version 1.6 (JS2E 6.0) did not have built-in support for SHA256-signed SSL
-    certificates, which are required for all HTTPS connections with AWS after September 30, 2015.
-    For more information, see :doc:`use-sha256`.
+   certificates, which are required for all HTTPS connections with AWS after September 30, 2015.
 
-    Java versions 1.7 or newer are packaged with updated certificates and are unaffected by this
-    issue.
+   Java versions 1.7 or newer are packaged with updated certificates and are unaffected by this
+   issue.
 
 Choosing a JVM
 ==============

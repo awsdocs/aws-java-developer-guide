@@ -41,7 +41,7 @@ To use the SDK, you must have:
 * a suitable :doc:`Java Development Environment<java-dg-java-env>`.
 
 * the necessary SSL certificates installed. If you are using Java 1.6 or newer, you should already
-  have the correct certificates installed. For more information, see :doc:`use-sha256`.
+  have the correct (SHA256-signed) certificates installed.
 
 * An AWS account and access keys. For instructions, see :doc:`getting-started-signup`.
 
@@ -126,5 +126,4 @@ older versions of Java.
     :maxdepth: 1
 
     java-dg-java-env
-    use-sha256
 

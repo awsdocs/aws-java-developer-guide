@@ -16,6 +16,11 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **Last documentation update:** |today|
 
+Apr 26, 2016
+    The *SSL Certificate Requirements* topic has been removed, since it is no longer relevant.
+    Support for SHA-1 signed certificates was deprecated in 2015 and the site that housed the test
+    scripts has been removed.
+
 Mar 14, 2016
     Added a new topic to the |SWF| section: :doc:`swf-lambda-task`, which describes how to implement
     a |SWF| workflow that calls |LAM| functions as tasks as an alternative to using traditional
@@ -44,10 +49,10 @@ Dec 28, 2015
     SDK's bill of materials (BOM) in your project.
 
 Aug 04, 2015
-    :doc:`use-sha256` is a new topic in the :doc:`getting-started` section that describes AWS' move to
-    SHA256-signed certificates for SSL connections, and how to fix early 1.6 and previous Java
-    environments to use these certificates, which are :emphasis:`required` for AWS access after
-    September 30, 2015.
+    *SSL Certificate Requirements* is a new topic in the :doc:`getting-started` section that
+    describes AWS' move to SHA256-signed certificates for SSL connections, and how to fix early 1.6
+    and previous Java environments to use these certificates, which are :emphasis:`required` for AWS
+    access after September 30, 2015.
 
     .. note:: Java 1.7+ is already capable of working with SHA256-signed certificates.
 
