@@ -95,7 +95,7 @@ This feature can be used to temporarily change the location where the SDK for Ja
 credentials file (by setting this variable with the command-line, for example), or you can set the
 environment variable in your user or system environment to change it for the user or system-wide.
 
-.. include:: override_credfile_loc.txt
+.. include:: common/procedure-override-shared-credfile-location.txt
 
 
 .. _credentials-file-format:

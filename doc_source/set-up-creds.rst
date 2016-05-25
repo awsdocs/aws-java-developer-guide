@@ -22,7 +22,7 @@ recommended approaches:
 
 .. the following file is in the shared content...
 
-.. include:: sdk-shared-credentials.txt
+.. include:: common/sdk-shared-credentials.txt
 
 * To set credentials for an EC2 instance, you should specify an IAM role and then give your EC2
   instance access to that role as shown in :doc:`java-dg-roles`.
