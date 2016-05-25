@@ -1,6 +1,6 @@
 .. project-specific includes for this project.
 
-.. |sdk-java-dl| replace:: http://aws.amazon.com/sdkforjava
+.. |sdk-java-dl| replace:: http://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip
 
 .. |sdk-java-github| replace:: AWS SDK for Java (GitHub)
 .. _sdk-java-github: http://github.com/aws/aws-sdk-java
