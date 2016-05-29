@@ -23,4 +23,5 @@ advanced programming techniques and comprehensive examples of using the |sdk-jav
 
    section-client-configuration
    java-dg-access-control
+   java-dg-jvm-ttl
 

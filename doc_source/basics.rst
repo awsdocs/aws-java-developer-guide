@@ -23,6 +23,5 @@ For information that is specific to a particular service (EC2, SWF, etc.), see t
 
    credentials
    java-dg-region-selection
-   java-dg-jvm-ttl
    java-dg-exceptions
    java-dg-logging

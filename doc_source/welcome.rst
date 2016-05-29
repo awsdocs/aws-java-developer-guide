@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#######################
-What is the |sdk-java|?
-#######################
+########################
+AWS Java Developer Guide
+########################
 
 The |sdk-java|_ provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
 applications that work with |S3|, |EC2|, |SDB|, and more. Support for new services is regularly
@@ -22,31 +22,6 @@ with.
    :local:
    :depth: 1
 
-
-Eclipse IDE support
-===================
-
-You can use the |tke|_ to add the SDK to an existing Eclipse project or to create a new |sdk-java|
-project.
-
-
-Developing AWS applications for Android
-=======================================
-
-If you are an Android developer, |AWSlong| publishes a SDK made specifically for Android
-development: the |sdk-android|_.
-
-
-.. _java-sdk-history:
-
-Viewing the SDK's revision history
-==================================
-
-To view the release history of the |sdk-java|, including changes and supported services per SDK
-version, see the SDK's `release notes`_.
-
-
-.. _additional-resources:
 
 Additional documentation and resources
 ======================================
@@ -75,4 +50,30 @@ developers:
 * `@awsforjava (Twitter) <https://twitter.com/awsforjava>`_
 
 * `release notes <https://aws.amazon.com/releasenotes/Java>`_
+
+
+Eclipse IDE support
+===================
+
+You can use the |tke|_ to add the SDK to an existing Eclipse project or to create a new |sdk-java|
+project.
+
+
+Developing AWS applications for Android
+=======================================
+
+If you are an Android developer, |AWSlong| publishes a SDK made specifically for Android
+development: the |sdk-android|_.
+
+
+.. _java-sdk-history:
+
+Viewing the SDK's revision history
+==================================
+
+To view the release history of the |sdk-java|, including changes and supported services per SDK
+version, see the SDK's `release notes`_.
+
+
+.. _additional-resources:
 
