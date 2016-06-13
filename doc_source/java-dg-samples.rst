@@ -28,7 +28,7 @@ and installed the SDK using the information in :doc:`java-dg-install-sdk`, then 
 samples on your system.
 
 You can also view the latest samples on the |sdk-java|'s GitHub repository, in the `src/samples
-<https://github.com/aws/aws-sdk-java/tree/master/src/samples>`_ directory.
+<http://github.com/aws/aws-sdk-java/tree/master/src/samples>`_ directory.
 
 
 .. _samples-cmdline:

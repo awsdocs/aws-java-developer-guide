@@ -371,7 +371,7 @@ if 'extlinks' not in vars():
 
 # These URLs make maintaining the extlinks easier.
 java_api_url = 'http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/'
-javase_api_url = 'https://docs.oracle.com/javase/7/docs/api/'
+javase_api_url = 'http://docs.oracle.com/javase/7/docs/api/'
 javadoc_f = 'index.html?%s.html' # javadoc link + frames
 javadoc_nf = '%s.html' # javadoc link - frames
 # extlinks['role'] = (url_string, term_prepended_by)

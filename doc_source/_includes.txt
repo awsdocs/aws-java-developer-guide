@@ -5,7 +5,11 @@
 .. |sdk-java-github| replace:: AWS SDK for Java (GitHub)
 .. _sdk-java-github: http://github.com/aws/aws-sdk-java
 
-.. _Gradle: https://gradle.com/
-.. _Maven: http://maven.apache.org/
+.. |mvn| replace:: Maven
+.. |mvnlong| replace:: Apache |mvn|
 
+.. _Gradle: http://gradle.com/
+.. _mvnlong: http://maven.apache.org/
+.. _Maven: _mvnlong
+.. _mvn: _mvnlong
 

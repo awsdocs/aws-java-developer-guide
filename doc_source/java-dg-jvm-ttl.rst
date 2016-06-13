@@ -28,7 +28,7 @@ JVM and the cached IP information is refreshed. In this case, it is vitally impo
 JVM's TTL so that it will periodically refresh its cached IP information.
 
 .. note::  The default TTL can vary according to the version of your JVM and whether a `security
-   manager <https://docs.oracle.com/javase/tutorial/essential/environment/security.html>`_ is
+   manager <http://docs.oracle.com/javase/tutorial/essential/environment/security.html>`_ is
    installed. Many JVMs provide a default TTL less than 60s. If you are using such a JVM and not
    using a security manager, then you can ignore the remainder of this topic.
 

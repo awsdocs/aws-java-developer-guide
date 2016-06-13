@@ -658,7 +658,7 @@ Complete source for this example
 ================================
 
 You can browse the `complete source
-<https://github.com/awsdocs/aws-java-developer-guide/tree/master/doc_source/snippets/helloswf/>`_
+<http://github.com/awsdocs/aws-java-developer-guide/tree/master/doc_source/snippets/helloswf/>`_
 for this example on Github in the *aws-java-developer-guide* repository.
 
 

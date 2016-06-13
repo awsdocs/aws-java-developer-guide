@@ -119,8 +119,25 @@ Here is an example of the log output:
 
 .. code-block:: none
 
-    2009-12-17 09:53:04,269 [main] DEBUG com.amazonaws.request - Sending Request: POST https://rds.amazonaws.com / Parameters: (MaxRecords: 20, Action: DescribeEngineDefaultParameters, SignatureMethod: HmacSHA256, AWSAccessKeyId: ACCESSKEYID, Version: 2009-10-16, SignatureVersion: 2, Engine: mysql5.1, Timestamp: 2009-12-17T17:53:04.267Z, Signature: 4ydexGGkC77PovHhbfzAMA1H0nDnqIQxG9q+Yq3uw5s=, ) 2009-12-17 09:53:04,464 [main] DEBUG com.amazonaws.request - Received successful response: 200, AWS Request ID: 06c12a39-eb35-11de-ae07-adb69edbb1e4 2009-12-17 09:53:04,469 [main] DEBUG com.amazonaws.request - Sending Request: POST https://rds.amazonaws.com / Parameters: (ResetAllParameters: true, Action: ResetDBParameterGroup, SignatureMethod: HmacSHA256, DBParameterGroupName: java-integ-test-param-group-1261072381023, AWSAccessKeyId: ACCESSKEYID, Version: 2009-10-16, SignatureVersion: 2, Timestamp: 2009-12-17T17:53:04.467Z, Signature: 9WcgfPwTobvLVcpyhbrdN7P7l3uH0oviYQ4yZ+TQjsQ=, )
-    2009-12-17 09:53:04,646 [main] DEBUG com.amazonaws.request - Received successful response: 200, AWS Request ID: 06e071cb-eb35-11de-81f7-01604e1b25ff
+    2009-12-17 09:53:04,269 [main] DEBUG com.amazonaws.request - Sending
+    Request: POST https://rds.amazonaws.com / Parameters: (MaxRecords: 20,
+    Action: DescribeEngineDefaultParameters, SignatureMethod: HmacSHA256,
+    AWSAccessKeyId: ACCESSKEYID, Version: 2009-10-16, SignatureVersion: 2,
+    Engine: mysql5.1, Timestamp: 2009-12-17T17:53:04.267Z, Signature:
+    q963XH63Lcovl5Rr71APlzlye99rmWwT9DfuQaNznkD, ) 2009-12-17 09:53:04,464
+    [main] DEBUG com.amazonaws.request - Received successful response: 200, AWS
+    Request ID: 694d1242-cee0-c85e-f31f-5dab1ea18bc6 2009-12-17 09:53:04,469
+    [main] DEBUG com.amazonaws.request - Sending Request: POST
+    https://rds.amazonaws.com / Parameters: (ResetAllParameters: true, Action:
+    ResetDBParameterGroup, SignatureMethod: HmacSHA256, DBParameterGroupName:
+    java-integ-test-param-group-0000000000000, AWSAccessKeyId: ACCESSKEYID,
+    Version: 2009-10-16, SignatureVersion: 2, Timestamp:
+    2009-12-17T17:53:04.467Z, Signature:
+    9WcgfPwTobvLVcpyhbrdN7P7l3uH0oviYQ4yZ+TQjsQ=, )
+
+    2009-12-17 09:53:04,646 [main] DEBUG com.amazonaws.request - Received
+    successful response: 200, AWS Request ID:
+    694d1242-cee0-c85e-f31f-5dab1ea18bc6
 
 
 .. _sdk-net-logging-verbose:

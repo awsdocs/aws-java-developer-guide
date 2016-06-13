@@ -493,7 +493,7 @@ We submit the Spot Instance request. Then we wait for the Spot request to reach 
 Finally, we clean up the requests and instances.
 
 The complete source code for this example can be viewed or downloaded at `GitHub
-<https://github.com/amazonwebservices/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-GettingStarted>`_.
+<http://github.com/amazonwebservices/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-GettingStarted>`_.
 
 Congratulations! You have just completed the getting started tutorial for developing Spot Instance
 software with the |sdk-java|.

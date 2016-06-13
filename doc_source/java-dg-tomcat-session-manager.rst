@@ -27,7 +27,7 @@ Downloading the Session Manager
 ===============================
 
 You can download the session manager from the `aws/aws-dynamodb-session-tomcat
-<https://github.com/aws/aws-dynamodb-session-tomcat>`_ project on GitHub. That project also hosts
+<http://github.com/aws/aws-dynamodb-session-tomcat>`_ project on GitHub. That project also hosts
 the session manager source code if you want to contribute to the project by sending us pull requests
 or opening issues.
 

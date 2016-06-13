@@ -16,6 +16,11 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **Last documentation update:** |today|
 
+May 02, 2016
+    A new topic, :doc:`basics-async`, has been added to the :doc:`basics` section, describing how to
+    work with asynchronous client methods that return :classname:`Future` objects or that take an
+    :classname:`AsyncHandler`.
+
 Apr 26, 2016
     The *SSL Certificate Requirements* topic has been removed, since it is no longer relevant.
     Support for SHA-1 signed certificates was deprecated in 2015 and the site that housed the test
@@ -39,7 +44,8 @@ Mar 04, 2016
       worker classes using Java's concurrency classes.
 
 Feb 23, 2016
-    The source for the |sdk-java-dg| has been moved to :github:`<awsdocs/aws-java-developer-guide>`.
+    The source for the |sdk-java-dg| has been moved to :github:`aws-java-developer-guide
+    <awsdocs/aws-java-developer-guide>`.
 
 Dec 28, 2015
     :doc:`java-dg-jvm-ttl` has been moved from :doc:`advanced` into the :doc:`basics` section, and
@@ -79,7 +85,7 @@ May 9, 2014
     * :doc:`java-dg-roles` |ndash| provides information about how to securely specify credentials
       for applications running on EC2 instances.
 
-September 9, 2013
+Sep 9, 2013
     This topic, *Document History*, tracks changes to the |sdk-java-dg|. It is intended as a companion
     to the release notes history.
 

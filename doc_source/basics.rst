@@ -24,4 +24,5 @@ For information that is specific to a particular service (EC2, SWF, etc.), see t
    credentials
    java-dg-region-selection
    java-dg-exceptions
+   basics-async
    java-dg-logging

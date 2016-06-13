@@ -12,8 +12,8 @@
 Using the SDK with Gradle
 #########################
 
-To use the SDK in your Gradle_ project, use Spring's `dependency management plugin
-<https://github.com/spring-gradle-plugins/dependency-management-plugin>`_ for Gradle, which can be
+To use the |sdk-java| in your Gradle_ project, use Spring's `dependency management plugin
+<http://github.com/spring-gradle-plugins/dependency-management-plugin>`_ for Gradle, which can be
 used to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependencies for your project.
 
 **To configure the SDK for Gradle**

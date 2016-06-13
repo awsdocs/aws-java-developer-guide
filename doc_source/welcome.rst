@@ -23,6 +23,8 @@ with.
    :depth: 1
 
 
+.. _additional-resources:
+
 Additional documentation and resources
 ======================================
 
@@ -31,39 +33,47 @@ developers:
 
 * |sdk-java-ref|_
 
-* `developer blog <https://java.awsblog.com/>`_
+* `developer blog <http://java.awsblog.com/>`_
 
-* `developer forums <https://forums.aws.amazon.com/forum.jspa?forumID=70>`_
+* `developer forums <http://forums.aws.amazon.com/forum.jspa?forumID=70>`_
 
 * GitHub:
 
-  + `SDK source <https://github.com/aws/aws-sdk-java>`_
+  + `SDK source <http://github.com/aws/aws-sdk-java>`_
 
-  + `Documentation source <https://github.com/awsdocs/aws-java-developer-guide>`_
+  + `Documentation source <http://github.com/awsdocs/aws-java-developer-guide>`_
 
-  + `samples <https://github.com/aws/aws-sdk-java/tree/master/src/samples>`_
+  + `samples <http://github.com/aws/aws-sdk-java/tree/master/src/samples>`_
 
   + `issues <http://github.com/aws/aws-sdk-java/issues>`_
 
-  + `Gitter channel <https://gitter.im/aws/aws-sdk-java>`_
+  + `Gitter channel <http://gitter.im/aws/aws-sdk-java>`_
 
-* `@awsforjava (Twitter) <https://twitter.com/awsforjava>`_
+* `@awsforjava (Twitter) <http://twitter.com/awsforjava>`_
 
-* `release notes <https://aws.amazon.com/releasenotes/Java>`_
+* `release notes <http://aws.amazon.com/releasenotes/Java>`_
 
+
+.. _eclipse-support:
 
 Eclipse IDE support
 ===================
 
-You can use the |tke|_ to add the SDK to an existing Eclipse project or to create a new |sdk-java|
-project.
+If you develop code using the Eclipse IDE, you can use the |tke|_ to add the |sdk-java| to an
+existing Eclipse project or to create a new AWS Java project. The toolkit also supports the creation
+and uploading of |LAM| functions, launching and monitoring |EC2| instances, management of IAM users
+and security groups, a |CFN| template editor and more.
 
+Visit the |tke-ug|_ for full documentation.
+
+
+.. _android-support:
 
 Developing AWS applications for Android
 =======================================
 
 If you are an Android developer, |AWSlong| publishes a SDK made specifically for Android
-development: the |sdk-android|_.
+development: the |sdk-android|_. Visit the |sdk-android-dg|_ for full documentation.
 
 
 .. _java-sdk-history:
@@ -73,7 +83,4 @@ Viewing the SDK's revision history
 
 To view the release history of the |sdk-java|, including changes and supported services per SDK
 version, see the SDK's `release notes`_.
-
-
-.. _additional-resources:
 

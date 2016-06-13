@@ -502,7 +502,7 @@ that performs these actions. We also create a :code:`GettingStartedApp` class, w
 method where we perform the high level function calls.
 
 The complete source code for this example can be viewed or downloaded at `GitHub
-<https://github.com/amazonwebservices/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-Advanced>`_.
+<http://github.com/amazonwebservices/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-Advanced>`_.
 
 Congratulations! You've completed the Advanced Request Features tutorial for developing Spot
 Instance software with the |sdk-java|.
