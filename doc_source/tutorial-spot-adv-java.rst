@@ -8,31 +8,22 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
+.. highlight:: java
+
+.. _tutor-spot-adv-java-overview:
+
 ################################################
 Tutorial: Advanced |EC2| Spot Request Management
 ################################################
 
-.. _tutor-spot-adv-java-overview:
+|EC2| spot instances allow you to bid on unused |EC2| capacity and run those instances for as long
+as your bid exceeds the current *spot price*. |EC2| changes the spot price periodically based on
+supply and demand. For more information about spot instances, see :ec2-ug:`Spot Instances
+<using-spot-instances>` in the |EC2-ug|.
 
-Overview
-========
-
-Spot Instances allow you to bid on unused |EC2long| (|EC2|) capacity and run those instances for as
-long as your bid exceeds the current Spot Price. |EC2| changes the Spot Price periodically based on
-supply and demand. Customers whose bids meet or exceed the Spot Price gain access to the available
-Spot Instances. Like On-Demand Instances and Reserved Instances, Spot Instances provide you an
-additional option for obtaining more compute capacity.
-
-Spot Instances can significantly lower your |EC2| costs for batch processing, scientific research,
-image processing, video encoding, data and web crawling, financial analysis, and testing.
-Additionally, Spot Instances can provide access to large amounts of additional compute capacity when
-your need for the capacity is not urgent.
-
-This tutorial provides a quick overview of some advanced Spot Request features, such as detailed
-options to create Spot requests, alternative methods for launching Spot Instances, and methods to
-manage your instances. This tutorial is not meant to be a complete list of all advanced topics
-associated with Spot Instances. Instead, it gives you a quick reference of code samples for some of
-the commonly used methods for managing Spot Requests and Spot Instances.
+.. contents::
+    :local:
+    :depth: 1
 
 
 .. _tutor-spot-adv-java-prereq:
@@ -46,8 +37,8 @@ installation prerequisites. See :doc:`java-dg-install-sdk` for more information.
 
 .. _tutor-spot-adv-java-credentials:
 
-Step 1: Setting Up Your Credentials
-===================================
+Setting up your credentials
+===========================
 
 To begin using this code sample, you need to add AWS credentials to the
 :file:`AwsCredentials.properties` file as follows:
@@ -64,8 +55,8 @@ Now that you have configured your settings, you can get started using the code i
 
 .. _tutor-spot-adv-java-sg:
 
-Step 2: Setting Up a Security Group
-===================================
+Setting up a security group
+===========================
 
 A security group acts as a firewall that controls the traffic allowed in and out of a group of
 instances. By default, an instance is started without any security group, which means that all
@@ -97,7 +88,8 @@ address indicates the subnet for the specified IP address. We also configure the
         credentials = new PropertiesCredentials(
             GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
     } catch (IOException e1) {
-       System.out.println("Credentials were not properly entered into AwsCredentials.properties.");
+       System.out.println(
+           "Credentials were not properly entered into AwsCredentials.properties.");
        System.out.println(e1.getMessage());
        System.exit(-1);
     }
@@ -108,7 +100,8 @@ address indicates the subnet for the specified IP address. We also configure the
     // Create a new security group.
     try {
         CreateSecurityGroupRequest securityGroupRequest =
-            new CreateSecurityGroupRequest("GettingStartedGroup", "Getting Started Security Group");
+            new CreateSecurityGroupRequest("GettingStartedGroup",
+            "Getting Started Security Group");
         ec2.createSecurityGroup(securityGroupRequest);
     } catch (AmazonServiceException ase) {
         // Likely this means that the group is already created, so ignore.
@@ -120,11 +113,12 @@ address indicates the subnet for the specified IP address. We also configure the
     // Get the IP of the current host, so that we can limit the Security Group
     // by default to the ip range associated with your subnet.
     try {
-        InetAddress addr = InetAddress.getLocalHost();
-
         // Get IP Address
+        InetAddress addr = InetAddress.getLocalHost();
         ipAddr = addr.getHostAddress()+"/10";
-    } catch (UnknownHostException e) {
+    }
+    catch (UnknownHostException e) {
+        // Fail here...
     }
 
     // Create a range that you would like to populate.
@@ -144,9 +138,11 @@ address indicates the subnet for the specified IP address. We also configure the
     try {
         // Authorize the ports to the used.
         AuthorizeSecurityGroupIngressRequest ingressRequest =
-            new AuthorizeSecurityGroupIngressRequest("GettingStartedGroup",ipPermissions);
+            new AuthorizeSecurityGroupIngressRequest(
+                "GettingStartedGroup",ipPermissions);
         ec2.authorizeSecurityGroupIngress(ingressRequest);
-    } catch (AmazonServiceException ase) {
+    }
+    catch (AmazonServiceException ase) {
         // Ignore because this likely means the zone has already
         // been authorized.
         System.out.println(ase.getMessage());
@@ -155,14 +151,13 @@ address indicates the subnet for the specified IP address. We also configure the
 You can view this entire code sample in the :code:`advanced.CreateSecurityGroupApp.java` code
 sample. Note you only need to run this application once to create a new security group.
 
-.. note:: You can also create the security group using the |tke|. See
-   :tke-ug:`Managing Security Groups from AWS Explorer <tke-sg>` in the
-   |tke-ug| for more information.
+.. note:: You can also create the security group using the |tke|. See :tke-ug:`Managing Security
+   Groups from AWS Explorer <tke-sg>` in the |tke-ug| for more information.
 
 
 .. _tutor-spot-adv-req-opts:
 
-Detailed Spot Instance Request Creation Options
+Detailed spot instance request creation options
 ===============================================
 
 As we explained in :doc:`tutorial-spot-instances-java`, you need to build your request with an
@@ -183,8 +178,10 @@ method on the :code:`AmazonEC2Client` object. An example of how to request a Spo
     try {
         credentials = new PropertiesCredentials(
             GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    } catch (IOException e1) {
-        System.out.println("Credentials were not properly entered into AwsCredentials.properties.");
+    }
+    catch (IOException e1) {
+        System.out.println(
+            "Credentials were not properly entered into AwsCredentials.properties.");
         System.out.println(e1.getMessage());
         System.exit(-1);
     }
@@ -216,12 +213,13 @@ method on the :code:`AmazonEC2Client` object. An example of how to request a Spo
     requestRequest.setLaunchSpecification(launchSpecification);
 
     // Call the RequestSpotInstance API.
-    RequestSpotInstancesResult requestResult = ec2.requestSpotInstances(requestRequest);
+    RequestSpotInstancesResult requestResult =
+        ec2.requestSpotInstances(requestRequest);
 
 
 .. _tutor-spot-adv-persist-v-one:
 
-Persistent vs. One-Time Requests
+Persistent vs. one-time requests
 ================================
 
 When building a Spot request, you can specify several optional parameters. The first is whether your
@@ -238,8 +236,10 @@ Spot request. This can be done with the following code.
     try {
         credentials = new PropertiesCredentials(
             GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    } catch (IOException e1) {
-        System.out.println("Credentials were not properly entered into AwsCredentials.properties.");
+    }
+    catch (IOException e1) {
+        System.out.println(
+            "Credentials were not properly entered into AwsCredentials.properties.");
         System.out.println(e1.getMessage());
         System.exit(-1);
     }
@@ -248,7 +248,8 @@ Spot request. This can be done with the following code.
     AmazonEC2 ec2 = new AmazonEC2Client(credentials);
 
     // Initializes a Spot Instance Request
-    RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
+    RequestSpotInstancesRequest requestRequest =
+        new RequestSpotInstancesRequest();
 
     // Request 1 x t1.micro instance with a bid price of $0.03.
     requestRequest.setSpotPrice("0.03");
@@ -274,11 +275,12 @@ Spot request. This can be done with the following code.
     requestRequest.setLaunchSpecification(launchSpecification);
 
     // Call the RequestSpotInstance API.
-    RequestSpotInstancesResult requestResult = ec2.requestSpotInstances(requestRequest);
+    RequestSpotInstancesResult requestResult =
+        ec2.requestSpotInstances(requestRequest);
 
 .. _tutor-spot-adv-validity-period:
 
-Limiting the Duration of a Request
+Limiting the duration of a request
 ==================================
 
 You can also optionally specify the length of time that your request will remain valid. You can
@@ -294,7 +296,7 @@ period is shown in the following code.
 
 .. _tutor-spot-adv-grouping:
 
-Grouping Your |EC2| Spot Instance Requests
+Grouping your |EC2| spot instance requests
 ==========================================
 
 You have the option of grouping your Spot instance requests in several different ways. We'll look at
@@ -309,7 +311,31 @@ following code example.
 
 .. code-block:: java
 
-     // Retrieves the credentials from an AWSCredentials.properties file. AWSCredentials credentials = null; try { credentials = new PropertiesCredentials( GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties")); } catch (IOException e1) { System.out.println("Credentials were not properly entered into AwsCredentials.properties."); System.out.println(e1.getMessage()); System.exit(-1); } // Create the AmazonEC2Client object so we can call various APIs. AmazonEC2 ec2 = new AmazonEC2Client(credentials); // Initializes a Spot Instance Request RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest(); {// Request 5 x t1.micro instance with a bid price of $0.03.} requestRequest.setSpotPrice("0.03"); {requestRequest.setInstanceCount(Integer.valueOf(5));} {// Set the launch group.} {requestRequest.setLaunchGroup("ADVANCED-DEMO-LAUNCH-GROUP");}
+    // Retrieves the credentials from an AWSCredentials.properties file.
+    AWSCredentials credentials = null;
+    try {
+        credentials = new PropertiesCredentials(
+            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
+    }
+    catch (IOException e1) {
+        System.out.println(
+            "Credentials were not properly entered into AwsCredentials.properties.");
+        System.out.println(e1.getMessage());
+        System.exit(-1);
+    }
+
+    // Create the AmazonEC2Client object so we can call various APIs.
+    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+
+    // Initializes a Spot Instance Request
+    RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
+
+    // Request 5 x t1.micro instance with a bid price of $0.03.
+    requestRequest.setSpotPrice("0.03");
+    requestRequest.setInstanceCount(Integer.valueOf(5));
+
+    // Set the launch group.
+    requestRequest.setLaunchGroup("ADVANCED-DEMO-LAUNCH-GROUP");
 
     // Set up the specifications of the launch. This includes
     // the instance type (e.g. t1.micro) and the latest Amazon Linux
@@ -328,7 +354,8 @@ following code example.
     requestRequest.setLaunchSpecification(launchSpecification);
 
     // Call the RequestSpotInstance API.
-    RequestSpotInstancesResult requestResult = ec2.requestSpotInstances(requestRequest);
+    RequestSpotInstancesResult requestResult =
+        ec2.requestSpotInstances(requestRequest);
 
 If you want to ensure that all instances within a request are launched in the same Availability
 Zone, and you don't care which one, you can leverage Availability Zone groups. An Availability Zone
@@ -338,7 +365,31 @@ same Availability Zone. An example of how to set an Availability Zone group foll
 
 .. code-block:: java
 
-     // Retrieves the credentials from an AWSCredentials.properties file. AWSCredentials credentials = null; try { credentials = new PropertiesCredentials( GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties")); } catch (IOException e1) { System.out.println("Credentials were not properly entered into AwsCredentials.properties."); System.out.println(e1.getMessage()); System.exit(-1); } // Create the AmazonEC2Client object so we can call various APIs. AmazonEC2 ec2 = new AmazonEC2Client(credentials); // Initializes a Spot Instance Request RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest(); // Request 5 x t1.micro instance with a bid price of $0.03. requestRequest.setSpotPrice("0.03"); requestRequest.setInstanceCount(Integer.valueOf(5)); // Set the availability zone group. {requestRequest.setAvailabilityZoneGroup("ADVANCED-DEMO-AZ-GROUP");}
+    // Retrieves the credentials from an AWSCredentials.properties file.
+    AWSCredentials credentials = null;
+    try {
+        credentials = new PropertiesCredentials(
+            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
+    }
+    catch (IOException e1) {
+        System.out.println(
+            "Credentials were not properly entered into AwsCredentials.properties.");
+        System.out.println(e1.getMessage());
+        System.exit(-1);
+    }
+
+    // Create the AmazonEC2Client object so we can call various APIs.
+    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+
+    // Initializes a Spot Instance Request
+    RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
+
+    // Request 5 x t1.micro instance with a bid price of $0.03.
+    requestRequest.setSpotPrice("0.03");
+    requestRequest.setInstanceCount(Integer.valueOf(5));
+
+    // Set the availability zone group.
+    requestRequest.setAvailabilityZoneGroup("ADVANCED-DEMO-AZ-GROUP");
 
     // Set up the specifications of the launch.  This includes the instance
     // type (e.g.  t1.micro) and the latest Amazon Linux AMI id available.
@@ -357,20 +408,62 @@ same Availability Zone. An example of how to set an Availability Zone group foll
     requestRequest.setLaunchSpecification(launchSpecification);
 
     // Call the RequestSpotInstance API.
-    RequestSpotInstancesResult requestResult = ec2.requestSpotInstances(requestRequest);
+    RequestSpotInstancesResult requestResult =
+        ec2.requestSpotInstances(requestRequest);
 
 You can specify an Availability Zone that you want for your Spot Instances. The following code
 example shows you how to set an Availability Zone.
 
 .. code-block:: java
 
-     // Retrieves the credentials from an AWSCredentials.properties file. AWSCredentials credentials = null; try { credentials = new PropertiesCredentials( GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties")); } catch (IOException e1) { System.out.println("Credentials were not properly entered into AwsCredentials.properties."); System.out.println(e1.getMessage()); System.exit(-1); } // Create the AmazonEC2Client object so we can call various APIs. AmazonEC2 ec2 = new AmazonEC2Client(credentials); // Initializes a Spot Instance Request RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest(); // Request 1 x t1.micro instance with a bid price of $0.03. requestRequest.setSpotPrice("0.03"); requestRequest.setInstanceCount(Integer.valueOf(1)); // Set up the specifications of the launch. This includes the instance // type (e.g. t1.micro) and the latest Amazon Linux AMI id available. // Note, you should always use the latest Amazon Linux AMI id or another // of your choosing. LaunchSpecification launchSpecification = new LaunchSpecification(); launchSpecification.setImageId("ami-8c1fece5"); launchSpecification.setInstanceType("t1.micro"); // Add the security group to the request. ArrayList<String> securityGroups = new ArrayList<String>(); securityGroups.add("GettingStartedGroup"); launchSpecification.setSecurityGroups(securityGroups); {// Set up the availability zone to use. Note we could retrieve the} {// availability zones using the ec2.describeAvailabilityZones() API. For} {// this demo we will just use us-east-1a.} {SpotPlacement placement = new SpotPlacement("us-east-1b");} {launchSpecification.setPlacement(placement);}
+    // Retrieves the credentials from an AWSCredentials.properties file.
+    AWSCredentials credentials = null;
+    try {
+        credentials = new PropertiesCredentials(
+            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
+    }
+    catch (IOException e1) {
+        System.out.println(
+            "Credentials were not properly entered into AwsCredentials.properties.");
+        System.out.println(e1.getMessage());
+        System.exit(-1);
+    }
+
+    // Create the AmazonEC2Client object so we can call various APIs.
+    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+
+    // Initializes a Spot Instance Request
+    RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
+
+    // Request 1 x t1.micro instance with a bid price of $0.03.
+    requestRequest.setSpotPrice("0.03");
+    requestRequest.setInstanceCount(Integer.valueOf(1));
+
+    // Set up the specifications of the launch. This includes the instance
+    // type (e.g. t1.micro) and the latest Amazon Linux AMI id available.
+    // Note, you should always use the latest Amazon Linux AMI id or another
+    // of your choosing.
+    LaunchSpecification launchSpecification = new LaunchSpecification();
+    launchSpecification.setImageId("ami-8c1fece5");
+    launchSpecification.setInstanceType("t1.micro");
+
+    // Add the security group to the request.
+    ArrayList<String> securityGroups = new ArrayList<String>();
+    securityGroups.add("GettingStartedGroup");
+    launchSpecification.setSecurityGroups(securityGroups);
+
+    // Set up the availability zone to use. Note we could retrieve the
+    // availability zones using the ec2.describeAvailabilityZones() API. For
+    // this demo we will just use us-east-1a.
+    SpotPlacement placement = new SpotPlacement("us-east-1b");
+    launchSpecification.setPlacement(placement);
 
     // Add the launch specification.
     requestRequest.setLaunchSpecification(launchSpecification);
 
     // Call the RequestSpotInstance API.
-    RequestSpotInstancesResult requestResult = ec2.requestSpotInstances(requestRequest);
+    RequestSpotInstancesResult requestResult =
+        ec2.requestSpotInstances(requestRequest);
 
 Lastly, you can specify a :emphasis:`placement group` if you are using High Performance Computing
 (HPC) Spot instances, such as cluster compute instances or cluster GPU instances. Placement groups
@@ -379,25 +472,67 @@ how to set a placement group follows.
 
 .. code-block:: java
 
-     // Retrieves the credentials from an AWSCredentials.properties file. AWSCredentials credentials = null; try { credentials = new PropertiesCredentials( GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties")); } catch (IOException e1) { System.out.println("Credentials were not properly entered into AwsCredentials.properties."); System.out.println(e1.getMessage()); System.exit(-1); } // Create the AmazonEC2Client object so we can call various APIs. AmazonEC2 ec2 = new AmazonEC2Client(credentials); // Initializes a Spot Instance Request RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest(); // Request 1 x t1.micro instance with a bid price of $0.03. requestRequest.setSpotPrice("0.03"); requestRequest.setInstanceCount(Integer.valueOf(1)); // Set up the specifications of the launch. This includes the instance // type (e.g. t1.micro) and the latest Amazon Linux AMI id available. // Note, you should always use the latest Amazon Linux AMI id or another // of your choosing. LaunchSpecification launchSpecification = new LaunchSpecification(); launchSpecification.setImageId("ami-8c1fece5"); launchSpecification.setInstanceType("t1.micro"); // Add the security group to the request. ArrayList<String> securityGroups = new ArrayList<String>(); securityGroups.add("GettingStartedGroup"); launchSpecification.setSecurityGroups(securityGroups); {// Set up the placement group to use with whatever name you desire.} {// For this demo we will just use "ADVANCED-DEMO-PLACEMENT-GROUP".} {SpotPlacement placement = new SpotPlacement();} {placement.setGroupName("ADVANCED-DEMO-PLACEMENT-GROUP");} {launchSpecification.setPlacement(placement);}
+    // Retrieves the credentials from an AWSCredentials.properties file.
+    AWSCredentials credentials = null;
+    try {
+        credentials = new PropertiesCredentials(
+            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
+    }
+    catch (IOException e1) {
+        System.out.println(
+            "Credentials were not properly entered into AwsCredentials.properties.");
+        System.out.println(e1.getMessage());
+        System.exit(-1);
+    }
+
+    // Create the AmazonEC2Client object so we can call various APIs.
+    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+
+    // Initializes a Spot Instance Request
+    RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
+
+    // Request 1 x t1.micro instance with a bid price of $0.03.
+    requestRequest.setSpotPrice("0.03");
+    requestRequest.setInstanceCount(Integer.valueOf(1));
+
+    // Set up the specifications of the launch. This includes the instance
+    // type (e.g. t1.micro) and the latest Amazon Linux AMI id available.
+    // Note, you should always use the latest Amazon Linux AMI id or another
+    // of your choosing.
+
+    LaunchSpecification launchSpecification = new LaunchSpecification();
+    launchSpecification.setImageId("ami-8c1fece5");
+    launchSpecification.setInstanceType("t1.micro");
+
+    // Add the security group to the request.
+    ArrayList<String> securityGroups = new ArrayList<String>();
+    securityGroups.add("GettingStartedGroup");
+    launchSpecification.setSecurityGroups(securityGroups);
+
+    // Set up the placement group to use with whatever name you desire.
+    // For this demo we will just use "ADVANCED-DEMO-PLACEMENT-GROUP".
+    SpotPlacement placement = new SpotPlacement();
+    placement.setGroupName("ADVANCED-DEMO-PLACEMENT-GROUP");
+    launchSpecification.setPlacement(placement);
 
     // Add the launch specification.
     requestRequest.setLaunchSpecification(launchSpecification);
 
     // Call the RequestSpotInstance API.
-    RequestSpotInstancesResult requestResult = ec2.requestSpotInstances(requestRequest);
+    RequestSpotInstancesResult requestResult =
+        ec2.requestSpotInstances(requestRequest);
 
 All of the parameters shown in this section are optional. It is also important to realize that most
-of these parameters |mdash| with the exception of whether your bid is one-time or
-persistent|mdash|can reduce the likelihood of bid fulfillment. So, it is important to leverage these
-options only if you need them. All of the preceding code examples are combined into one long code
-sample, which can be found in the
-:code:`com.amazonaws.codesamples.advanced.InlineGettingStartedCodeSampleApp.java` class.
+of these parameters |mdash| with the exception of whether your bid is one-time or persistent |mdash|
+can reduce the likelihood of bid fulfillment. So, it is important to leverage these options only if
+you need them. All of the preceding code examples are combined into one long code sample, which can
+be found in the :code:`com.amazonaws.codesamples.advanced.InlineGettingStartedCodeSampleApp.java`
+class.
 
 
 .. _tutor-spot-adv-persist-root:
 
-How to Persist a Root Partition After Interruption or Termination
+How to persist a root partition after interruption or termination
 =================================================================
 
 One of the easiest ways to manage interruption of your Spot instances is to ensure that your data is
@@ -415,13 +550,64 @@ that we include in the launch specification.
 
 .. code-block:: java
 
-     // Retrieves the credentials from an AWSCredentials.properties file. AWSCredentials credentials = null; try { credentials = new PropertiesCredentials( GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties")); } catch (IOException e1) { System.out.println("Credentials were not properly entered into AwsCredentials.properties."); System.out.println(e1.getMessage()); System.exit(-1); } // Create the AmazonEC2Client object so we can call various APIs. AmazonEC2 ec2 = new AmazonEC2Client(credentials); // Initializes a Spot Instance Request RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest(); // Request 1 x t1.micro instance with a bid price of $0.03. requestRequest.setSpotPrice("0.03"); requestRequest.setInstanceCount(Integer.valueOf(1)); // Set up the specifications of the launch. This includes the instance // type (e.g. t1.micro) and the latest Amazon Linux AMI id available. // Note, you should always use the latest Amazon Linux AMI id or another // of your choosing. LaunchSpecification launchSpecification = new LaunchSpecification(); launchSpecification.setImageId("ami-8c1fece5"); launchSpecification.setInstanceType("t1.micro"); // Add the security group to the request. ArrayList<String> securityGroups = new ArrayList<String>(); securityGroups.add("GettingStartedGroup"); launchSpecification.setSecurityGroups(securityGroups); {// Create the block device mapping to describe the root partition.} {BlockDeviceMapping blockDeviceMapping = new BlockDeviceMapping();} {blockDeviceMapping.setDeviceName("/dev/sda1");} {// Set the delete on termination flag to false.} {EbsBlockDevice ebs = new EbsBlockDevice();} {ebs.setDeleteOnTermination(Boolean.FALSE);} {blockDeviceMapping.setEbs(ebs);} {// Add the block device mapping to the block list.} {ArrayList<BlockDeviceMapping> blockList = new ArrayList<BlockDeviceMapping>();} {blockList.add(blockDeviceMapping);} {// Set the block device mapping configuration in the launch specifications.} {launchSpecification.setBlockDeviceMappings(blockList);}
+    // Retrieves the credentials from an AWSCredentials.properties file.
+    AWSCredentials credentials = null;
+    try {
+        credentials = new PropertiesCredentials(
+            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
+    }
+    catch (IOException e1) {
+        System.out.println(
+            "Credentials were not properly entered into AwsCredentials.properties.");
+        System.out.println(e1.getMessage());
+        System.exit(-1);
+    }
+
+    // Create the AmazonEC2Client object so we can call various APIs.
+    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+
+    // Initializes a Spot Instance Request
+    RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
+
+    // Request 1 x t1.micro instance with a bid price of $0.03.
+    requestRequest.setSpotPrice("0.03");
+    requestRequest.setInstanceCount(Integer.valueOf(1));
+
+    // Set up the specifications of the launch. This includes the instance
+    // type (e.g. t1.micro) and the latest Amazon Linux AMI id available.
+    // Note, you should always use the latest Amazon Linux AMI id or another
+    // of your choosing.
+    LaunchSpecification launchSpecification = new LaunchSpecification();
+    launchSpecification.setImageId("ami-8c1fece5");
+    launchSpecification.setInstanceType("t1.micro");
+
+    // Add the security group to the request.
+    ArrayList<String> securityGroups = new ArrayList<String>();
+    securityGroups.add("GettingStartedGroup");
+    launchSpecification.setSecurityGroups(securityGroups);
+
+    // Create the block device mapping to describe the root partition.
+    BlockDeviceMapping blockDeviceMapping = new BlockDeviceMapping();
+    blockDeviceMapping.setDeviceName("/dev/sda1");
+
+    // Set the delete on termination flag to false.
+    EbsBlockDevice ebs = new EbsBlockDevice();
+    ebs.setDeleteOnTermination(Boolean.FALSE);
+    blockDeviceMapping.setEbs(ebs);
+
+    // Add the block device mapping to the block list.
+    ArrayList<BlockDeviceMapping> blockList = new ArrayList<BlockDeviceMapping>();
+    blockList.add(blockDeviceMapping);
+
+    // Set the block device mapping configuration in the launch specifications.
+    launchSpecification.setBlockDeviceMappings(blockList);
 
     // Add the launch specification.
     requestRequest.setLaunchSpecification(launchSpecification);
 
     // Call the RequestSpotInstance API.
-    RequestSpotInstancesResult requestResult = ec2.requestSpotInstances(requestRequest);
+    RequestSpotInstancesResult requestResult =
+        ec2.requestSpotInstances(requestRequest);
 
 Assuming you wanted to re-attach this volume to your instance on startup, you can also use the block
 device mapping settings. Alternatively, if you attached a non-root partition, you can specify the
@@ -438,62 +624,86 @@ visit the `Managing Interruption
 
 .. _tutor-spot-adv-tags:
 
-How to Tag Your Spot Requests and Instances
+How to tag your spot requests and instances
 ===========================================
 
-Adding :ec2-ug:`tags to EC2 resources <Using_Tags>` can simplify the administration of your cloud
-infrastructure. A form of metadata, tags can be used to create user-friendly names, enhance
-searchability, and improve coordination between multiple users. You can also use tags to automate
-scripts and portions of your processes.
+Adding tags to EC2 resources can simplify the administration of your cloud infrastructure. A form of
+metadata, tags can be used to create user-friendly names, enhance searchability, and improve
+coordination between multiple users. You can also use tags to automate scripts and portions of your
+processes. To read more about tagging |EC2| resources, go to :ec2-ug:`Using Tags <Using_Tags>` in
+the |EC2-ug|.
 
-To add tags to your resources, you need to tag them :emphasis:`after` they have been requested.
-Specifically, you must add a tag after a Spot request has been submitted or after the
-:code:`RunInstances` call has been performed. The following code example illustrates adding tags.
+Tagging requests
+----------------
 
-.. code-block:: java
+To add tags to your spot requests, you need to tag them *after* they have been requested. The return
+value from :methodname:`requestSpotInstances()` provides you with a
+:java-api:`RequestSpotInstancesResult <services/ec2/model/RequestSpotInstancesResult>` object that
+you can use to get the spot request IDs for tagging:
 
-        //===========================================================//
-        //================== Canceling the Request ==================//
-        //===========================================================//
+.. literalinclude:: snippets/ec2/tag-spot-requests.java
+   :lines: 18-30
 
-        try {
-          // Cancel requests.
-          CancelSpotInstanceRequestsRequest cancelRequest = new CancelSpotInstanceRequestsRequest(spotInstanceRequestIds);
-          ec2.cancelSpotInstanceRequests(cancelRequest);
-        } catch (AmazonServiceException e) {
-          // Write out any exceptions that may have occurred.
-          System.out.println("Error canceling instances");
-          System.out.println("Caught Exception: " + e.getMessage());
-          System.out.println("Reponse Status Code: " + e.getStatusCode());
-          System.out.println("Error Code: " + e.getErrorCode());
-          System.out.println("Request ID: " + e.getRequestId());
-        }
+Once you have the IDs, you can tag the requests by adding their IDs to a
+:java-api:`CreateTagsRequest <services/ec2/model/CreateTagsRequest>` and calling the EC2 client's
+:methodname:`createTags()` method:
 
-        //===========================================================//
-        //=============== Terminating any Instances =================//
-        //===========================================================//
-        try {
-          // Terminate instances.
-          TerminateInstancesRequest terminateRequest = new TerminateInstancesRequest(instanceIds);
-          ec2.terminateInstances(terminateRequest);
-        } catch (AmazonServiceException e) {
-          // Write out any exceptions that may have occurred.
-          System.out.println("Error terminating instances");
-          System.out.println("Caught Exception: " + e.getMessage());
-          System.out.println("Reponse Status Code: " + e.getStatusCode());
-          System.out.println("Error Code: " + e.getErrorCode());
-          System.out.println("Request ID: " + e.getRequestId());
-        }
-      } // main
-    }
+.. literalinclude:: snippets/ec2/tag-spot-requests.java
+   :lines: 32-51
 
-Tags are a simple first step toward making it easier to manage your own cluster of instances. To
-read more about tagging |EC2| resources, go to :ec2-ug:`Using Tags <Using_Tags>` in the |EC2-ug|.
+Tagging instances
+-----------------
+
+Similarly to spot requests themselves, you can only tag an instance once it has been created, which
+will happen once the spot request has been met (it is no longer in the *open* state).
+
+You can check the status of your requests by calling the EC2 client's
+:methodname:`describeSpotInstanceRequests()` method with a
+:java-api:`DescribeSpotInstanceRequestsRequest <services/ec2/model/DescribeSpotInstanceRequestsRequest>`
+object. The returned :java-api:`DescribeSpotInstanceRequestsResult
+<services/ec2/model/DescribeSpotInstanceRequestsResult>` object contains a list of
+:java-api:`SpotInstanceRequest <services/ec2/model/SpotInstanceRequest>` objects that you can use to query
+the status of your spot requests and obtain their instance IDs once they are no longer in the *open*
+state.
+
+Once the spot request is no longer open, you can retrieve its instance ID from the
+:classname:`SpotInstanceRequest` object by calling its :methodname:`getInstanceId()` method.
+
+.. literalinclude:: snippets/ec2/tag-spot-instances.java
+   :lines: 18-59
+
+Now you can tag the instances that are returned:
+
+.. literalinclude:: snippets/ec2/tag-spot-instances.java
+   :lines: 61-81
+
+
+Canceling spot requests and terminating instances
+=================================================
+
+Canceling a spot request
+------------------------
+
+To cancel a spot instance request, call :methodname:`cancelSpotInstanceRequests` on the EC2 client
+with a :java-api:`CancelSpotInstanceRequestsRequest
+<services/ec2/model/CancelSpotInstanceRequestsRequest>` object.
+
+.. literalinclude:: snippets/ec2/cancel-terminate-spot-request.java
+   :lines: 18-27
+
+Terminating spot instances
+--------------------------
+
+You can terminate any spot instances that are running by passing their IDs to the EC2 client's
+:methodname:`terminateInstances()` method.
+
+.. literalinclude:: snippets/ec2/cancel-terminate-spot-request.java
+   :lines: 29-38
 
 
 .. _tutor-spot-adv-bring-together:
 
-Bringing It All Together
+Bringing it all together
 ========================
 
 To bring this all together, we provide a more object-oriented approach that combines the steps we
@@ -506,5 +716,4 @@ The complete source code for this example can be viewed or downloaded at `GitHub
 
 Congratulations! You've completed the Advanced Request Features tutorial for developing Spot
 Instance software with the |sdk-java|.
-
 
