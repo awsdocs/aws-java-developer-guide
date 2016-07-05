@@ -82,7 +82,7 @@ repository.
 .. =================================================================================
 
 .. _`available sphinx builders`: http://www.sphinx-doc.org/en/stable/builders.html
-.. _`aws sdk for java developer guide`: http://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/welcome.html
+.. _`aws sdk for java developer guide`: http://docs.aws.amazon.com/java-sdk/latest/developer-guide/welcome.html
 .. _`aws sdk for java`: https://aws.amazon.com/sdk-for-java/
 .. _`forking the repository`: https://help.github.com/articles/fork-a-repo/
 .. _`pull request`: https://help.github.com/articles/using-pull-requests/
