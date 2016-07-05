@@ -17,8 +17,7 @@ To increase the security of your AWS account, we recommend that you use an *IAM 
 access credentials instead of using your root account credentials.
 
 .. tip:: For an overview of IAM users and why they are important for the security of your account,
-   see `Overview of Identity Management: Users
-   <http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html>`_ in the
+   see :iam-ug:`Overview of Identity Management: Users <introduction_identity-management>` in the
    |IAM-ug|.
 
 **To sign up for AWS**
@@ -53,12 +52,9 @@ Next, create an IAM user and download (or copy) its secret access key.
     .. important:: There is no way to obtain the secret access key once you close the dialog. You
         can, however, delete its associated access key ID and create a new one.
 
-Next, you should :doc:`set your credentials <set-up-creds>` in the AWS shared credentials file or in
+Next, you should :doc:`set your credentials <setup-credentials>` in the AWS shared credentials file or in
 the environment.
 
 .. tip:: If you use the Eclipse IDE, you should consider installing the |tke|_ and providing your
-   credentials as described in `Working with AWS Access Credentials
-   <http://docs.aws.amazon.com/AWSToolkitEclipse/latest/ug/tke_setup_creds.html>`_ in the |tke-ug|.
-
-
+   credentials as described in :tke-ug:`Set up AWS Credentials <setup-credentials>` in the |tke-ug|.
 

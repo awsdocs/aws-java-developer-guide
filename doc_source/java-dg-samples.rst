@@ -24,7 +24,7 @@ How to get the samples
 ======================
 
 The |sdk-java| code samples are provided in the `samples` directory of the SDK. If you downloaded
-and installed the SDK using the information in :doc:`java-dg-install-sdk`, then you already have the
+and installed the SDK using the information in :doc:`setup-install`, then you already have the
 samples on your system.
 
 You can also view the latest samples on the |sdk-java|'s GitHub repository, in the `src/samples
@@ -48,7 +48,7 @@ Prerequisites
 -------------
 
 Before running any of the |sdk-java| samples, you will need to set your AWS credentials in the
-environment or with the AWS CLI as specified in :doc:`set-up-creds`. The samples use the default
+environment or with the AWS CLI as specified in :doc:`setup-credentials`. The samples use the default
 credential provider chain whenever possible, so by setting your credentials this way, you can avoid
 the risky practice of inserting your AWS credentials in files within the source code directory
 (where they may inadvertently be checked in and shared publicly).

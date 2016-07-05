@@ -33,19 +33,21 @@ developers:
 
 * |sdk-java-ref|_
 
-* `developer blog <http://java.awsblog.com/>`_
+* `Java developer blog <http://java.awsblog.com/>`_
 
-* `developer forums <http://forums.aws.amazon.com/forum.jspa?forumID=70>`_
+* :forum:`Java developer forums <70>`
 
 * GitHub:
 
-  + `SDK source <http://github.com/aws/aws-sdk-java>`_
+  + :github:`Documentation source <awsdocs/aws-java-developer-guide>`
 
-  + `Documentation source <http://github.com/awsdocs/aws-java-developer-guide>`_
+  + :github:`Documentation issues <awsdocs/aws-java-developer-guide/issues>`
 
-  + `samples <http://github.com/aws/aws-sdk-java/tree/master/src/samples>`_
+  + :github:`SDK source <aws/aws-sdk-java>`
 
-  + `issues <http://github.com/aws/aws-sdk-java/issues>`_
+  + :github:`SDK issues <aws/aws-sdk-java/issues>`
+
+  + :github:`SDK samples <aws/aws-sdk-java/tree/master/src/samples>`
 
   + `Gitter channel <http://gitter.im/aws/aws-sdk-java>`_
 

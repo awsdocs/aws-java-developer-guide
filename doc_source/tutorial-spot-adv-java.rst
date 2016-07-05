@@ -32,7 +32,7 @@ Prerequisites
 =============
 
 To use this tutorial you must have the |sdk-java| installed, as well as having met its basic
-installation prerequisites. See :doc:`java-dg-install-sdk` for more information.
+installation prerequisites. See :doc:`setup-install` for more information.
 
 
 .. _tutor-spot-adv-java-credentials:
@@ -711,8 +711,8 @@ showed in this tutorial into one easy to use class. We instantiate a class calle
 that performs these actions. We also create a :code:`GettingStartedApp` class, which has a main
 method where we perform the high level function calls.
 
-The complete source code for this example can be viewed or downloaded at `GitHub
-<http://github.com/amazonwebservices/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-Advanced>`_.
+The complete source code for this example can be viewed or downloaded at :github:`GitHub
+<amazonwebservices/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-Advanced>`.
 
 Congratulations! You've completed the Advanced Request Features tutorial for developing Spot
 Instance software with the |sdk-java|.

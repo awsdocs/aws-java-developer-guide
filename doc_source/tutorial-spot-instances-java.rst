@@ -67,7 +67,7 @@ Prerequisites
 =============
 
 To use this tutorial you must have the |sdk-java| installed, as well as having met its basic
-installation prerequisites. See :doc:`java-dg-install-sdk` for more information.
+installation prerequisites. See :doc:`setup-install` for more information.
 
 .. _tutor-spot-java-credentials:
 
@@ -492,8 +492,8 @@ level function calls. Specifically, we initialize the :code:`Requests` object de
 We submit the Spot Instance request. Then we wait for the Spot request to reach the "Active" state.
 Finally, we clean up the requests and instances.
 
-The complete source code for this example can be viewed or downloaded at `GitHub
-<http://github.com/amazonwebservices/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-GettingStarted>`_.
+The complete source code for this example can be viewed or downloaded at :github:`GitHub
+<amazonwebservices/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-GettingStarted>`.
 
 Congratulations! You have just completed the getting started tutorial for developing Spot Instance
 software with the |sdk-java|.

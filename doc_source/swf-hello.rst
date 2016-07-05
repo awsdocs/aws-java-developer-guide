@@ -110,7 +110,7 @@ To set these variables on Windows, use these commands:
 .. important:: Substitute your own access key, secret access key and region information for the
    example values shown here.
 
-   For more information about configuring your credentials for the SDK, see :doc:`set-up-creds`.
+   For more information about configuring your credentials for the SDK, see :doc:`setup-credentials`.
 
 
 Create a SWF project

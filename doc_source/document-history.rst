@@ -65,7 +65,7 @@ Aug 04, 2015
 May 14, 2014
     The :doc:`introduction <welcome>` and :doc:`getting started <getting-started>` material has been
     heavily revised to support the new guide structure and now includes guidance about how to
-    :doc:`set-up-creds`.
+    :doc:`setup-credentials`.
 
     The discussion of :doc:`code samples <java-dg-samples>` has been moved into its own topic in the
     :ref:`additional-resources` section.

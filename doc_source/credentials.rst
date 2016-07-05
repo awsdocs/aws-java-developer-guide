@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################################
-Providing AWS Credentials in the |sdk-java|
-###########################################
+############################
+Working with AWS Credentials
+############################
 
 To make requests to Amazon Web Services, you will need to supply AWS credentials to the |sdk-java|.
 There are a number of ways to do this:
@@ -74,7 +74,7 @@ AWS credentials must be set in :emphasis:`at least one` of the preceding locatio
 used. For information about setting credentials, visit one of the following topics:
 
 *   For information about specifying credentials in the :emphasis:`environment` or in the default
-    :emphasis:`credential profiles file`, see :doc:`set-up-creds`.
+    :emphasis:`credential profiles file`, see :doc:`setup-credentials`.
 
 *   For information about setting Java :emphasis:`system properties`, see the `System Properties
     <http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html>`_ tutorial on the
@@ -218,7 +218,7 @@ See Also
 
 *   :doc:`getting-started-signup`
 
-*   :doc:`set-up-creds`
+*   :doc:`setup-credentials`
 
 *   :doc:`java-dg-roles`
 

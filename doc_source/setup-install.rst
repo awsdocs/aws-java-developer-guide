@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-######################
-Getting the |sdk-java|
-######################
+#####################
+Set up the |sdk-java|
+#####################
 
 .. contents::
    :local:
@@ -21,12 +21,12 @@ Prerequisites
 
 To use the |sdk-java|, you must have:
 
-* a suitable :doc:`Java Development Environment<java-dg-java-env>`.
+* a suitable :ref:`Java Development Environment<java-dg-java-env>`.
 
 * An AWS account and access keys. For instructions, see :doc:`getting-started-signup`.
 
 * AWS credentials (access keys) set in your environment or using the shared (by the AWS CLI and
-  other SDKs) credentials file. For more information, see :doc:`set-up-creds`.
+  other SDKs) credentials file. For more information, see :doc:`setup-credentials`.
 
 .. _include-sdk:
 
@@ -120,15 +120,27 @@ and more information.
    The documentation is built into the :file:`target/site/apidocs/` directory.
 
 
-Additional topics
-=================
+.. _java-dg-java-env:
 
-The following topics do not apply to everyone, but may be helpful for those setting up the SDK with
-older versions of Java.
+Installing a Java Development Environment
+=========================================
 
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
+The |sdk-java| requires J2SE Development Kit *6.0 or later*. You can download the latest Java
+software from http://developers.sun.com/downloads/.
 
-    java-dg-java-env
+.. important:: Java version 1.6 (JS2E 6.0) did not have built-in support for SHA256-signed SSL
+   certificates, which are required for all HTTPS connections with AWS after September 30, 2015.
+
+   Java versions 1.7 or newer are packaged with updated certificates and are unaffected by this
+   issue.
+
+Choosing a JVM
+--------------
+
+For the best performance of your server-based applications with the AWS SDK for Java, we recommend
+that you use the *64-bit version* of the Java Virtual Machine (JVM). This JVM runs only in server
+mode, even if you specify the ``-Client`` option at run time.
+
+Using the 32-bit version of the JVM with the ``-Server`` option at run time should provide
+comparable performance to the 64-bit JVM.
 

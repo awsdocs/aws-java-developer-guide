@@ -18,8 +18,8 @@ This section provides information about how to install, set up, and use the |sdk
    :maxdepth: 1
    :titlesonly:
 
-   java-dg-install-sdk
+   setup-install
    getting-started-signup
-   set-up-creds
+   setup-credentials
    java-dg-using-maven
    sdk-using-gradle
