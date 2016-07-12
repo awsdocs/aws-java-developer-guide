@@ -82,7 +82,7 @@ To begin using this code sample, you need to add AWS credentials to the
 2. Set your access key / secret key id combination in the :file:`AwsCredentials.properties` file.
 
 .. note:: We recommend that you use the credentials of an IAM user to provide these values. For more
-   information, see :doc:`getting-started-signup`.
+   information, see :doc:`signup-create-iam-user`.
 
 Now that you have configured your settings, you can get started using the code in the example.
 

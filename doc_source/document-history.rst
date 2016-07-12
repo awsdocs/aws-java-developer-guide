@@ -51,7 +51,7 @@ Dec 28, 2015
     :doc:`java-dg-jvm-ttl` has been moved from :doc:`advanced` into the :doc:`basics` section, and
     has been rewritten for clarity.
 
-    :doc:`java-dg-using-maven` has been updated with information about how to include the
+    :doc:`setup-project-maven` has been updated with information about how to include the
     SDK's bill of materials (BOM) in your project.
 
 Aug 04, 2015

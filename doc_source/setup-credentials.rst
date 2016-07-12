@@ -8,24 +8,23 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##########################################
-Setting up AWS Credentials for Development
-##########################################
+######################################
+Set up AWS Credentials for Development
+######################################
 
-To connect to any of the supported services with the |sdk-java|, you must provide your AWS
-credentials. The AWS SDKs and CLIs use :emphasis:`provider chains` to look for AWS credentials in a
-number of different places, including system or user environment variables and local AWS
-configuration files.
+To connect to any of the supported services with the |sdk-java|, you must provide AWS credentials.
+The AWS SDKs and CLIs use :emphasis:`provider chains` to look for AWS credentials in a number of
+different places, including system/user environment variables and local AWS configuration files.
 
-This topic provides information about setting up your AWS credentials for local development. If you
-need to set up credentials for an EC2 instance or you're using the Eclipse IDE, refer to the
-following topics instead:
+This topic provides basic information about setting up your AWS credentials for local application
+development using the |sdk-java|. If you need to set up credentials for use within an EC2 instance
+or if you're using the Eclipse IDE for development, refer to the following topics instead:
 
-* When using an EC2 instance, you should specify an IAM role and then give your EC2 instance access
-  to that role as shown in :doc:`java-dg-roles`.
+* When using an EC2 instance, create an IAM role and then give your EC2 instance access to that role
+  as shown in :doc:`java-dg-roles`.
 
-* You can set up your AWS credentials within Eclipse using the |tke|_. See :tke-ug:`Set up AWS
-  Credentials <setup-credentials>` in the |tke-ug|_ for more information.
+* Set up AWS credentials within Eclipse using the |tke|_. See :tke-ug:`Set up AWS Credentials
+  <setup-credentials>` in the |tke-ug|_ for more information.
 
 Setting your credentials for use by the |sdk-java| can be done in a number of ways, but here are the
 recommended approaches:
@@ -34,7 +33,7 @@ recommended approaches:
 
 .. include:: common/sdk-shared-credentials.txt
 
-Once you have set your AWS credentials using one of these methods, they can be loaded automatically
-by the |sdk-java| by using the default credential provider chain. See :doc:`credentials` for more
-information.
+Once you have set your AWS credentials using one of these methods, they will be loaded automatically
+by the |sdk-java| by using the default credential provider chain. For further information about
+working with AWS credentials in your Java applications, see :doc:`credentials`.
 

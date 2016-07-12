@@ -113,11 +113,12 @@ with the following format:
     aws_secret_access_key={YOUR_SECRET_ACCESS_KEY}
 
     [profile2]
-    ...
+    aws_access_key_id={YOUR_ACCESS_KEY_ID}
+    aws_secret_access_key={YOUR_SECRET_ACCESS_KEY}
 
 The profile name is specified in square brackets (For example: :code:`[default]`), followed by the
 configurable fields in that profile as key/value pairs. You can have multiple profiles in your
-credentials file, which can be added or edited using :code:`aws configure --profile {PROFILE_NAME}`
+credentials file, which can be added or edited using :samp:`aws configure --profile {PROFILE_NAME}`
 to select the profile to configure.
 
 You can specify additional fields, such as :code:`aws_session_token`,
@@ -216,7 +217,7 @@ STS-supplied credentials and session token:
 See Also
 ========
 
-*   :doc:`getting-started-signup`
+*   :doc:`signup-create-iam-user`
 
 *   :doc:`setup-credentials`
 

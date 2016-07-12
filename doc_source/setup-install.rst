@@ -23,7 +23,7 @@ To use the |sdk-java|, you must have:
 
 * a suitable :ref:`Java Development Environment<java-dg-java-env>`.
 
-* An AWS account and access keys. For instructions, see :doc:`getting-started-signup`.
+* An AWS account and access keys. For instructions, see :doc:`signup-create-iam-user`.
 
 * AWS credentials (access keys) set in your environment or using the shared (by the AWS CLI and
   other SDKs) credentials file. For more information, see :doc:`setup-credentials`.
@@ -36,12 +36,12 @@ Including the SDK in your project
 To include the SDK your project, use one of the following methods depending on your build
 system or IDE:
 
-* **Apache Maven** |ndash| If you use `Apache Maven <maven>`_, you can specify the entire SDK (or
-  specific SDK components) as dependencies in your project. See :doc:`java-dg-using-maven` for
-  details about how to set up the SDK when using Maven.
+* **Apache Maven** |ndash| If you use |mvnlong|_, you can specify the entire SDK (or specific SDK
+  components) as dependencies in your project. See :doc:`setup-project-maven` for details about how
+  to set up the SDK when using Maven.
 
 * **Gradle** |ndash| If you use Gradle_, you can import the Maven Bill of Materials (BOM) in your
-  Gradle project to automatically manage SDK dependencies. See :doc:`sdk-using-gradle` for more
+  Gradle project to automatically manage SDK dependencies. See :doc:`setup-project-gradle` for more
   infomation.
 
 * **Eclipse IDE** |ndash| If you use the Eclipse IDE, you may want to install and use the |tke|_,
@@ -107,7 +107,7 @@ and more information.
 
 #. In a terminal window, navigate to the directory where you unzipped the SDK source.
 
-#. Build and install the SDK with the following command (Maven required)::
+#. Build and install the SDK with the following command (Maven_ required)::
 
     mvn clean install
 

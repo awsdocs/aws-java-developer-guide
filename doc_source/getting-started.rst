@@ -18,8 +18,9 @@ This section provides information about how to install, set up, and use the |sdk
    :maxdepth: 1
    :titlesonly:
 
+   signup-create-iam-user
    setup-install
-   getting-started-signup
    setup-credentials
-   java-dg-using-maven
-   sdk-using-gradle
+   setup-project-maven
+   setup-project-gradle
+

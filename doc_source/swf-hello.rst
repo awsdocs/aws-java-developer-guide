@@ -8,8 +8,6 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-.. include:: _includes/swf_includes.txt
-
 ###################################
 Building a Simple |SWF| Application
 ###################################
@@ -20,7 +18,6 @@ presenting a few important concepts along the way.
 .. contents::
     :local:
     :depth: 2
-
 
 About the example
 =================
@@ -84,7 +81,7 @@ AWS access
 
 To access Amazon Web Services (AWS), you must have an active AWS account. For information about
 signing up for AWS and creating an |IAM| user (recommended over using root account credentials), see
-:doc:`getting-started-signup`.
+:doc:`signup-create-iam-user`.
 
 This tutorial uses the terminal (command-line) to run the example code, and expects that you have
 your AWS credentials and configuration accessible to the SDK. The easiest way to do this is to use

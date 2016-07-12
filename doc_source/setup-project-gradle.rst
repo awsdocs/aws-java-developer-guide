@@ -50,5 +50,5 @@ Gradle will automatically resolve the correct version of your SDK dependencies u
 from the BOM.
 
 .. note:: For more detail about specifying SDK dependencies using the BOM, see
-   :doc:`java-dg-using-maven`.
+   :doc:`setup-project-maven`.
 
