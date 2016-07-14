@@ -86,3 +86,34 @@ Viewing the SDK's revision history
 To view the release history of the |sdk-java|, including changes and supported services per SDK
 version, see the SDK's `release notes`_.
 
+
+.. _build-old-reference-docs:
+
+Building Java reference documentation for old SDK versions
+==========================================================
+
+The |sdk-java-ref|_ represents the most recent version of the SDK. If you're using an older SDK
+version, you may wish to access the SDK reference documentation that matches the version you're
+using.
+
+The easiest way to build the documentation is using Apache's Maven_ build tool. *Download and
+install Maven first if you don't already have it on your system*, then use the following
+instructions to build the reference documentation.
+
+**To build reference documentation for an old SDK version**
+
+#. Locate and select the SDK version that you're using on the :github:`releases
+   <aws/aws-sdk-java/releases>` page of the SDK repository on GitHub.
+
+#. Choose either the ``zip`` (most platforms, including Windows) or ``tar.gz`` (unix-like platforms
+   such as OS X or Linux) link to download the SDK to your computer.
+
+#. Unpack the archive to a local directory.
+
+#. On the command-line, navigate to the directory where you unpacked the archive, and type::
+
+    mvn javadoc:javadoc
+
+#. After building is complete, you'll find the generated HTML documentation in the
+   :filename:`aws-java-sdk/target/site/apidocs/` directory.
+

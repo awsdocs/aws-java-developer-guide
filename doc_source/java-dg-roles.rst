@@ -20,6 +20,10 @@ This topic provides information about how to use IAM roles with Java SDK applica
 EC2. For more information about IAM instances, see :ec2-ug:`IAM Roles for Amazon EC2
 <iam-roles-for-amazon-ec2>` in the |EC2-ug|.
 
+.. contents::
+    :local:
+    :depth: 1
+
 .. _default-provider-chain:
 
 The default provider chain and EC2 instance profiles
@@ -68,8 +72,8 @@ an AmazonClientException.
 Walkthrough: Using IAM roles for EC2 instances
 ==============================================
 
-The following walkthrough uses an sample program that retrieves and object from |S3| using an |IAM|
-role to manage access.
+The following walkthrough shows you how to retrieve an object from |S3| using an |IAM| role to
+manage access.
 
 .. contents::
    :depth: 1
@@ -217,7 +221,7 @@ Run the program using :code:`ant` as follows:
 
 .. code-block:: sh
 
-    ant getS3Object
+    ant run
 
-The program should write the contents of your |S3| object to your command window.
+The program will write the contents of your |S3| object to your command window.
 
