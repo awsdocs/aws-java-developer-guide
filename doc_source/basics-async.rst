@@ -31,7 +31,7 @@ Java Futures
 ============
 
 Asynchronous methods in the |sdk-java| return a :javase-ref:`Future <java/util/concurrent/Future>`
-object that will contain the results of the asynchronous operation... *in the future*. You can
+object that will contain the results of the asynchronous operation *in the future*. You can
 periodically call the Future's :methodname:`isDone()` to check to see if the service has provided a
 response object yet.
 
@@ -41,26 +41,18 @@ method.
 You can use this mechanism to periodically poll for the asynchronous operation's results while your
 application continues to work on other things.
 
-For example, in the following code, an :java-api:`InvokeResult <services/lambda/model/InvokeResult>`
-object is retrieved asynchronously from the :tab
-Here is an example of an asynchronous operation that calls a |LAM| function, receiving a Future
-that can hold an :java-api:`InvokeResult <services/lambda/model/InvokeResult>` object. The
-InvokeResult object is retrieved only after :methodname:`isDOne()` is ``true``:
+Here is an example of an asynchronous operation that calls a |LAM| function, receiving a Future that
+can hold an :java-api:`InvokeResult <services/lambda/model/InvokeResult>` object. The InvokeResult
+object is retrieved only after :methodname:`isDOne()` is ``true``:
 
 .. literalinclude:: snippets/lambda_invoke_example/src/main/java/example/lambda/InvokeLambdaFunctionAsync.java
    :language: java
    :lines: 32-66
 
-When :methodname:`isDone()` returns ``true``, the InvokeResult object is 
-
-
 .. _basics-async-callback:
 
 Asynchronous Callbacks
 ======================
-
-Alternatively to polling for the results using a :javase-ref:`Future <java/util/concurrent/Future>`
-object, 
 
 In addition to using Java Futures to monitor the status of asynchronous requests, the SDK also
 allows you to implement a class that uses the :java-api:`AsyncHandler <handlers/AsyncHandler>`
