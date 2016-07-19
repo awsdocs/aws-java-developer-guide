@@ -9,7 +9,7 @@
 .. |mvnlong| replace:: Apache |mvn|
 
 .. _Gradle: http://gradle.com/
-.. _mvnlong: http://maven.apache.org/
-.. _Maven: _mvnlong
-.. _mvn: _mvnlong
+.. _Maven: http://maven.apache.org/
+.. _mvn: _Maven
+.. _mvnlong: _Maven
 
