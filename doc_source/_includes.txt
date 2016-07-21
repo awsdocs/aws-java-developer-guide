@@ -10,6 +10,6 @@
 
 .. _Gradle: http://gradle.com/
 .. _Maven: http://maven.apache.org/
-.. _mvn: _Maven
-.. _mvnlong: _Maven
+.. _mvn: Maven_
+.. _mvnlong: Maven_
 
