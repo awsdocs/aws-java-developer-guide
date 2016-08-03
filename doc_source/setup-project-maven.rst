@@ -61,13 +61,20 @@ to the ``archetype:generate`` command. For example:
 Configure the SDK as a Maven dependency
 =======================================
 
-To configure the SDK as a dependency in your Maven project, import the SDK's bill of materials (BOM)
-into your project and then specify which modules you will need (or import all modules).
+To use the |sdk-java| in your project, you'll need to declare it as a dependency in your project's
+:filename:`pom.xml` file. Beginning with version 1.9.0 of the SDK, you can choose whether you want
+to import individual components or the entire SDK.
 
-Import the |sdk-java| BOM
--------------------------
+Specifying individual SDK modules
+---------------------------------
 
-To import the SDK's BOM, set it as a dependency in your application's :file:`pom.xml` file:
+To select individual SDK modules, use the |sdk-java| bill of materials (BOM) for Maven, which will
+ensure that the modules you specify use the same version of the SDK and that they're compatible with
+each another.
+
+To use the BOM, add a :code-xml:`<dependencyManagement>` section to your application's
+:file:`pom.xml` file, adding ``aws-java-sdk-bom`` as a dependency and specify the version of the SDK
+you want to use:
 
 .. code-block:: xml
 
@@ -76,53 +83,46 @@ To import the SDK's BOM, set it as a dependency in your application's :file:`pom
         <dependency>
           <groupId>com.amazonaws</groupId>
           <artifactId>aws-java-sdk-bom</artifactId>
-          <version>1.10.43</version>
+          <version>1.11.22</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>
       </dependencies>
     </dependencyManagement>
 
-.. note:: Because you declared the SDK version when pulling in the SDK's BOM, you don't need to
-   declare version numbers when you declare the SDK module dependencies. It also ensures that all
-   AWS modules are from the same SDK version and are compatible with each other.
-
-
-Specify individual SDK modules
-------------------------------
-
-Beginning with version 1.9.0 of the SDK, a modular Maven project structure can be used to
-selectively pick components of the SDK that you want in your project. For example, if your project
-uses only |S3| and |DDB|, you can configure the dependencies in your :file:`pom.xml` file like this:
+You can now select individual modules from the SDK that you use in your application. Because you
+already declared the SDK version in the BOM, you don't need to specify the version number for each
+component.
 
 .. code-block:: xml
 
     <dependencies>
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk-s3</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk-dynamodb</artifactId>
-        </dependency>
+      <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-s3</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-dynamodb</artifactId>
+      </dependency>
     </dependencies>
 
 
-Import all SDK modules
-----------------------
+Importing all SDK modules
+-------------------------
 
-If you would like to pull the entire SDK as a dependency, declare it in your :file:`pom.xml`
-like this:
+If you would like to pull in the *entire* SDK as a dependency, don't use the BOM method, but simply
+declare it in your :file:`pom.xml` like this:
 
 .. code-block:: xml
 
-    <dependencies>
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk</artifactId>
-        </dependency>
-    </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk</artifactId>
+      <version>1.11.22</version>
+    </dependency>
+  </dependencies>
 
 
 Build your project

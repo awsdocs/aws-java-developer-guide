@@ -23,7 +23,7 @@ Couldn't clone repository. Please make sure that you have 'git' installed and
 that you can access GitHub repositories using SSH.
 """
 
-AWS_SHARED_REPO = 'git@github.com:awsdocs/aws-doc-shared-content.git'
+AWS_SHARED_REPO = 'https://github.com/awsdocs/aws-doc-shared-content.git'
 BUILD_DIR = 'build'
 OUTPUT_DIR = 'output'
 SHARED_DIR = 'shared_content'
