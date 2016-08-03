@@ -62,19 +62,21 @@ Configure the SDK as a Maven dependency
 =======================================
 
 To use the |sdk-java| in your project, you'll need to declare it as a dependency in your project's
-:filename:`pom.xml` file. Beginning with version 1.9.0 of the SDK, you can choose whether you want
-to import individual components or the entire SDK.
+:filename:`pom.xml` file. Beginning with version 1.9.0, you can import :ref:`individual components
+<configuring-maven-individual-components>` or the :ref:`entire SDK <configuring-maven-entire-sdk>`.
+
+.. _configuring-maven-individual-components:
 
 Specifying individual SDK modules
 ---------------------------------
 
 To select individual SDK modules, use the |sdk-java| bill of materials (BOM) for Maven, which will
 ensure that the modules you specify use the same version of the SDK and that they're compatible with
-each another.
+each other.
 
 To use the BOM, add a :code-xml:`<dependencyManagement>` section to your application's
-:file:`pom.xml` file, adding ``aws-java-sdk-bom`` as a dependency and specify the version of the SDK
-you want to use:
+:file:`pom.xml` file, adding ``aws-java-sdk-bom`` as a dependency and specifying the version of the
+SDK you want to use:
 
 .. code-block:: xml
 
@@ -107,6 +109,8 @@ component.
       </dependency>
     </dependencies>
 
+
+.. _configuring-maven-entire-sdk:
 
 Importing all SDK modules
 -------------------------
