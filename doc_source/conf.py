@@ -366,6 +366,9 @@ epub_exclude_files = ['search.html']
 # If false, no index is generated.
 #epub_use_index = True
 
+# default code language for syntax highlighting
+highlight_language = 'java'
+
 if 'extlinks' not in vars():
     extlinks = {}
 
@@ -380,3 +383,4 @@ extlinks['java-ref'] = (java_api_url + javadoc_f, '')
 extlinks['java-ref-nf'] = (java_api_url + javadoc_nf, '')
 extlinks['javase-ref'] = (javase_api_url + javadoc_f, '')
 extlinks['javase-ref-nf'] = (javase_api_url + javadoc_nf, '')
+

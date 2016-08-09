@@ -20,6 +20,7 @@ This section provides tutorials and examples of using the |sdk-java| with AWS se
 .. toctree::
    :maxdepth: 1
    :titlesonly:
+   :glob:
 
    java-dg-samples
    prog-services-ddb

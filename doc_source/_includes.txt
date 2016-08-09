@@ -13,3 +13,4 @@
 .. _mvn: Maven_
 .. _mvnlong: Maven_
 
+.. |s3client| replace:: :java-api:`AmazonS3 <services/s3/AmazonS3>`
