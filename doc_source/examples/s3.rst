@@ -5,7 +5,9 @@
 This section provides examples of programming |S3|_ using the |sdk-java|_.
 
 .. toctree::
-    :glob:
+    :titlesonly:
+    :maxdepth: 1
 
-    s3/*
+    s3/buckets
+    s3/objects
 
