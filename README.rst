@@ -56,10 +56,10 @@ submitting your pull request.
 1. Make sure that you have downloaded and installed Sphinx_.
 2. Run the ``build_docs.py`` script in the repository's root directory.
 
-``build_docs.py`` can take any of the `available Sphinx builders`_ as its argument. For example, to
-build the docs into a single HTML page, you can use the ``singlehtml`` target, like so::
+   ``build_docs.py`` can take any of the `available Sphinx builders`_ as its argument. For example,
+   to build the docs into a single HTML page, you can use the ``singlehtml`` target, like so::
 
- python build_docs.py singlehtml
+     python build_docs.py singlehtml
 
 The build process will automatically download a snapshot of its dependencies, combine them in the
 ``doc_build`` directory and will then generate output into the ``doc_output`` directory.
