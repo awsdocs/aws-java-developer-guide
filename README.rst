@@ -16,7 +16,8 @@ This repository contains source content for the official `AWS SDK for Java Devel
 source code for the `AWS SDK for Java`_ is also on GitHub, at https://github.com/aws/aws-sdk-java/.
 
 The guide content is written in reStructuredText_ and built using Sphinx_. It relies upon content
-which is provided in the AWS documentation team's `shared content`_ repository.
+which is provided in the AWS documentation team's `shared content`_ and `SDK examples`_
+repositories.
 
 
 Reporting issues
@@ -55,13 +56,13 @@ submitting your pull request.
 1. Make sure that you have downloaded and installed Sphinx_.
 2. Run the ``build_docs.py`` script in the repository's root directory.
 
-The build process will automatically download a snapshot of the `shared content`_, combine it in the
-``build`` directory and will generate output into the ``output`` directory.
-
 ``build_docs.py`` can take any of the `available Sphinx builders`_ as its argument. For example, to
 build the docs into a single HTML page, you can use the ``singlehtml`` target, like so::
 
  python build_docs.py singlehtml
+
+The build process will automatically download a snapshot of its dependencies, combine them in the
+``doc_build`` directory and will then generate output into the ``doc_output`` directory.
 
 
 Copyright and license
@@ -87,6 +88,7 @@ repository.
 .. _`forking the repository`: https://help.github.com/articles/fork-a-repo/
 .. _`pull request`: https://help.github.com/articles/using-pull-requests/
 .. _`shared content`: https://github.com/awsdocs/aws-doc-shared-content
+.. _`sdk examples`: https://github.com/awsdocs/aws-doc-sdk-examples
 .. _extlinks: http://www.sphinx-doc.org/en/stable/ext/extlinks.html
 .. _issues: https://github.com/awsdocs/aws-java-developer-guide/issues
 .. _restructuredtext: http://docutils.sourceforge.net/rst.html
