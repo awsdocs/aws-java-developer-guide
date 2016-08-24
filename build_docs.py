@@ -115,17 +115,14 @@ def run():
     # Step 0: empty the build dir if it's there.
     #
     check_and_remove_dir(BUILD_DIR)
+    check_and_remove_dir(DEPENDENCIES_DIR)
     check_and_remove_dir(OUTPUT_DIR)
 
     # Step 1: Load any dependencies. Dependencies consist of a tuple: a git repository and a
     # subdirectory to copy.
     dependencies = []
     if os.path.exists(DEPENDENCIES_FILE):
-        if os.path.exists(DEPENDENCIES_DIR):
-            check_and_remove_dir(DEPENDENCIES_DIR)
-
         os.mkdir(DEPENDENCIES_DIR)
-
         dep_num = 0
         dep_file_contents = open(DEPENDENCIES_FILE, 'r').readlines()
         for line in dep_file_contents:
@@ -180,7 +177,7 @@ def run():
     if '--noclean' not in cmd_switches:
         print("Cleaning up.")
         check_and_remove_dir(BUILD_DIR)
-        check_and_remove_dir(SHARED_DIR)
+        check_and_remove_dir(DEPENDENCIES_DIR)
 
     print("Finished! You'll find the built docs in the '%s' directory." %
             OUTPUT_DIR)
