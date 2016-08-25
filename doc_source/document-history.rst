@@ -16,6 +16,13 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **Last documentation update:** |today|
 
+Aug 25, 2016
+    A new topic, :doc:`creating-clients`, has been added to the :doc:`basics` section, which
+    demonstrates how to use *client builders* to simplify the creation of AWS service clients.
+
+    The :doc:`prog-services` section has been updated with :doc:`new examples for S3 <s3>` which are
+    backed by a :sdk-examples:`repository on GitHub` that contains the complete example code.
+
 May 02, 2016
     A new topic, :doc:`basics-async`, has been added to the :doc:`basics` section, describing how to
     work with asynchronous client methods that return :classname:`Future` objects or that take an
