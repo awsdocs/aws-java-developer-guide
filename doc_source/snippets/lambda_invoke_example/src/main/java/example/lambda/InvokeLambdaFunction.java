@@ -15,7 +15,8 @@
  */
 package example.lambda;
 
-import com.amazonaws.services.lambda.AWSLambdaClient;
+import com.amazonaws.services.lambda.AWSLambda;
+import com.amazonaws.services.lambda.AWSLambdaClientBuilder;
 import com.amazonaws.services.lambda.model.InvokeRequest;
 import com.amazonaws.services.lambda.model.InvokeResult;
 import java.nio.ByteBuffer;
@@ -27,12 +28,12 @@ public class InvokeLambdaFunction
         String function_name = "HelloFunction";
         String function_input = "{\"who\":\"AWS SDK for Java\"}";
 
-        AWSLambdaClient aws_lambda = new AWSLambdaClient();
+        AWSLambda lambda = AWSLambdaClientBuilder.defaultClient();
         InvokeRequest req = new InvokeRequest()
             .withFunctionName(function_name)
             .withPayload(ByteBuffer.wrap(function_input.getBytes()));
 
-        InvokeResult res = aws_lambda.invoke(req);
+        InvokeResult res = lambda.invoke(req);
         if (res.getStatusCode() == 200) {
             System.out.println("Lambda function returned:");
             ByteBuffer response_payload = res.getPayload();

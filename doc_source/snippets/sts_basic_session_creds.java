@@ -11,9 +11,11 @@
    CONDITIONS OF ANY KIND, either express or implied. See the License for the
    specific language governing permissions and limitations under the License.
 */
-BasicSessionCredentials basic_session_creds = new BasicSessionCredentials(
+BasicSessionCredentials sessionCredentials = new BasicSessionCredentials(
    session_creds.getAccessKeyId(),
    session_creds.getSecretAccessKey(),
    session_creds.getSessionToken());
 
-AmazonS3Client s3 = new AmazonS3Client(basic_session_creds);
+AmazonS3 s3 = AmazonS3ClientBuilder.standard()
+                        .withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)
+                        .build();

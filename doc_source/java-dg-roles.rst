@@ -49,7 +49,9 @@ provider chain. For example:
 
 .. code-block:: java
 
-      AmazonS3 s3Client = new AmazonS3Client(new InstanceProfileCredentialsProvider());
+      AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+                            .withCredentials(new InstanceProfileCredentialsProvider())
+                            .build();
 
 When using this approach, the SDK will retrieve temporary AWS credentials that have the same
 permissions as those associated with the IAM role associated with the EC2 instance in its instance

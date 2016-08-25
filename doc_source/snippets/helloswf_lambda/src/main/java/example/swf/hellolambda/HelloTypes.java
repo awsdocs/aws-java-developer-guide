@@ -15,9 +15,11 @@
  */
 package example.swf.hellolambda;
 
-import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
 import com.amazonaws.services.simpleworkflow.model.*;
-import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClient;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
 import com.amazonaws.services.identitymanagement.model.*;
 
 public class HelloTypes {
@@ -26,8 +28,8 @@ public class HelloTypes {
     public static final String WORKFLOW = "HelloWorkflow";
     public static final String WORKFLOW_VERSION = "1.0-lambda";
 
-    private static AmazonSimpleWorkflowClient swf =
-      new AmazonSimpleWorkflowClient();
+    private static final AmazonSimpleWorkflow swf =
+        AmazonSimpleWorkflowClientBuilder.defaultClient();
 
     public static void registerDomain() {
         try {
@@ -100,7 +102,7 @@ public class HelloTypes {
             + "  ]"
             + "}";
 
-        AmazonIdentityManagementClient iam = new AmazonIdentityManagementClient();
+        AmazonIdentityManagement iam = AmazonIdentityManagementClientBuilder.defaultClient();
         CreateRoleRequest request = new CreateRoleRequest()
                 .withRoleName(ROLE_NAME)
                 .withAssumeRolePolicyDocument(SWF_LAMBDA_TRUST);

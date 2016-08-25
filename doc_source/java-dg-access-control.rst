@@ -65,7 +65,7 @@ addition to the bucket owner's account).
     Policy policy = new Policy()
         .withStatements(allowPublicReadStatement, allowRestrictedWriteStatement);
 
-    AmazonS3 s3 = new AmazonS3Client(myAwsCredentials);
+    AmazonS3 s3 = AmazonS3ClientBuilder.defaultClient();
     s3.setBucketPolicy(myBucketName, policy.toJson());
 
 
@@ -90,7 +90,7 @@ SNS topic.
     Map queueAttributes = new HashMap();
     queueAttributes.put(QueueAttributeName.Policy.toString(), policy.toJson());
 
-    AmazonSQS sqs = new AmazonSQSClient(myAwsCredentials);
+    AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
     sqs.setQueueAttributes(new SetQueueAttributesRequest(myQueueUrl, queueAttributes));
 
 
@@ -118,7 +118,7 @@ topic.
             .withActions(SNSActions.Subscribe)
             .withConditions(endpointCondition));
 
-    AmazonSNS sns = new AmazonSNSClient(myAwsCredentials);
+    AmazonSNS sns = AmazonSNSClientBuilder.defaultClient();
     sns.setTopicAttributes(
         new SetTopicAttributesRequest(myTopicArn, "Policy", policy.toJson()));
 

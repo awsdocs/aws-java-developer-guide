@@ -15,7 +15,8 @@
  */
 package example.swf.hello;
 
-import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
 import com.amazonaws.services.simpleworkflow.model.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,8 @@ import java.util.UUID;
 
 public class WorkflowWorker {
 
-    private static AmazonSimpleWorkflowClient swf = new AmazonSimpleWorkflowClient();
+    private static final AmazonSimpleWorkflow swf =
+        AmazonSimpleWorkflowClientBuilder.defaultClient();
 
     public static void main(String[] args) {
         PollForDecisionTaskRequest task_request =

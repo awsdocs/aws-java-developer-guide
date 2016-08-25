@@ -22,7 +22,7 @@ import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.PropertiesCredentials;
 import com.amazonaws.codesamples.getting_started.GettingStartedApp;
 import com.amazonaws.services.ec2.AmazonEC2;
-import com.amazonaws.services.ec2.AmazonEC2Client;
+import com.amazonaws.services.ec2.AmazonEC2ClientBuilder;
 import com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsRequest;
 import com.amazonaws.services.ec2.model.CreateTagsRequest;
 import com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsRequest;
@@ -44,20 +44,8 @@ public class InlineTaggingCodeSampleApp {
     //================ Submitting a Request ========================//
     //==============================================================//
 
-    // Retrieves the credentials from an AWSCredentials.properties file.
-    AWSCredentials credentials = null;
-    try {
-      credentials = new PropertiesCredentials(
-        GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    } catch (IOException e1) {
-      System.out.println("Credentials were not properly entered into AwsCredentials.properties.");
-      System.out.println(e1.getMessage());
-      System.exit(-1);
-    }
-
-    // Create the AmazonEC2Client object so we can
-    // call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Initializes a Spot Instance Request
     RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();

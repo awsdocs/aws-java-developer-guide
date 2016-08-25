@@ -15,7 +15,8 @@
  */
 package example.lambda;
 
-import com.amazonaws.services.lambda.AWSLambdaAsyncClient;
+import com.amazonaws.services.lambda.AWSLambdaAsync;
+import com.amazonaws.services.lambda.AWSLambdaAsyncClientBuilder;
 import com.amazonaws.services.lambda.model.InvokeRequest;
 import com.amazonaws.services.lambda.model.InvokeResult;
 import com.amazonaws.handlers.AsyncHandler;
@@ -44,12 +45,12 @@ public class InvokeLambdaFunctionCallback
         String function_name = "HelloFunction";
         String function_input = "{\"who\":\"AWS SDK for Java\"}";
 
-        AWSLambdaAsyncClient aws_lambda = new AWSLambdaAsyncClient();
+        AWSLambdaAsync lambda = AWSLambdaAsyncClientBuilder.defaultClient();
         InvokeRequest req = new InvokeRequest()
             .withFunctionName(function_name)
             .withPayload(ByteBuffer.wrap(function_input.getBytes()));
 
-        Future<InvokeResult> future_res = aws_lambda.invokeAsync(req, new AsyncLambdaHandler());
+        Future<InvokeResult> future_res = lambda.invokeAsync(req, new AsyncLambdaHandler());
 
         System.out.print("Waiting for async callback");
         while (!future_res.isDone() && !future_res.isCancelled()) {

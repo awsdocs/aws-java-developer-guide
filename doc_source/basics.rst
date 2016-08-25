@@ -21,6 +21,7 @@ For information that is specific to a particular service (EC2, SWF, etc.), see t
 .. toctree::
    :maxdepth: 1
 
+   creating-clients
    credentials
    java-dg-region-selection
    java-dg-exceptions
