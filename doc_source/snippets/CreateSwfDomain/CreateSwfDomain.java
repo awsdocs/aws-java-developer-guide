@@ -42,7 +42,7 @@ public class CreateSwfDomain
      * @param swf The SWF client that will be used to register the domain.
      * @param name The name of the domain to register.
      */
-    public void RegisterSwfDomain(AmazonSimpleWorkflowClient swf, String name)
+    public void RegisterSwfDomain(AmazonSimpleWorkflow swf, String name)
     {
         RegisterDomainRequest request = new RegisterDomainRequest().withName(name);
         request.setWorkflowExecutionRetentionPeriodInDays("10");
