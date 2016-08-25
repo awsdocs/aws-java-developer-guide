@@ -15,7 +15,8 @@
  */
 package example.swf.hello;
 
-import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
 import com.amazonaws.services.simpleworkflow.model.*;
 
 public class HelloTypes {
@@ -26,8 +27,8 @@ public class HelloTypes {
     public static final String ACTIVITY = "HelloActivity";
     public static final String ACTIVITY_VERSION = "1.0";
 
-    private static AmazonSimpleWorkflowClient swf =
-      new AmazonSimpleWorkflowClient();
+    private static final AmazonSimpleWorkflow swf =
+        AmazonSimpleWorkflowClientBuilder.defaultClient();
 
     public static void registerDomain() {
         try {

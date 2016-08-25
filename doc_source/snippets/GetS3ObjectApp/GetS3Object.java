@@ -26,22 +26,19 @@ public class GetS3Object {
 
   public static void main(String[] args) throws IOException
   {
-    AmazonS3 s3Client = new AmazonS3Client();
+    AmazonS3 s3Client = AmazonS3ClientBuilder.defaultClient();
 
-    try
-    {
+    try {
       System.out.println("Downloading an object");
       S3Object s3object = s3Client.getObject(
           new GetObjectRequest(bucketName, key));
       displayTextInputStream(s3object.getObjectContent());
     }
-    catch(AmazonServiceException ase)
-    {
-      System.out.println( "AmazonServiceException" );
+    catch(AmazonServiceException ase) {
+      System.err.println("Exception was thrown by the service");
     }
-    catch(AmazonClientException ace)
-    {
-      System.out.println( "AmazonClientException" );
+    catch(AmazonClientException ace) {
+      System.err.println("Exception was thrown by the client");
     }
   }
 

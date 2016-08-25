@@ -25,7 +25,7 @@ public class CreateSwfDomain
      * List the domains for the provided SWF client.
      * @param swf The SWF client that will be used to list domains.
      */
-    public void list_swf_domains(AmazonSimpleWorkflowClient swf)
+    public void listSwfDomains(AmazonSimpleWorkflow swf)
     {
         ListDomainsRequest request = new ListDomainsRequest();
         request.setRegistrationStatus("REGISTERED");
@@ -42,7 +42,7 @@ public class CreateSwfDomain
      * @param swf The SWF client that will be used to register the domain.
      * @param name The name of the domain to register.
      */
-    public void register_swf_domain(AmazonSimpleWorkflowClient swf, String name)
+    public void RegisterSwfDomain(AmazonSimpleWorkflowClient swf, String name)
     {
         RegisterDomainRequest request = new RegisterDomainRequest().withName(name);
         request.setWorkflowExecutionRetentionPeriodInDays("10");
@@ -64,17 +64,14 @@ public class CreateSwfDomain
     {
         CreateSwfDomain app = new CreateSwfDomain();
 
-        // If you don't supply credentials, AmazonSimpleWorkflowClient() will
-        // use the DefaultAWSCredentialsProviderChain to load AWS credentials.
-        AmazonSimpleWorkflowClient swf = new AmazonSimpleWorkflowClient();
-
-        // Set the AWS region that the domain will be registered in.
-        swf.setRegion(RegionUtils.getRegion("us-west-2"));
+        AmazonSimpleWorkflow swf = AmazonSimpleWorkflowClientBuilder.standard()
+                                        .withRegion(Regions.US_WEST_2)
+                                        .build();
 
         // List the SWF domains in this region.
-        app.list_swf_domains(swf);
+        app.listSwfDomains(swf);
 
         // Create a new domain (or retrieve the existing one);
-        app.register_swf_domain(swf, "ExampleDomain");
+        app.RegisterSwfDomain(swf, "ExampleDomain");
     }
 }

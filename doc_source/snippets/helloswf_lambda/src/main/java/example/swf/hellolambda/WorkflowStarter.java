@@ -15,7 +15,8 @@
  */
 package example.swf.hellolambda;
 
-import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
 import com.amazonaws.services.simpleworkflow.model.Run;
 import com.amazonaws.services.simpleworkflow.model.StartWorkflowExecutionRequest;
 import com.amazonaws.services.simpleworkflow.model.WorkflowType;
@@ -23,7 +24,7 @@ import com.amazonaws.services.simpleworkflow.model.WorkflowType;
 public class WorkflowStarter {
     public static void main(String[] args) {
         final String WORKFLOW_EXECUTION = "HelloWorld-Lambda-Execution";
-        AmazonSimpleWorkflowClient swf = new AmazonSimpleWorkflowClient();
+        AmazonSimpleWorkflow swf = AmazonSimpleWorkflowClientBuilder.defaultClient();
 
         String workflow_input = "{\"who\": \"Amazon SWF\"}";
 

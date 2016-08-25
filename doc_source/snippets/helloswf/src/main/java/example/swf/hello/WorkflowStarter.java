@@ -15,13 +15,15 @@
  */
 package example.swf.hello;
 
-import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
 import com.amazonaws.services.simpleworkflow.model.Run;
 import com.amazonaws.services.simpleworkflow.model.StartWorkflowExecutionRequest;
 import com.amazonaws.services.simpleworkflow.model.WorkflowType;
 
 public class WorkflowStarter {
-    private static AmazonSimpleWorkflowClient swf = new AmazonSimpleWorkflowClient();
+    private static final AmazonSimpleWorkflow swf =
+        AmazonSimpleWorkflowClientBuilder.defaultClient();
     public static final String WORKFLOW_EXECUTION = "HelloWorldWorkflowExecution";
 
     public static void main(String[] args) {

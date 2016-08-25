@@ -15,13 +15,14 @@
  */
 package example.swf.hello;
 
-import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
 import com.amazonaws.services.simpleworkflow.model.*;
 
 public class ActivityWorker {
 
-    private static AmazonSimpleWorkflowClient swf =
-        new AmazonSimpleWorkflowClient();
+    private static final AmazonSimpleWorkflow swf =
+        AmazonSimpleWorkflowClientBuilder.defaultClient();
 
     private static String sayHello(String input) throws Throwable {
         return "Hello, " + input + "!";

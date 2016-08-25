@@ -137,7 +137,7 @@ For example, to create an S3 client using temporary service credentials:
     :language: java
     :lines: 14-
 
-You can now use the :classname:`AmazonS3Client` object to make Amazon S3 requests.
+You can now use the :classname:`AmazonS3` object to make Amazon S3 requests.
 
 .. _for-more-information:
 

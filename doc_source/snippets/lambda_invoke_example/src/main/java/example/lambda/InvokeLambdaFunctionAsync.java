@@ -29,12 +29,12 @@ public class InvokeLambdaFunctionAsync
         String function_name = "HelloFunction";
         String function_input = "{\"who\":\"AWS SDK for Java\"}";
 
-        AWSLambdaAsyncClient aws_lambda = new AWSLambdaAsyncClient();
+        AWSLambdaAsync lambda = AWSLambdaAsyncClientBuilder.defaultClient();
         InvokeRequest req = new InvokeRequest()
             .withFunctionName(function_name)
             .withPayload(ByteBuffer.wrap(function_input.getBytes()));
 
-        Future<InvokeResult> future_res = aws_lambda.invokeAsync(req);
+        Future<InvokeResult> future_res = lambda.invokeAsync(req);
 
         System.out.print("Waiting for future");
         while (future_res.isDone() == false) {

@@ -23,7 +23,6 @@ credentials. For more information, see :doc:`getting-started`.
 .. toctree::
    :maxdepth: 1
 
-   init-ec2-client
    create-security-group
    create-key-pair
    run-instance

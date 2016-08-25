@@ -115,19 +115,8 @@ address indicates the subnet for the specified IP address. We also configure the
 .. code-block:: java
 
     <?dbhtml linenumbering.everyNth="1" ?>
-    // Retrieves the credentials from an AWSCredentials.properties file.
-    AWSCredentials credentials = null;
-    try {
-        credentials = new PropertiesCredentials(
-            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    } catch (IOException e1) {
-        System.out.println("Credentials were not properly entered into AwsCredentials.properties.");
-        System.out.println(e1.getMessage());
-        System.exit(-1);
-    }
-
-    // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Create a new security group.
     try {
@@ -275,8 +264,8 @@ request is populated, you call the :code:`requestSpotInstances` method on the
         System.exit(-1);
     }
 
-    // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Initializes a Spot Instance Request
     RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
