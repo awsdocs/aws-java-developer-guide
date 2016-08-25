@@ -32,6 +32,7 @@ Use the |s3client| client's :methodname:`createBucket` method. The new :java-api
    :lines: 43-50
    :dedent: 8
 
+See the :sdk-examples-java:`complete example <s3/CreateBucket.java>`.
 
 .. _list-buckets:
 
@@ -52,6 +53,7 @@ Use the |s3client| client's :methodname:`listBucket` method. If successful, a Li
    :lines: 31-37
    :dedent: 8
 
+See the :sdk-examples-java:`complete example <s3/ListBuckets.java>`.
 
 .. _delete-bucket:
 
@@ -71,4 +73,6 @@ error will result*.
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 45-52
    :dedent: 8
+
+See the :sdk-examples-java:`complete example <s3/DeleteBucket.java>`.
 
