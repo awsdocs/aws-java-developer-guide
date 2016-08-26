@@ -20,8 +20,9 @@ Aug 25, 2016
     A new topic, :doc:`creating-clients`, has been added to the :doc:`basics` section, which
     demonstrates how to use *client builders* to simplify the creation of AWS service clients.
 
-    The :doc:`prog-services` section has been updated with :doc:`new examples for S3 <s3>` which are
-    backed by a :sdk-examples:`repository on GitHub` that contains the complete example code.
+    The :doc:`prog-services` section has been updated with :doc:`new examples for S3 <examples/s3>`
+    which are backed by a `repository on GitHub <sdk-doc-examples_>`_ that contains the complete
+    example code.
 
 May 02, 2016
     A new topic, :doc:`basics-async`, has been added to the :doc:`basics` section, describing how to
