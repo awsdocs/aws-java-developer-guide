@@ -100,13 +100,14 @@ If you don't explicitly set a region via the withRegion methods, then the SDK wi
 region provider chain to try and determine the region to use.
 
 The region lookup process is as follows
+    #. Any explicit region set via the withRegion or setRegion on the builder itself takes precedence over anything else.
     #. First, the AWS_REGION environment variable is checked. If it's set that region will be used to configure the client. If not we move on.
         * Note that this environment variable is set by the AWS Lambda container
-    #. Next the SDK will look at the AWS shared config file (usually located at ~/.aws/config). If the `region` property the SDK will use it.
+    #. Next the SDK will look at the AWS shared config file (usually located at ~/.aws/config). If the `region` property is present the SDK will use it.
         * The AWS_CONFIG_FILE environment variable can be used to customize the location of the shared config file.
         * The AWS_PROFILE environment variable or the aws.profile system property can be used to customize which profile is loaded by the SDK.
     #. Finally, if the SDK still hasn't found a region to use it will attempt to call the EC2 instance metadata service to determine the region of the current running EC2 instance.
-        * If the application is not running on EC2 then the region lookup will fail and an exception will be thrown.
+    #. If the SDK still hasn't found a region at this point then client creation will fail with an exception.
 
 A common approach to developing AWS applications is to use the shared config file to set the region for local
 development and rely on the default region provider chain to determine the region when running on AWS

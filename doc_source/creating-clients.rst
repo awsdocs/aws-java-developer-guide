@@ -62,7 +62,7 @@ code uses the builder as a factory for client instances.
     }
 
 The builder also exposes fluent setters for :java-api:`ClientConfiguration <ClientConfiguration>`',
-:java-api:`RequestMetricCollector <metrics/RequestMetricCollector>`, and custom
+:java-api:`RequestMetricCollector <metrics/RequestMetricCollector>`, and a custom list of
 :java-api:`RequestHandler2 <handlers/RequestHandler2>`.
 
 Here's a complete example that overrides all configurable properties:
@@ -107,10 +107,10 @@ Creating an async client with a custom executor:
 Default Client
 ==============
 Both the sync and async client builders have another factory method called `defaultClient`. This
-will create a service client with the default configuration and with credentials and region
-obtained from the environment. If either credentials or region cannot be determined from the environment
+will create a service client with the default configuration and the default provider chains for loading
+credentials and region. If either credentials or region cannot be determined from the environment
 the application is running in, the call to `defaultClient` will fail. See :doc:`credentials` and
-:doc:`java-dg-region-selection` for more information on how credentials are region are
+:doc:`java-dg-region-selection` for more information on how credentials and region are
 determined.
 
 Creating a default service client:
@@ -122,8 +122,8 @@ Creating a default service client:
 Client Lifecycle
 ================
 Service clients in the SDK are thread safe and it's recommended to treat them as long lived objects
-for the best performance.
-Each client has it's own connection pool resource that's shutdown when the client is garbage collected.
+for performance reasons.
+Each client has it's own connection pool resource that is shutdown when the client is garbage collected.
 To explicitly shutdown a client you can call the `shutdown` method. After calling shutdown, all client
 resources will be released and the client will be unusable.
 

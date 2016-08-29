@@ -155,7 +155,7 @@ Command Line Interface <cli-chap-getting-started>` in the |cli-ug|.
 Loading Credentials
 -------------------
 
-Once credentials have been set, you can load them using the |sdk-java| default credential provider
+Once credentials have been set, you can load them using the default credential provider
 chain.
 
 :emphasis:`To load credentials using the default credential provider chain`
