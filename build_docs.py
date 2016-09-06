@@ -1,11 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+#
+# Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#
+# This file is licensed under the Apache License, Version 2.0 (the "License").
+# You may not use this file except in compliance with the License. A copy of the
+# License is located at
+#
+# http://aws.amazon.com/apache2.0/
+#
+# This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
+# OF ANY KIND, either express or implied. See the License for the specific
+# language governing permissions and limitations under the License.
+#
+# ------------------------------------------------------------------
 # Documentation build script for AWS Sphinx documentation on GitHub.
-#
-# Author: Eron Hennessey (eronh@amazon.com)
-#
-# Copyright © 2016, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+# ------------------------------------------------------------------
 
 import sys, os
 import subprocess
@@ -23,11 +33,12 @@ Couldn't clone repository. Please make sure that you have 'git' installed and
 that you can access GitHub repositories using SSH.
 """
 
-AWS_SHARED_REPO = 'https://github.com/awsdocs/aws-doc-shared-content.git'
-BUILD_DIR = 'build'
-OUTPUT_DIR = 'output'
-SHARED_DIR = 'shared_content'
-SHARED_SUBDIR = 'sphinx_shared'
+# The file to load extra dependencies from.
+DEPENDENCIES_FILE = 'dependencies.txt'
+DEPENDENCIES_DIR = 'build_dependencies'
+
+BUILD_DIR = 'doc_build'
+OUTPUT_DIR = 'doc_output'
 SOURCE_DIR = 'doc_source'
 
 
@@ -65,6 +76,20 @@ def copy_dir_contents_with_overwrite(input_dir_name, output_dir_name):
             shutil.copyfile(input_path, output_path)
 
 
+def clone_and_copy_dependency(git_url, dep, subdir = ''):
+    print("Getting content from dependency: " + git_url)
+    try:
+        subprocess.check_call(['git', 'clone', '--depth', '1', git_url,
+            os.path.join(DEPENDENCIES_DIR, dep)])
+    except:
+        print(FAILED_CHECKOUT)
+        sys.exit(1)
+
+    # copy the contents of the subdir into the build directory.
+    path_to_copy = os.path.join(DEPENDENCIES_DIR, dep, subdir)
+    copy_dir_contents_with_overwrite(path_to_copy, BUILD_DIR)
+
+
 def run():
     # try to import requirements, and complain if they can't be found.
     try:
@@ -90,24 +115,27 @@ def run():
     # Step 0: empty the build dir if it's there.
     #
     check_and_remove_dir(BUILD_DIR)
-    check_and_remove_dir(SHARED_DIR)
+    check_and_remove_dir(DEPENDENCIES_DIR)
     check_and_remove_dir(OUTPUT_DIR)
 
-    #
-    # Step 1: grab the shared content and copy it into BUILD_DIR.
-    #
-    print("Getting shared content from " + AWS_SHARED_REPO)
-    try:
-        subprocess.check_call(['git', 'clone', '--depth', '1', AWS_SHARED_REPO,
-            SHARED_DIR])
-    except:
-        print(FAILED_CHECKOUT)
-        sys.exit(1)
-
-    shared_input_dir = os.path.join(SHARED_DIR, SHARED_SUBDIR)
-    print("Copying shared content from %s to %s" % (shared_input_dir,
-        BUILD_DIR))
-    copy_dir_contents_with_overwrite(shared_input_dir, BUILD_DIR)
+    # Step 1: Load any dependencies. Dependencies consist of a tuple: a git repository and a
+    # subdirectory to copy.
+    dependencies = []
+    if os.path.exists(DEPENDENCIES_FILE):
+        os.mkdir(DEPENDENCIES_DIR)
+        dep_num = 0
+        dep_file_contents = open(DEPENDENCIES_FILE, 'r').readlines()
+        for line in dep_file_contents:
+            # ignore comments
+            bare_line = line.strip()
+            if bare_line == '':
+                continue
+            elif not bare_line.startswith('#'):
+                (git_url, subdir) = line.split()
+                if subdir == None:
+                    subdir = ''
+                clone_and_copy_dependency(git_url, str(dep_num), subdir)
+                dep_num += 1
 
     #
     # Step 2: copy the contents of SOURCE_DIR into the BUILD_DIR.
@@ -149,7 +177,7 @@ def run():
     if '--noclean' not in cmd_switches:
         print("Cleaning up.")
         check_and_remove_dir(BUILD_DIR)
-        check_and_remove_dir(SHARED_DIR)
+        check_and_remove_dir(DEPENDENCIES_DIR)
 
     print("Finished! You'll find the built docs in the '%s' directory." %
             OUTPUT_DIR)

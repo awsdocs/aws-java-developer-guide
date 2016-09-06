@@ -15,17 +15,20 @@
  */
 package example.swf.hellolambda;
 
-import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
 import com.amazonaws.services.simpleworkflow.model.*;
-import com.amazonaws.services.lambda.AWSLambdaClient;
+import com.amazonaws.services.lambda.AWSLambda;
+import com.amazonaws.services.lambda.AWSLambdaClientBuilder;
 import com.amazonaws.services.lambda.model.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class WorkflowWorker {
-    private static AmazonSimpleWorkflowClient swf =
-        new AmazonSimpleWorkflowClient();
+
+    private static final AmazonSimpleWorkflow swf =
+        AmazonSimpleWorkflowClientBuilder.defaultClient();
 
     public static void main(String[] args) {
         PollForDecisionTaskRequest task_request =
@@ -115,7 +118,7 @@ public class WorkflowWorker {
         }
         else {
             if (running_functions == 0 && scheduled_functions == 0) {
-                AWSLambdaClient lam = new AWSLambdaClient();
+                AWSLambda lam = AWSLambdaClientBuilder.defaultClient();
                 GetFunctionConfigurationResult function_config =
                     lam.getFunctionConfiguration(
                             new GetFunctionConfigurationRequest()

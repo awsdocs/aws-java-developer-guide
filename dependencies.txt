@@ -1,0 +1,12 @@
+# Dependencies for the AWS SDK for Java Developer Guide, which are copied into the build directory
+# during a build.
+#
+# The format of this file is simple: each line represents a single dependency, consisting of a Git
+# URL and an optional sub-directory within the repository. If the sub-directory is given, then
+# everything within it and down is copied.
+#
+# Git URL                                               Subdirectory to copy
+# ---------------------------------------------------   ------------------------------------------
+https://github.com/awsdocs/aws-doc-shared-content.git   sphinx_shared
+https://github.com/awsdocs/aws-doc-sdk-examples.git     java
+

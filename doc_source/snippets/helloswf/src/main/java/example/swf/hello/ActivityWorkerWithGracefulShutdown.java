@@ -18,7 +18,8 @@ package example.swf.hello;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
 import com.amazonaws.services.simpleworkflow.model.ActivityTask;
 import com.amazonaws.services.simpleworkflow.model.PollForActivityTaskRequest;
 import com.amazonaws.services.simpleworkflow.model.RespondActivityTaskCompletedRequest;
@@ -27,8 +28,8 @@ import com.amazonaws.services.simpleworkflow.model.TaskList;
 
 public class ActivityWorkerWithGracefulShutdown {
 
-    private static AmazonSimpleWorkflowClient swf =
-        new AmazonSimpleWorkflowClient();
+    private static final AmazonSimpleWorkflow swf =
+        AmazonSimpleWorkflowClientBuilder.defaultClient();
     private static CountDownLatch waitForTermination = new CountDownLatch(1);
     private static volatile boolean terminate = false;
 

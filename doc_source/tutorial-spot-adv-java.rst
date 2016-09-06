@@ -82,20 +82,13 @@ address indicates the subnet for the specified IP address. We also configure the
 
 .. code-block:: java
 
-    // Retrieves the credentials from an AWSCredentials.properties file.
-    AWSCredentials credentials = null;
-    try {
-        credentials = new PropertiesCredentials(
-            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    } catch (IOException e1) {
-       System.out.println(
-           "Credentials were not properly entered into AwsCredentials.properties.");
-       System.out.println(e1.getMessage());
-       System.exit(-1);
-    }
+    // Retrieves the credentials from the shared credentials file
+    AWSCredentialsProvider credentials = new ProfileCredentialsProvider("my-profile");
 
     // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                        .withCredentials(credentials)
+                        .build();
 
     // Create a new security group.
     try {
@@ -173,21 +166,8 @@ method on the :code:`AmazonEC2Client` object. An example of how to request a Spo
 
 .. code-block:: java
 
-    // Retrieves the credentials from an AWSCredentials.properties file.
-    AWSCredentials credentials = null;
-    try {
-        credentials = new PropertiesCredentials(
-            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    }
-    catch (IOException e1) {
-        System.out.println(
-            "Credentials were not properly entered into AwsCredentials.properties.");
-        System.out.println(e1.getMessage());
-        System.exit(-1);
-    }
-
-    // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Initializes a Spot Instance Request
     RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
@@ -244,8 +224,8 @@ Spot request. This can be done with the following code.
         System.exit(-1);
     }
 
-    // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Initializes a Spot Instance Request
     RequestSpotInstancesRequest requestRequest =
@@ -311,21 +291,8 @@ following code example.
 
 .. code-block:: java
 
-    // Retrieves the credentials from an AWSCredentials.properties file.
-    AWSCredentials credentials = null;
-    try {
-        credentials = new PropertiesCredentials(
-            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    }
-    catch (IOException e1) {
-        System.out.println(
-            "Credentials were not properly entered into AwsCredentials.properties.");
-        System.out.println(e1.getMessage());
-        System.exit(-1);
-    }
-
-    // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Initializes a Spot Instance Request
     RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
@@ -365,21 +332,8 @@ same Availability Zone. An example of how to set an Availability Zone group foll
 
 .. code-block:: java
 
-    // Retrieves the credentials from an AWSCredentials.properties file.
-    AWSCredentials credentials = null;
-    try {
-        credentials = new PropertiesCredentials(
-            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    }
-    catch (IOException e1) {
-        System.out.println(
-            "Credentials were not properly entered into AwsCredentials.properties.");
-        System.out.println(e1.getMessage());
-        System.exit(-1);
-    }
-
-    // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Initializes a Spot Instance Request
     RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
@@ -416,21 +370,8 @@ example shows you how to set an Availability Zone.
 
 .. code-block:: java
 
-    // Retrieves the credentials from an AWSCredentials.properties file.
-    AWSCredentials credentials = null;
-    try {
-        credentials = new PropertiesCredentials(
-            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    }
-    catch (IOException e1) {
-        System.out.println(
-            "Credentials were not properly entered into AwsCredentials.properties.");
-        System.out.println(e1.getMessage());
-        System.exit(-1);
-    }
-
-    // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Initializes a Spot Instance Request
     RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
@@ -472,21 +413,8 @@ how to set a placement group follows.
 
 .. code-block:: java
 
-    // Retrieves the credentials from an AWSCredentials.properties file.
-    AWSCredentials credentials = null;
-    try {
-        credentials = new PropertiesCredentials(
-            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    }
-    catch (IOException e1) {
-        System.out.println(
-            "Credentials were not properly entered into AwsCredentials.properties.");
-        System.out.println(e1.getMessage());
-        System.exit(-1);
-    }
-
-    // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Initializes a Spot Instance Request
     RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();
@@ -563,8 +491,8 @@ that we include in the launch specification.
         System.exit(-1);
     }
 
-    // Create the AmazonEC2Client object so we can call various APIs.
-    AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+    // Create the AmazonEC2 client so we can call various APIs.
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
     // Initializes a Spot Instance Request
     RequestSpotInstancesRequest requestRequest = new RequestSpotInstancesRequest();

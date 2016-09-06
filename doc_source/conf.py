@@ -383,4 +383,7 @@ extlinks['java-ref'] = (java_api_url + javadoc_f, '')
 extlinks['java-ref-nf'] = (java_api_url + javadoc_nf, '')
 extlinks['javase-ref'] = (javase_api_url + javadoc_f, '')
 extlinks['javase-ref-nf'] = (javase_api_url + javadoc_nf, '')
+extlinks['sdk-examples-java'] = (
+    'https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/java/example_code/s3/src/main/java/aws/example/%s',
+    '')
 

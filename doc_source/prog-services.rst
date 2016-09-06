@@ -27,3 +27,4 @@ This section provides tutorials and examples of using the |sdk-java| with AWS se
    prog-services-ec2
    prog-services-sts
    prog-services-swf
+   examples/s3

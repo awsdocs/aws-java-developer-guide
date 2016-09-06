@@ -16,11 +16,6 @@ Regions enable you to access AWS services that reside physically in a specific g
 can be useful both for redundancy and to keep your data and applications running close to where you
 and your users will access them.
 
-.. note:: The |sdk-java| uses |region-api-default| as the default region if you do not specify a
-   region in your code. However, the |console| uses |region-console-default| as its default.
-   Therefore, when using the |console| in conjunction with your development, :emphasis:`be sure to
-   specify the same region in both your code and the console`.
-
 .. contents::
    :depth: 1
    :local:
@@ -35,11 +30,12 @@ the region that you'd like to use. For example:
 
 .. code-block:: java
 
-    Region.getRegion(Regions.US_WEST_2).isServiceSupported(ServiceAbbreviations.Dynamodb);
+    Region.getRegion(Regions.US_WEST_2)
+            .isServiceSupported(AmazonDynamoDB.ENDPOINT_PREFIX);
 
 See the :java-api:`Regions <regions/Regions>` class documentation to see which regions can be
-specified, and see :java-api:`ServiceAbbrevations <regions/ServiceAbbreviations>` for the list of
-services that you can query.
+specified, and use the endpoint prefix of the service to query. Each service's endpoint prefix is defined in the service
+interface. For example, Amazon DynamoDB's endpoint prefix is defined in :java-api:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`.
 
 
 .. _region-selection-choose-region:
@@ -51,26 +47,28 @@ Beginning with version 1.4 of the |sdk-java|, you can specify a region name and 
 automatically choose an appropriate endpoint for you. If you want to choose the endpoint yourself,
 see :ref:`region-selection-choose-endpoint`.
 
-The Region.getRegion method will retrieve a Region object, which you can use to create a new client
-that is configured to use that region. For example:
+To explicitly set a region, it is recommended to use the :java-api:`Regions <regions/Regions>` enum
+which is a enumeration of all publicly available regions. To create a client with a region from
+the enum use the following code.
 
 .. code-block:: java
 
-    AmazonEC2 ec2 = Region.getRegion(Regions.US_WEST_2).createClient(
-      AmazonEC2Client.class, credentials, clientConfig);
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                        .withRegion(Regions.US_WEST_2)
+                        .build();
 
-To choose a region for an :emphasis:`existing AWS client`, call the setRegion method on the client
-object. For example:
+If the region you are attempting to use is not in the Regions enum, you can also set the region
+with just the name of the region. For example:
 
 .. code-block:: java
 
-    AmazonEC2 ec2 = new AmazonEC2(myCredentials);
-    ec2.setRegion(Region.getRegion(Regions.US_WEST_2));
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                        .withRegion("us-west-2")
+                        .build();
 
-.. important:: :methodname:`setRegion` is not thread-safe, so you should be careful when changing
-   the region for an existing client. To avoid potential thread synchronization issues, create a
-   :emphasis:`new` client object for each region that you are using.
-
+Note that once a client has been built with the builder it is immutable and the region cannot be
+changed. If you are working with multiple AWS Regions for the same service then you should create
+multiple clients.
 
 .. _region-selection-choose-endpoint:
 
@@ -83,25 +81,33 @@ For example, to configure the |EC2| client to use the |euwest1-name|, use the fo
 
 .. code-block:: java
 
-     AmazonEC2 ec2 = new AmazonEC2(myCredentials); ec2.setEndpoint("https://ec2.eu-west-1.amazonaws.com");
+     AmazonEC2 ec2 = new AmazonEC2(myCredentials);
+     ec2.setEndpoint("https://ec2.eu-west-1.amazonaws.com");
 
 Go to |regions-and-endpoints|_ for the current list of regions and their corresponding endpoints for
 all AWS services.
 
 
-Developing Code that Accesses Multiple AWS Regions
-==================================================
+Determining Region from Environment
+===================================
 
-Regions are logically isolated from each other; cross-region resource use is prohibited. This means
-that you can't access *US East* resources when communicating with the *EU West* endpoint, for
-example.
+When running on Amazon EC2 or AWS Lambda, it's often desirable to configure clients with the same
+region that your code is running on. This decouples your code from the environment it's running in
+and makes it easier to deploy your application to multiple regions for lower latency or redundancy.
 
-If your code accesses multiple AWS regions, instantiate a specific client for each region:
+To have the SDK automatically detect the region your code is running in, you can use the client builders.
+If you don't explicitly set a region via the withRegion methods, then the SDK will consult a default
+region provider chain to try and determine the region to use.
 
-.. code-block:: java
+The region lookup process is as follows
+    #. First, the AWS_REGION environment variable is checked. If it's set that region will be used to configure the client. If not we move on.
+        * Note that this environment variable is set by the AWS Lambda container
+    #. Next the SDK will look at the AWS shared config file (usually located at ~/.aws/config). If the `region` property the SDK will use it.
+        * The AWS_CONFIG_FILE environment variable can be used to customize the location of the shared config file.
+        * The AWS_PROFILE environment variable or the aws.profile system property can be used to customize which profile is loaded by the SDK.
+    #. Finally, if the SDK still hasn't found a region to use it will attempt to call the EC2 instance metadata service to determine the region of the current running EC2 instance.
+        * If the application is not running on EC2 then the region lookup will fail and an exception will be thrown.
 
-    AmazonEC2 ec2_euro = Region.getRegion(Regions.EU_WEST_1).createClient(
-      AmazonEC2Client.class, credentials, clientConfig);
-
-    AmazonEC2 ec2_us = Region.getRegion(Regions.US_EAST_1).createClient(
-      AmazonEC2Client.class, credentials, clientConfig);
+A common approach to developing AWS applications is to use the shared config file to set the region for local
+development and rely on the default region provider chain to determine the region when running on AWS
+infrastructure. This greatly simplifies client creation and keeps your application portable.

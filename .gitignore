@@ -1,4 +1,4 @@
 README.html
-build/
-output/
-shared_content/
+doc_build/
+doc_output/
+build_dependencies/

@@ -1,0 +1,3 @@
+.. note:: These code snippets assume that you understand the material in :doc:`basics` and have
+   configured default AWS credentials using the information in :doc:`setup-credentials`.
+

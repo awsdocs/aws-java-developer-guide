@@ -69,7 +69,7 @@ objects for concurrent (asynchronous) programming.
 
 .. code-block:: java
 
-    AmazonSimpleWorkflowClient swf = new AmazonSimpleWorkflowClient();
+    AmazonSimpleWorkflowClient swf = AmazonSimpleWorkflowClientBuilder.defaultClient();
 
 
 
