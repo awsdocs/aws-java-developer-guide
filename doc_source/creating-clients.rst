@@ -12,14 +12,16 @@
 Creating Service Clients
 ########################
 
-To make requests to |AWSlong|, you first create a service client object. The
-preferred way to do this is to use the service client builder. Each AWS service has a service interface
-that has methods for each action in the service API. For example, the service interface for
-|DDBlong| is named :java-api:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`. Each service interface has a corresponding client builder you can use to construct
-an implementation of the service interface. The client builder class for |DDB| is named
-:java-api:`AmazonDynamoDBClientBuilder <services/dynamodbv2/AmazonDynamoDBClientBuilder>`.
+To make requests to |AWSlong|, you first create a service client object. The preferred way to do
+this is to use the service client builder. Each AWS service has a service interface that has methods
+for each action in the service API. For example, the service interface for |DDBlong| is named
+:java-api:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`. Each service interface has a
+corresponding client builder you can use to construct an implementation of the service interface.
+The client builder class for |DDB| is named :java-api:`AmazonDynamoDBClientBuilder
+<services/dynamodbv2/AmazonDynamoDBClientBuilder>`.
 
-To obtain an instance of the client builder, use the static factory method ``standard``, as shown in the following example.
+To obtain an instance of the client builder, use the static factory method ``standard``, as shown in
+the following example.
 
 .. code-block:: java
 
@@ -27,7 +29,8 @@ To obtain an instance of the client builder, use the static factory method ``sta
 
 
 Once you obtain a builder, you can customize properties of the client by using many fluent setters
-in the builder API. For example, you can set a custom region and a custom credentials provider as follows.
+in the builder API. For example, you can set a custom region and a custom credentials provider as
+follows.
 
 .. code-block:: java
 
@@ -36,11 +39,14 @@ in the builder API. For example, you can set a custom region and a custom creden
                             .withCredentials(new ProfileCredentialsProvider("myProfile"))
                             .build();
 
-.. note:: The fluent withXXX methods return the ``builder`` object so that you can chain the method calls for convenience and more readable code. After you configure all the properties you want, you can call the ``build`` method to create the client. Once a client is created, it is immutable and any calls to ``setRegion`` or ``setEndpoint`` will fail.
+.. note:: The fluent withXXX methods return the ``builder`` object so that you can chain the method
+   calls for convenience and more readable code. After you configure all the properties you want,
+   you can call the ``build`` method to create the client. Once a client is created, it is immutable
+   and any calls to ``setRegion`` or ``setEndpoint`` will fail.
 
-A builder can create multiple clients with the same configuration. When you're writing your application, be aware that the builder is
-mutable and not thread-safe. The following
-code uses the builder as a factory for client instances.
+A builder can create multiple clients with the same configuration. When you're writing your
+application, be aware that the builder is mutable and not thread-safe. The following code uses the
+builder as a factory for client instances.
 
 .. code-block:: java
 
@@ -56,7 +62,7 @@ code uses the builder as a factory for client instances.
     }
 
 The builder also exposes fluent setters for :java-api:`ClientConfiguration <ClientConfiguration>`',
-:java-api:`RequestMetricCollector <metrics/RequestMetricCollector>`, and custom
+:java-api:`RequestMetricCollector <metrics/RequestMetricCollector>`, and a custom list of
 :java-api:`RequestHandler2 <handlers/RequestHandler2>`.
 
 The following is a complete example that overrides all configurable properties.
@@ -100,12 +106,13 @@ interface, so it interoperates with Java 8 lambda expressions and method referen
 
 Default Client
 ==============
+
 Both the sync and async client builders have another factory method called ``defaultClient``. This
-method creates a service client with the default configuration and with credentials and region
-obtained from the environment. If credentials or region cannot be determined from the environment
-that the application is running in, the call to ``defaultClient`` will fail. See :doc:`credentials` and
-:doc:`java-dg-region-selection` for more information on how credentials and region are
-determined.
+method creates a service client with the default configuration, using the default provider chain to
+load credentials and the AWS region. If either credentials or the region cannot be determined from
+the environment that the application is running in, the call to ``defaultClient`` will fail. See
+:doc:`credentials` and :doc:`java-dg-region-selection` for more information on how credentials and
+region are determined.
 
 **To create a default service client**
 
@@ -115,10 +122,11 @@ determined.
 
 Client Lifecycle
 ================
-Service clients in the SDK are thread-safe and, for best performance, you should treat them as long-lived objects.
-Each client has its own connection pool resource that is shut down when the client is garbage collected.
-To explicitly shut down a client, you can call the ``shutdown`` method. After calling ``shutdown``, all client
-resources are released and the client is unusable.
+
+Service clients in the SDK are thread-safe and, for best performance, you should treat them as
+long-lived objects.  Each client has its own connection pool resource that is shut down when the
+client is garbage collected.  To explicitly shut down a client, you can call the ``shutdown``
+method. After calling ``shutdown``, all client resources are released and the client is unusable.
 
 **To shut down a client**
 
@@ -127,5 +135,4 @@ resources are released and the client is unusable.
     AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
     ddb.shutdown();
     // Client is now unusable
-
 
