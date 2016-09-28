@@ -16,9 +16,13 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **Last documentation update:** |today|
 
+Sep 26, 2016
+    The topics in the **Advanced** section have been moved into :doc:`basics`, since they really are
+    central to using the SDK.
+
 Aug 25, 2016
-    A new topic, :doc:`creating-clients`, has been added to the :doc:`basics` section, which
-    demonstrates how to use *client builders* to simplify the creation of AWS service clients.
+    A new topic, :doc:`creating-clients`, has been added to :doc:`basics`, which demonstrates how to
+    use *client builders* to simplify the creation of AWS service clients.
 
     The :doc:`prog-services` section has been updated with :doc:`new examples for S3 <examples/s3>`
     which are backed by a `repository on GitHub <sdk-doc-examples_>`_ that contains the complete
@@ -56,8 +60,8 @@ Feb 23, 2016
     <awsdocs/aws-java-developer-guide>`.
 
 Dec 28, 2015
-    :doc:`java-dg-jvm-ttl` has been moved from :doc:`advanced` into the :doc:`basics` section, and
-    has been rewritten for clarity.
+    :doc:`java-dg-jvm-ttl` has been moved from **Advanced** into :doc:`basics`, and has been
+    rewritten for clarity.
 
     :doc:`setup-project-maven` has been updated with information about how to include the
     SDK's bill of materials (BOM) in your project.

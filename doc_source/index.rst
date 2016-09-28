@@ -24,7 +24,6 @@
    getting-started
    basics
    prog-services
-   advanced
    document-history
 
 .. include:: about-aws.txt

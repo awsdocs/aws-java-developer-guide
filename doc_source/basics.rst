@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#################
-|sdk-java| Basics
-#################
+#############
+Using the SDK
+#############
 
 This section provides important general information about programming with the |sdk-java|.
 Information in this section applies to all services that you might be using with the |sdk-java|.
@@ -27,3 +27,7 @@ For information that is specific to a particular service (EC2, SWF, etc.), see t
    java-dg-exceptions
    basics-async
    java-dg-logging
+   section-client-configuration
+   java-dg-access-control
+   java-dg-jvm-ttl
+

@@ -8,11 +8,11 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-######################
-Tutorials and Examples
-######################
+####################
+Programming Examples
+####################
 
-This section provides tutorials and examples of using the |sdk-java| with AWS service clients.
+This section provides tutorials and examples of using the |sdk-java| to program AWS services.
 
 .. tip:: See :ref:`additional-resources` for more examples and additional resources available for
    |sdk-java| developers!
