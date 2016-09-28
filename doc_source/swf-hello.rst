@@ -318,8 +318,8 @@ activity and returns a success/failure response back to the workflow.
 
 We'll implement a simple activity worker that drives a single activity.
 
-#. Open your text editor and create the file :filename:`ActivityWorker.java`, adding a package declaration
-   and imports according to the :ref:`common steps <swf-hello-common>`.
+#. Open your text editor and create the file :filename:`ActivityWorker.java`, adding a package
+   declaration and imports according to the :ref:`common steps <swf-hello-common>`.
 
 #. Add the :classname:`ActivityWorker` class to the file, and give it a data member to hold a SWF
    client that we'll use to interact with |SWF|:
@@ -519,8 +519,8 @@ Implement the workflow starter
 
 Finally, we'll write some code to start the workflow execution.
 
-#. Open your text editor and create the file :filename:`WorkflowStarter.java`, adding a package declaration
-   and imports according to the :ref:`common steps <swf-hello-common>`.
+#. Open your text editor and create the file :filename:`WorkflowStarter.java`, adding a package
+   declaration and imports according to the :ref:`common steps <swf-hello-common>`.
 
 #. Add the :classname:`WorkflowStarter` class:
 
@@ -663,7 +663,6 @@ Complete source for this example
 You can browse the :github:`complete source
 <awsdocs/aws-java-developer-guide/tree/master/doc_source/snippets/helloswf/>` for this example on
 Github in the *aws-java-developer-guide* repository.
-
 
 For more information
 ====================

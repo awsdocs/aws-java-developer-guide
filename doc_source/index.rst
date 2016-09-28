@@ -12,6 +12,10 @@
 |sdk-java|
 ##########
 
+.. meta::
+    :description: Developer Guide for the AWS SDK for Java
+    :keywords: java, sdk, aws
+
 .. toctree::
    :maxdepth: 1
    :titlesonly:
@@ -22,3 +26,6 @@
    prog-services
    advanced
    document-history
+
+.. include:: about-aws.txt
+
