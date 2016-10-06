@@ -2,6 +2,11 @@
 Creating, Listing and Deleting Buckets
 ######################################
 
+.. meta::
+    :description: How to create, list, or delete a bucket using the AWS SDK for Java.
+    :keywords: Amazon S3, AWS SDK for Java, bucket, create bucket, list bucket, delete bucket,
+               versioned bucket
+
 Every object (file) in |S3| must reside within a *bucket*, which represents a collection (container)
 of objects. Each bucket is known by a *key* (name), which must be unique. For detailed information
 about buckets and their configuration, see :s3-dg:`Working with Amazon S3 Buckets <UsingBucket>` in
