@@ -79,7 +79,7 @@ delete each one.
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 52-70, 93
+   :lines: 52-70, 93-97
    :dedent: 8
 
 
@@ -98,7 +98,7 @@ objects and then :methodname:`deleteVersion` to delete each one.
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 52-54, 72-89, 93
+   :lines: 52-54, 72-89, 93-97
    :dedent: 8
 
 Deleting an empty bucket
@@ -115,7 +115,7 @@ bucket itself, use the |s3client| client's :methodname:`deleteBucket` method.
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 52-54, 92-93
+   :lines: 52-54, 92-97
    :dedent: 8
 
 See the :sdk-examples-java:`complete example <s3/DeleteBucket.java>`.
