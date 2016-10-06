@@ -60,8 +60,52 @@ See the :sdk-examples-java:`complete example <s3/ListBuckets.java>`.
 Delete a bucket
 ===============
 
-Use the |s3client| client's :methodname:`deleteBucket` method. *The bucket must be empty, or an
-error will result*.
+Before you can delete an |S3| bucket, you must ensure that the bucket is empty first, or an error
+will result. If you have a :S3-dg:`versioned bucket <Versioning>`, then you must also delete any
+object versions associated with the bucket, also.
+
+Removing objects from a bucket prior to deletion
+------------------------------------------------
+
+To remove objects from a bucket prior to deletion, you can use the |s3client| client's
+:methodname:`listObjects` method to retrieve the list of objects and :methodname:`deleteObject` to
+delete each one.
+
+**Imports:**
+
+.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+   :lines: 15-17, 19-20, 23
+
+**Code:**
+
+.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+   :lines: 52-70, 93
+   :dedent: 8
+
+
+Removing versioned objects from a bucket prior to deletion
+----------------------------------------------------------
+
+Using a pattern similar to the one used when removing objects within a bucket, remove versioned
+objects by using the |s3client| client's :methodname:`listVersions` method to list any versioned
+objects and then :methodname:`deleteVersion` to delete each one.
+
+**Imports:**
+
+.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+   :lines: 15-18, 21-23
+
+**Code:**
+
+.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+   :lines: 52-54, 72-89, 93
+   :dedent: 8
+
+Deleting an empty bucket
+------------------------
+
+Once you've removed the objects from a bucket (including any versioned objects), you can delete the
+bucket itself, use the |s3client| client's :methodname:`deleteBucket` method.
 
 **Imports:**
 
@@ -71,7 +115,7 @@ error will result*.
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 45-52
+   :lines: 52-54, 92-93
    :dedent: 8
 
 See the :sdk-examples-java:`complete example <s3/DeleteBucket.java>`.
