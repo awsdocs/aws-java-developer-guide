@@ -67,7 +67,10 @@ Delete a bucket
 
 Before you can delete an |S3| bucket, you must ensure that the bucket is empty first, or an error
 will result. If you have a :S3-dg:`versioned bucket <Versioning>`, then you must also delete any
-object versions associated with the bucket, also.
+versioned objects associated with the bucket.
+
+.. note:: The :sdk-examples-java:`complete example <s3/DeleteBucket.java>` includes each of these
+   steps in order, providing a complete solution for deleting an |S3| bucket and its contents.
 
 Removing objects from a bucket prior to deletion
 ------------------------------------------------
