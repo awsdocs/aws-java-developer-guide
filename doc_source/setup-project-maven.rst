@@ -62,7 +62,7 @@ Configure the SDK as a Maven dependency
 =======================================
 
 To use the |sdk-java| in your project, you'll need to declare it as a dependency in your project's
-:filename:`pom.xml` file. Beginning with version 1.9.0, you can import :ref:`individual components
+:file:`pom.xml` file. Beginning with version 1.9.0, you can import :ref:`individual components
 <configuring-maven-individual-components>` or the :ref:`entire SDK <configuring-maven-entire-sdk>`.
 
 .. _configuring-maven-individual-components:

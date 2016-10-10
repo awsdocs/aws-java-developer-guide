@@ -118,5 +118,5 @@ instructions to build the reference documentation.
     mvn javadoc:javadoc
 
 #. After building is complete, you'll find the generated HTML documentation in the
-   :filename:`aws-java-sdk/target/site/apidocs/` directory.
+   :file:`aws-java-sdk/target/site/apidocs/` directory.
 

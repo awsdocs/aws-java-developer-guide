@@ -134,11 +134,11 @@ Create a SWF project
            └── test
                └── ...
 
-   You can ignore or delete the :filename:`test` directory and all it contains, we won't be using it
-   for this tutorial.  You can also delete :filename:`App.java`, since we'll be replacing it with
+   You can ignore or delete the :file:`test` directory and all it contains, we won't be using it
+   for this tutorial.  You can also delete :file:`App.java`, since we'll be replacing it with
    new classes.
 
-#. Edit the project's :filename:`pom.xml` file and add the **aws-java-sdk-simpleworkflow** module to
+#. Edit the project's :file:`pom.xml` file and add the **aws-java-sdk-simpleworkflow** module to
    it by adding the following section within the :code-xml:`<dependencies>` block.
 
    .. literalinclude:: snippets/helloswf/pom.xml
@@ -147,7 +147,7 @@ Create a SWF project
        :dedent: 4
 
 #. *Make sure that Maven builds your project with JDK 1.7+ support*. Add the following to your
-   project (either before or after the :code-xml:`<dependencies>` block) in :filename:`pom.xml`:
+   project (either before or after the :code-xml:`<dependencies>` block) in :file:`pom.xml`:
 
    .. literalinclude:: snippets/helloswf/pom.xml
        :language: xml
@@ -181,7 +181,7 @@ Common steps for all source files
 All of the files that you create to house your Java classes will have a few things in common. In the
 interest of time, these steps *will be implied every time you add a new file to the project*:
 
-#. Create the file in the in the project's :filename:`src/main/java/example/swf/hello/` directory.
+#. Create the file in the in the project's :file:`src/main/java/example/swf/hello/` directory.
 
 #. Add a ``package`` declaration to the beginning of each file to declare its namespace. The
    example project uses:
@@ -203,11 +203,11 @@ interest of time, these steps *will be implied every time you add a new file to 
 Register a domain, workflow and activity types
 ----------------------------------------------
 
-We'll begin by creating a new executeable class, :filename:`HelloTypes.java`. This file will contain shared
+We'll begin by creating a new executeable class, :file:`HelloTypes.java`. This file will contain shared
 data that different parts of your workflow will need to know about, such as the name and version of
 your activity and workflow types, the domain name and the task list name.
 
-#. Open your text editor and create the file :filename:`HelloTypes.java`, adding a package declaration and
+#. Open your text editor and create the file :file:`HelloTypes.java`, adding a package declaration and
    imports according to the :ref:`common steps <swf-hello-common>`.
 
 #. Declare the :classname:`HelloTypes` class and provide it with values to use for your registered
@@ -318,7 +318,7 @@ activity and returns a success/failure response back to the workflow.
 
 We'll implement a simple activity worker that drives a single activity.
 
-#. Open your text editor and create the file :filename:`ActivityWorker.java`, adding a package
+#. Open your text editor and create the file :file:`ActivityWorker.java`, adding a package
    declaration and imports according to the :ref:`common steps <swf-hello-common>`.
 
 #. Add the :classname:`ActivityWorker` class to the file, and give it a data member to hold a SWF
@@ -393,7 +393,7 @@ workflow type was registered with.
 When the workflow worker receives a task, it makes some sort of decision (usually whether to
 schedule a new activity or not) and takes an appropriate action (such as scheduling the activity).
 
-#. Open your text editor and create the file :filename:`WorkflowWorker.java`, adding a package
+#. Open your text editor and create the file :file:`WorkflowWorker.java`, adding a package
    declaration and imports according to the :ref:`common steps <swf-hello-common>`.
 
 #. Add a few additional imports to the file:
@@ -519,7 +519,7 @@ Implement the workflow starter
 
 Finally, we'll write some code to start the workflow execution.
 
-#. Open your text editor and create the file :filename:`WorkflowStarter.java`, adding a package
+#. Open your text editor and create the file :file:`WorkflowStarter.java`, adding a package
    declaration and imports according to the :ref:`common steps <swf-hello-common>`.
 
 #. Add the :classname:`WorkflowStarter` class:
@@ -555,13 +555,13 @@ Finally, we'll write some code to start the workflow execution.
 Build the example
 =================
 
-To build the example project with Maven, go to the :filename:`helloswf` directory and type:
+To build the example project with Maven, go to the :file:`helloswf` directory and type:
 
 .. code-block:: sh
 
    mvn package
 
-The resulting :filename:`helloswf-1.0.jar` will be generated in the :filename:`target` directory.
+The resulting :file:`helloswf-1.0.jar` will be generated in the :file:`target` directory.
 
 
 Run the example
@@ -582,7 +582,7 @@ Setting the Java classpath
 Although Maven has handled the dependencies for you, to run the example, you'll need to provide the
 AWS SDK library and its dependencies on your Java classpath. You can either set the
 :envvar:`CLASSPATH` environment variable to the location of your AWS SDK libraries and the
-:filename:`third-party/lib` directory in the SDK, which includes necessary dependencies:
+:file:`third-party/lib` directory in the SDK, which includes necessary dependencies:
 
 .. code-block:: sh
 

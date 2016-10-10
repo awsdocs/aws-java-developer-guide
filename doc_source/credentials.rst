@@ -52,7 +52,7 @@ class.  The default credential provider chain looks for credentials in this orde
     <auth/SystemPropertiesCredentialsProvider>` to load these credentials.
 
 3.  **The default credential profiles file** |ndash| typically located at
-    :filename:`~/.aws/credentials` (this location may vary per platform), this credentials file is
+    :file:`~/.aws/credentials` (this location may vary per platform), this credentials file is
     shared by many of the AWS SDKs and by the AWS CLI. The |sdk-java| uses the
     :java-api:`ProfileCredentialsProvider <auth/profile/ProfileCredentialsProvider>` to load these
     credentials.
