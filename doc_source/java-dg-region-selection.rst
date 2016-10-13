@@ -91,11 +91,13 @@ all AWS services.
 Determining Region from Environment
 ===================================
 
+    .. important:: This section only applies to the client builders. Any clients created with the client constructor will not automatically determine region from the environment and instead will use a default endpoint (usually us-east-1).
+
 When running on Amazon EC2 or AWS Lambda, it's often desirable to configure clients with the same
 region that your code is running on. This decouples your code from the environment it's running in
 and makes it easier to deploy your application to multiple regions for lower latency or redundancy.
 
-To have the SDK automatically detect the region your code is running in, you can use the client builders.
+To have the SDK automatically detect the region your code is running in, you must use the client builders.
 If you don't explicitly set a region via the withRegion methods, then the SDK will consult a default
 region provider chain to try and determine the region to use.
 
@@ -112,3 +114,22 @@ The region lookup process is as follows
 A common approach to developing AWS applications is to use the shared config file to set the region for local
 development and rely on the default region provider chain to determine the region when running on AWS
 infrastructure. This greatly simplifies client creation and keeps your application portable.
+
+Examples:
+
+.. code-block:: java
+
+    // Uses default credential provider and determines region
+    // from environment
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                        .build();
+
+    // Shorthand for the above
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+
+    // This client will not determine region from environment and
+    // will always use us-west-2
+    AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                        .withRegion(Regions.US_WEST_2)
+                        .build();
+
