@@ -25,17 +25,16 @@ and your users will access them.
 Checking for Service Availability in an AWS Region
 ==================================================
 
-To see if a particular AWS service is available in a region, use the isServiceSupported method on
-the region that you'd like to use. For example:
-
-.. code-block:: java
+To see if a particular AWS service is available in a region, use the
+:methodname:`isServiceSupported` method on the region that you'd like to use. For example::
 
     Region.getRegion(Regions.US_WEST_2)
-            .isServiceSupported(AmazonDynamoDB.ENDPOINT_PREFIX);
+        .isServiceSupported(AmazonDynamoDB.ENDPOINT_PREFIX);
 
 See the :java-api:`Regions <regions/Regions>` class documentation to see which regions can be
-specified, and use the endpoint prefix of the service to query. Each service's endpoint prefix is defined in the service
-interface. For example, Amazon DynamoDB's endpoint prefix is defined in :java-api:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`.
+specified, and use the endpoint prefix of the service to query. Each service's endpoint prefix is
+defined in the service interface. For example, |DDB|'s endpoint prefix is defined in
+:java-api:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`.
 
 
 .. _region-selection-choose-region:
@@ -49,37 +48,33 @@ see :ref:`region-selection-choose-endpoint`.
 
 To explicitly set a region, it is recommended to use the :java-api:`Regions <regions/Regions>` enum
 which is a enumeration of all publicly available regions. To create a client with a region from
-the enum use the following code.
-
-.. code-block:: java
+the enum use the following code::
 
     AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
                         .withRegion(Regions.US_WEST_2)
                         .build();
 
-If the region you are attempting to use is not in the Regions enum, you can also set the region
-with just the name of the region. For example:
-
-.. code-block:: java
+If the region you are attempting to use is not in the :classname:`Regions` enum, you can set the
+region using a *string* that represents the name of the region. For example::
 
     AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
                         .withRegion("us-west-2")
                         .build();
 
-Note that once a client has been built with the builder it is immutable and the region cannot be
-changed. If you are working with multiple AWS Regions for the same service then you should create
-multiple clients.
+.. note:: Once a client has been built with the builder it is *immutable* and the region *cannot be
+   changed*. If you are working with multiple AWS Regions for the same service then you should
+   create multiple clients |mdash| one per region.
+
 
 .. _region-selection-choose-endpoint:
 
 Choosing a Specific Endpoint
 ============================
 
-Each AWS client can be configured to use a specific endpoint by calling the setEndpoint method.
+Each AWS client can be configured to use a *specific endpoint* within a region by calling the
+:methodname:`setEndpoint` method.
 
-For example, to configure the |EC2| client to use the |euwest1-name|, use the following code:
-
-.. code-block:: java
+For example, to configure the |EC2| client to use the |euwest1-name|, use the following code::
 
      AmazonEC2 ec2 = new AmazonEC2(myCredentials);
      ec2.setEndpoint("https://ec2.eu-west-1.amazonaws.com");
@@ -87,49 +82,65 @@ For example, to configure the |EC2| client to use the |euwest1-name|, use the fo
 Go to |regions-and-endpoints|_ for the current list of regions and their corresponding endpoints for
 all AWS services.
 
+Automatically Determining the AWS Region from the Environment
+=============================================================
 
-Determining Region from Environment
-===================================
+.. important:: This section applies only when using a :doc:`client builder <creating-clients>` to
+   access AWS services. AWS clients created using the client constructor will not automatically
+   determine region from the environment and will, instead, use the *default* SDK region
+   (|region-sdk-default|).
 
-    .. important:: This section only applies to the client builders. Any clients created with the client constructor will not automatically determine region from the environment and instead will use a default endpoint (usually us-east-1).
+When running on |EC2| or |LAM|, it's often desirable to configure clients to use the same region
+that your code is running on. This decouples your code from the environment it's running in and
+makes it easier to deploy your application to multiple regions for lower latency or redundancy.
 
-When running on Amazon EC2 or AWS Lambda, it's often desirable to configure clients with the same
-region that your code is running on. This decouples your code from the environment it's running in
-and makes it easier to deploy your application to multiple regions for lower latency or redundancy.
+*You must use client builders to have the SDK automatically detect the region your code is running
+in.*
 
-To have the SDK automatically detect the region your code is running in, you must use the client builders.
-If you don't explicitly set a region via the withRegion methods, then the SDK will consult a default
-region provider chain to try and determine the region to use.
+To use the default credential/region provider chain to determine the region from the environment,
+use the client builder's :methodname:`defaultClient` method::
 
-The region lookup process is as follows
-    #. Any explicit region set via the withRegion or setRegion on the builder itself takes precedence over anything else.
-    #. First, the AWS_REGION environment variable is checked. If it's set that region will be used to configure the client. If not we move on.
-        * Note that this environment variable is set by the AWS Lambda container
-    #. Next the SDK will look at the AWS shared config file (usually located at ~/.aws/config). If the `region` property is present the SDK will use it.
-        * The AWS_CONFIG_FILE environment variable can be used to customize the location of the shared config file.
-        * The AWS_PROFILE environment variable or the aws.profile system property can be used to customize which profile is loaded by the SDK.
-    #. Finally, if the SDK still hasn't found a region to use it will attempt to call the EC2 instance metadata service to determine the region of the current running EC2 instance.
-    #. If the SDK still hasn't found a region at this point then client creation will fail with an exception.
-
-A common approach to developing AWS applications is to use the shared config file to set the region for local
-development and rely on the default region provider chain to determine the region when running on AWS
-infrastructure. This greatly simplifies client creation and keeps your application portable.
-
-Examples:
-
-.. code-block:: java
-
-    // Uses default credential provider and determines region
-    // from environment
-    AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
-                        .build();
-
-    // Shorthand for the above
     AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
-    // This client will not determine region from environment and
-    // will always use us-west-2
+This is the same as using :methodname:`standard` followed by :methodname:`build`::
+
     AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
-                        .withRegion(Regions.US_WEST_2)
                         .build();
+
+If you don't explicitly set a region using the :methodname:`withRegion` methods, the SDK will
+consult the default region provider chain to try and determine the region to use.
+
+
+Default Region Provider Chain
+-----------------------------
+
+**The region lookup process is as follows:**
+
+#. Any explicit region set using :methodname:`withRegion` or :methodname:`setRegion` on the builder
+   itself takes precedence over anything else.
+
+#. The :envvar:`AWS_REGION` environment variable is checked. If it's set, then that region will be
+   used to configure the client.
+
+   .. note:: This environment variable is set by the |LAM| container
+
+#. The SDK will look at the AWS shared config file (usually located at :file:`~/.aws/config`). If
+   the :paramname:`region` property is present, then the SDK will use it.
+
+   * The :envvar:`AWS_CONFIG_FILE` environment variable can be used to customize the location of the
+     shared config file.
+
+   * The :envvar:`AWS_PROFILE` environment variable or the :paramname:`aws.profile` system property
+     can be used to customize which profile is loaded by the SDK.
+
+#. The SDK will attempt to use the |EC2| instance metadata service to determine the region of the
+   currently running |EC2| instance.
+
+#. If the SDK still hasn't found a region by this point, client creation will fail with an
+   exception.
+
+A common approach when developing AWS applications is to use the *shared config file* (described in
+:ref:`credentials-default`) to set the region for local development and rely on the default region
+provider chain to determine the region when running on AWS infrastructure.  This greatly simplifies
+client creation and keeps your application portable.
 
