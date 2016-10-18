@@ -2,6 +2,12 @@
 Operations on Objects
 #####################
 
+.. meta::
+    :description: How to list, upload, download, copy, rename, move or delete objects in an Amazon
+                  S3 bucket using the AWS SDK for Java.
+    :keywords: AWS Java SDK, AWS SDK for Java, Amazon S3, copy, delete, download, get, list, move,
+               objects, put, rename, upload
+
 An |S3| object represents a *file*, or collection of data. Every object must reside within a
 :doc:`bucket <buckets>`.
 
@@ -28,7 +34,7 @@ name, and file to upload. *The bucket must exist, or an error will result*.
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/PutObject.java
-   :lines: 47-54
+   :lines: 46-52
    :dedent: 8
 
 See the :sdk-examples-java:`complete example <s3/PutObject.java>`.
@@ -56,7 +62,7 @@ name.
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/ListObjects.java
-   :lines: 46-52
+   :lines: 45-50
    :dedent: 8
 
 See the :sdk-examples-java:`complete example <s3/ListObjects.java>`.
@@ -87,7 +93,7 @@ name as the object's key):
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/GetObject.java
-   :lines: 51-75
+   :lines: 50-71
    :dedent: 8
 
 See the :sdk-examples-java:`complete example <s3/GetObject.java>`.
@@ -109,14 +115,15 @@ and the destination bucket and name.
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/CopyObject.java
-   :lines: 45-54
+   :lines: 46-52
    :dedent: 8
 
 See the :sdk-examples-java:`complete example <s3/CopyObject.java>`.
 
-You can use :methodname:`copyObject` with :ref:`deleteObject <delete-object>` to **move** or
-**rename** an object, by first copying the object to a new name (you can use the same bucket as both
-the source and destination) and then deleting the object from its old location.
+.. note:: You can use :methodname:`copyObject` with :ref:`deleteObject <delete-object>` to **move**
+   or **rename** an object, by first copying the object to a new name (you can use the same bucket
+   as both the source and destination) and then deleting the object from its old location.
+
 
 .. _delete-object:
 
@@ -134,10 +141,11 @@ object to delete. *The specified bucket and object key must exist, or an error w
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteObject.java
-   :lines: 48-55
+   :lines: 47-53
    :dedent: 8
 
 See the :sdk-examples-java:`complete example <s3/DeleteObject.java>`.
+
 
 .. _delete-objects:
 
@@ -156,7 +164,7 @@ from the same bucket by passing their names to the :java-api:`DeleteObjectReques
 **Code:**
 
 .. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteObjects.java
-   :lines: 53-62
+   :lines: 52-60
    :dedent: 8
 
 See the :sdk-examples-java:`complete example <s3/DeleteObjects.java>`.
