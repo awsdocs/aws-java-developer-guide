@@ -12,6 +12,8 @@ of objects. Each bucket is known by a *key* (name), which must be unique. For de
 about buckets and their configuration, see :s3-dg:`Working with Amazon S3 Buckets <UsingBucket>` in
 the the |s3-dg|.
 
+.. include:: common/s3-note-incomplete-upload-policy.txt
+
 .. include:: ../examples-note.txt
 
 .. contents::
