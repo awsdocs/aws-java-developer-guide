@@ -43,9 +43,6 @@ Each of the configurable values has a default value defined by a constant. For a
 constant values for :classname:`ClientConfiguration`, see :java-ref:`Constant Field Values
 <constant-values.html>` in the :title:`AWS SDK for Java Reference`.
 
-.. contents::
-   :depth: 1
-   :local:
 
 Local Address
 -------------

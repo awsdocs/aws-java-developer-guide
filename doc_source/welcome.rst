@@ -21,10 +21,6 @@ applications that work with |S3|, |EC2|, |SDB|, and more. We regularly add suppo
 to the |sdk-java|. For a list of the supported services and their API versions that are included
 with each release of the SDK, view the `release notes`_ for the version that you're working with.
 
-.. contents::
-   :local:
-   :depth: 1
-
 
 .. _additional-resources:
 

@@ -20,10 +20,6 @@ represent units of work in your workflows, and schedule them similarly to activi
 This topic focuses on how to implement |SWF| Lambda tasks using the |sdk-java|. For more information
 about Lambda tasks in general, see :swf-dg:`AWS Lambda Tasks <lambda-task>` in the |SWF-dg|.
 
-.. contents::
-    :local:
-    :depth: 1
-
 
 Set up a cross-service IAM role to run your Lambda function
 ===========================================================

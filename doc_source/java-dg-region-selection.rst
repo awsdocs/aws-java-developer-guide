@@ -16,9 +16,6 @@ Regions enable you to access AWS services that reside physically in a specific g
 can be useful both for redundancy and to keep your data and applications running close to where you
 and your users will access them.
 
-.. contents::
-   :depth: 1
-   :local:
 
 .. _region-selection-query-service:
 

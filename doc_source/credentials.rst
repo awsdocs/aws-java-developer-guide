@@ -28,10 +28,6 @@ There are a number of ways to do this:
 
 This topic provides information about how to load credentials for AWS using the |sdk-java|.
 
-.. contents::
-   :depth: 1
-   :local:
-
 .. _credentials-default:
 
 Using the Default Credential Provider Chain

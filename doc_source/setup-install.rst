@@ -12,9 +12,7 @@
 Set up the |sdk-java|
 #####################
 
-.. contents::
-   :local:
-   :depth: 1
+Describes how to use the |sdk-java| in your project.
 
 Prerequisites
 =============
@@ -27,6 +25,7 @@ To use the |sdk-java|, you must have:
 
 * AWS credentials (access keys) set in your environment or using the shared (by the AWS CLI and
   other SDKs) credentials file. For more information, see :doc:`setup-credentials`.
+
 
 .. _include-sdk:
 

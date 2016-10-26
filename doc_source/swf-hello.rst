@@ -15,9 +15,6 @@ Building a Simple |SWF| Application
 This topic will introduce you to programming |SWF|_ applications with the |sdk-java|, while
 presenting a few important concepts along the way.
 
-.. contents::
-    :local:
-    :depth: 2
 
 About the example
 =================

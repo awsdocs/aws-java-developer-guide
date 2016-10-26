@@ -21,10 +21,6 @@ as your bid exceeds the current *spot price*. |EC2| changes the spot price perio
 supply and demand. For more information about spot instances, see :ec2-ug:`Spot Instances
 <using-spot-instances>` in the |EC2-ug|.
 
-.. contents::
-    :local:
-    :depth: 1
-
 
 .. _tutor-spot-adv-java-prereq:
 

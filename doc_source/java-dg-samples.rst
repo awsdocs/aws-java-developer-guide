@@ -16,9 +16,6 @@ The |sdk-java| comes packaged with a number of code samples that demonstrate man
 the SDK in buildable, runnable programs that you can study or modify to implement your own AWS
 solutions using the |sdk-java|.
 
-.. contents::
-   :depth: 1
-   :local:
 
 How to get the samples
 ======================

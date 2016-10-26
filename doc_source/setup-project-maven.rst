@@ -17,9 +17,6 @@ You can use |mvnlong|_ to configure and build |sdk-java| projects, or to build t
 .. note:: You must have Maven installed to use the guidance in this topic. If it isn't already
    installed, visit http://maven.apache.org/ to download and install it.
 
-.. contents::
-    :local:
-    :depth: 1
 
 Create a new Maven package
 ==========================

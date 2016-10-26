@@ -20,11 +20,6 @@ waiting for a response.
 Since an asynchronous method returns before a response is available, you need a way to get the
 response when it's ready. The |sdk-java| provides two methods: *Futures* and *callback methods*.
 
-.. contents::
-    :local:
-    :depth: 2
-
-
 .. _basics-async-future:
 
 Java Futures
