@@ -36,7 +36,7 @@ Using the Default Credential Provider Chain
 When you initialize a new service client without supplying any arguments, the |sdk-java| will
 attempt to find AWS credentials using the :emphasis:`default credential provider chain` implemented
 by the :java-api:`DefaultAWSCredentialsProviderChain <auth/DefaultAWSCredentialsProviderChain>`
-class.  The default credential provider chain looks for credentials in this order:
+class. The default credential provider chain looks for credentials in this order:
 
 1.  **Environment Variables** |ndash| :envvar:`AWS_ACCESS_KEY_ID` and
     :envvar:`AWS_SECRET_ACCESS_KEY`. The |sdk-java| uses the
@@ -56,7 +56,6 @@ class.  The default credential provider chain looks for credentials in this orde
     You can create a credentials file by using the :code:`aws configure` command provided by the AWS
     CLI, or you can create it by hand-editing the file with a text editor. For information about the
     credentials file format, see :ref:`credentials-file-format`.
-
 
 4.  **Instance profile credentials** |ndash| these credentials can be used on EC2 instances, and are
     delivered through the Amazon EC2 metadata service. The |sdk-java| uses the
@@ -205,15 +204,18 @@ If neither the default credential chain or a specific or custom provider or prov
 your code, you can set credentials explicitly by supplying them yourself. If you have retrieved
 temporary credentials using |STS|, use this method to specify the credentials for AWS access.
 
-**To explicitly supply credentials to an AWS client:**
 
-Instantiate a class that provides the :java-api:`AWSCredentials <auth/AWSCredentials>` interface,
-such as :java-api:`BasicAWSCredentials <auth/BasicAWSCredentials>`, supplying it with the AWS access
-key and secret key you will use for the connection.
+.. topic:: To explicitly supply credentials to an AWS client:
 
-Create a :java-api:`AWSStaticCredentialsProvider <auth/AWSStaticCredentialsProvider>` with the AWSCredentials object.
+    #. Instantiate a class that provides the :java-api:`AWSCredentials <auth/AWSCredentials>`
+       interface, such as :java-api:`BasicAWSCredentials <auth/BasicAWSCredentials>`, supplying it
+       with the AWS access key and secret key you will use for the connection.
 
-Configure the client builder with the AWSStaticCredentialsProvider and build the client.
+    #. Create a :java-api:`AWSStaticCredentialsProvider <auth/AWSStaticCredentialsProvider>` with
+       the AWSCredentials object.
+
+    #. Configure the client builder with the AWSStaticCredentialsProvider and build the client.
+
 
 For example:
 
@@ -237,8 +239,6 @@ See Also
 ========
 
 *   :doc:`signup-create-iam-user`
-
 *   :doc:`setup-credentials`
-
 *   :doc:`java-dg-roles`
 

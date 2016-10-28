@@ -8,6 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
+.. includes that start with 'common/' come from the awsdocs shared content, at
+   https://github.com/awsdocs/aws-doc-shared-content
+
 ######################################
 Sign Up for AWS and Create an IAM User
 ######################################
@@ -20,40 +23,14 @@ access credentials instead of using your root account credentials.
    see :iam-ug:`Overview of Identity Management: Users <introduction_identity-management>` in the
    |IAM-ug|.
 
-**To sign up for AWS**
-
-1. Open http://aws.amazon.com/ and click :guilabel:`Sign Up`.
-
-2. Follow the on-screen instructions. Part of the sign-up procedure involves receiving a phone call
-   and entering a PIN using your phone keypad.
+.. include:: common/procedure-sign-up-for-aws.txt
 
 Next, create an IAM user and download (or copy) its secret access key.
 
-**To create an IAM user**
+.. include:: common/procedure-create-iam-user.txt
 
-#.  Go to the :console:`IAM console <iam>` (you may need to sign in to AWS first).
-
-#.  Click :guilabel:`Users` in the sidebar to view your IAM users.
-
-#.  If you don't have any IAM users set up, click :guilabel:`Create New Users` to create one.
-
-#.  Select the IAM user in the list that you'll use to access AWS.
-
-#.  Open the :guilabel:`Security Credentials` tab, and click :guilabel:`Create Access Key`.
-
-    .. note:: You can have a maximum of two active access keys for any given IAM user. If your IAM
-        user has two access keys already, then you'll need to delete one of them before creating a
-        new key.
-
-#.  On the resulting dialog, click the :guilabel:`Download Credentials` button to download the
-    credential file to your computer, or click :guilabel:`Show User Security Credentials` to view
-    the IAM user's access key ID and secret access key (which you can copy and paste).
-
-    .. important:: There is no way to obtain the secret access key once you close the dialog. You
-        can, however, delete its associated access key ID and create a new one.
-
-Next, you should :doc:`set your credentials <setup-credentials>` in the AWS shared credentials file or in
-the environment.
+Next, you should :doc:`set your credentials <setup-credentials>` in the AWS shared credentials file
+or in the environment.
 
 .. tip:: If you use the Eclipse IDE, you should consider installing the |tke|_ and providing your
    credentials as described in :tke-ug:`Set up AWS Credentials <setup-credentials>` in the |tke-ug|.

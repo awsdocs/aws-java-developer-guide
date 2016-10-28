@@ -82,57 +82,60 @@ Creating Async Clients
 The |sdk-java| also has asynchronous (or async) clients for every service, except for |S3long|. There is also a corresponding async
 client builder for every service.
 
-**To create an async |DDB| client with the default ExecutorService**
+.. topic:: To create an async |DDB| client with the default ExecutorService
 
-.. code-block:: java
+   .. code-block:: java
 
-        AmazonDynamoDBAsync ddbAsync = AmazonDynamoDBAsyncClientBuilder.standard()
-                .withRegion(Regions.US_WEST_2)
-                .withCredentials(new ProfileCredentialsProvider("myProfile"))
-                .build();
+           AmazonDynamoDBAsync ddbAsync = AmazonDynamoDBAsyncClientBuilder.standard()
+                   .withRegion(Regions.US_WEST_2)
+                   .withCredentials(new ProfileCredentialsProvider("myProfile"))
+                   .build();
 
-In addition to the configuration options that the synchronous (or sync) client builder supports,
-the async client allows you to set a custom :java-api:`ExecutorFactory <client/builder/ExecutorFactory>`
-to change the ``ExecutorService`` that the async client uses. ``ExecutorFactory`` is a functional
-interface, so it interoperates with Java 8 lambda expressions and method references.
+In addition to the configuration options that the synchronous (or sync) client builder supports, the
+async client allows you to set a custom :java-api:`ExecutorFactory <client/builder/ExecutorFactory>`
+to change the :classname:`ExecutorService` that the async client uses. :classname:`ExecutorFactory`
+is a functional interface, so it interoperates with Java 8 lambda expressions and method references.
 
-**To create an async client with a custom executor**
+.. topic:: To create an async client with a custom executor
 
-.. code-block:: java
+   .. code-block:: java
 
-    AmazonDynamoDBAsync ddbAsync = AmazonDynamoDBAsyncClientBuilder.standard()
-                .withExecutorFactory(() -> Executors.newFixedThreadPool(10))
-                .build();
+       AmazonDynamoDBAsync ddbAsync = AmazonDynamoDBAsyncClientBuilder.standard()
+                   .withExecutorFactory(() -> Executors.newFixedThreadPool(10))
+                   .build();
+
 
 Default Client
 ==============
 
-Both the sync and async client builders have another factory method called ``defaultClient``. This
-method creates a service client with the default configuration, using the default provider chain to
-load credentials and the AWS region. If either credentials or the region cannot be determined from
-the environment that the application is running in, the call to ``defaultClient`` will fail. See
-:doc:`credentials` and :doc:`java-dg-region-selection` for more information on how credentials and
-region are determined.
+Both the sync and async client builders have another factory method called
+:methodname:`defaultClient`. This method creates a service client with the default configuration,
+using the default provider chain to load credentials and the AWS region. If either credentials or
+the region cannot be determined from the environment that the application is running in, the call to
+:methodname:`defaultClient` will fail. See :doc:`credentials` and :doc:`java-dg-region-selection`
+for more information on how credentials and region are determined.
 
-**To create a default service client**
+.. topic:: To create a default service client
 
-.. code-block:: java
+   .. code-block:: java
 
-    AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+       AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+
 
 Client Lifecycle
 ================
 
 Service clients in the SDK are thread-safe and, for best performance, you should treat them as
-long-lived objects.  Each client has its own connection pool resource that is shut down when the
-client is garbage collected.  To explicitly shut down a client, you can call the ``shutdown``
-method. After calling ``shutdown``, all client resources are released and the client is unusable.
+long-lived objects. Each client has its own connection pool resource that is shut down when the
+client is garbage collected. To explicitly shut down a client, you can call the
+:methodname:`shutdown` method. After calling :methodname:`shutdown`, all client resources are
+released and the client is unusable.
 
-**To shut down a client**
+.. topic:: To shut down a client
 
-.. code-block:: java
+   .. code-block:: java
 
-    AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
-    ddb.shutdown();
-    // Client is now unusable
+       AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+       ddb.shutdown();
+       // Client is now unusable
 

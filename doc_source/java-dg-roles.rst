@@ -82,22 +82,22 @@ Create an |IAM| Role
 
 Create an IAM role that grants read-only access to |S3|.
 
-**To create the IAM role**
+.. topic:: To create the IAM role
 
-1.  Open the IAM console.
+    #. Open the IAM console.
 
-2.  In the navigation pane, click :guilabel:`Roles`, and then click :guilabel:`Create New Role`.
+    #. In the navigation pane, click :guilabel:`Roles`, and then click :guilabel:`Create New Role`.
 
-3.  Enter a name for the role, and then click :guilabel:`Next Step`. Remember this name, as you'll
-    need it when you launch your EC2 instance.
+    #. Enter a name for the role, and then click :guilabel:`Next Step`. Remember this name, as
+       you'll need it when you launch your EC2 instance.
 
-4.  On the :guilabel:`Select Role Type` page, under :guilabel:`AWS Service Roles`, select
-    :guilabel:`Amazon EC2`.
+    #. On the :guilabel:`Select Role Type` page, under :guilabel:`AWS Service Roles`, select
+       :guilabel:`Amazon EC2`.
 
-5.  On the :guilabel:`Set Permissions` page, under :guilabel:`Select Policy Template`, select
-    :guilabel:`Amazon S3 Read Only Access`. Click :guilabel:`Next Step`.
+    #. On the :guilabel:`Set Permissions` page, under :guilabel:`Select Policy Template`, select
+       :guilabel:`Amazon S3 Read Only Access`. Click :guilabel:`Next Step`.
 
-6.  On the :guilabel:`Review` page, click :guilabel:`Create Role`.
+    #. On the :guilabel:`Review` page, click :guilabel:`Create Role`.
 
 
 .. _java-dg-launch-ec2-instance-with-instance-profile:
@@ -107,14 +107,13 @@ Launch an EC2 Instance and Specify Your IAM Role
 
 You can launch an EC2 instance with an IAM role using the |EC2| console or the |sdk-java|.
 
-*   To launch an EC2 instance using the console, follow the directions in :ec2-ug:`Launch an EC2
-    Instance <ec2-launch-instance_linux>` in the |EC2-ug|. When you reach the :guilabel:`Review
-    Instance Launch` page, click :guilabel:`Edit instance details`. In :guilabel:`IAM role`, specify
-    the IAM role that you created previously. Complete the procedure as directed. Notice that you'll
-    need to create or use an existing security group and key pair in order to connect to the
-    instance.
+* To launch an EC2 instance using the console, follow the directions in :ec2-ug:`Launch an EC2
+  Instance <ec2-launch-instance_linux>` in the |EC2-ug|. When you reach the :guilabel:`Review
+  Instance Launch` page, click :guilabel:`Edit instance details`. In :guilabel:`IAM role`, specify
+  the IAM role that you created previously. Complete the procedure as directed. Notice that you'll
+  need to create or use an existing security group and key pair in order to connect to the instance.
 
-*   To launch an EC2 instance with an IAM role using the |sdk-java|, see :doc:`run-instance`.
+* To launch an EC2 instance with an IAM role using the |sdk-java|, see :doc:`run-instance`.
 
 
 .. _java-dg-remove-the-credentials:

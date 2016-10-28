@@ -53,39 +53,39 @@ the risky practice of inserting your AWS credentials in files within the source 
 Running the samples
 -------------------
 
-**To run a sample from the command line**
+.. topic:: To run a sample from the command line
 
-1.  Change to the directory containing the sample's code. For example, if you are in the root
-    directory of the AWS SDK download and want to run the :file:`AwsConsoleApp` sample, you would
-    type:
+    #. Change to the directory containing the sample's code. For example, if you are in the root
+       directory of the AWS SDK download and want to run the :file:`AwsConsoleApp` sample, you would
+       type:
 
-    .. code-block:: none
+       .. code-block:: none
 
-        cd samples/AwsConsoleApp
+          cd samples/AwsConsoleApp
 
-2.  Build and run the sample with Ant. The default build target performs both actions, so you can
-    just enter:
+    #. Build and run the sample with Ant. The default build target performs both actions, so you can
+       just enter:
 
-    .. code-block:: none
+       .. code-block:: none
 
-        ant
+          ant
 
-    The sample prints information to standard output |mdash| for example:
+The sample prints information to standard output |mdash| for example:
 
-    .. code-block:: none
+.. code-block:: none
 
-        ===========================================
+   ===========================================
 
-          Welcome to the AWS Java SDK!
+   Welcome to the AWS Java SDK!
 
-        ===========================================
-        You have access to 4 Availability Zones.
+   ===========================================
+   You have access to 4 Availability Zones.
 
-        You have 0 Amazon EC2 instance(s) running.
+   You have 0 Amazon EC2 instance(s) running.
 
-        You have 13 Amazon SimpleDB domain(s) containing a total of 62 items.
+   You have 13 Amazon SimpleDB domain(s) containing a total of 62 items.
 
-        You have 23 Amazon S3 bucket(s), containing 44 objects with a total size of 154767691 bytes.
+   You have 23 Amazon S3 bucket(s), containing 44 objects with a total size of 154767691 bytes.
 
 
 Building and Running the Samples using the Eclipse IDE
@@ -104,40 +104,43 @@ Eclipse, and then selecting the :guilabel:`AWS Toolkit` section.
 Running the samples
 -------------------
 
-**To run a sample using the AWS Toolkit for Eclipse**
+.. topic:: To run a sample using the AWS Toolkit for Eclipse
 
-1.  Open Eclipse.
+    #. Open Eclipse.
 
-2.  Create a new AWS Java project. In Eclipse, on the :guilabel:`File` menu, point to
-    :guilabel:`New`, and then click :guilabel:`Project`. The :guilabel:`New Project` wizard opens.
+    #. Create a new AWS Java project. In Eclipse, on the :guilabel:`File` menu, point to
+       :guilabel:`New`, and then click :guilabel:`Project`. The :guilabel:`New Project` wizard
+       opens.
 
-3.  Expand the :guilabel:`AWS` category, then select :guilabel:`AWS Java Project`.
+    #. Expand the :guilabel:`AWS` category, then select :guilabel:`AWS Java Project`.
 
-4.  Click :guilabel:`Next`. The project settings page is displayed.
+    #. Click :guilabel:`Next`. The project settings page is displayed.
 
-5.  Enter a name in the :guilabel:`Project Name` box. The AWS SDK for Java Samples group displays
-    the samples available in the SDK, as described previously.
+    #. Enter a name in the :guilabel:`Project Name` box. The AWS SDK for Java Samples group displays
+       the samples available in the SDK, as described previously.
 
-6.  Select the samples you want to include in your project by selecting each check box.
+    #. Select the samples you want to include in your project by selecting each check box.
 
-7.  Enter your AWS credentials. If you've already configured the |tke| with your credentials, this
-    is automatically filled in.
+    #. Enter your AWS credentials. If you've already configured the |tke| with your credentials,
+       this is automatically filled in.
 
-8.  Click :guilabel:`Finish`. The project is created and added to the :guilabel:`Project Explorer`.
+    #. Click :guilabel:`Finish`. The project is created and added to the :guilabel:`Project
+       Explorer`.
 
-**To run the project**
 
-1.  Select the sample :file:`.java` file you want to run. For example, for the |S3| sample, select
-    :file:`S3Sample.java`.
+.. topic:: To run the project
 
-2.  Select :guilabel:`Run` from the :guilabel:`Run` menu.
+    #.  Select the sample :file:`.java` file you want to run. For example, for the |S3| sample, select
+        :file:`S3Sample.java`.
 
-**To add the SDK to an existing project**
+    #.  Select :guilabel:`Run` from the :guilabel:`Run` menu.
 
-1.  Right-click the project in :guilabel:`Project Explorer`, point to :guilabel:`Build Path`, and
-    then click :guilabel:`Add Libraries`.
 
-2.  Select :guilabel:`AWS Java SDK`, and then click :guilabel:`Next` and follow the remaining
-    on-screen instructions.
+.. topic:: To add the SDK to an existing project
 
+    #. Right-click the project in :guilabel:`Project Explorer`, point to :guilabel:`Build Path`, and
+       then click :guilabel:`Add Libraries`.
+
+    #. Select :guilabel:`AWS Java SDK`, and then click :guilabel:`Next` and follow the remaining
+       on-screen instructions.
 

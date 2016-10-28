@@ -14,23 +14,23 @@ Listing Domains
 
 You can list the |SWF|_ domains associated with your account and AWS region by registration type.
 
-**To list Amazon SWF domains**
+.. topic:: To list |SWF| domains
 
-1.  Create a :java-api:`ListDomainsRequest <services/simpleworkflow/model/ListDomainsRequest>`
-    object, and specify the registration status of the domains that you're interested in |mdash|
-    this is required.
+    #.  Create a :java-api:`ListDomainsRequest <services/simpleworkflow/model/ListDomainsRequest>`
+        object, and specify the registration status of the domains that you're interested in |mdash|
+        this is required.
 
-2.  Call :java-ref:`AmazonSimpleWorkflowClient.listDomains
-    <services/simpleworkflow/AmazonSimpleWorkflowClient.html#listDomains(com.amazonaws.services.simpleworkflow.model.ListDomainsRequest)>`
-    with the :emphasis:`ListDomainRequest` object. Results are provided in a :java-api:`DomainInfos
-    <services/simpleworkflow/model/DomainInfos>` object.
+    #.  Call :java-ref:`AmazonSimpleWorkflowClient.listDomains
+        <services/simpleworkflow/AmazonSimpleWorkflowClient.html#listDomains(com.amazonaws.services.simpleworkflow.model.ListDomainsRequest)>`
+        with the :emphasis:`ListDomainRequest` object. Results are provided in a :java-api:`DomainInfos
+        <services/simpleworkflow/model/DomainInfos>` object.
 
-3.  Call :java-ref:`getDomainInfos
-    </services/simpleworkflow/model/DomainInfos.html#getDomainInfos()>` on the returned object to
-    get a list of :java-api:`DomainInfo <services/simpleworkflow/model/DomainInfo>` objects.
+    #.  Call :java-ref:`getDomainInfos
+        </services/simpleworkflow/model/DomainInfos.html#getDomainInfos()>` on the returned object to
+        get a list of :java-api:`DomainInfo <services/simpleworkflow/model/DomainInfo>` objects.
 
-4.  Call :java-ref:`getName </services/simpleworkflow/model/DomainInfo.html#getName()>` on each
-    :emphasis:`DomainInfo` object to get its name.
+    #.  Call :java-ref:`getName </services/simpleworkflow/model/DomainInfo.html#getName()>` on each
+        :emphasis:`DomainInfo` object to get its name.
 
 The following code demonstrates this procedure:
 

@@ -16,35 +16,35 @@ To use the |sdk-java| in your Gradle_ project, use Spring's `dependency manageme
 <http://github.com/spring-gradle-plugins/dependency-management-plugin>`_ for Gradle, which can be
 used to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependencies for your project.
 
-**To configure the SDK for Gradle**
+.. topic:: To configure the SDK for Gradle
 
-1. Add the dependency management plugin to your :file:`build.gradle` file::
+    #. Add the dependency management plugin to your :file:`build.gradle` file::
 
-    buildscript {
-        repositories {
-            mavenCentral()
+        buildscript {
+            repositories {
+                mavenCentral()
+            }
+            dependencies {
+                classpath "io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE"
+            }
         }
+
+        apply plugin: "io.spring.dependency-management"
+
+    #. Add the BOM to the *dependencyManagement* section of the file::
+
+        dependencyManagement {
+            imports {
+                mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.47'
+            }
+        }
+
+    #. Specify the SDK modules that you'll be using in the *dependencies* section::
+
         dependencies {
-            classpath "io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE"
+            compile 'com.amazonaws:aws-java-sdk-s3'
+            testCompile group: 'junit', name: 'junit', version: '4.11'
         }
-    }
-
-    apply plugin: "io.spring.dependency-management"
-
-2. Add the BOM to the *dependencyManagement* section of the file::
-
-    dependencyManagement {
-        imports {
-            mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.47'
-        }
-    }
-
-3. Specify the SDK modules that you'll be using in the *dependencies* section::
-
-    dependencies {
-        compile 'com.amazonaws:aws-java-sdk-s3'
-        testCompile group: 'junit', name: 'junit', version: '4.11'
-    }
 
 Gradle will automatically resolve the correct version of your SDK dependencies using the information
 from the BOM.

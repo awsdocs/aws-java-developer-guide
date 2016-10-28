@@ -61,23 +61,23 @@ provides you with the latest support for all AWS services.
 .. note:: For information about how to download and build previous versions of the SDK, see
    :ref:`install-prev-sdk`.
 
-**To download and extract the latest version of the SDK**
+.. topic:: To download and extract the latest version of the SDK
 
-#. Download the SDK from |sdk-java-dl|.
+    #. Download the SDK from |sdk-java-dl|.
 
-#. After downloading the SDK, extract the contents into a local directory.
+    #. After downloading the SDK, extract the contents into a local directory.
 
-   The SDK contains the following directories:
+The SDK contains the following directories:
 
-   - **documentation** |ndash| contains the API documentation (also available on the web:
-     |sdk-java-ref|_).
+* :file:`documentation` |ndash| contains the API documentation (also available on the web:
+  |sdk-java-ref|_).
 
-   - **lib** |ndash| contains the SDK :file:`.jar` files.
+* :file:`lib` |ndash| contains the SDK :file:`.jar` files.
 
-   - **samples** |ndash| contains working sample code that demonstrates how to use the SDK.
+* :file:`samples` |ndash| contains working sample code that demonstrates how to use the SDK.
 
-   - **third-party** |ndash| contains third-party libraries that are used by the SDK, such as
-     Apache commons logging, AspectJ and the Spring framework.
+* :file:`third-party` |ndash| contains third-party libraries that are used by the SDK, such as
+  Apache commons logging, AspectJ and the Spring framework.
 
 To use the SDK, add the full path to the ``lib`` and ``third-party`` directories to the dependencies
 in your build file, and add them to your java ``CLASSPATH`` to run your code.
@@ -92,31 +92,31 @@ version of the SDK using Apache Maven (open source). Maven will download all nec
 build and install the SDK in one step. Visit http://maven.apache.org/ for installation instructions
 and more information.
 
-**To install a previous version of the SDK**
+.. topic:: To install a previous version of the SDK
 
-#. Go to the SDK's GitHub page at: |sdk-java-github|_.
+    #. Go to the SDK's GitHub page at: |sdk-java-github|_.
 
-#. Choose the tag corresponding to the version number of the SDK that you want. For example,
-   ``1.6.10``.
+    #. Choose the tag corresponding to the version number of the SDK that you want. For example,
+       ``1.6.10``.
 
-#. Click the :guilabel:`Download ZIP` button to download the version of the SDK you selected.
+    #. Click the :guilabel:`Download ZIP` button to download the version of the SDK you selected.
 
-#. Unzip the file to a directory on your development system. On many systems, you can use your
-   graphical file manager to do this, or use the ``unzip`` utility in a terminal window.
+    #. Unzip the file to a directory on your development system. On many systems, you can use your
+       graphical file manager to do this, or use the ``unzip`` utility in a terminal window.
 
-#. In a terminal window, navigate to the directory where you unzipped the SDK source.
+    #. In a terminal window, navigate to the directory where you unzipped the SDK source.
 
-#. Build and install the SDK with the following command (Maven_ required)::
+    #. Build and install the SDK with the following command (Maven_ required)::
 
-    mvn clean install
+        mvn clean install
 
-   The resulting :file:`.jar` file is built into the :file:`target` directory.
+       The resulting :file:`.jar` file is built into the :file:`target` directory.
 
-#. (Optional) Build the API Reference documentation using the following command::
+    #. (Optional) Build the API Reference documentation using the following command::
 
-    mvn javadoc:javadoc
+        mvn javadoc:javadoc
 
-   The documentation is built into the :file:`target/site/apidocs/` directory.
+       The documentation is built into the :file:`target/site/apidocs/` directory.
 
 
 .. _java-dg-java-env:

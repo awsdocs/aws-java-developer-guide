@@ -99,20 +99,20 @@ The easiest way to build the documentation is using Apache's Maven_ build tool. 
 install Maven first if you don't already have it on your system*, then use the following
 instructions to build the reference documentation.
 
-**To build reference documentation for an old SDK version**
+.. topic:: To build reference documentation for an old SDK version
 
-#. Locate and select the SDK version that you're using on the :github:`releases
-   <aws/aws-sdk-java/releases>` page of the SDK repository on GitHub.
+    #. Locate and select the SDK version that you're using on the :github:`releases
+       <aws/aws-sdk-java/releases>` page of the SDK repository on GitHub.
 
-#. Choose either the ``zip`` (most platforms, including Windows) or ``tar.gz`` (unix-like platforms
-   such as OS X or Linux) link to download the SDK to your computer.
+    #. Choose either the :file:`zip` (most platforms, including Windows) or :file:`tar.gz`
+       (|unixes|) link to download the SDK to your computer.
 
-#. Unpack the archive to a local directory.
+    #. Unpack the archive to a local directory.
 
-#. On the command-line, navigate to the directory where you unpacked the archive, and type::
+    #. On the command-line, navigate to the directory where you unpacked the archive, and type::
 
-    mvn javadoc:javadoc
+        mvn javadoc:javadoc
 
-#. After building is complete, you'll find the generated HTML documentation in the
-   :file:`aws-java-sdk/target/site/apidocs/` directory.
+    #. After building is complete, you'll find the generated HTML documentation in the
+       :file:`aws-java-sdk/target/site/apidocs/` directory.
 
