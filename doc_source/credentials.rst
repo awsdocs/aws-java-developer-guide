@@ -38,29 +38,37 @@ attempt to find AWS credentials using the :emphasis:`default credential provider
 by the :java-api:`DefaultAWSCredentialsProviderChain <auth/DefaultAWSCredentialsProviderChain>`
 class. The default credential provider chain looks for credentials in this order:
 
-1.  **Environment Variables** |ndash| :envvar:`AWS_ACCESS_KEY_ID` and
-    :envvar:`AWS_SECRET_ACCESS_KEY`. The |sdk-java| uses the
-    :java-api:`EnvironmentVariableCredentialsProvider <auth/EnvironmentVariableCredentialsProvider>`
-    class to load these credentials.
+#. **Environment Variables** |ndash| :envvar:`AWS_ACCESS_KEY_ID` and
+   :envvar:`AWS_SECRET_ACCESS_KEY`. The |sdk-java| uses the
+   :java-api:`EnvironmentVariableCredentialsProvider <auth/EnvironmentVariableCredentialsProvider>`
+   class to load these credentials.
 
-2.  **Java System Properties** |ndash| :code:`aws.accessKeyId` and :code:`aws.secretKey`.  The
-    |sdk-java| uses the :java-api:`SystemPropertiesCredentialsProvider
-    <auth/SystemPropertiesCredentialsProvider>` to load these credentials.
+#. **Java System Properties** |ndash| :code:`aws.accessKeyId` and :code:`aws.secretKey`. The
+   |sdk-java| uses the :java-api:`SystemPropertiesCredentialsProvider
+   <auth/SystemPropertiesCredentialsProvider>` to load these credentials.
 
-3.  **The default credential profiles file** |ndash| typically located at
-    :file:`~/.aws/credentials` (this location may vary per platform), this credentials file is
-    shared by many of the AWS SDKs and by the AWS CLI. The |sdk-java| uses the
-    :java-api:`ProfileCredentialsProvider <auth/profile/ProfileCredentialsProvider>` to load these
-    credentials.
+#. **The default credential profiles file** |ndash| typically located at :file:`~/.aws/credentials`
+   (this location may vary per platform), this credentials file is shared by many of the AWS SDKs
+   and by the AWS CLI. The |sdk-java| uses the :java-api:`ProfileCredentialsProvider
+   <auth/profile/ProfileCredentialsProvider>` to load these credentials.
 
-    You can create a credentials file by using the :code:`aws configure` command provided by the AWS
-    CLI, or you can create it by hand-editing the file with a text editor. For information about the
-    credentials file format, see :ref:`credentials-file-format`.
+   You can create a credentials file by using the :code:`aws configure` command provided by the AWS
+   CLI, or you can create it by hand-editing the file with a text editor. For information about the
+   credentials file format, see :ref:`credentials-file-format`.
 
-4.  **Instance profile credentials** |ndash| these credentials can be used on EC2 instances, and are
-    delivered through the Amazon EC2 metadata service. The |sdk-java| uses the
-    :java-api:`InstanceProfileCredentialsProvider <auth/InstanceProfileCredentialsProvider>` to load
-    these credentials.
+#. **Amazon ECS container credentials** |ndash| loaded from the |ECSlong| if the environment
+   variable :envvar:`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` is set. The |sdk-java| uses the
+   :java-api:`ContainerCredentialsProvider <auth/ContainerCredentialsProvider>` to load these
+   credentials.
+
+#. **Instance profile credentials** |ndash| used on EC2 instances, and delivered through the |EC2|
+   metadata service. The |sdk-java| uses the :java-api:`InstanceProfileCredentialsProvider
+   <auth/InstanceProfileCredentialsProvider>` to load these credentials.
+
+   .. note:: Instance profile credentials are used only if
+      :envvar:`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` is not set. See
+      :java-api:`EC2ContainerCredentialsProviderWrapper
+      <auth/EC2ContainerCredentialsProviderWrapper>` for more information.
 
 
 Setting Credentials
@@ -69,15 +77,15 @@ Setting Credentials
 AWS credentials must be set in :emphasis:`at least one` of the preceding locations in order to be
 used. For information about setting credentials, visit one of the following topics:
 
-*   For information about specifying credentials in the :emphasis:`environment` or in the default
-    :emphasis:`credential profiles file`, see :doc:`setup-credentials`.
+* For information about specifying credentials in the :emphasis:`environment` or in the default
+  :emphasis:`credential profiles file`, see :doc:`setup-credentials`.
 
-*   For information about setting Java :emphasis:`system properties`, see the `System Properties
-    <http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html>`_ tutorial on the
-    official :title:`Java Tutorials` website.
+* For information about setting Java :emphasis:`system properties`, see the `System Properties
+  <http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html>`_ tutorial on the
+  official :title:`Java Tutorials` website.
 
-*   For information about how to set up and use :emphasis:`instance profile credentials` for use
-    with your EC2 instances, see :doc:`java-dg-roles`.
+* For information about how to set up and use :emphasis:`instance profile credentials` for use with
+  your EC2 instances, see :doc:`java-dg-roles`.
 
 Setting an Alternate Credentials Profile
 ----------------------------------------
@@ -153,16 +161,16 @@ Loading Credentials
 Once credentials have been set, you can load them using the default credential provider
 chain.
 
-:emphasis:`To load credentials using the default credential provider chain`
+.. topic:: To load credentials using the default credential provider chain
 
-*   Instantiate an AWS Service client without explicitly providing credentials to the builder. For example:
+    * Instantiate an AWS Service client without explicitly providing credentials to the builder. For
+      example:
 
-    .. code-block:: java
+      .. code-block:: java
 
-        AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-                                .withRegion(Regions.US_WEST_2)
-                                .build();
-
+         AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+                                 .withRegion(Regions.US_WEST_2)
+                                 .build();
 
 
 .. _credentials-specify-provider:
@@ -173,17 +181,17 @@ Specifying a Credential Provider or Provider Chain
 If you want to specify a different credential provider than the :emphasis:`default` credential
 provider chain, you can specify it via the client builder.
 
-:emphasis:`To specify a specific credentials provider`
+.. topic:: To specify a specific credentials provider
 
-*   Provide an instance of a credentials provider or provider chain to a client builder
-    that takes an :java-api:`AWSCredentialsProvider <auth/AWSCredentialsProvider>` interface as input.
-    For example, to use :emphasis:`environment` credentials specifically:
+    * Provide an instance of a credentials provider or provider chain to a client builder that takes
+      an :java-api:`AWSCredentialsProvider <auth/AWSCredentialsProvider>` interface as input.  For
+      example, to use :emphasis:`environment` credentials specifically:
 
-    .. code-block:: java
+      .. code-block:: java
 
-        AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-                                .withCredentials(new EnvironmentVariableCredentialsProvider())
-                                .build();
+         AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+                                 .withCredentials(new EnvironmentVariableCredentialsProvider())
+                                 .build();
 
 For the full list of |sdk-java|-supplied credential providers and provider chains, see the list of
 "All known implementing classes" in the reference topic for :java-api:`AWSCredentialsProvider
