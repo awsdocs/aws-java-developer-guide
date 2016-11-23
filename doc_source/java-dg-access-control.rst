@@ -12,40 +12,30 @@
 Access Control Policies
 #######################
 
-AWS access control policies allow you to specify fine-grained access controls on your AWS resources.
-You can allow or deny access to your AWS resources based on:
+AWS *access control policies* allow you to specify fine-grained access controls on your AWS
+resources. An access control policy consists of a collection of *statements*, which take the form:
 
-*   what :emphasis:`resource` is being accessed.
+    *Account A* has permission to perform *action B* on *resource C* where *condition D* applies.
 
-*   who is accessing the resource (i.e., the principal).
+Where:
 
-*   what action is being taken on the resource.
+* *A* is the *principal* |ndash| The AWS account that is making a request to access or modify one of
+  your AWS resources.
 
-*   a variety of other conditions including date restrictions, IP address restrictions, etc.
+* *B* is the *action* |ndash| The way in which your AWS resource is being accessed or modified, such
+  as sending a message to an |SQS| queue, or storing an object in an |S3| bucket.
 
-Access control policies are a collection of statements. Each statement takes the form: "A has
-permission to do B to C where D applies".
+* *C* is the *resource* |ndash| The AWS entity that the principal wants to access, such as an |SQS|
+  queue, or an object stored in |S3|.
 
-:emphasis:`A is the principal`
-    The AWS account that is making a request to access or modify one of your AWS resources.
-
-:emphasis:`B is the action`
-    The way in which your AWS resource is being accessed or modified, such as sending a message to
-    an Amazon SQS queue, or storing an object in an Amazon S3 bucket.
-
-:emphasis:`C is the resource`
-    Your AWS entity that the principal wants to access, such as an Amazon SQS queue, or an object
-    stored in Amazon S3.
-
-:emphasis:`D is the set of conditions`
-    The optional constraints that specify when to allow or deny access for the principal to access
-    your resource. Many expressive conditions are available, some specific to each service. For
-    example, you can use date conditions to allow access to your resources only after or before a
-    specific time.
+* *D* is a *set of conditions* |ndash| The optional constraints that specify when to allow or deny
+  access for the principal to access your resource. Many expressive conditions are available, some
+  specific to each service. For example, you can use date conditions to allow access to your
+  resources only after or before a specific time.
 
 
-Amazon S3 Example
-=================
+|S3| Example
+============
 
 The following example demonstrates a policy that allows anyone access to read all the objects in a
 bucket, but restricts access to uploading objects to that bucket to two specific AWS accounts (in
@@ -69,18 +59,13 @@ addition to the bucket owner's account).
     s3.setBucketPolicy(myBucketName, policy.toJson());
 
 
-Amazon SQS Example
-==================
+|SQS| Example
+=============
 
-One common use of policies is to authorize an Amazon SQS queue to receive messages from an Amazon
-SNS topic.
+One common use of policies is to authorize an |SQS| queue to receive messages from an |SNS| topic.
 
 .. code-block:: java
 
-    /*
-     * This policy allows an SNS topic to send messages to an SQS queue.
-     * You can find your SNS topic's ARN through the SNS getTopicAttributes operation.
-     */
     Policy policy = new Policy().withStatements(
         new Statement(Effect.Allow)
             .withPrincipals(Principal.AllUsers)
@@ -94,21 +79,15 @@ SNS topic.
     sqs.setQueueAttributes(new SetQueueAttributesRequest(myQueueUrl, queueAttributes));
 
 
-Amazon SNS Example
-==================
+|SNS| Example
+=============
 
-Some services offer additional conditions that can be used in policies. Amazon SNS provides
-conditions for allowing or denying subscriptions to SNS topics based on the protocol (e.g., email,
-HTTP, HTTPS, SQS) and endpoint (e.g., email address, URL, SQS ARN) of the request to subscribe to a
-topic.
+Some services offer additional conditions that can be used in policies. |SNS| provides conditions
+for allowing or denying subscriptions to SNS topics based on the protocol (e.g., email, HTTP, HTTPS,
+|SQS|) and endpoint (e.g., email address, URL, |SQS| ARN) of the request to subscribe to a topic.
 
 .. code-block:: java
 
-    /*
-     * This SNS condition allows you to restrict subscriptions to an Amazon SNS topic
-     * based on the requested endpoint (email address, SQS queue ARN, etc.) used when
-     * someone tries to subscribe to your SNS topic.
-     */
     Condition endpointCondition =
         SNSConditionFactory.newEndpointCondition("*@mycompany.com");
 
