@@ -23,7 +23,7 @@ your EC2 instances are running, you can connect to them.
       security group that you specify exist in the region that you specified when you created the
       client object.
 
-      .. code-block::
+      .. code-block:: java
 
          RunInstancesRequest runInstancesRequest =
             new RunInstancesRequest();
