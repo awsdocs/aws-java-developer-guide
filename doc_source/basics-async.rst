@@ -34,7 +34,7 @@ yet. Once the response is ready, you can get the response object by calling the 
 operation's results while your application continues to work on other things.
 
 Here is an example of an asynchronous operation that calls a |LAM| function, receiving a Future that
-can hold an :java-api:`InvokeResult <services/lambda/model/InvokeResult>` object. The
+can hold an :aws-java-class:`InvokeResult <services/lambda/model/InvokeResult>` object. The
 :classname:`InvokeResult` object is retrieved only after :methodname:`isDone()` is ``true``:
 
 .. literalinclude:: snippets/lambda_invoke_example/src/main/java/example/lambda/InvokeLambdaFunctionAsync.java
@@ -47,7 +47,7 @@ Asynchronous Callbacks
 ======================
 
 In addition to using Java Futures to monitor the status of asynchronous requests, the SDK also
-allows you to implement a class that uses the :java-api:`AsyncHandler <handlers/AsyncHandler>`
+allows you to implement a class that uses the :aws-java-class:`AsyncHandler <handlers/AsyncHandler>`
 interface, which provides two methods that are called depending on how the request completed:
 :methodname:`onSuccess` and :methodname:`onError`.
 
@@ -93,7 +93,7 @@ are named, or to log additional information about thread usage.
 Amazon S3 Asynchronous Access
 -----------------------------
 
-The :java-api:`TransferManager <amazonaws/services/s3/transfer/TransferManager>` class in the SDK
+The :aws-java-class:`TransferManager <amazonaws/services/s3/transfer/TransferManager>` class in the SDK
 offers asynchronous support for working with the |S3long| (|S3|). :classname:`TransferManager`
 manages asynchronous uploads and downloads, provides detailed progress reporting on transfers, and
 supports callbacks into different events.

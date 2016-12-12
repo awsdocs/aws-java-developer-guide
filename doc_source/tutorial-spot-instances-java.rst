@@ -205,7 +205,7 @@ always determine the latest version AMI by following these steps:
 
 There are many ways to approach bidding for Spot instances; to get a broad overview of the various
 approaches you should view the `Bidding for Spot Instances
-<http://www.youtube.com/watch?v=WD9N73F3Fao&feature=player_embedded>`_ video. However, to get
+<https://www.youtube.com/watch?v=WD9N73F3Fao&feature=player_embedded>`_ video. However, to get
 started, we'll describe three common strategies: bid to ensure cost is less than on-demand pricing;
 bid based on the value of the resulting computation; bid so as to acquire computing capacity as
 quickly as possible.
@@ -295,7 +295,7 @@ request is populated, you call the :code:`requestSpotInstances` method on the
 
 Running this code will launch a new Spot Instance Request. There are other options you can use to
 configure your Spot Requests. To learn more, please visit :doc:`tutorial-spot-adv-java` or the
-:java-api:`RequestSpotInstances <services/ec2/model/RequestSpotInstancesRequest>` class in the
+:aws-java-class:`RequestSpotInstances <services/ec2/model/RequestSpotInstancesRequest>` class in the
 |sdk-java-ref|.
 
 .. note:: You will be charged for any Spot Instances that are actually launched, so make sure that
@@ -309,9 +309,9 @@ Step 4: Determining the State of Your Spot Request
 
 Next, we want to create code to wait until the Spot request reaches the "active" state before
 proceeding to the last step. To determine the state of our Spot request, we poll the
-:java-ref:`describeSpotInstanceRequests
-<com/amazonaws/services/ec2/model/DescribeSpotInstanceRequestsRequest.html>` method for the state of
-the Spot request ID we want to monitor.
+:aws-java-ref:`describeSpotInstanceRequests
+<services/ec2/AmazonEC2Client.html#describeSpotInstanceRequests-->` method for the state of the Spot
+request ID we want to monitor.
 
 The request ID created in Step 2 is embedded in the response to our :code:`requestSpotInstances`
 request. The following example code shows how to gather request IDs from the
@@ -412,7 +412,8 @@ The following code demonstrates how to cancel your requests.
 
     try {
         // Cancel requests.
-        CancelSpotInstanceRequestsRequest cancelRequest = new CancelSpotInstanceRequestsRequest(spotInstanceRequestIds);
+        CancelSpotInstanceRequestsRequest cancelRequest =
+           new CancelSpotInstanceRequestsRequest(spotInstanceRequestIds);
         ec2.cancelSpotInstanceRequests(cancelRequest);
     } catch (AmazonServiceException e) {
         // Write out any exceptions that may have occurred.
@@ -430,14 +431,50 @@ and adds an :code:`ArrayList` in which we store the instance ID associated with 
 
 .. code-block:: java
 
-    // Create a variable that will track whether there are any requests // still in the open state. boolean anyOpen; {// Initialize variables.} {ArrayList<String> instanceIds = new ArrayList<String>();} do { // Create the describeRequest with all of the request ids to // monitor (e.g. that we started). DescribeSpotInstanceRequestsRequest describeRequest = new DescribeSpotInstanceRequestsRequest(); describeRequest.setSpotInstanceRequestIds(spotInstanceRequestIds); // Initialize the anyOpen variable to false, which assumes there // are no requests open unless we find one that is still open. anyOpen = false; try { // Retrieve all of the requests we want to monitor. DescribeSpotInstanceRequestsResult describeResult = ec2.describeSpotInstanceRequests(describeRequest); List<SpotInstanceRequest> describeResponses = describeResult.getSpotInstanceRequests(); // Look through each request and determine if they are all // in the active state. for (SpotInstanceRequest describeResponse : describeResponses) { // If the state is open, it hasn't changed since we // attempted to request it. There is the potential for // it to transition almost immediately to closed or // cancelled so we compare against open instead of active. if (describeResponse.getState().equals("open")) { anyOpen = true; break; } {// Add the instance id to the list we will} {// eventually terminate.} {instanceIds.add(describeResponse.getInstanceId());}
-            }
-        } catch (AmazonServiceException e) {
-            // If we have an exception, ensure we don't break out
-            // of the loop. This prevents the scenario where there
-            // was blip on the wire.
-            anyOpen = true;
-        }
+    // Create a variable that will track whether there are any requests
+    // still in the open state.
+    boolean anyOpen;
+    // Initialize variables.
+    ArrayList<String> instanceIds = new ArrayList<String>();
+
+    do {
+       // Create the describeRequest with all of the request ids to
+       // monitor (e.g. that we started).
+       DescribeSpotInstanceRequestsRequest describeRequest = new DescribeSpotInstanceRequestsRequest();
+       describeRequest.setSpotInstanceRequestIds(spotInstanceRequestIds);
+
+       // Initialize the anyOpen variable to false, which assumes there
+       // are no requests open unless we find one that is still open.
+       anyOpen = false;
+
+       try {
+             // Retrieve all of the requests we want to monitor.
+             DescribeSpotInstanceRequestsResult describeResult =
+                ec2.describeSpotInstanceRequests(describeRequest);
+
+             List<SpotInstanceRequest> describeResponses =
+                describeResult.getSpotInstanceRequests();
+
+             // Look through each request and determine if they are all
+             // in the active state.
+             for (SpotInstanceRequest describeResponse : describeResponses) {
+               // If the state is open, it hasn't changed since we
+               // attempted to request it. There is the potential for
+               // it to transition almost immediately to closed or
+               // cancelled so we compare against open instead of active.
+               if (describeResponse.getState().equals("open")) {
+                  anyOpen = true; break;
+               }
+               // Add the instance id to the list we will
+               // eventually terminate.
+               instanceIds.add(describeResponse.getInstanceId());
+             }
+       } catch (AmazonServiceException e) {
+          // If we have an exception, ensure we don't break out
+          // of the loop. This prevents the scenario where there
+          // was blip on the wire.
+          anyOpen = true;
+       }
 
         try {
             // Sleep for 60 seconds.
@@ -482,7 +519,7 @@ We submit the Spot Instance request. Then we wait for the Spot request to reach 
 Finally, we clean up the requests and instances.
 
 The complete source code for this example can be viewed or downloaded at :github:`GitHub
-<amazonwebservices/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-GettingStarted>`.
+<aws/aws-sdk-for-java/tree/master/src/samples/AmazonEC2SpotInstances-GettingStarted>`.
 
 Congratulations! You have just completed the getting started tutorial for developing Spot Instance
 software with the |sdk-java|.

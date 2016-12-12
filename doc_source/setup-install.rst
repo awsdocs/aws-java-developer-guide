@@ -125,7 +125,7 @@ Installing a Java Development Environment
 =========================================
 
 The |sdk-java| requires J2SE Development Kit *6.0 or later*. You can download the latest Java
-software from http://developers.sun.com/downloads/.
+software from http://www.oracle.com/technetwork/java/javase/downloads/.
 
 .. important:: Java version 1.6 (JS2E 6.0) did not have built-in support for SHA256-signed SSL
    certificates, which are required for all HTTPS connections with AWS after September 30, 2015.

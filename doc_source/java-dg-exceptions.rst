@@ -38,13 +38,13 @@ For more information about the use of checked and unchecked exceptions, see the 
 * `The Trouble with Checked Exceptions <http://www.artima.com/intv/handcuffs2.html>`_
 
 * `Java's checked exceptions were a mistake (and here's what I would like to do about it)
-  <http://radio.weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html>`_
+  <http://radio-weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html>`_
 
 
 AmazonServiceException (and Subclasses)
 ========================================
 
-:java-api:`AmazonServiceException` is the most common exception that you'll experience when using
+:aws-java-class:`AmazonServiceException` is the most common exception that you'll experience when using
 the |sdk-java|. This exception represents an error response from an AWS service. For example, if you
 try to terminate an |EC2| instance that doesn't exist, EC2 will return an error response and all the
 details of that error response will be included in the thrown :classname:`AmazonServiceException`.
@@ -73,7 +73,7 @@ internal service error).
 AmazonClientException
 =====================
 
-:java-api:`AmazonClientException` indicates that a problem occurred inside the Java client code,
+:aws-java-class:`AmazonClientException` indicates that a problem occurred inside the Java client code,
 either while trying to send a request to AWS or while trying to parse a response from AWS.
 :classname:`AmazonClientException` exceptions are generally more severe than
 :classname:`AmazonServiceException` exceptions and indicate a major problem that is preventing the

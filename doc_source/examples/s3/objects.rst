@@ -37,7 +37,7 @@ name, and file to upload. *The bucket must exist, or an error will result*.
    :lines: 46-52
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/PutObject.java>`.
+See the :sdk-examples-java-s3:`complete example <PutObject.java>`.
 
 .. _list-objects:
 
@@ -47,10 +47,10 @@ List objects
 To get a list of objects within a bucket, use the |s3client| client's :methodname:`listObjects`
 method, supplying it with the name of a bucket.
 
-The :methodname:`listObjects` method returns an :java-api:`ObjectListing
+The :methodname:`listObjects` method returns an :aws-java-class:`ObjectListing
 <services/s3/model/ObjectListing>` object that provides information about the objects in the bucket.
 To list the object names (keys), use the :methodname:`getObjectSummaries` method to get a List of
-:java-api:`S3ObjectSummary <services/s3/model/S3ObjectSummary>` objects, each of which represents a
+:aws-java-class:`S3ObjectSummary <services/s3/model/S3ObjectSummary>` objects, each of which represents a
 single object in the bucket, then call its :methodname:`getKey` method to retrieve the object's
 name.
 
@@ -65,7 +65,7 @@ name.
    :lines: 45-50
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/ListObjects.java>`.
+See the :sdk-examples-java-s3:`complete example <ListObjects.java>`.
 
 .. _download-object:
 
@@ -73,12 +73,12 @@ Download an object
 ==================
 
 Use the |s3client| client's :methodname:`getObject` method, passing it the name of a bucket and
-object to download. If successful, the method will return an :java-api:`S3Object
+object to download. If successful, the method will return an :aws-java-class:`S3Object
 <services/s3/model/S3Object>`. *The specified bucket and object key must exist, or an error will
 result*.
 
 You can get the object's contents by calling :methodname:`getObjectContent` on the
-:classname:`S3Object`. This returns an :java-api:`S3ObjectInputStream
+:classname:`S3Object`. This returns an :aws-java-class:`S3ObjectInputStream
 <services/s3/model/S3ObjectInputStream>` that behaves as a standard Java :classname:`InputStream`
 object.
 
@@ -96,7 +96,7 @@ name as the object's key):
    :lines: 50-71
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/GetObject.java>`.
+See the :sdk-examples-java-s3:`complete example <GetObject.java>`.
 
 .. _copy-object:
 
@@ -118,7 +118,7 @@ and the destination bucket and name.
    :lines: 46-52
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/CopyObject.java>`.
+See the :sdk-examples-java-s3:`complete example <CopyObject.java>`.
 
 .. note:: You can use :methodname:`copyObject` with :ref:`deleteObject <delete-object>` to **move**
    or **rename** an object, by first copying the object to a new name (you can use the same bucket
@@ -144,7 +144,7 @@ object to delete. *The specified bucket and object key must exist, or an error w
    :lines: 47-53
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/DeleteObject.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteObject.java>`.
 
 
 .. _delete-objects:
@@ -153,7 +153,7 @@ Deleting multiple objects at once
 =================================
 
 Using the |s3client| client's :methodname:`deleteObjects` method, you can delete multiple objects
-from the same bucket by passing their names to the :java-api:`DeleteObjectRequest
+from the same bucket by passing their names to the :aws-java-class:`DeleteObjectRequest
 <services/s3/model/DeleteObjectsRequest>` :methodname:`withKeys` method.
 
 **Imports:**
@@ -167,5 +167,5 @@ from the same bucket by passing their names to the :java-api:`DeleteObjectReques
    :lines: 52-60
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/DeleteObjects.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteObjects.java>`.
 

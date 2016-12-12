@@ -28,34 +28,34 @@ EC2 Security Groups <using-network-security>` in the |EC2-ug|.
 
 .. topic:: To create a security group
 
-    #.  Create and initialize a :java-api:`CreateSecurityGroupRequest
-        <services/ec2/model/CreateSecurityGroupRequest>` instance. Use the :java-ref:`withGroupName
-        <com/amazonaws/services/ec2/model/CreateSecurityGroupRequest.html#withGroupName(java.lang.String)>`
-        method to set the security group name, and the :java-ref:`withDescription
-        <com/amazonaws/services/ec2/model/CreateSecurityGroupRequest.html#withDescription(java.lang.String)>`
-        method to set the security group description, as follows:
+    #. Create and initialize a :aws-java-class:`CreateSecurityGroupRequest
+       <services/ec2/model/CreateSecurityGroupRequest>` instance. Use the
+       :aws-java-ref:`withGroupName
+       <services/ec2/model/CreateSecurityGroupRequest.html#withGroupName-java.lang.String->` method
+       to set the security group name, and the :aws-java-ref:`withDescription
+       <services/ec2/model/CreateSecurityGroupRequest.html#withDescription-java.lang.String->`
+       method to set the security group description, as follows:
 
-        .. code-block:: java
+       .. code-block:: java
 
-            CreateSecurityGroupRequest csgr = new CreateSecurityGroupRequest();
+          CreateSecurityGroupRequest csgr = new CreateSecurityGroupRequest();
+          csgr.withGroupName("JavaSecurityGroup").withDescription("My security group");
 
-            csgr.withGroupName("JavaSecurityGroup").withDescription("My security group");
+       The security group name must be unique within the AWS region in which you initialize your
+       |EC2| client. You must use US-ASCII characters for the security group name and description.
 
-        The security group name must be unique within the AWS region in which you initialize your |EC2|
-        client. You must use US-ASCII characters for the security group name and description.
+    #. Pass the request object as a parameter to the :aws-java-ref:`createSecurityGroup
+       <services/ec2/AmazonEC2.html#createSecurityGroup-com.amazonaws.services.ec2.model.CreateSecurityGroupRequest->`
+       method. The method returns a :aws-java-class:`CreateSecurityGroupResult
+       <services/ec2/model/CreateSecurityGroupResult>` object, as follows:
 
-    #.  Pass the request object as a parameter to the :java-ref:`createSecurityGroup
-        <com/amazonaws/services/ec2/AmazonEC2.html#createSecurityGroup%28com.amazonaws.services.ec2.model.CreateSecurityGroupRequest%29>`
-        method. The method returns a :java-api:`CreateSecurityGroupResult
-        <services/ec2/model/CreateSecurityGroupResult>` object, as follows:
+       .. code-block:: java
 
-        .. code-block:: java
+          CreateSecurityGroupResult createSecurityGroupResult =
+              amazonEC2Client.createSecurityGroup(createSecurityGroupRequest);
 
-              CreateSecurityGroupResult createSecurityGroupResult =
-                  amazonEC2Client.createSecurityGroup(createSecurityGroupRequest);
-
-        If you attempt to create a security group with the same name as an existing security group,
-        :code:`createSecurityGroup` throws an exception.
+       If you attempt to create a security group with the same name as an existing security group,
+       :code:`createSecurityGroup` throws an exception.
 
 By default, a new security group does not allow any inbound traffic to your |EC2| instance. To allow
 inbound traffic, you must explicitly authorize security group ingress. You can authorize ingress for
@@ -64,64 +64,65 @@ ports.
 
 .. topic:: To authorize security group ingress
 
-    #.  Create and initialize an :java-api:`IpPermission <services/ec2/model/IpPermission>` instance.
-        Use the :java-ref:`withIpRanges
-        <com/amazonaws/services/ec2/model/IpPermission.html#withIpRanges(java.lang.String...)>` method
-        to set the range of IP addresses to authorize ingress for, and use the :java-ref:`withIpProtocol
-        <com/amazonaws/services/ec2/model/IpPermission.html#withIpProtocol(java.lang.String)>` method to
-        set the IP protocol. Use the :java-ref:`withFromPort
-        <com/amazonaws/services/ec2/model/IpPermission.html#withFromPort(java.lang.Integer)>` and
-        :java-ref:`withToPort
-        <com/amazonaws/services/ec2/model/IpPermission.html#withToPort(java.lang.Integer)>` methods to
-        specify range of ports to authorize ingress for, as follows:
+    #. Create and initialize an :aws-java-class:`IpPermission <services/ec2/model/IpPermission>`
+       instance.  Use the :aws-java-ref:`withIpv4Ranges
+       <services/ec2/model/IpPermission.html#withIpv4Ranges-java.util.Collection->` method to set the
+       range of IP addresses to authorize ingress for, and use the :aws-java-ref:`withIpProtocol
+       <services/ec2/model/IpPermission.html#withIpProtocol-java.lang.String->` method to set the IP
+       protocol. Use the :aws-java-ref:`withFromPort
+       <services/ec2/model/IpPermission.html#withFromPort-java.lang.Integer->` and
+       :aws-java-ref:`withToPort
+       <services/ec2/model/IpPermission.html#withToPort-java.lang.Integer->` methods to specify
+       range of ports to authorize ingress for, as follows:
 
-        .. code-block:: java
+       .. code-block:: java
 
-            IpPermission ipPermission =
-                new IpPermission();
+          IpPermission ipPermission =
+              new IpPermission();
 
-            ipPermission.withIpRanges("111.111.111.111/32", "150.150.150.150/32")
-                        .withIpProtocol("tcp")
-                        .withFromPort(22)
-                        .withToPort(22);
+          ipPermission.withIpRanges("111.111.111.111/32", "150.150.150.150/32")
+                      .withIpProtocol("tcp")
+                      .withFromPort(22)
+                      .withToPort(22);
 
-        All the conditions that you specify in the :code:`IpPermission` object must be met in order for
-        ingress to be allowed.
+       All the conditions that you specify in the :code:`IpPermission` object must be met in order
+       for ingress to be allowed.
 
-        Specify the IP address using CIDR notation. If you specify the protocol as TCP/UDP, you must
-        provide a source port and a destination port. You can authorize ports only if you specify TCP or
-        UDP.
+       Specify the IP address using CIDR notation. If you specify the protocol as TCP/UDP, you must
+       provide a source port and a destination port. You can authorize ports only if you specify TCP
+       or UDP.
 
-    #.  Create and initialize an :java-api:`AuthorizeSecurityGroupIngressRequest
-        <services/ec2/model/AuthorizeSecurityGroupEgressRequest>` instance. Use the
-        :code:`withGroupName` method to specify the security group name, and pass the
-        :code:`IpPermission` object you initialized earlier to the :java-ref:`withIpPermissions
-        <com/amazonaws/services/ec2/model/AuthorizeSecurityGroupEgressRequest.html#withIpPermissions(com.amazonaws.services.ec2.model.IpPermission...)>`
-        method, as follows:
+    #. Create and initialize an :aws-java-class:`AuthorizeSecurityGroupIngressRequest
+       <services/ec2/model/AuthorizeSecurityGroupEgressRequest>` instance. Use the
+       :code:`withGroupName` method to specify the security group name, and pass the
+       :code:`IpPermission` object you initialized earlier to the :aws-java-ref:`withIpPermissions
+       <services/ec2/model/AuthorizeSecurityGroupEgressRequest.html#withIpPermissions-com.amazonaws.services.ec2.model.IpPermission...->`
+       method, as follows:
 
-        .. code-block:: java
+       .. code-block:: java
 
-            AuthorizeSecurityGroupIngressRequest authorizeSecurityGroupIngressRequest =
-                new AuthorizeSecurityGroupIngressRequest();
+          AuthorizeSecurityGroupIngressRequest authorizeSecurityGroupIngressRequest =
+              new AuthorizeSecurityGroupIngressRequest();
 
-            authorizeSecurityGroupIngressRequest.withGroupName("JavaSecurityGroup")
-                                                .withIpPermissions(ipPermission);
+          authorizeSecurityGroupIngressRequest.withGroupName("JavaSecurityGroup")
+                                              .withIpPermissions(ipPermission);
 
-    #.  Pass the request object into the :java-ref:`authorizeSecurityGroupIngress
-        <com/amazonaws/services/ec2/AmazonEC2.html#authorizeSecurityGroupEgress%28com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressRequest%29>`
-        method, as follows:
+    #. Pass the request object into the :aws-java-ref:`authorizeSecurityGroupIngress
+       <services/ec2/AmazonEC2Client.html#authorizeSecurityGroupIngress-com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressRequest->`
+       method, as follows:
 
-        .. code-block:: java
+       .. code-block:: java
 
-            amazonEC2Client.authorizeSecurityGroupIngress(authorizeSecurityGroupIngressRequest);
+          amazonEC2Client.authorizeSecurityGroupIngress(authorizeSecurityGroupIngressRequest);
 
-        If you call :code:`authorizeSecurityGroupIngress` with IP addresses for which ingress is already
-        authorized, the method throws an exception. Create and initialize a new :code:`IpPermission`
-        object to authorize ingress for different IPs, ports, and protocols before calling
-        :code:`AuthorizeSecurityGroupIngress`.
+       If you call :code:`authorizeSecurityGroupIngress` with IP addresses for which ingress is
+       already authorized, the method throws an exception. Create and initialize a new
+       :code:`IpPermission` object to authorize ingress for different IPs, ports, and protocols
+       before calling :code:`AuthorizeSecurityGroupIngress`.
 
-Whenever you call the :code:`authorizeSecurityGroupIngress` or
-:java-ref:`authorizeSecurityGroupEgress
-<com/amazonaws/services/ec2/AmazonEC2.html#authorizeSecurityGroupIngress%28%29>` methods, a rule is
-added to your security group.
+Whenever you call the :aws-java-ref:`authorizeSecurityGroupIngress
+<services/ec2/AmazonEC2Client.html#authorizeSecurityGroupIngress-com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressRequest->`
+or :aws-java-ref:`authorizeSecurityGroupEgress
+<http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/ec2/AmazonEC2Client.html#authorizeSecurityGroupEgress-com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressRequest->`
+methods, a rule is added to your security group.
 

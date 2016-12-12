@@ -543,7 +543,7 @@ bootstrap your instance.
 Using the root partition to checkpoint your critical data is a great way to manage the potential for
 interruption of your instances. For more methods on managing the potential of interruption, please
 visit the `Managing Interruption
-<http://www.youtube.com/watch?feature=player_embedded&v=wcPNnUo60pc>`_ video.
+<https://www.youtube.com/watch?feature=player_embedded&v=wcPNnUo60pc>`_ video.
 
 
 .. _tutor-spot-adv-tags:
@@ -562,14 +562,14 @@ Tagging requests
 
 To add tags to your spot requests, you need to tag them *after* they have been requested. The return
 value from :methodname:`requestSpotInstances()` provides you with a
-:java-api:`RequestSpotInstancesResult <services/ec2/model/RequestSpotInstancesResult>` object that
+:aws-java-class:`RequestSpotInstancesResult <services/ec2/model/RequestSpotInstancesResult>` object that
 you can use to get the spot request IDs for tagging:
 
 .. literalinclude:: snippets/ec2/tag-spot-requests.java
    :lines: 18-30
 
 Once you have the IDs, you can tag the requests by adding their IDs to a
-:java-api:`CreateTagsRequest <services/ec2/model/CreateTagsRequest>` and calling the EC2 client's
+:aws-java-class:`CreateTagsRequest <services/ec2/model/CreateTagsRequest>` and calling the EC2 client's
 :methodname:`createTags()` method:
 
 .. literalinclude:: snippets/ec2/tag-spot-requests.java
@@ -583,10 +583,10 @@ will happen once the spot request has been met (it is no longer in the *open* st
 
 You can check the status of your requests by calling the EC2 client's
 :methodname:`describeSpotInstanceRequests()` method with a
-:java-api:`DescribeSpotInstanceRequestsRequest <services/ec2/model/DescribeSpotInstanceRequestsRequest>`
-object. The returned :java-api:`DescribeSpotInstanceRequestsResult
+:aws-java-class:`DescribeSpotInstanceRequestsRequest <services/ec2/model/DescribeSpotInstanceRequestsRequest>`
+object. The returned :aws-java-class:`DescribeSpotInstanceRequestsResult
 <services/ec2/model/DescribeSpotInstanceRequestsResult>` object contains a list of
-:java-api:`SpotInstanceRequest <services/ec2/model/SpotInstanceRequest>` objects that you can use to query
+:aws-java-class:`SpotInstanceRequest <services/ec2/model/SpotInstanceRequest>` objects that you can use to query
 the status of your spot requests and obtain their instance IDs once they are no longer in the *open*
 state.
 
@@ -609,7 +609,7 @@ Canceling a spot request
 ------------------------
 
 To cancel a spot instance request, call :methodname:`cancelSpotInstanceRequests` on the EC2 client
-with a :java-api:`CancelSpotInstanceRequestsRequest
+with a :aws-java-class:`CancelSpotInstanceRequestsRequest
 <services/ec2/model/CancelSpotInstanceRequestsRequest>` object.
 
 .. literalinclude:: snippets/ec2/cancel-terminate-spot-request.java

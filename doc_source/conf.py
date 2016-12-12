@@ -373,17 +373,26 @@ if 'extlinks' not in vars():
     extlinks = {}
 
 # These URLs make maintaining the extlinks easier.
-java_api_url = 'http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/'
-javase_api_url = 'http://docs.oracle.com/javase/7/docs/api/'
+aws_java_api_url = 'https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/'
+javase_api_url = 'https://docs.oracle.com/javase/8/docs/api/'
 javadoc_f = 'index.html?%s.html' # javadoc link + frames
 javadoc_nf = '%s.html' # javadoc link - frames
 # extlinks['role'] = (url_string, term_prepended_by)
-extlinks['java-api'] = (java_api_url + 'index.html?com/amazonaws/%s.html', '')
-extlinks['java-ref'] = (java_api_url + javadoc_f, '')
-extlinks['java-ref-nf'] = (java_api_url + javadoc_nf, '')
+
+# a generic link to the AWS SDK reference docs. Doesn't work well in a frame.
+extlinks['aws-java-ref'] = (aws_java_api_url + 'com/amazonaws/%s', '')
+
+# a link to a class within the AWS SDK -- can use frames.
+extlinks['aws-java-class'] = (aws_java_api_url + (javadoc_f % 'com/amazonaws/%s'), '')
+
+# links to the Java SE documentation.
 extlinks['javase-ref'] = (javase_api_url + javadoc_f, '')
 extlinks['javase-ref-nf'] = (javase_api_url + javadoc_nf, '')
-extlinks['sdk-examples-java'] = (
-    'https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/java/example_code/s3/src/main/java/aws/example/%s',
-    '')
+
+# links to examples for a particular service (ex: :sdk-examples-java-s3:`ListTables.java`)
+samples_url = 'https://github.com/awsdocs/aws-doc-sdk-examples/'
+for svc in ['s3', 'dynamodb']:
+    extlinks['sdk-examples-java-%s' % svc] = (samples_url +
+            'blob/master/java/example_code/{svc}/src/main/java/aws/example/{svc}/'.format(svc=svc) +
+            '%s', '')
 

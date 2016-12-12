@@ -117,7 +117,9 @@ Create a SWF project
        mvn archetype:generate -DartifactId=helloswf \
        -DgroupId=example.swf.hello -DinteractiveMode=false
 
-   This will create a new project with a standard maven project structure::
+   This will create a new project with a standard maven project structure:
+
+   .. code-block:: none
 
        helloswf
        ├── pom.xml
@@ -187,7 +189,7 @@ interest of time, these steps *will be implied every time you add a new file to 
        :language: java
        :lines: 16
 
-#. Add ``import`` declarations for the :java-api:`AmazonSimpleWorkflowClient
+#. Add ``import`` declarations for the :aws-java-class:`AmazonSimpleWorkflowClient
    <services/simpleworkflow/AmazonSimpleWorkflowClient>` class and for multiple classes in the
    ``com.amazonaws.services.simpleworkflow.model`` namespace. To simplify things, we'll use:
 
@@ -216,7 +218,7 @@ your activity and workflow types, the domain name and the task list name.
 
    These values will be used throughout the code.
 
-#. After the String declarations, create an instance of the :java-api:`AmazonSimpleWorkflowClient
+#. After the String declarations, create an instance of the :aws-java-class:`AmazonSimpleWorkflowClient
    <services/simpleworkflow/AmazonSimpleWorkflowClient>` class. This is the basic interface to the
    |SWF| methods provided by the |sdk-java|.
 
@@ -238,10 +240,10 @@ your activity and workflow types, the domain name and the task list name.
    excluding ``:``, ``/``, ``|``, control characters or the literal string 'arn') and a *retention
    period*, which is the number of days that |SWF| will keep your workflow's execution history data
    after a workflow execution has completed. The maximum workflow execution retention period is 90
-   days. See :java-api:`RegisterDomainRequest <services/simpleworkflow/model/RegisterDomainRequest>`
+   days. See :aws-java-class:`RegisterDomainRequest <services/simpleworkflow/model/RegisterDomainRequest>`
    for more information.
 
-   If a domain with that name already exists, a :java-api:`DomainAlreadyExistsException
+   If a domain with that name already exists, a :aws-java-class:`DomainAlreadyExistsException
    <services/simpleworkflow/model/DomainAlreadyExistsException>` is raised. Because we're
    unconcerned if the domain has already been created, we can ignore the exception.
 
@@ -261,14 +263,14 @@ your activity and workflow types, the domain name and the task list name.
    the activity from any others in the domain that it's registered in. Activities also contain a
    number of optional parameters, such as the default task-list used to receive tasks and data from
    SWF and a number of different timeouts that you can use to place constraints upon how long
-   different parts of the activity execution can take. See :java-api:`RegisterActivityTypeRequest
+   different parts of the activity execution can take. See :aws-java-class:`RegisterActivityTypeRequest
    <services/simpleworkflow/model/RegisterActivityTypeRequest>` for more information.
 
    .. tip:: All timeout values are specified in *seconds*. See :swf-dg:`Amazon SWF Timeout Types
        <swf-timeout-types>` for a full description of how timeouts affect your workflow executions.
 
    If the activity type that you're trying to register already exists, an
-   :java-api:`TypeAlreadyExistsException <services/simpleworkflow/model/TypeAlreadyExistsException>`
+   :aws-java-class:`TypeAlreadyExistsException <services/simpleworkflow/model/TypeAlreadyExistsException>`
    is raised.
 
 #. Add a function to register a new workflow type. A *workflow*, also known as a *decider*
@@ -280,11 +282,11 @@ your activity and workflow types, the domain name and the task list name.
        :dedent: 4
 
    Similar to activity types, workflow types are identified by a *name* and a *version* and also
-   have configurable timeouts. See :java-api:`RegisterWorkflowTypeRequest
+   have configurable timeouts. See :aws-java-class:`RegisterWorkflowTypeRequest
    <services/simpleworkflow/model/RegisterWorkflowTypeRequest>` for more information.
 
    If the workflow type that you're trying to register already exists, an
-   :java-api:`TypeAlreadyExistsException <services/simpleworkflow/model/TypeAlreadyExistsException>`
+   :aws-java-class:`TypeAlreadyExistsException <services/simpleworkflow/model/TypeAlreadyExistsException>`
    is raised.
 
 #. Finally, make the class executable by providing it a ``main`` method, which will register the
@@ -346,7 +348,7 @@ We'll implement a simple activity worker that drives a single activity.
 
    The activity receives tasks from |SWF| by calling the SWF client's
    :methodname:`pollForActivityTask` method, specifying the domain and task list to use in the
-   passed-in :java-api:`PollForActivityTaskRequest
+   passed-in :aws-java-class:`PollForActivityTaskRequest
    <services/simpleworkflow/model/PollForActivityTaskRequest>`.
 
    Once a task is received, we retrieve a unique identifier for it by calling the task's
@@ -366,12 +368,12 @@ We'll implement a simple activity worker that drives a single activity.
 
    If the task *succeeded* (no error was generated), then the worker responds to SWF by calling the
    SWF client's :methodname:`respondActivityTaskCompleted` method with a
-   :java-api:`RespondActivityTaskCompletedRequest
+   :aws-java-class:`RespondActivityTaskCompletedRequest
    <services/simpleworkflow/model/RespondActivityTaskCompletedRequest>` object containing the task
    token and the activity's result data.
 
    On the other hand, if the task *failed*, then we respond by calling the
-   :methodname:`respondActivityTaskFailed` method with a :java-api:`RespondActivityTaskFailedRequest
+   :methodname:`respondActivityTaskFailed` method with a :aws-java-class:`RespondActivityTaskFailedRequest
    <services/simpleworkflow/model/RespondActivityTaskFailedRequest>` object, passing it the task
    token and information about the error.
 
@@ -400,7 +402,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
        :lines: 20-22
 
 #. Declare the :classname:`WorkflowWorker` class, and create an instance of the
-   :java-api:`AmazonSimpleWorkflowClient <services/simpleworkflow/AmazonSimpleWorkflowClient>` class
+   :aws-java-class:`AmazonSimpleWorkflowClient <services/simpleworkflow/AmazonSimpleWorkflowClient>` class
    used to access SWF methods.
 
    .. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/WorkflowWorker.java
@@ -409,7 +411,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 
 #. Add the :methodname:`main` method. The method loops continuously, polling for decision tasks
    using the SWF client's :methodname:`pollForDecisionTask` method. The
-   :java-api:`PollForDecisionTaskRequest <services/simpleworkflow/model/PollForDecisionTaskRequest>`
+   :aws-java-class:`PollForDecisionTaskRequest <services/simpleworkflow/model/PollForDecisionTaskRequest>`
    provides the details.
 
    .. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/WorkflowWorker.java
@@ -420,7 +422,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
    Once a task is received, we call its :methodname:`getTaskToken` method, which returns a string
    that can be used to identify the task. If the returned token is not ``null``, then we process it
    further in the :methodname:`executeDecisionTask` method, passing it the task token and the list
-   of :java-api:`HistoryEvent <services/simpleworkflow/model/HistoryEvent>` objects sent with the
+   of :aws-java-class:`HistoryEvent <services/simpleworkflow/model/HistoryEvent>` objects sent with the
    task.
 
 #. Add the :methodname:`executeDecisionTask` method, taking the task token (a :classname:`String`)
@@ -433,7 +435,7 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 
    We also set up some data members to keep track of things such as:
 
-   * A list of :java-api:`Decision <services/simpleworkflow/model/Decision>` objects used to report
+   * A list of :aws-java-class:`Decision <services/simpleworkflow/model/Decision>` objects used to report
      the results of processing the task.
    * A String to hold workflow input provided by the "WorkflowExecutionStarted" event
    * a count of the scheduled and open (running) activities to avoid scheduling the same activity
@@ -461,12 +463,12 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
      event data also includes the return value of the completed activity. Since we have only one
      activity, we'll use that value as the result of the entire workflow.
 
-   The other event types can be used if your workflow requires them. See the :java-api:`HistoryEvent
+   The other event types can be used if your workflow requires them. See the :aws-java-class:`HistoryEvent
    <services/simpleworkflow/model/HistoryEvent>` class description for information about each event
    type.
 
    .. note:: Strings in ``switch`` statements were introduced in Java 7. If you're using an earlier
-       version of Java, you can make use of the :java-api:`EventType
+       version of Java, you can make use of the :aws-java-class:`EventType
        <services.simpleworkflow.model.EventType>` class to convert the ``String`` returned by
        ``history_event.getType()`` to an enum value and then back to a ``String`` if necessary:
 
@@ -483,14 +485,14 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
        :dedent: 8
 
    * If the activity hasn't been scheduled yet, we respond with a :classname:`ScheduleActivityTask`
-     decision, which provides information in a :java-api:`ScheduleActivityTaskDecisionAttributes
+     decision, which provides information in a :aws-java-class:`ScheduleActivityTaskDecisionAttributes
      <services/simpleworkflow/model/ScheduleActivityTaskDecisionAttributes>` structure about the
      activity that |SWF| should schedule next, also including any data that |SWF| should send to the
      activity.
 
    * If the activity was completed, then we consider the entire workflow completed and respond with
      a :classname:`CompletedWorkflowExecution` decision, filling in a
-     :java-api:`CompleteWorkflowExecutionDecisionAttributes
+     :aws-java-class:`CompleteWorkflowExecutionDecisionAttributes
      <services/simpleworkflow/model/CompleteWorkflowExecutionDecisionAttributes>` structure to
      provide details about the completed workflow. In this case, we return the result of the
      activity.
@@ -529,7 +531,7 @@ Finally, we'll write some code to start the workflow execution.
    takes an optional argument passed on the command-line as input data for the workflow.
 
    The SWF client method, :methodname:`startWorkflowExecution`, takes a
-   :java-api:`StartWorkflowExecutionRequest
+   :aws-java-class:`StartWorkflowExecutionRequest
    <services/simpleworkflow/model/StartWorkflowExecutionRequest>` object as input. Here, in addition
    to specifying the domain and workflow type to run, we provide it with:
 
@@ -540,7 +542,7 @@ Finally, we'll write some code to start the workflow execution.
    * a timeout value that represents how long, in seconds, that the entire workflow should take to
      run.
 
-   The :java-api:`Run <services/simpleworkflow/model/Run>` object that
+   The :aws-java-class:`Run <services/simpleworkflow/model/Run>` object that
    :methodname:`startWorkflowExecution` returns provides a *run ID*, a value that can be used to
    identify this particular workflow execution in |SWF|'s history of your workflow executions.
 

@@ -13,38 +13,44 @@ Using the SDK with Gradle
 #########################
 
 To use the |sdk-java| in your Gradle_ project, use Spring's `dependency management plugin
-<http://github.com/spring-gradle-plugins/dependency-management-plugin>`_ for Gradle, which can be
+<https://github.com/spring-gradle-plugins/dependency-management-plugin>`_ for Gradle, which can be
 used to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependencies for your project.
 
 .. topic:: To configure the SDK for Gradle
 
-    #. Add the dependency management plugin to your :file:`build.gradle` file::
+    #. Add the dependency management plugin to your :file:`build.gradle` file
 
-        buildscript {
-            repositories {
-                mavenCentral()
-            }
-            dependencies {
-                classpath "io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE"
-            }
-        }
+       .. code-block:: groovy
 
-        apply plugin: "io.spring.dependency-management"
+          buildscript {
+              repositories {
+                  mavenCentral()
+              }
+              dependencies {
+                  classpath "io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE"
+              }
+          }
 
-    #. Add the BOM to the *dependencyManagement* section of the file::
+          apply plugin: "io.spring.dependency-management"
 
-        dependencyManagement {
-            imports {
-                mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.47'
-            }
-        }
+    #. Add the BOM to the *dependencyManagement* section of the file
 
-    #. Specify the SDK modules that you'll be using in the *dependencies* section::
+       .. code-block:: groovy
 
-        dependencies {
-            compile 'com.amazonaws:aws-java-sdk-s3'
-            testCompile group: 'junit', name: 'junit', version: '4.11'
-        }
+          dependencyManagement {
+              imports {
+                  mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.47'
+              }
+          }
+
+    #. Specify the SDK modules that you'll be using in the *dependencies* section
+
+       .. code-block:: groovy
+
+          dependencies {
+              compile 'com.amazonaws:aws-java-sdk-s3'
+              testCompile group: 'junit', name: 'junit', version: '4.11'
+          }
 
 Gradle will automatically resolve the correct version of your SDK dependencies using the information
 from the BOM.

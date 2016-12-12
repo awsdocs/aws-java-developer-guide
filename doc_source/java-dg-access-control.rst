@@ -19,14 +19,14 @@ resources. An access control policy consists of a collection of *statements*, wh
 
 Where:
 
-* *A* is the *principal* |ndash| The AWS account that is making a request to access or modify one of
-  your AWS resources.
+* *A* is the *principal* |ndash| The AWS account that is making a request to access or modify one
+  of your AWS resources.
 
-* *B* is the *action* |ndash| The way in which your AWS resource is being accessed or modified, such
-  as sending a message to an |SQS| queue, or storing an object in an |S3| bucket.
+* *B* is the *action* |ndash| The way in which your AWS resource is being accessed or modified,
+  such as sending a message to an |SQS| queue, or storing an object in an |S3| bucket.
 
-* *C* is the *resource* |ndash| The AWS entity that the principal wants to access, such as an |SQS|
-  queue, or an object stored in |S3|.
+* *C* is the *resource* |ndash| The AWS entity that the principal wants to access, such as an
+  |SQS| queue, or an object stored in |S3|.
 
 * *D* is a *set of conditions* |ndash| The optional constraints that specify when to allow or deny
   access for the principal to access your resource. Many expressive conditions are available, some
@@ -83,8 +83,9 @@ One common use of policies is to authorize an |SQS| queue to receive messages fr
 =============
 
 Some services offer additional conditions that can be used in policies. |SNS| provides conditions
-for allowing or denying subscriptions to SNS topics based on the protocol (e.g., email, HTTP, HTTPS,
-|SQS|) and endpoint (e.g., email address, URL, |SQS| ARN) of the request to subscribe to a topic.
+for allowing or denying subscriptions to SNS topics based on the protocol (e.g., email, HTTP,
+HTTPS, |SQS|) and endpoint (e.g., email address, URL, |SQS| ARN) of the request to subscribe to a
+topic.
 
 .. code-block:: java
 

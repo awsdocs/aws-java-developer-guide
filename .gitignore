@@ -2,3 +2,4 @@ README.html
 doc_build/
 doc_output/
 build_dependencies/
+*.swp

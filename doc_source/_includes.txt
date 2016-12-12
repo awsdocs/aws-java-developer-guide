@@ -1,16 +1,16 @@
 .. project-specific includes for this project.
 
-.. |sdk-java-dl| replace:: http://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip
+.. |sdk-java-dl| replace:: https://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip
 
 .. |sdk-java-github| replace:: AWS SDK for Java (GitHub)
-.. _sdk-java-github: http://github.com/aws/aws-sdk-java
+.. _sdk-java-github: https://github.com/aws/aws-sdk-java
 
 .. |mvn| replace:: Maven
 .. |mvnlong| replace:: Apache |mvn|
 
-.. _Gradle: http://gradle.com/
-.. _Maven: http://maven.apache.org/
+.. _Gradle: https://gradle.com/
+.. _Maven: https://maven.apache.org/
 .. _mvn: Maven_
 .. _mvnlong: Maven_
 
-.. |s3client| replace:: :java-api:`AmazonS3 <services/s3/AmazonS3>`
+.. |s3client| replace:: :aws-java-class:`AmazonS3 <services/s3/AmazonS3>`

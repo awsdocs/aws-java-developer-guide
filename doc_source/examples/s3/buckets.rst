@@ -26,7 +26,7 @@ the the |s3-dg|.
 Create a bucket
 ===============
 
-Use the |s3client| client's :methodname:`createBucket` method. The new :java-api:`Bucket
+Use the |s3client| client's :methodname:`createBucket` method. The new :aws-java-class:`Bucket
 <services/s3/model/Bucket>` is returned.
 
 **Imports:**
@@ -40,7 +40,7 @@ Use the |s3client| client's :methodname:`createBucket` method. The new :java-api
    :lines: 42-50
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/CreateBucket.java>`.
+See the :sdk-examples-java-s3:`complete example <CreateBucket.java>`.
 
 
 .. _list-buckets:
@@ -49,7 +49,7 @@ List buckets
 ============
 
 Use the |s3client| client's :methodname:`listBucket` method. If successful, a List of
-:java-api:`Bucket <services/s3/model/Bucket>` objects will be returned.
+:aws-java-class:`Bucket <services/s3/model/Bucket>` objects will be returned.
 
 **Imports:**
 
@@ -62,7 +62,7 @@ Use the |s3client| client's :methodname:`listBucket` method. If successful, a Li
    :lines: 31-36
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/ListBuckets.java>`.
+See the :sdk-examples-java-s3:`complete example <ListBuckets.java>`.
 
 
 .. _delete-bucket:
@@ -74,7 +74,7 @@ Before you can delete an |S3| bucket, you must ensure that the bucket is empty f
 will result. If you have a :S3-dg:`versioned bucket <Versioning>`, then you must also delete any
 versioned objects associated with the bucket.
 
-.. note:: The :sdk-examples-java:`complete example <s3/DeleteBucket.java>` includes each of these
+.. note:: The :sdk-examples-java-s3:`complete example <DeleteBucket.java>` includes each of these
    steps in order, providing a complete solution for deleting an |S3| bucket and its contents.
 
 
@@ -96,7 +96,7 @@ delete each one.
    :lines: 51, 53-70, 94-97
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/DeleteBucket.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.
 
 
 Removing objects from a versioned bucket prior to deletion
@@ -120,7 +120,7 @@ objects and then :methodname:`deleteVersion` to delete each one.
    :lines: 51, 53-90, 94-97
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/DeleteBucket.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.
 
 
 Deleting an empty bucket
@@ -140,5 +140,5 @@ bucket itself, use the |s3client| client's :methodname:`deleteBucket` method.
    :lines: 51, 53, 93-97
    :dedent: 8
 
-See the :sdk-examples-java:`complete example <s3/DeleteBucket.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.
 

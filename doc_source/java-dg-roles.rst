@@ -40,9 +40,9 @@ for credentials using the :emphasis:`default credentials provider chain`, in the
 
 The final step in the default provider chain is available only when running your application on an
 |EC2| instance, but provides the greatest ease of use and best security when working with |EC2|
-instances. You can also pass an :java-api:`InstanceProfileCredentialsProvider
-<com/amazonaws/auth/InstanceProfileCredentialsProvider>` instance directly to the client constructor
-to get instance profile credentials without proceeding through the entire default provider chain.
+instances. You can also pass an :aws-java-class:`InstanceProfileCredentialsProvider
+<auth/InstanceProfileCredentialsProvider>` instance directly to the client constructor to get
+instance profile credentials without proceeding through the entire default provider chain.
 
 For example:
 
@@ -65,7 +65,7 @@ obtained credentials continue to allow access to AWS.
    profile credentials, you are responsible for checking for and refreshing expired credentials.
 
 If the client constructor can't find credentials using the credentials provider chain, it will throw
-an :java-api:`AmazonClientException <com/amazonaws/AmazonClientException>`.
+an :aws-java-class:`AmazonClientException <AmazonClientException>`.
 
 
 .. _roles-walkthrough:
@@ -109,8 +109,8 @@ Launch an EC2 Instance and Specify Your IAM Role
 
 You can launch an |EC2| instance with an |IAM| role using the |EC2| console or the |sdk-java|.
 
-* To launch an |EC2| instance using the console, follow the directions in :ec2-ug:`Launch an EC2
-  Instance <ec2-launch-instance_linux>` in the |EC2-ug|.
+* To launch an |EC2| instance using the console, follow the directions in :ec2-ug:`Getting Started
+  with Amazon EC2 Linux Instances <EC2_GetStarted>` in the |EC2-ug|.
 
   When you reach the :guilabel:`Review Instance Launch` page, select :guilabel:`Edit instance
   details`. In :guilabel:`IAM role`, choose the |IAM| role that you created previously. Complete the

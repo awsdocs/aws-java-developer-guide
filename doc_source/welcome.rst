@@ -32,7 +32,7 @@ developers:
 
 * |sdk-java-ref|_
 
-* `Java developer blog <http://java.awsblog.com/>`_
+* :blog:`Java developer blog <developer/category/java>`
 
 * :forum:`Java developer forums <70>`
 
@@ -48,11 +48,11 @@ developers:
 
   + :github:`SDK samples <aws/aws-sdk-java/tree/master/src/samples>`
 
-  + `Gitter channel <http://gitter.im/aws/aws-sdk-java>`_
+  + `Gitter channel <https://gitter.im/aws/aws-sdk-java>`_
 
-* `@awsforjava (Twitter) <http://twitter.com/awsforjava>`_
+* `@awsforjava (Twitter) <https://twitter.com/awsforjava>`_
 
-* `release notes <http://aws.amazon.com/releasenotes/Java>`_
+* `release notes <https://aws.amazon.com/releasenotes/Java>`_
 
 
 .. _eclipse-support:

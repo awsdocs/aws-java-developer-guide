@@ -28,10 +28,10 @@ To see if a particular AWS service is available in a region, use the
     Region.getRegion(Regions.US_WEST_2)
         .isServiceSupported(AmazonDynamoDB.ENDPOINT_PREFIX);
 
-See the :java-api:`Regions <regions/Regions>` class documentation to see which regions can be
+See the :aws-java-class:`Regions <regions/Regions>` class documentation to see which regions can be
 specified, and use the endpoint prefix of the service to query. Each service's endpoint prefix is
 defined in the service interface. For example, |DDB|'s endpoint prefix is defined in
-:java-api:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`.
+:aws-java-class:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`.
 
 
 .. _region-selection-choose-region:
@@ -43,7 +43,7 @@ Beginning with version 1.4 of the |sdk-java|, you can specify a region name and 
 automatically choose an appropriate endpoint for you. If you want to choose the endpoint yourself,
 see :ref:`region-selection-choose-endpoint`.
 
-To explicitly set a region, it is recommended to use the :java-api:`Regions <regions/Regions>` enum
+To explicitly set a region, it is recommended to use the :aws-java-class:`Regions <regions/Regions>` enum
 which is a enumeration of all publicly available regions. To create a client with a region from
 the enum use the following code::
 

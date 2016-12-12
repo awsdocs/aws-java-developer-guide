@@ -23,8 +23,8 @@ There are a number of ways to do this:
   or temporary credentials retrieved from |STS|.
 
 .. important:: It is *strongly recommended*, from a security standpoint, that you *use IAM users*
-   instead of the root account for AWS access. For more information, see `IAM Best Practices
-   <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html>`_ in |iam-ug|.
+   instead of the root account for AWS access. For more information, see :iam-ug:`IAM Best Practices
+   <best-practices>` in the |iam-ug|.
 
 This topic provides information about how to load credentials for AWS using the |sdk-java|.
 
@@ -35,21 +35,21 @@ Using the Default Credential Provider Chain
 
 When you initialize a new service client without supplying any arguments, the |sdk-java| will
 attempt to find AWS credentials using the :emphasis:`default credential provider chain` implemented
-by the :java-api:`DefaultAWSCredentialsProviderChain <auth/DefaultAWSCredentialsProviderChain>`
+by the :aws-java-class:`DefaultAWSCredentialsProviderChain <auth/DefaultAWSCredentialsProviderChain>`
 class. The default credential provider chain looks for credentials in this order:
 
 #. **Environment Variables** |ndash| :envvar:`AWS_ACCESS_KEY_ID` and
    :envvar:`AWS_SECRET_ACCESS_KEY`. The |sdk-java| uses the
-   :java-api:`EnvironmentVariableCredentialsProvider <auth/EnvironmentVariableCredentialsProvider>`
+   :aws-java-class:`EnvironmentVariableCredentialsProvider <auth/EnvironmentVariableCredentialsProvider>`
    class to load these credentials.
 
 #. **Java System Properties** |ndash| :code:`aws.accessKeyId` and :code:`aws.secretKey`. The
-   |sdk-java| uses the :java-api:`SystemPropertiesCredentialsProvider
+   |sdk-java| uses the :aws-java-class:`SystemPropertiesCredentialsProvider
    <auth/SystemPropertiesCredentialsProvider>` to load these credentials.
 
 #. **The default credential profiles file** |ndash| typically located at :file:`~/.aws/credentials`
    (this location may vary per platform), this credentials file is shared by many of the AWS SDKs
-   and by the AWS CLI. The |sdk-java| uses the :java-api:`ProfileCredentialsProvider
+   and by the AWS CLI. The |sdk-java| uses the :aws-java-class:`ProfileCredentialsProvider
    <auth/profile/ProfileCredentialsProvider>` to load these credentials.
 
    You can create a credentials file by using the :code:`aws configure` command provided by the AWS
@@ -58,16 +58,16 @@ class. The default credential provider chain looks for credentials in this order
 
 #. **Amazon ECS container credentials** |ndash| loaded from the |ECSlong| if the environment
    variable :envvar:`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` is set. The |sdk-java| uses the
-   :java-api:`ContainerCredentialsProvider <auth/ContainerCredentialsProvider>` to load these
+   :aws-java-class:`ContainerCredentialsProvider <auth/ContainerCredentialsProvider>` to load these
    credentials.
 
 #. **Instance profile credentials** |ndash| used on EC2 instances, and delivered through the |EC2|
-   metadata service. The |sdk-java| uses the :java-api:`InstanceProfileCredentialsProvider
+   metadata service. The |sdk-java| uses the :aws-java-class:`InstanceProfileCredentialsProvider
    <auth/InstanceProfileCredentialsProvider>` to load these credentials.
 
    .. note:: Instance profile credentials are used only if
       :envvar:`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` is not set. See
-      :java-api:`EC2ContainerCredentialsProviderWrapper
+      :aws-java-class:`EC2ContainerCredentialsProviderWrapper
       <auth/EC2ContainerCredentialsProviderWrapper>` for more information.
 
 
@@ -184,7 +184,7 @@ provider chain, you can specify it via the client builder.
 .. topic:: To specify a specific credentials provider
 
     * Provide an instance of a credentials provider or provider chain to a client builder that takes
-      an :java-api:`AWSCredentialsProvider <auth/AWSCredentialsProvider>` interface as input.  For
+      an :aws-java-class:`AWSCredentialsProvider <auth/AWSCredentialsProvider>` interface as input.  For
       example, to use :emphasis:`environment` credentials specifically:
 
       .. code-block:: java
@@ -194,13 +194,13 @@ provider chain, you can specify it via the client builder.
                                  .build();
 
 For the full list of |sdk-java|-supplied credential providers and provider chains, see the list of
-"All known implementing classes" in the reference topic for :java-api:`AWSCredentialsProvider
+"All known implementing classes" in the reference topic for :aws-java-class:`AWSCredentialsProvider
 <auth/AWSCredentialsProvider>`.
 
 .. tip:: You can use this technique to supply credential providers or provider chains that you
    create, by implementing your own credential provider that implements the
    :emphasis:`AWSCredentialsProvider` interface, or by sub-classing the
-   :java-api:`AWSCredentialsProviderChain <auth/AWSCredentialsProviderChain>` class.
+   :aws-java-class:`AWSCredentialsProviderChain <auth/AWSCredentialsProviderChain>` class.
 
 
 .. _credentials-explicit:
@@ -215,11 +215,11 @@ temporary credentials using |STS|, use this method to specify the credentials fo
 
 .. topic:: To explicitly supply credentials to an AWS client:
 
-    #. Instantiate a class that provides the :java-api:`AWSCredentials <auth/AWSCredentials>`
-       interface, such as :java-api:`BasicAWSCredentials <auth/BasicAWSCredentials>`, supplying it
+    #. Instantiate a class that provides the :aws-java-class:`AWSCredentials <auth/AWSCredentials>`
+       interface, such as :aws-java-class:`BasicAWSCredentials <auth/BasicAWSCredentials>`, supplying it
        with the AWS access key and secret key you will use for the connection.
 
-    #. Create a :java-api:`AWSStaticCredentialsProvider <auth/AWSStaticCredentialsProvider>` with
+    #. Create a :aws-java-class:`AWSStaticCredentialsProvider <auth/AWSStaticCredentialsProvider>` with
        the AWSCredentials object.
 
     #. Configure the client builder with the AWSStaticCredentialsProvider and build the client.
@@ -235,7 +235,7 @@ For example:
                             .build();
 
 When using :doc:`temporary credentials obtained from STS <prog-services-sts>`, create a
-:java-api:`BasicSessionCredentials <auth/BasicSessionCredentials>` object, passing it the
+:aws-java-class:`BasicSessionCredentials <auth/BasicSessionCredentials>` object, passing it the
 STS-supplied credentials and session token:
 
 .. literalinclude:: snippets/sts_basic_session_creds.java

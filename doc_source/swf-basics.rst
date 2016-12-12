@@ -61,8 +61,8 @@ If you are using the |jflow|, you will import classes from the
 Using the SWF client class
 ==========================
 
-Your basic interface to |SWF| is through either the :java-api:`AmazonSimpleWorkflowClient
-<services/simpleworkflow/AmazonSimpleWorkflowClient>` or :java-api:`AmazonSimpleWorkflowAsyncClient
+Your basic interface to |SWF| is through either the :aws-java-class:`AmazonSimpleWorkflowClient
+<services/simpleworkflow/AmazonSimpleWorkflowClient>` or :aws-java-class:`AmazonSimpleWorkflowAsyncClient
 <services/simpleworkflow/AmazonSimpleWorkflowAsyncClient>` classes. The main difference between
 these is that the ``*AsyncClient`` class return :javase-ref:`Future<java/util/concurrent/Future>`
 objects for concurrent (asynchronous) programming.

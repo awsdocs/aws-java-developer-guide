@@ -24,8 +24,8 @@ The |sdk-java| code samples are provided in the `samples` directory of the SDK. 
 and installed the SDK using the information in :doc:`setup-install`, then you already have the
 samples on your system.
 
-You can also view the latest samples on the |sdk-java|'s GitHub repository, in the `src/samples
-<http://github.com/aws/aws-sdk-java/tree/master/src/samples>`_ directory.
+You can also view the latest samples on the |sdk-java| GitHub repository, in the
+:github:`src/samples <aws/aws-sdk-java/tree/master/src/samples>` directory.
 
 
 .. _samples-cmdline:

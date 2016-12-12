@@ -15,9 +15,9 @@ Creating Service Clients
 To make requests to |AWSlong|, you first create a service client object. The preferred way to do
 this is to use the service client builder. Each AWS service has a service interface that has methods
 for each action in the service API. For example, the service interface for |DDBlong| is named
-:java-api:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`. Each service interface has a
+:aws-java-class:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`. Each service interface has a
 corresponding client builder you can use to construct an implementation of the service interface.
-The client builder class for |DDB| is named :java-api:`AmazonDynamoDBClientBuilder
+The client builder class for |DDB| is named :aws-java-class:`AmazonDynamoDBClientBuilder
 <services/dynamodbv2/AmazonDynamoDBClientBuilder>`.
 
 To obtain an instance of the client builder, use the static factory method ``standard``, as shown in
@@ -61,9 +61,9 @@ builder as a factory for client instances.
         }
     }
 
-The builder also exposes fluent setters for :java-api:`ClientConfiguration <ClientConfiguration>`',
-:java-api:`RequestMetricCollector <metrics/RequestMetricCollector>`, and a custom list of
-:java-api:`RequestHandler2 <handlers/RequestHandler2>`.
+The builder also exposes fluent setters for :aws-java-class:`ClientConfiguration <ClientConfiguration>`',
+:aws-java-class:`RequestMetricCollector <metrics/RequestMetricCollector>`, and a custom list of
+:aws-java-class:`RequestHandler2 <handlers/RequestHandler2>`.
 
 The following is a complete example that overrides all configurable properties.
 
@@ -92,7 +92,7 @@ client builder for every service.
                    .build();
 
 In addition to the configuration options that the synchronous (or sync) client builder supports, the
-async client allows you to set a custom :java-api:`ExecutorFactory <client/builder/ExecutorFactory>`
+async client allows you to set a custom :aws-java-class:`ExecutorFactory <client/builder/ExecutorFactory>`
 to change the :classname:`ExecutorService` that the async client uses. :classname:`ExecutorFactory`
 is a functional interface, so it interoperates with Java 8 lambda expressions and method references.
 

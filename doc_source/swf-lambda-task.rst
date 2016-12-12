@@ -75,7 +75,7 @@ Register a workflow for use with |LAM|
 For a workflow to schedule a |LAM| function, you must provide the name of the IAM role that provides
 |SWF| with permission to invoke |LAM| functions. You can set this during workflow registration by
 using the ``withDefaultLambdaRole`` or ``setDefaultLambdaRole`` methods of
-:java-api:`RegisterWorkflowTypeRequest <services/simpleworkflow/model/RegisterWorkflowTypeRequest>`.
+:aws-java-class:`RegisterWorkflowTypeRequest <services/simpleworkflow/model/RegisterWorkflowTypeRequest>`.
 
 .. literalinclude:: snippets/helloswf_lambda/src/main/java/example/swf/hellolambda/HelloTypes.java
    :language: java
@@ -86,10 +86,10 @@ using the ``withDefaultLambdaRole`` or ``setDefaultLambdaRole`` methods of
 Schedule a |LAM| task
 =====================
 
-Schedule a |LAM| task is similar to scheduling an activity. You provide a :java-api:`Decision
-<services/simpleworkflow/model/Decision>` with a ``ScheduleLambdaFunction`` :java-api:`DecisionType
+Schedule a |LAM| task is similar to scheduling an activity. You provide a :aws-java-class:`Decision
+<services/simpleworkflow/model/Decision>` with a ``ScheduleLambdaFunction`` :aws-java-class:`DecisionType
 <services/simpleworkflow/model/DecisionType>` and with
-:java-api:`ScheduleLambdaFunctionDecisionAttributes
+:aws-java-class:`ScheduleLambdaFunctionDecisionAttributes
 <services/simpleworkflow/model/ScheduleLambdaFunctionDecisionAttributes>`.
 
 .. literalinclude:: snippets/helloswf_lambda/src/main/java/example/swf/hellolambda/WorkflowWorker.java
@@ -105,7 +105,7 @@ You can also provide optional *input* for the |LAM| function and set its *start 
 value, which is the number of seconds that the |LAM| function is allowed to run before generating a
 ``LambdaFunctionTimedOut`` event.
 
-.. tip:: This code uses the :java-api:`AWSLambdaClient <services/lambda/AWSLambdaClient>` to
+.. tip:: This code uses the :aws-java-class:`AWSLambdaClient <services/lambda/AWSLambdaClient>` to
    retrieve the ARN of the |LAM| function, given the function name. You can use this technique to
    avoid hard-coding the full ARN (which includes your AWS account ID) in your code.
 
@@ -115,7 +115,7 @@ Handle |LAM| function events in your decider
 
 |LAM| tasks will generate a number of events that you can take action on when polling for decision
 tasks in your workflow worker, corresponding to the lifecycle of your |LAM| task, with
-:java-api:`EventType <services/simpleworkflow/model/EventType>` values such as
+:aws-java-class:`EventType <services/simpleworkflow/model/EventType>` values such as
 ``LambdaFunctionScheduled``, ``LambdaFunctionStarted``, and ``LambdaFunctionCompleted``. If the
 |LAM| function fails, or takes longer to run than its set timeout value, you will receive either a
 ``LambdaFunctionFailed`` or ``LambdaFunctionTimedOut`` event type, respectively.
@@ -129,10 +129,10 @@ tasks in your workflow worker, corresponding to the lifecycle of your |LAM| task
 Receive output from your |LAM| function
 =======================================
 
-When you receive a ``LambdaFunctionCompleted`` :java-api:`EventType
+When you receive a ``LambdaFunctionCompleted`` :aws-java-class:`EventType
 <services/simpleworkflow/model/EventType>`, you can retrieve your |LAM| function's return value by
-first calling :methodname:`getLambdaFunctionCompletedEventAttributes` on the :java-api:`HistoryEvent
-<services/simpleworkflow/model/HistoryEvent>` to get a :java-api:`LambdaFunctionCompletedEventAttributes
+first calling :methodname:`getLambdaFunctionCompletedEventAttributes` on the :aws-java-class:`HistoryEvent
+<services/simpleworkflow/model/HistoryEvent>` to get a :aws-java-class:`LambdaFunctionCompletedEventAttributes
 <services/simpleworkflow/model/LambdaFunctionCompletedEventAttributes>` object, and then calling its
 :methodname:`getResult` method to retrieve the output of the |LAM| function:
 
@@ -146,6 +146,6 @@ Complete source for this example
 ================================
 
 You can browse the `complete source
-<http://github.com/awsdocs/aws-java-developer-guide/tree/master/doc_source/snippets/helloswf_lambda/>`_
-for this example on Github in the *aws-java-developer-guide* repository.
+:github:`<awsdocs/aws-java-developer-guide/tree/master/doc_source/snippets/helloswf_lambda/>` for
+this example on Github in the *aws-java-developer-guide* repository.
 

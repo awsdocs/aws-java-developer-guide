@@ -16,16 +16,16 @@ Every workflow and activity in |SWF|_ needs a :emphasis:`domain` to run in.
 
 .. topic:: To register an |SWF| domain
 
-    #.  Create a new :java-api:`RegisterDomainRequest
+    #.  Create a new :aws-java-class:`RegisterDomainRequest
         <services/simpleworkflow/model/RegisterDomainRequest>` object, providing it with at least
         the domain name and workflow execution retention period (these parameters are both
         required).
 
-    #.  Call the :java-ref:`AmazonSimpleWorkflowClient.registerDomain
-        </services/simpleworkflow/AmazonSimpleWorkflowClient.html#registerDomain(com.amazonaws.services.simpleworkflow.model.RegisterDomainRequest)>`
+    #.  Call the :aws-java-ref:`AmazonSimpleWorkflowClient.registerDomain
+        <services/simpleworkflow/AmazonSimpleWorkflowClient.html#registerDomain-com.amazonaws.services.simpleworkflow.model.RegisterDomainRequest->`
         method with the :emphasis:`RegisterDomainRequest` object.
 
-    #.  Catch the :java-api:`DomainAlreadyExistsException
+    #.  Catch the :aws-java-class:`DomainAlreadyExistsException
         <services/simpleworkflow/model/DomainAlreadyExistsException>` if the domain you're
         requesting already exists (in which case, no action is usually required).
 
