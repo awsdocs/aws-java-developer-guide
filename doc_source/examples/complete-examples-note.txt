@@ -1,0 +1,6 @@
+
+.. note:: Only the code that is necessary to demonstrate each technique is supplied here, but
+   :sdk-doc-examples:`complete example code is available on GitHub <java>`, where you can download a
+   single source file or you can clone the repository locally to get all examples, build and run
+   them.
+

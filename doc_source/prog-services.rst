@@ -23,7 +23,7 @@ This section provides tutorials and examples of using the |sdk-java| to program 
    :glob:
 
    java-dg-samples
-   prog-services-ddb
+   examples/dynamodb
    prog-services-ec2
    prog-services-sts
    prog-services-swf
