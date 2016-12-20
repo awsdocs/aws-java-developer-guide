@@ -24,12 +24,12 @@ the item.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/GetItem.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/GetItem.java
    :lines: 15-21
 
 **Code:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/GetItem.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/GetItem.java
    :lines: 68-102
    :dedent: 8
 
@@ -52,12 +52,12 @@ by the request.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/PutItem.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/PutItem.java
    :lines: 15-20
 
 **Code:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/PutItem.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/PutItem.java
    :lines: 76-96
    :dedent: 8
 
@@ -79,12 +79,12 @@ method, providing a table name, primary key value and a map of fields to update.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
    :lines: 15-22
 
 **Code:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
    :lines: 82-105
    :dedent: 8
 

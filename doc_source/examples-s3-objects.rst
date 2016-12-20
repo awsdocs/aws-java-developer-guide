@@ -9,9 +9,9 @@ Operations on Objects
                objects, put, rename, upload
 
 An |S3| object represents a *file*, or collection of data. Every object must reside within a
-:doc:`bucket <buckets>`.
+:doc:`bucket <examples-s3-buckets>`.
 
-.. include:: ../examples-note.txt
+.. include:: includes/examples-note.txt
 
 .. contents::
     :local:
@@ -28,12 +28,12 @@ name, and file to upload. *The bucket must exist, or an error will result*.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/PutObject.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/PutObject.java
    :lines: 15-17
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/PutObject.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/PutObject.java
    :lines: 46-52
    :dedent: 8
 
@@ -56,12 +56,12 @@ name.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/ListObjects.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListObjects.java
    :lines: 16-20
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/ListObjects.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListObjects.java
    :lines: 45-50
    :dedent: 8
 
@@ -87,12 +87,12 @@ name as the object's key):
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/GetObject.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetObject.java
    :lines: 15-23
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/GetObject.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetObject.java
    :lines: 50-71
    :dedent: 8
 
@@ -109,12 +109,12 @@ and the destination bucket and name.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/CopyObject.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CopyObject.java
    :lines: 15-17
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/CopyObject.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CopyObject.java
    :lines: 46-52
    :dedent: 8
 
@@ -135,12 +135,12 @@ object to delete. *The specified bucket and object key must exist, or an error w
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteObject.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteObject.java
    :lines: 15-17
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteObject.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteObject.java
    :lines: 47-53
    :dedent: 8
 
@@ -158,12 +158,12 @@ from the same bucket by passing their names to the :aws-java-class:`DeleteObject
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteObjects.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteObjects.java
    :lines: 15-18
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteObjects.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteObjects.java
    :lines: 52-60
    :dedent: 8
 

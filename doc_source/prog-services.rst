@@ -20,11 +20,10 @@ This section provides tutorials and examples of using the |sdk-java| to program 
 .. toctree::
    :maxdepth: 1
    :titlesonly:
-   :glob:
 
    java-dg-samples
-   examples/dynamodb
+   examples-dynamodb
    prog-services-ec2
    prog-services-sts
    prog-services-swf
-   examples/s3
+   examples-s3

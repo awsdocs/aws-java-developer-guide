@@ -19,7 +19,7 @@ Prerequisites
 
 To use the |sdk-java|, you must have:
 
-* a suitable :ref:`Java Development Environment<java-dg-java-env>`.
+* a suitable :ref:`Java Development Environment <java-dg-java-env>`.
 
 * An AWS account and access keys. For instructions, see :doc:`signup-create-iam-user`.
 

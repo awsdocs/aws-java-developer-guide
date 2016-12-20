@@ -12,9 +12,9 @@ of objects. Each bucket is known by a *key* (name), which must be unique. For de
 about buckets and their configuration, see :s3-dg:`Working with Amazon S3 Buckets <UsingBucket>` in
 the the |s3-dg|.
 
-.. include:: ../../common/s3-note-incomplete-upload-policy.txt
+.. include:: common/s3-note-incomplete-upload-policy.txt
 
-.. include:: ../examples-note.txt
+.. include:: includes/examples-note.txt
 
 .. contents::
     :local:
@@ -31,12 +31,12 @@ Use the |s3client| client's :methodname:`createBucket` method. The new :aws-java
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
    :lines: 15-18
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
    :lines: 42-50
    :dedent: 8
 
@@ -53,12 +53,12 @@ Use the |s3client| client's :methodname:`listBucket` method. If successful, a Li
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
    :lines: 15-19
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
    :lines: 31-36
    :dedent: 8
 
@@ -87,12 +87,12 @@ delete each one.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 15-17, 19-20, 23
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 51, 53-70, 94-97
    :dedent: 8
 
@@ -111,12 +111,12 @@ objects and then :methodname:`deleteVersion` to delete each one.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 15-23
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 51, 53-90, 94-97
    :dedent: 8
 
@@ -131,12 +131,12 @@ bucket itself, use the |s3client| client's :methodname:`deleteBucket` method.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 15-17
 
 **Code:**
 
-.. literalinclude:: ../../example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 51, 53, 93-97
    :dedent: 8
 

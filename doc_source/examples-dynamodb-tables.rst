@@ -48,7 +48,7 @@ must also supply initial provisioned throughput values and give the table a name
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
    :lines: 15-23
 
 .. _dynamodb-create-table-simple:
@@ -60,7 +60,7 @@ This code creates a table with a simple primary key ("Name"):
 
 **Code:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
    :lines: 58-73
    :dedent: 8
 
@@ -78,7 +78,7 @@ To create a table with a composite primary key, add an additional
 
 **Code:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTableCompositeKey.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTableCompositeKey.java
    :lines: 58-67
    :dedent: 8
 
@@ -98,12 +98,12 @@ You can list the tables in a particular region by calling the :aws-java-class:`D
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
    :lines: 15-18
 
 **Code:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
    :lines: 32-64
    :dedent: 8
 
@@ -128,12 +128,12 @@ You can describe (get information about) a table by calling the :aws-java-class:
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
    :lines: 15-20
 
 **Code:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
    :lines: 50-87
    :dedent: 8
 
@@ -155,13 +155,13 @@ method.
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
    :lines: 15-22
 
 **Code:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
-   :lines: 82-105
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
+   :lines: 57-67
    :dedent: 8
 
 See the :sdk-examples-java-dynamodb:`complete sample <UpdateTable.java>`.
@@ -181,12 +181,12 @@ To delete a table, call the :aws-java-class:`DynamoDB client <services/dynamodbv
 
 **Imports:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
    :lines: 15-16
 
 **Code:**
 
-.. literalinclude:: ../../example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
    :lines: 51-58
    :dedent: 8
 
