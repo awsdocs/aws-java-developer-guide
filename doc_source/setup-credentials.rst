@@ -12,6 +12,12 @@
 Set up AWS Credentials and Region for Development
 #################################################
 
+.. meta::
+   :description: Set up default AWS credentials and region for development with the AWS SDK for
+                 Java.
+   :keywords: AWS region, AWS credentials, setup, shared credentials file, shared config file,
+              environment variable
+
 To connect to any of the supported services with the |sdk-java|, you must provide AWS credentials.
 The AWS SDKs and CLIs use :emphasis:`provider chains` to look for AWS credentials in a number of
 different places, including system/user environment variables and local AWS configuration files.
@@ -51,7 +57,9 @@ You should set a default AWS Region that will be used for accessing AWS services
 for Java. For the best network performance, you should choose a region that's geographically close
 to you (or to your customers).
 
-You can use similar techniques to setting credentials to set your default AWS region.
+.. note:: If you *don't* select a region, then |region-api-default| will be used by default.
+
+You can use similar techniques to setting credentials to set your default AWS region:
 
 .. The following file is in the shared content at https://github.com/awsdocs/aws-doc-shared-content
 

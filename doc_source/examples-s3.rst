@@ -25,4 +25,5 @@ This section provides examples of programming |S3|_ using the |sdk-java|_.
 
     examples-s3-buckets
     examples-s3-objects
+    examples-s3-bucket-policies
 
