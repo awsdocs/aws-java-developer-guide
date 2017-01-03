@@ -1,4 +1,4 @@
-.. Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -46,7 +46,7 @@ parts working together:
 
 Behind the scenes, |SWF| orchestrates the operation of these components, coordinating their flow
 from the AWS cloud, passing data between them, handling timeouts and heartbeat notifications, and
-logging workflow exectuion history.
+logging workflow execution history.
 
 
 Prerequisites

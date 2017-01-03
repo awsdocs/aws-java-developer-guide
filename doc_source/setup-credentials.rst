@@ -1,4 +1,4 @@
-.. Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-######################################
-Set up AWS Credentials for Development
-######################################
+#################################################
+Set up AWS Credentials and Region for Development
+#################################################
 
 To connect to any of the supported services with the |sdk-java|, you must provide AWS credentials.
 The AWS SDKs and CLIs use :emphasis:`provider chains` to look for AWS credentials in a number of
@@ -26,14 +26,34 @@ or if you're using the Eclipse IDE for development, refer to the following topic
 * Set up AWS credentials within Eclipse using the |tke|_. See :tke-ug:`Set up AWS Credentials
   <setup-credentials>` in the |tke-ug|_ for more information.
 
+.. _setup-credentials-setting:
+
+Setting AWS Credentials
+=======================
+
 Setting your credentials for use by the |sdk-java| can be done in a number of ways, but here are the
 recommended approaches:
 
-.. the following file is in the shared content...
+.. The following file is in the shared content at https://github.com/awsdocs/aws-doc-shared-content
 
 .. include:: common/sdk-shared-credentials.txt
 
 Once you have set your AWS credentials using one of these methods, they will be loaded automatically
 by the |sdk-java| by using the default credential provider chain. For further information about
 working with AWS credentials in your Java applications, see :doc:`credentials`.
+
+.. _setup-credentials-setting-region:
+
+Setting the AWS Region
+======================
+
+You should set a default AWS Region that will be used for accessing AWS services with the AWS SDK
+for Java. For the best network performance, you should choose a region that's geographically close
+to you (or to your customers).
+
+You can use similar techniques to setting credentials to set your default AWS region.
+
+.. The following file is in the shared content at https://github.com/awsdocs/aws-doc-shared-content
+
+.. include:: common/sdk-shared-region.txt
 
