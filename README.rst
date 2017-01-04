@@ -65,6 +65,22 @@ The build process will automatically download a snapshot of its dependencies, co
 ``doc_build`` directory and will then generate output into the ``doc_output`` directory.
 
 
+Code examples in the documentation
+----------------------------------
+
+The code examples featured in this documentation can be found in a separate repository:
+`aws-doc-sdk-examples <https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/java>`_. Full
+code and build files are included, so you can build and run any of the provided examples yourself.
+
+In addition to examples in Java, you'll also find examples for each of the other AWS SDKs. If you
+find issues with any of the examples, you can submit issues or fork the repository and submit a pull
+request!
+
+The code examples are provided under the *Apache 2.0* open source license. See the example
+repository's `README <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/README.rst>`_ for
+more details.
+
+
 Copyright and license
 =====================
 
