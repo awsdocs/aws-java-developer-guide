@@ -83,7 +83,7 @@ You can use this technique to pre-validate a policy that you read in from a file
 Get a Bucket Policy
 ===================
 
-To retrieve the policy for an |S3| bucket, call the S3 |s3client| client's
+To retrieve the policy for an |S3| bucket, call the |s3client| client's
 :methodname:`getBucketPolicy` method, passing it the name of the bucket to get the policy from.
 
 **Imports**
@@ -105,7 +105,7 @@ an :classname:`AmazonServiceException` will result.
 Delete a Bucket Policy
 ======================
 
-To delete a bucket policy, call the S3 |s3client| client's :methodname:`deleteBucketPolicy`,
+To delete a bucket policy, call the |s3client| client's :methodname:`deleteBucketPolicy`,
 providing it with the bucket name.
 
 **Imports**
