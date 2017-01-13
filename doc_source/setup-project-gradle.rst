@@ -27,7 +27,7 @@ used to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependencie
                   mavenCentral()
               }
               dependencies {
-                  classpath "io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE"
+                  classpath "io.spring.gradle:dependency-management-plugin:1.0.0.RC2"
               }
           }
 
@@ -39,7 +39,7 @@ used to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependencie
 
           dependencyManagement {
               imports {
-                  mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.47'
+                  mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.77'
               }
           }
 
