@@ -21,7 +21,7 @@ Dependencies
 Basic |SWF| applications will require the following dependencies, which are included with the
 |sdk-java|:
 
-* aws-java-sdk-1.10.*.jar
+* aws-java-sdk-1.11.*.jar
 * commons-logging-1.1.*.jar
 * httpclient-4.3.*.jar
 * httpcore-4.3.*.jar
