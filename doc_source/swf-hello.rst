@@ -57,7 +57,7 @@ Development environment
 
 The development environment used in this tutorial consists of:
 
-* The |sdk-java|_ (v. 1.10.56 at the time of writing).
+* The |sdk-java|_ (v. 1.11.78 at the time of writing).
 * `Apache Maven <http://maven.apache.org/>`_ (3.3.1).
 * JDK 1.7 or later. This tutorial was developed and tested using JDK 1.8.0.
 * A good Java text editor (your choice).

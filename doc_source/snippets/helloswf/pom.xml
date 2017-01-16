@@ -11,7 +11,7 @@
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-java-sdk-simpleworkflow</artifactId>
-      <version>1.10.56</version>
+      <version>1.11.78</version>
     </dependency>
   </dependencies>
   <build>
