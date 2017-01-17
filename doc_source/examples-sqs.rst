@@ -8,23 +8,18 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-####################
-Programming Examples
-####################
+#####
+|sqs|
+#####
 
-This section provides tutorials and examples of using the |sdk-java| to program AWS services.
+This section provides examples of programming |sqs|_ using the |sdk-java|_.
 
-.. tip:: See :ref:`additional-resources` for more examples and additional resources available for
-   |sdk-java| developers!
+.. include:: includes/complete-examples-note.txt
 
 .. toctree::
-   :maxdepth: 1
    :titlesonly:
+   :maxdepth: 1
 
-   java-dg-samples
-   examples-dynamodb
-   prog-services-ec2
-   examples-s3
-   examples-sqs
-   prog-services-sts
-   prog-services-swf
+   examples-sqs-message-queues
+   examples-sqs-messages
+

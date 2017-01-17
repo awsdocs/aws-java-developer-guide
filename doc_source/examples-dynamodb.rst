@@ -9,10 +9,10 @@
    limitations under the License.
 
 #####
-|DDB|
+|ddb|
 #####
 
-This section provides examples of programming |S3|_ using the |sdk-java|_.
+This section provides examples of programming |ddb|_ using the |sdk-java|_.
 
 .. include:: includes/complete-examples-note.txt
 

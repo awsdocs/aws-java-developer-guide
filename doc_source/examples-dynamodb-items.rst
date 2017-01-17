@@ -12,7 +12,7 @@
 Working with Items
 ##################
 
-In DynamoDB, an item is a collection of *attributes*, which consist of a *name* and a *value*. An
+In |ddb|, an item is a collection of *attributes*, which consist of a *name* and a *value*. An
 attribute value can be a scalar, set, or document type. For more information, see :ddb-dg:`Naming
 Rules and Data Types <HowItWorks.NamingRulesDataTypes>` in the |ddb-dg|.
 
@@ -21,8 +21,7 @@ Rules and Data Types <HowItWorks.NamingRulesDataTypes>` in the |ddb-dg|.
 Retrieve (get) an item from a table
 ===================================
 
-To get an item from a table, call the :aws-java-class:`DynamoDB client
-<services/dynamodbv2/AmazonDynamoDB>`'s :methodname:`getItem` method, passing it a
+To get an item from a table, call the |ddbclient|'s :methodname:`getItem` method, passing it a
 :aws-java-class:`GetItemRequest <services/dynamodbv2/model/GetItemRequest>` object with the table
 name and primary key value of the desired item. It returns a `GetItemResult
 <services/dynamodbv2/model/GetItemResult>` object.
@@ -79,9 +78,9 @@ See the :sdk-examples-java-dynamodb:`complete sample <PutItem.java>`.
 Update an existing item in a table
 ==================================
 
-You can update an attribute for an item that already exists in a table by using the
-:aws-java-class:`DynamoDB client <services/dynamodbv2/AmazonDynamoDB>`'s :methodname:`updateItem`
-method, providing a table name, primary key value and a map of fields to update.
+You can update an attribute for an item that already exists in a table by using the |ddbclient|'s
+:methodname:`updateItem` method, providing a table name, primary key value and a map of fields to
+update.
 
 .. note:: If the named table doesn't exist for your account and region, or if the item identified by
    the passed-in primary key doesn't exist, then a :aws-java-class:`ResourceNotFoundException
