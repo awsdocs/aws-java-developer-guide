@@ -16,6 +16,10 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **Last documentation update:** |today|
 
+Jan 26, 2017
+   Added a new |S3| topic, :doc:`examples-s3-transfermanager`, and a new :doc:`best-practices` topic
+   in the :doc:`basics` section.
+
 Jan 16, 2017
    Added a new |S3| topic, :doc:`examples-s3-bucket-policies`, and two new |SQS| topics,
    :doc:`examples-sqs-message-queues` and :doc:`examples-sqs-messages`.

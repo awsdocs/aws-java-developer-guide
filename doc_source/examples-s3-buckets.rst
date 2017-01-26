@@ -26,11 +26,6 @@ the the |s3-dg|.
 
 .. include:: includes/examples-note.txt
 
-.. contents::
-    :local:
-    :depth: 1
-
-
 .. _create-bucket:
 
 Create a bucket
