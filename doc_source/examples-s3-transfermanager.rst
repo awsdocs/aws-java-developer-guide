@@ -261,10 +261,23 @@ Getting transfer status and progress
 Each of the classes returned by |xfermgr|'s *upload* and *download* methods return an instance of
 one of the following classes, depending on whether it's a single-file or multiple-file operation:
 
-* :aws-java-class:`Download <services/s3/transfer/Download>`
-* :aws-java-class:`MultipleFileDownload <services/s3/transfer/MultipleFileDownload>`
-* :aws-java-class:`Upload <services/s3/transfer/Upload>`
-* :aws-java-class:`MultipleFileUpload <services/s3/transfer/MultipleFileUpload>`
+.. list-table::
+   :header-rows: 1
+
+   * - Class
+     - Returned by
+
+   * - :aws-java-class:`Download <services/s3/transfer/Download>`
+     - :methodname:`download`
+
+   * - :aws-java-class:`MultipleFileDownload <services/s3/transfer/MultipleFileDownload>`
+     - :methodname:`downloadDirectory`
+
+   * - :aws-java-class:`Upload <services/s3/transfer/Upload>`
+     - :methodname:`upload`
+
+   * - :aws-java-class:`MultipleFileUpload <services/s3/transfer/MultipleFileUpload>`
+     - :methodname:`uploadFileList`, :methodname:`uploadDirectory`
 
 All of these classes implement the :aws-java-class:`Transfer <services/s3/transfer/Transfer>`
 interface, which provides useful methods for getting the progress of a transfer, to pause or resume
