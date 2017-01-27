@@ -216,14 +216,14 @@ To copy an object from one S3 bucket to another, use |xfermgr|'s :methodname:`co
 **Imports:**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrCopy.java
-   :lines: 15-16
+   :lines: 16-18
 
 **Code:**
 
 .. copyObjectSimple() method in the example code...
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrCopy.java
-   :lines: 33-40
+   :lines: 35-38, 40, 42-46
    :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <XferMgrCopy.java>`.
@@ -242,7 +242,7 @@ occurs.
 .. the waitForCompletion() function in XferMgrProgress.java
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 35-46
+   :lines: 34-45
    :dedent: 8
 
 This method blocks until the transfer is complete. You get progress of transfers if you poll for
@@ -258,14 +258,18 @@ See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 Getting transfer status and progress
 ====================================
 
-Each of the classes returned by |xfermgr|'s *upload* and *download* methods return an instance of
-one of the following classes, depending on whether it's a single-file or multiple-file operation:
+Each of the classes returned by |xfermgr|'s :methodname:`upload*`, :methodname:`download*` and
+:methodname:`copy` methods return an instance of one of the following classes, depending on whether
+it's a single-file or multiple-file operation:
 
 .. list-table::
    :header-rows: 1
 
    * - Class
      - Returned by
+
+   * - :aws-java-class:`Copy <services/s3/transfer/Copy>`
+     - :methodname:`copy`
 
    * - :aws-java-class:`Download <services/s3/transfer/Download>`
      - :methodname:`download`
@@ -305,7 +309,7 @@ prints it final state when complete:
 .. the showTransferProgress() function in XferMgrProgress.java
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 57-63, 66-69, 72
+   :lines: 56-61, 64-67, 70
    :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
@@ -336,7 +340,7 @@ object. You can use the object to get the total bytes of the operation by callin
 .. the uploadFileWithListener() function in XferMgrProgress.java
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 147-150, 153-160, 165-169
+   :lines: 146-149, 152-154, 157-159, 162-168
    :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
@@ -356,14 +360,14 @@ sub-transfer.
 **Imports:**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 23, 26-27
+   :lines: 23-24, 26-27
 
 **Code:**
 
 .. the showMultiUploadProgress() function in XferMgrProgress.java
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 84-85
+   :lines: 82-83
    :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
