@@ -232,7 +232,7 @@ See the :sdk-examples-java-s3:`complete example <XferMgrCopy.java>`.
 .. _transfermanager-wait-for-completion:
 
 Waiting for the completion of a transfer
-----------------------------------------
+========================================
 
 If your application (or thread) can block until the transfer is completed, you can use the
 :aws-java-class:`Transfer <services/s3/transfer/Transfer>` interface's
