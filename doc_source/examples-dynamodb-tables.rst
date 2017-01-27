@@ -166,7 +166,7 @@ method.
 **Imports:**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
-   :lines: 15-22
+   :lines: 15-17
 
 **Code:**
 

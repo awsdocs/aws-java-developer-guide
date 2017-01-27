@@ -12,8 +12,6 @@
 Using TransferManager for |S3| Operations
 #########################################
 
-.. |xfermgr| replace:: :aws-java-class:`TransferManager <services/s3/transfer/TransferManager>`
-
 .. meta::
     :description: How to use the AWS SDK for Java's TransferManager class to upload, download, and
                   copy files and directories using Amazon S3.
@@ -23,7 +21,6 @@ Using TransferManager for |S3| Operations
 The |sdk-java|'s |xfermgr| class can reliably transfer files from the local environment to S3 and
 copy objects from one S3 location to another. :classname:`TransferManager` can get the progress of a
 transfer and the ability to pause/resume uploads and downloads.
-
 
 .. include:: common/s3-note-incomplete-upload-policy.txt
 
@@ -42,7 +39,6 @@ Uploading files and directories
    :local:
    :depth: 1
 
-See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
 
 .. _transfermanager-upload-file:
 
@@ -63,14 +59,15 @@ represents the file to upload.
 .. uploadFile() method in the example code...
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 91-99
+   :lines: 93-97, 99, 101-105
    :dedent: 8
 
 The :methodname:`upload` method returns *immediately*, providing you with an Upload object that you
 can use to check the state of the transfer or to wait for it to complete.
 
-See :ref:`transfermanager-completing` for information about getting the state or progress of a
-transfer, and closing the transfer successfully.
+.. include:: includes/transfermanager-complete-get-status-note.txt
+
+See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
 
 
 .. _transfermanager-upload-file-list:
@@ -99,15 +96,14 @@ providing it with:
 .. uploadFileList() method in the example code...
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 59-67, 69-74
+   :lines: 60-69, 71, 73-77
    :dedent: 8
 
-The :aws-java-class:`MultipleFileUpload <services/s3/transfer/MultipleFileUpload>` object returned
-by :methodname:`uploadFileList` can be used to query the transfer state or progress. See
-:ref:`transfermanager-get-progress` for more information.
+.. include:: includes/transfermanager-complete-get-status-note.txt
 
-You can also use :classname:`MultipleFileUpload`'s :methodname:`getSubTransfers` method to get the
-individual :classname:`Upload` objects for each file being transferred.
+.. include:: includes/transfermanager-multifileupload-notes.txt
+
+See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
 
 
 .. _transfermanager-upload-directory:
@@ -131,15 +127,14 @@ recursively (*true*), or not (*false*).
 .. uploadDir() method in the example code...
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 38-41, 43-48
+   :lines: 38-42, 44, 46-50
    :dedent: 8
 
-The :aws-java-class:`MultipleFileUpload <services/s3/transfer/MultipleFileUpload>` object returned
-by :methodname:`uploadDirectory` can be used to query the transfer state or progress. See
-:ref:`transfermanager-get-progress` for more information.
+.. include:: includes/transfermanager-complete-get-status-note.txt
 
-You can also use :classname:`MultipleFileUpload`'s :methodname:`getSubTransfers` method to get the
-individual :classname:`Upload` objects for each file being transferred.
+.. include:: includes/transfermanager-multifileupload-notes.txt
+
+See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
 
 
 .. _transfermanager-downloading:
@@ -174,8 +169,12 @@ To download a single file, use the |xfermgr|'s :methodname:`download` method, pr
 .. downloadFile() method in the example code...
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
-   :lines: 55-58, 61-65
+   :lines: 57-61, 63, 65-69
    :dedent: 8
+
+.. include:: includes/transfermanager-complete-get-status-note.txt
+
+See the :sdk-examples-java-s3:`complete example <XferMgrDownload.java>`.
 
 
 .. _tranfermanager-download-directory:
@@ -199,8 +198,12 @@ into on your local system. If the named directory doesn't exist yet, it will be 
 .. downloadFile() method in the example code...
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
-   :lines: 58-61, 64-68
+   :lines: 36-40, 42, 44-48
    :dedent: 8
+
+.. include:: includes/transfermanager-complete-get-status-note.txt
+
+See the :sdk-examples-java-s3:`complete example <XferMgrDownload.java>`.
 
 
 .. _transfermanager-copy-object:
@@ -223,11 +226,37 @@ To copy an object from one S3 bucket to another, use |xfermgr|'s :methodname:`co
    :lines: 33-40
    :dedent: 8
 
+See the :sdk-examples-java-s3:`complete example <XferMgrCopy.java>`.
 
-.. _transfermanager-completing:
 
-Completing transfers with TransferManager
-=========================================
+.. _transfermanager-wait-for-completion:
+
+Waiting for the completion of a transfer
+----------------------------------------
+
+If your application (or thread) can block until the transfer is completed, you can use the
+:aws-java-class:`Transfer <services/s3/transfer/Transfer>` interface's
+:methodname:`waitForCompletion` method to block until the transfer is complete or an exception
+occurs.
+
+.. the waitForCompletion() function in XferMgrProgress.java
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
+   :lines: 35-46
+   :dedent: 8
+
+This method blocks until the transfer is complete. You get progress of transfers if you poll for
+events *before* calling :methodname:`waitForCompletion`, implement a polling mechanism on a separate
+thread, or receive progress updates asynchronously using a :aws-java-class:`ProgressListener
+<event/ProgressListener>`.
+
+See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
+
+
+.. _transfermanager-get-status-and-progress:
+
+Getting transfer status and progress
+====================================
 
 Each of the classes returned by |xfermgr|'s *upload* and *download* methods return an instance of
 one of the following classes, depending on whether it's a single-file or multiple-file operation:
@@ -245,28 +274,6 @@ it, and to get its current or final status.
    :local:
    :depth: 1
 
-
-.. _transfermanager-wait-for-completion:
-
-Waiting for the completion of a transfer
-----------------------------------------
-
-If your application (or thread) can block until the transfer is completed, you can use the
-:aws-java-class:`Transfer <services/s3/transfer/Transfer>` interface's
-:methodname:`waitForCompletion` method to block until the transfer is complete or an exception
-occurs.
-
-.. the waitForCompletion() function in XferMgrProgress.java
-
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 26-37
-   :dedent: 8
-
-This method blocks until the transfer is complete. You get progress of transfers if you poll for
-events *before* calling :methodname:`waitForCompletion`, implement a polling mechanism on a
-separate thread, or receive progress updates asynchronously using a ProgressListener.
-
-
 .. _transfermanager-get-progress-polling:
 
 Polling the current progress of a transfer
@@ -278,37 +285,75 @@ prints it final state when complete:
 **Imports:**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 17-19
+   :lines: 22
 
 **Code:**
 
 .. the showTransferProgress() function in XferMgrProgress.java
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 44, 48-54, 57-60, 63, 65
+   :lines: 57-63, 66-69, 72
    :dedent: 8
 
-.. TODO
+See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 
-   .. _transfermanager-progress-listener:
 
-   Getting transfer progress with ProgressListener
-   -----------------------------------------------
+.. _transfermanager-progress-listener:
 
-   .. TODO
+Getting transfer progress with a ProgressListener
+-------------------------------------------------
 
-   .. _transfermanager-get-subtransfer-progress:
+You can attach a :aws-java-class:`ProgressListener <event/ProgressListener>` to any transfer by
+using the :aws-java-class:`Transfer <services/s3/transfer/Transfer>` interface's
+:methodname:`addProgressListener` method.
 
-   Getting the progress of subtransfers
-   ------------------------------------
+A :aws-java-class:`ProgressListener <event/ProgressListener>` requires only one method,
+:methodname:`progressChanged`, which takes a :aws-java-class:`ProgressEvent <event/ProgressEvent>`
+object. You can use the object to get the total bytes of the operation by calling its
+:methodname:`getBytes` method, and the number of bytes transferred so far by calling
+:methodname:`getBytesTransferred`.
 
-   The classes :aws-java-class:`MultipleFileDownload <services/s3/transfer/MultipleFileDownload>` and
-   :aws-java-class:`MultipleFileUpload <services/s3/transfer/MultipleFileUpload>` each represent a
-   transfer operation that has multiple sub-transfers.
+**Imports:**
 
-   To get information about the subtransfers for a multiple-file upload or download, use the
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
+   :lines: 16-18, 23, 25
 
-   .. TODO
+**Code:**
+
+.. the uploadFileWithListener() function in XferMgrProgress.java
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
+   :lines: 147-150, 153-160, 165-169
+   :dedent: 8
+
+See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
+
+
+.. _transfermanager-get-subtransfer-progress:
+
+Getting the progress of subtransfers
+------------------------------------
+
+The :aws-java-class:`MultipleFileUpload <services/s3/transfer/MultipleFileUpload>` class can return
+information about its sub-transfers by calling its :methodname:`getSubTransfers` method. It returns
+an unmodifiable :javase-ref:`Collection <java/util/Collection>` of :aws-java-class:`Upload
+<services/s3/transfer/Upload>` objects providing the individual transfer status and progress of each
+sub-transfer.
+
+**Imports:**
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
+   :lines: 23, 26-27
+
+**Code:**
+
+.. the showMultiUploadProgress() function in XferMgrProgress.java
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
+   :lines: 84-85
+   :dedent: 8
+
+See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 
 
 .. _transfermanager-see-also:
