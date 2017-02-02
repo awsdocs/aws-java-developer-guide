@@ -8,21 +8,28 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-############################
-Setting |S3| Bucket Policies
-############################
+#####################################################
+Managing Access to |S3| Buckets Using Bucket Policies
+#####################################################
 
-You can set a *bucket policy* to manage access to your |S3| buckets.
+.. meta::
+   :description: How to set, get, and delete a policy for an Amazon S3 bucket.
+   :keywords: AWS for Java SDK code examples, bucket policies
+
+
+You can set, get, or delete a *bucket policy* to manage access to your |S3| buckets.
 
 .. _set-s3-bucket-policy:
 
 Set a Bucket Policy
 ===================
 
-To set the bucket policy for a particular S3 bucket, call the |s3client| client's
-:methodname:`setBucketPolicy`, providing it with either a :aws-java-class:`SetBucketPolicyRequest
-<services/s3/model/SetBucketPolicyRequest>`, or you can set the policy directly by using the
-:methodname:`setBucketPolicy` overload that takes a bucket name and policy text (in JSON format)
+You can set the bucket policy for a particular S3 bucket by:
+
+* Calling the |s3client| client's :methodname:`setBucketPolicy` and providing it with a
+  :aws-java-class:`SetBucketPolicyRequest <services/s3/model/SetBucketPolicyRequest>`
+* Setting the policy directly by using the :methodname:`setBucketPolicy` overload that takes
+  a bucket name and policy text (in JSON format)
 
 **Imports**
 
@@ -38,16 +45,16 @@ To set the bucket policy for a particular S3 bucket, call the |s3client| client'
 
 .. _use-s3-bucket-policy-class:
 
-Using the Policy class to generate or validate a policy
--------------------------------------------------------
+Use the Policy Class to Generate or Validate a Policy
+-----------------------------------------------------
 
-When providing a bucket policy to :methodname:`setBucketPolicy`, you can:
+When providing a bucket policy to :methodname:`setBucketPolicy`, you can do the following:
 
-* specify the policy *directly as a string of JSON-formatted text*.
-* *build the policy* using the :aws-java-class:`Policy <auth/policy/Policy>` class.
+* Specify the policy directly as a string of JSON-formatted text
+* Build the policy using the :aws-java-class:`Policy <auth/policy/Policy>` class
 
-Using the :classname:`Policy` class will relieve you of the need to correctly format your text
-string. For example:
+By using the :classname:`Policy` class, you don't have to be concerned about correctly formatting
+your text string, as shown in the following example.
 
 **Imports**
 
@@ -60,22 +67,22 @@ string. For example:
    :dedent: 6
    :lines: 68-73
 
-To get the JSON policy text from the Policy class, use its :methodname:`toJson` method:
+To get the JSON policy text from the Policy class, use its :methodname:`toJson` method.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :dedent: 6
    :lines: 74
 
-The :classname:`Policy` class also provides a :methodname:`fromJson` method that can will attempt to
-build a policy using a passed-in JSON string. The method will validate it to make sure that the text
-can be transformed into a valid policy structure, and will fail with an IllegalArgumentException if
-the policy text is invalid.
+The :classname:`Policy` class also provides a :methodname:`fromJson` method that can attempt to
+build a policy using a passed-in JSON string. The method validates it to ensure that the text
+can be transformed into a valid policy structure, and will fail with an :code-java:`IllegalArgumentException`
+if the policy text is invalid.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :dedent: 6
    :lines: 56-62
 
-You can use this technique to pre-validate a policy that you read in from a file or other means.
+You can use this technique to prevalidate a policy that you read in from a file or other means.
 
 See the :sdk-examples-java-s3:`complete example <SetBucketPolicy.java>`.
 
@@ -99,8 +106,8 @@ To retrieve the policy for an |S3| bucket, call the |s3client| client's
    :dedent: 6
    :lines: 49-56
 
-If the named bucket doesn't exist, if you don't have access to it, or if the bucket has no policy,
-an :classname:`AmazonServiceException` will result.
+If the named bucket doesn't exist, if you don't have access to it, or if it has no bucket policy,
+an :classname:`AmazonServiceException` is thrown.
 
 See the :sdk-examples-java-s3:`complete example <GetBucketPolicy.java>`.
 
@@ -124,15 +131,15 @@ providing it with the bucket name.
    :dedent: 6
    :lines: 48-54
 
-This method will succeed even if the bucket doesn't already have a policy. If you specify a bucket
-name that doesn't exist or if you don't have access to it, an :classname:`AmazonServiceException`
-will result.
+This method succeeds even if the bucket doesn't already have a policy. If you specify a bucket
+name that doesn't exist or if you don't have access to the bucket, an :classname:`AmazonServiceException`
+is thrown.
 
 See the :sdk-examples-java-s3:`complete example <DeleteBucketPolicy.java>`.
 
-See Also
-========
+More Info
+=========
 
-* :s3-dg:`Access Policy Language Overview <access-policy-language-overview>` in the |S3-dg|.
-* :s3-dg:`Bucket Policy Examples <example-bucket-policies>` in the |S3-dg|.
+* :s3-dg:`Access Policy Language Overview <access-policy-language-overview>` in the |S3-dg|
+* :s3-dg:`Bucket Policy Examples <example-bucket-policies>` in the |S3-dg|
 

@@ -8,16 +8,18 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-####
-|S3|
-####
+#############
+|S3| Examples
+#############
+
+.. meta::
+   :description: Programming Amazon S3 using the AWS SDK for Java
+   :keywords: AWS SDK for Java code examples
+
 
 This section provides examples of programming |S3|_ using the |sdk-java|_.
 
-.. note:: Only the code that is necessary to demonstrate each technique is supplied here, but
-   :sdk-doc-examples:`complete example code is available on GitHub <java>`, where you can download a
-   single source file or you can clone the repository locally to get all examples, build and run
-   them.
+.. include:: includes/complete-examples-note.txt
 
 .. toctree::
     :titlesonly:

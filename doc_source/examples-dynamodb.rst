@@ -8,11 +8,15 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#####
-|ddb|
-#####
+##############
+|ddb| Examples
+##############
 
 This section provides examples of programming |ddb|_ using the |sdk-java|_.
+
+.. meta::
+   :description: Programming Amazon DynamoDB using the AWS SDK for Java
+   :keywords: AWS SDK for Java code examples
 
 .. include:: includes/complete-examples-note.txt
 
