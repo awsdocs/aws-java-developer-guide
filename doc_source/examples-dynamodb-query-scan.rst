@@ -8,16 +8,15 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#####################
-Querying and Scanning
-#####################
+##############################
+Querying and Scanning in |DDB|
+##############################
 
 In addition to using primary keys to access items, |DDB| also provides two operations for searching
 your data: *Query* and *Scan*.
 
 
-
-See Also
+More Info
 ========
 
 * :ddb-dg:`Guidelines for Query and Scan <QueryAndScanGuidelines>` in the |ddb-dg|

@@ -15,12 +15,12 @@ Using TransferManager for |S3| Operations
 .. meta::
     :description: How to use the AWS SDK for Java's TransferManager class to upload, download, and
                   copy files and directories using Amazon S3.
-    :keywords: Amazon S3, AWS SDK for Java, AWS Java SDK, TransferManager, upload, download, copy,
-               pause, resume, progress.
+    :keywords: AWS SDK for Java code examples, TransferManager, Amazon S3 transfer operations
 
-The |sdk-java|'s |xfermgr| class can reliably transfer files from the local environment to S3 and
-copy objects from one S3 location to another. :classname:`TransferManager` can get the progress of a
-transfer and the ability to pause/resume uploads and downloads.
+You can use the |sdk-java| |xfermgr| class to reliably transfer files from the local environment to |S3|
+and
+to copy objects from one S3 location to another. :classname:`TransferManager` can get the progress of
+a transfer and pause or resume uploads and downloads.
 
 .. include:: common/s3-note-incomplete-upload-policy.txt
 
@@ -29,8 +29,8 @@ transfer and the ability to pause/resume uploads and downloads.
 
 .. _transfermanager-uploading:
 
-Uploading files and directories
-===============================
+Upload Files and Directories
+============================
 
 |xfermgr| can upload files, file lists, and directories to any |S3| buckets that you've
 :ref:`previously created <create-bucket>`.
@@ -42,19 +42,19 @@ Uploading files and directories
 
 .. _transfermanager-upload-file:
 
-Uploading a single file
------------------------
+Upload a Single File
+--------------------
 
-To upload a single file, call |xfermgr|'s :methodname:`upload` method, providing it with an |S3|
+Call the |xfermgr| :methodname:`upload` method, providing an |S3|
 bucket name, a key (object) name, and a standard Java :javase-ref:`File <java/io/File>` object that
 represents the file to upload.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
    :lines: 16-18, 20
 
-**Code:**
+**Code**
 
 .. uploadFile() method in the example code...
 
@@ -62,8 +62,8 @@ represents the file to upload.
    :lines: 93-97, 99, 101-105
    :dedent: 8
 
-The :methodname:`upload` method returns *immediately*, providing you with an Upload object that you
-can use to check the state of the transfer or to wait for it to complete.
+The :methodname:`upload` method returns *immediately*, providing an :code-java:`Upload` object to use
+to check the transfer state or to wait for it to complete.
 
 .. include:: includes/transfermanager-complete-get-status-note.txt
 
@@ -72,26 +72,26 @@ See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
 
 .. _transfermanager-upload-file-list:
 
-Uploading a list of files
--------------------------
+Upload a List of Files
+----------------------
 
-To upload multiple files in one operation, call |xfermgr|'s :methodname:`uploadFileList` method,
-providing it with:
+To upload multiple files in one operation, call the |xfermgr| :methodname:`uploadFileList` method,
+providing the following:
 
-* an |S3| bucket name.
-* a *key prefix* that will be prepended to the names of the objects created (the path within the
-  bucket in which to place the objects).
-* a :javase-ref:`File <java/io/File>` object that represents the relative directory from which file
-  paths will be created.
-* a :javase-ref:`List <java/util/List>` containing a set of :javase-ref:`File <java/io/File>`
-  objects to upload.
+* An |S3| bucket name
+* A *key prefix* to prepend to the names of the created objects (the path within the
+  bucket in which to place the objects)
+* A :javase-ref:`File <java/io/File>` object that represents the relative directory from which to create
+  file paths
+* A :javase-ref:`List <java/util/List>` object containing a set of
+  :javase-ref:`File <java/io/File>` objects to upload
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
    :lines: 16-17, 19-21
 
-**Code:**
+**Code**
 
 .. uploadFileList() method in the example code...
 
@@ -108,21 +108,21 @@ See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
 
 .. _transfermanager-upload-directory:
 
-Uploading a directory
----------------------
+Upload a Directory
+------------------
 
-You can upload an entire directory of files, with the option to copy files in subdirectories
-recursively, by using |xfermgr|'s :methodname:`uploadDirectory` method. You provide an |S3| bucket
+You can use |xfermgr|'s :methodname:`uploadDirectory` method to upload an entire directory of files, with
+the option to copy files in subdirectories recursively. You provide an |S3| bucket
 name, an S3 key prefix, a :javase-ref:`File <java/io/File>` object representing the local directory
 to copy, and a :code-java:`boolean` value indicating whether you want to copy subdirectories
-recursively (*true*), or not (*false*).
+recursively (*true* or *false*).
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
    :lines: 16-20
 
-**Code:**
+**Code**
 
 .. uploadDir() method in the example code...
 
@@ -139,11 +139,11 @@ See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
 
 .. _transfermanager-downloading:
 
-Downloading files
-=================
+Download Files or Directories
+=============================
 
-You can download either a single file (|S3| object) or a directory (an |S3| bucket name followed by
-an object prefix) from |s3| using the |xfermgr| class.
+Use the |xfermgr| class to download either a single file (|S3| object) or a directory (an |S3| bucket
+name followed by an object prefix) from |S3|.
 
 .. contents::
    :local:
@@ -152,19 +152,19 @@ an object prefix) from |s3| using the |xfermgr| class.
 
 .. _transfermanager-download-file:
 
-Downloading a file
-------------------
+Download a Single File
+----------------------
 
-To download a single file, use the |xfermgr|'s :methodname:`download` method, providing it with the
+Use the |xfermgr|'s :methodname:`download` method, providing the
 |S3| bucket name containing the object you want to download, the key (object) name, and a
 :javase-ref:`File <java/io/File>` object that represents the file to create on your local system.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
    :lines: 16-18, 20
 
-**Code:**
+**Code**
 
 .. downloadFile() method in the example code...
 
@@ -179,21 +179,21 @@ See the :sdk-examples-java-s3:`complete example <XferMgrDownload.java>`.
 
 .. _tranfermanager-download-directory:
 
-Downloading a directory
------------------------
+Download a Directory
+--------------------
 
-To download a set of files from |S3| that share a common key prefix (analagous to a directory on a
-file system), use the |xfermgr|'s :methodname:`downloadDirectory` method. It takes the |S3| bucket
-name containing the objects you want to download, the object prefix shared by all of the objects,
+To download a set of files that share a common key prefix (analagous to a directory on a
+file system) from |S3|, use the |xfermgr| :methodname:`downloadDirectory` method. The method takes the
+|S3| bucket name containing the objects you want to download, the object prefix shared by all of the objects,
 and a :javase-ref:`File <java/io/File>` object that represents the directory to download the files
 into on your local system. If the named directory doesn't exist yet, it will be created.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
    :lines: 16-17, 19-20
 
-**Code:**
+**Code**
 
 .. downloadFile() method in the example code...
 
@@ -208,17 +208,17 @@ See the :sdk-examples-java-s3:`complete example <XferMgrDownload.java>`.
 
 .. _transfermanager-copy-object:
 
-Copying objects
-===============
+Copy Objects
+============
 
-To copy an object from one S3 bucket to another, use |xfermgr|'s :methodname:`copy` method:
+To copy an object from one S3 bucket to another, use the |xfermgr| :methodname:`copy` method.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrCopy.java
    :lines: 16-18
 
-**Code:**
+**Code**
 
 .. copyObjectSimple() method in the example code...
 
@@ -231,10 +231,10 @@ See the :sdk-examples-java-s3:`complete example <XferMgrCopy.java>`.
 
 .. _transfermanager-wait-for-completion:
 
-Waiting for the completion of a transfer
-========================================
+Wait for a Transfer to Complete
+===============================
 
-If your application (or thread) can block until the transfer is completed, you can use the
+If your application (or thread) can block until the transfer completes, you can use the
 :aws-java-class:`Transfer <services/s3/transfer/Transfer>` interface's
 :methodname:`waitForCompletion` method to block until the transfer is complete or an exception
 occurs.
@@ -245,22 +245,24 @@ occurs.
    :lines: 34-45
    :dedent: 8
 
-This method blocks until the transfer is complete. You get progress of transfers if you poll for
+.. Already said that the method blocks til complete
+
+You get progress of transfers if you poll for
 events *before* calling :methodname:`waitForCompletion`, implement a polling mechanism on a separate
-thread, or receive progress updates asynchronously using a :aws-java-class:`ProgressListener
-<event/ProgressListener>`.
+thread, or receive progress updates asynchronously using a
+:aws-java-class:`ProgressListener <event/ProgressListener>`.
 
 See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 
 
 .. _transfermanager-get-status-and-progress:
 
-Getting transfer status and progress
-====================================
+Get Transfer Status and Progress
+================================
 
-Each of the classes returned by |xfermgr|'s :methodname:`upload*`, :methodname:`download*` and
-:methodname:`copy` methods return an instance of one of the following classes, depending on whether
-it's a single-file or multiple-file operation:
+Each of the classes returned by the |xfermgr| :methodname:`upload*`, :methodname:`download*`, and
+:methodname:`copy` methods returns an instance of one of the following classes, depending on whether
+it's a single-file or multiple-file operation.
 
 .. list-table::
    :header-rows: 1
@@ -284,8 +286,9 @@ it's a single-file or multiple-file operation:
      - :methodname:`uploadFileList`, :methodname:`uploadDirectory`
 
 All of these classes implement the :aws-java-class:`Transfer <services/s3/transfer/Transfer>`
-interface, which provides useful methods for getting the progress of a transfer, to pause or resume
-it, and to get its current or final status.
+interface. :code-java:`Transfer` provides useful methods to get the progress of a transfer, pause
+or resume
+the transfer, and get the transfer's current or final status.
 
 .. contents::
    :local:
@@ -293,18 +296,18 @@ it, and to get its current or final status.
 
 .. _transfermanager-get-progress-polling:
 
-Polling the current progress of a transfer
-------------------------------------------
+Poll the Current Progress of a Transfer
+---------------------------------------
 
-This loop prints the progress of a transfer, examines its current progress while running, and then
-prints it final state when complete:
+This loop prints the progress of a transfer, examines its current progress while running and, when complete,
+prints its final state.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 22
 
-**Code:**
+**Code**
 
 .. the showTransferProgress() function in XferMgrProgress.java
 
@@ -317,8 +320,8 @@ See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 
 .. _transfermanager-progress-listener:
 
-Getting transfer progress with a ProgressListener
--------------------------------------------------
+Get Transfer Progress with a ProgressListener
+---------------------------------------------
 
 You can attach a :aws-java-class:`ProgressListener <event/ProgressListener>` to any transfer by
 using the :aws-java-class:`Transfer <services/s3/transfer/Transfer>` interface's
@@ -330,12 +333,12 @@ object. You can use the object to get the total bytes of the operation by callin
 :methodname:`getBytes` method, and the number of bytes transferred so far by calling
 :methodname:`getBytesTransferred`.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 16-18, 23, 25
 
-**Code:**
+**Code**
 
 .. the uploadFileWithListener() function in XferMgrProgress.java
 
@@ -348,21 +351,21 @@ See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 
 .. _transfermanager-get-subtransfer-progress:
 
-Getting the progress of subtransfers
-------------------------------------
+Get the Progress of Subtransfers
+--------------------------------
 
 The :aws-java-class:`MultipleFileUpload <services/s3/transfer/MultipleFileUpload>` class can return
-information about its sub-transfers by calling its :methodname:`getSubTransfers` method. It returns
+information about its subtransfers by calling its :methodname:`getSubTransfers` method. It returns
 an unmodifiable :javase-ref:`Collection <java/util/Collection>` of :aws-java-class:`Upload
-<services/s3/transfer/Upload>` objects providing the individual transfer status and progress of each
-sub-transfer.
+<services/s3/transfer/Upload>` objects that provide the individual transfer status and progress of each
+subtransfer.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 23-24, 26-27
 
-**Code:**
+**Code**
 
 .. the showMultiUploadProgress() function in XferMgrProgress.java
 
@@ -375,8 +378,8 @@ See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 
 .. _transfermanager-see-also:
 
-See Also
-========
+More Info
+=========
 
-* :s3-dg:`Object Keys <UsingMetadata>` in the |s3-dg|.
+* :s3-dg:`Object Keys <UsingMetadata>` in the |s3-dg|
 

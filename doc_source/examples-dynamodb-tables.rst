@@ -8,40 +8,42 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###################
-Working with Tables
-###################
+############################
+Working with Tables in |DDB|
+############################
 
 .. meta::
    :description: How to create, describe, modify (update) and delete Amazon DynamoDB tables.
-   :keywords: database, dynamodb, tables, create table, delete table, describe table, modify table,
-              update table
+   :keywords: AWS SDK for Java code examples, DynamoDB tables
 
-Tables are the container for all items in a |DDB| database. Before you can add or remove data from
+
+Tables are the containers for all items in a |DDB| database. Before you can add or remove data from
 |DDB|, you must create a table.
 
 For each table, you must define:
 
-* A table *name*, which must be unique for your account and region.
+* A table *name* that is unique for your account and region.
 
-* A *primary key* for which every value must be unique; no two items in your table can have the same
-  primary key value. A primary key can be *simple*, consisting of a single partition (HASH) key, or
-  *composite*, consisting of both a partition and a sort (RANGE) key.
+* A *primary key* for which every value must be unique; no two items in your table can have the
+  same primary key value.
+
+  A primary key can be *simple*, consisting of a single partition (HASH) key, or *composite*, consisting
+  of a partition and a sort (RANGE) key.
 
   Each key value has an associated *data type*, enumerated by the
-  :aws-java-class:`ScalarAttributeType <services/dynamodbv2/model/ScalarAttributeType>` class. It
-  can be either binary (B), numeric (N), or a string (S). For more information, refer to
+  :aws-java-class:`ScalarAttributeType <services/dynamodbv2/model/ScalarAttributeType>` class. The key
+  value can be binary (B), numeric (N), or a string (S). For more information, see
   :ddb-dg:`Naming Rules and Data Types <HowItWorks.NamingRulesDataTypes>` in the |ddb-dg|.
 
-* *Provisioned throughput* values, which define the number of reserved read / write capacity units
+* *Provisioned throughput* values that define the number of reserved read/write capacity units
   for the table.
 
   .. tip:: :pricing:`Amazon DynamoDB pricing <dynamodb>` is based on the provisioned throughput
-     values that you set on your tables, so you should only reserve as much capacity as you expect
-     you will need for your table.
+     values that you set on your tables, so reserve only as much capacity as you think
+     you'll need for your table.
 
-     Provisioned throughput can be modified at any time for a table, so you can adjust capacity if
-     your needs change.
+     Provisioned throughput for a table can be modified at any time, so you can adjust capacity
+     if your needs change.
 
 .. _dynamodb-create-table:
 
@@ -49,26 +51,28 @@ Create a Table
 ==============
 
 Use the :aws-java-class:`DynamoDB client <services/dynamodbv2/AmazonDynamoDB>`'s
-:methodname:`createTable` method to create a new |DDB| table. You will need to construct table
-attributes and a table schema, both of which serve to identify the primary key of your table. You
-must also supply initial provisioned throughput values and give the table a name.
+:methodname:`createTable` method to create a new |DDB| table. You need to construct table
+attributes and a table schema, both of which are used to identify the primary key of your table. You
+must also supply initial provisioned throughput values and a table name.
 
-.. note:: If a table already exists with the name that you've chosen, then an
-   :aws-java-class:`AmazonServiceException` will be thrown.
+.. note:: If a table with the name you chose already exists, an
+   :aws-java-class:`AmazonServiceException` is thrown.
 
-**Imports:**
+.. These Imports/Code headings are sufficient without the colons
+
+**Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
    :lines: 15-23
 
 .. _dynamodb-create-table-simple:
 
-Creating a table with a simple primary key
-------------------------------------------
+Create a Table with a Simple Primary Key
+----------------------------------------
 
-This code creates a table with a simple primary key ("Name"):
+This code creates a table with a simple primary key ("Name").
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
    :lines: 58-73
@@ -78,15 +82,15 @@ See the :sdk-examples-java-dynamodb:`complete sample <CreateTable.java>`.
 
 .. _dynamodb-create-table-composite:
 
-Creating a table with a composite primary key
+Create a Table with a Composite Primary Key
 ---------------------------------------------
 
-To create a table with a composite primary key, add an additional
+Add another
 :aws-java-class:`AttributeDefinition <services/dynamodbv2/model/AttributeDefinition>` and
-:aws-java-class:`KeySchemaElement <services/dynamodbv2/model/KeySchemaElement>` to the
+:aws-java-class:`KeySchemaElement <services/dynamodbv2/model/KeySchemaElement>` to
 :aws-java-class:`CreateTableRequest <dynamodbv2/model/CreateTableRequest>`.
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTableCompositeKey.java
    :lines: 58-67
@@ -96,52 +100,53 @@ See the :sdk-examples-java-dynamodb:`complete sample <CreateTableCompositeKey.ja
 
 .. _dynamodb-list-tables:
 
-Listing Tables
-==============
+List Tables
+===========
 
 You can list the tables in a particular region by calling the :aws-java-class:`DynamoDB client
 <services/dynamodbv2/AmazonDynamoDB>`'s :methodname:`listTables` method.
 
-.. note:: If the named table doesn't exist for your account and region, then a
+.. note:: If the named table doesn't exist for your account and region, a
    :aws-java-class:`ResourceNotFoundException <services/dynamodbv2/model/ResourceNotFoundException>`
-   exception will result.
+   is thrown.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
    :lines: 15-18
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
    :lines: 32-64
    :dedent: 8
 
-By default, up to 100 tables will be returned per call |mdash| use
+By default, up to 100 tables are returned per call |mdash| use
 :methodname:`getLastEvaluatedTableName` on the returned :aws-java-class:`ListTablesResult <>` object
-to get the last table evaluated. You can use this value to start the listing after the last returned
+to get the last table that was evaluated. You can use this value to start the listing after the last
+returned
 value of the previous listing.
 
 See the :sdk-examples-java-dynamodb:`complete sample <ListTables.java>`.
 
 .. _dynamodb-describe-table:
 
-Describe a Table
-================
+Describe (Get Information about) a Table
+========================================
 
-You can describe (get information about) a table by calling the :aws-java-class:`DynamoDB client
+Call the :aws-java-class:`DynamoDB client
 <services/dynamodbv2/AmazonDynamoDB>`'s :methodname:`describeTable` method.
 
-.. note:: If the named table doesn't exist for your account and region, then a
+.. note:: If the named table doesn't exist for your account and region, a
    :aws-java-class:`ResourceNotFoundException <services/dynamodbv2/model/ResourceNotFoundException>`
-   exception will result.
+   is thrown.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
    :lines: 15-20
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
    :lines: 50-87
@@ -155,20 +160,20 @@ See the :sdk-examples-java-dynamodb:`complete sample <DescribeTable.java>`.
 Modify (Update) a Table
 =======================
 
-You can update the provisioned throughput values for your table at any time by calling the
+You can modify your table's provisioned throughput values at any time by calling the
 :aws-java-class:`DynamoDB client <services/dynamodbv2/AmazonDynamoDB>`'s :methodname:`updateTable`
 method.
 
-.. note:: If the named table doesn't exist for your account and region, then a
+.. note:: If the named table doesn't exist for your account and region, a
    :aws-java-class:`ResourceNotFoundException <services/dynamodbv2/model/ResourceNotFoundException>`
-   exception will result.
+   is thrown.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
    :lines: 15-17
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
    :lines: 57-67
@@ -182,19 +187,19 @@ See the :sdk-examples-java-dynamodb:`complete sample <UpdateTable.java>`.
 Delete a Table
 ==============
 
-To delete a table, call the :aws-java-class:`DynamoDB client <services/dynamodbv2/AmazonDynamoDB>`'s
-:methodname:`deleteTable` method, passing it the table's name.
+Call the :aws-java-class:`DynamoDB client <services/dynamodbv2/AmazonDynamoDB>`'s
+:methodname:`deleteTable` method and pass it the table's name.
 
-.. note:: If the named table doesn't exist for your account and region, then a
+.. note:: If the named table doesn't exist for your account and region, a
    :aws-java-class:`ResourceNotFoundException <services/dynamodbv2/model/ResourceNotFoundException>`
-   exception will result.
+   is thrown.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
    :lines: 15-16
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
    :lines: 51-58
@@ -202,9 +207,8 @@ To delete a table, call the :aws-java-class:`DynamoDB client <services/dynamodbv
 
 See the :sdk-examples-java-dynamodb:`complete sample <DeleteTable.java>`.
 
-
-See Also
-========
+More Info
+=========
 
 * :ddb-dg:`Guidelines for Working with Tables <GuidelinesForTables>` in the |ddb-dg|
 * :ddb-dg:`Working with Tables in DynamoDB <WorkingWithTables>` in the |ddb-dg|

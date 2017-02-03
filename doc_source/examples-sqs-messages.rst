@@ -10,12 +10,13 @@
 
 
 ##############################################
-Sending, Receiving and Deleting |SQS| Messages
+Sending, Receiving, and Deleting |SQS| Messages
 ##############################################
 
 .. meta::
    :description: How to send, receive and delete Amazon SQS messages.
-   :keywords: Amazon SQS, messages, send message, receive message, delete message
+   :keywords: AWS SDK for Java code examples, Amazon SQS, send message, receive message, delete
+   message
 
 This topic describes how to send, receive and delete |SQS| messages. Messages are always delivered
 using an :doc:`SQS Queue <examples-sqs-message-queues>`.
@@ -23,20 +24,20 @@ using an :doc:`SQS Queue <examples-sqs-message-queues>`.
 
 .. _sqs-message-send:
 
-Sending a message
+Send a Message
 =================
 
-You can add a single message to an |SQS| queue by calling the |sqsclient| client's
-:methodname:`sendMessage` method, providing it with a :aws-java-class:`SendMessageRequest
-<services/sqs/model/SendMessageRequest>` object containing the queue's :ref:`URL
-<sqs-get-queue-url>`, the message body, and an optional delay value (in seconds).
+Add a single message to an |SQS| queue by calling the |sqsclient| client's
+:methodname:`sendMessage` method. Provide a :aws-java-class:`SendMessageRequest
+<services/sqs/model/SendMessageRequest>` object that contains the queue's :ref:`URL
+<sqs-get-queue-url>`, message body, and optional delay value (in seconds).
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
    :lines: 17-18, 24
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
    :lines: 35-36, 45-51
@@ -45,8 +46,8 @@ You can add a single message to an |SQS| queue by calling the |sqsclient| client
 
 .. _sqs-messages-send-multiple:
 
-Sending multiple messages at once
----------------------------------
+Send Multiple Messages at Once
+------------------------------
 
 You can send more than one message in a single request. To send multiple messages, use the
 |sqsclient| client's :methodname:`sendMessageBatch` method, which takes a
@@ -55,12 +56,12 @@ the queue URL and a list of messages (each one a :aws-java-class:`SendMessageBat
 <services/sqs/model/SendMessageBatchRequestEntry>`) to send. You can also set an optional delay
 value per message.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
    :lines: 17-18, 22-23
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
    :lines: 35-36, 45-46, 55-63
@@ -71,19 +72,19 @@ See the :sdk-examples-java-sqs:`complete sample <SendReceiveMessages.java>`.
 
 .. _sqs-messages-receive:
 
-Receiving messages
-==================
+Receive Messages
+================
 
-Any messages that are currently in the queue can be retrieved by calling the |sqsclient| client's
+Retrieve any messages that are currently in the queue by calling the |sqsclient| client's
 :methodname:`receiveMessage` method, passing it the queue's URL. Messages are returned as a list of
 :aws-java-class:`Message <services/sqs/model/Message>` objects.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
    :lines: 17-18, 21
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
    :lines: 35-36, 45-46, 66
@@ -91,14 +92,14 @@ Any messages that are currently in the queue can be retrieved by calling the |sq
 
 .. _sqs-messages-delete:
 
-Deleting messages after receipt
--------------------------------
+Delete Messages after Receipt
+=============================
 
 After receiving a message and processing its contents, delete the message from the queue by sending
-the message's receipt handle and the queue URL to the |sqsclient| client's
+the message's receipt handle and queue URL to the |sqsclient| client's
 :methodname:`deleteMessage` method.
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
    :lines: 69-71
@@ -107,8 +108,8 @@ the message's receipt handle and the queue URL to the |sqsclient| client's
 See the :sdk-examples-java-sqs:`complete sample <SendReceiveMessages.java>`.
 
 
-See Also
-========
+More Info
+=========
 
 * :sqs-dg:`How Amazon SQS Queues Work <sqs-how-it-works>` in the |sqs-dg|
 * :sqs-api:`SendMessage` in the |sqs-api|

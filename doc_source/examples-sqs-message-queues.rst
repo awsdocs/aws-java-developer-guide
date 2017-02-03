@@ -14,38 +14,37 @@ Working with |SQS| Message Queues
 
 .. meta::
    :description: How to create, list, delete, and get an Amazon SQS queue's URL.
-   :keywords: Amazon SQS, queue, queue operations, create queue, list queue, delete queue, get queue
-              URL
+   :keywords: AWS SDK for Java code example, queue operations
 
-A *message queue* is the logical container used for sending messages reliably in |sqslong|. There
-are two types of queues: *standard*, and *first-in, first-out* (FIFO). To learn more about queues
-and the differences between these types, see the |sqs-dg|_.
+A *message queue* is the logical container used for sending messages reliably in |sqs|. There
+are two types of queues: *standard* and *first-in, first-out* (FIFO).
 
-This topic describes how to create, list, delete, and get a |SQS| queue's URL using the |sdk-java|.
+This topic describes how to create, list, delete, and get the URL of an |SQS| queue by using the |sdk-java|.
 
+To learn more about queues and the differences between these types, see the |sqs-dg|_.
 
 .. _sqs-create-queue:
 
-Creating queues
-===============
+Create a Queue
+==============
 
-To create a new queue, use the |sqsclient| client's :methodname:`createQueue` method, providing it
-with a :aws-java-class:`CreateQueueRequest <services/sqs/model/CreateQueueRequest>` object that
+Use the |sqsclient| client's :methodname:`createQueue` method, providing
+a :aws-java-class:`CreateQueueRequest <services/sqs/model/CreateQueueRequest>` object that
 describes the queue parameters.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 17-20
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 33, 36-46
    :dedent: 8
 
-You can use the simplified form of :methodname:`createQueue` which needs only a queue name to create
-a standard queue for you:
+You can use the simplified form of :methodname:`createQueue`, which needs only a queue name, to create
+a standard queue.
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 56
@@ -56,32 +55,32 @@ See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
 
 .. _sqs-list-queues:
 
-Listing queues
+Listing Queues
 ==============
 
 To list the |SQS| queues for your account, call the |sqsclient| client's :methodname:`listQueues`
 method.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 17-18, 22
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 33, 59-63
    :dedent: 8
 
-The :methodname:`listQueues` overload without any parameters returns *all queues*. You can filter
-the results that are returned by passing it a `ListQueuesRequest` object.
+Using the :methodname:`listQueues` overload without any parameters returns *all queues*. You can filter
+the returned results by passing it a :code-java:`ListQueuesRequest` object.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 17-18, 21
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 33, 66-71
@@ -92,17 +91,17 @@ See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
 
 .. _sqs-get-queue-url:
 
-Getting the queue's URL
+Get the URL for a Queue
 =======================
 
-To get an existing |SQS| queue's URL, call the SQS client's :methodname:`getQueueUrl` method.
+Call the |sqsclient| client's :methodname:`getQueueUrl` method.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 17-18
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 33, 49
@@ -113,18 +112,18 @@ See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
 
 .. _sqs-delete-queue:
 
-Deleting a queue
-================
+Delete a Queue
+==============
 
-To delete an |SQS| queue, provide its :ref:`URL <sqs-get-queue-url>` to the |sqsclient| client's
+Provide the queue's :ref:`URL <sqs-get-queue-url>` to the |sqsclient| client's
 :methodname:`deleteQueue` method.
 
-**Imports:**
+**Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 17-18
 
-**Code:**
+**Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 33, 52
@@ -132,8 +131,8 @@ To delete an |SQS| queue, provide its :ref:`URL <sqs-get-queue-url>` to the |sqs
 
 See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
 
-See Also
-========
+More Info
+=========
 
 * :sqs-dg:`How Amazon SQS Queues Work <sqs-how-it-works>` in the |sqs-dg|
 * :sqs-api:`CreateQueue` in the |sqs-api|
