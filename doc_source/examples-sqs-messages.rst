@@ -9,14 +9,14 @@
    limitations under the License.
 
 
-##############################################
+###############################################
 Sending, Receiving, and Deleting |SQS| Messages
-##############################################
+###############################################
 
 .. meta::
    :description: How to send, receive and delete Amazon SQS messages.
    :keywords: AWS SDK for Java code examples, Amazon SQS, send message, receive message, delete
-   message
+              message
 
 This topic describes how to send, receive and delete |SQS| messages. Messages are always delivered
 using an :doc:`SQS Queue <examples-sqs-message-queues>`.

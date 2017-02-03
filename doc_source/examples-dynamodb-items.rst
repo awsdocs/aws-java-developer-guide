@@ -14,7 +14,6 @@ Working with Items in |DDB|
 
 .. meta::
    :description: How to retrieve (get), add, and update items in Amazon DynamoDB tables.
-   tables.
    :keywords: AWS for Java SDK code examples, items from DynamoDB tables
 
 
