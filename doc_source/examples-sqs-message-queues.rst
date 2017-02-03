@@ -16,21 +16,22 @@ Working with |SQS| Message Queues
    :description: How to create, list, delete, and get an Amazon SQS queue's URL.
    :keywords: AWS SDK for Java code example, queue operations
 
-A *message queue* is the logical container used for sending messages reliably in |sqs|. There
-are two types of queues: *standard* and *first-in, first-out* (FIFO).
+A *message queue* is the logical container used for sending messages reliably in |sqs|. There are
+two types of queues: *standard* and *first-in, first-out* (FIFO). To learn more about queues and the
+differences between these types, see the |sqs-dg|_.
 
-This topic describes how to create, list, delete, and get the URL of an |SQS| queue by using the |sdk-java|.
+This topic describes how to create, list, delete, and get the URL of an |SQS| queue by using the
+|sdk-java|.
 
-To learn more about queues and the differences between these types, see the |sqs-dg|_.
 
 .. _sqs-create-queue:
 
 Create a Queue
 ==============
 
-Use the |sqsclient| client's :methodname:`createQueue` method, providing
-a :aws-java-class:`CreateQueueRequest <services/sqs/model/CreateQueueRequest>` object that
-describes the queue parameters.
+Use the |sqsclient| client's :methodname:`createQueue` method, providing a
+:aws-java-class:`CreateQueueRequest <services/sqs/model/CreateQueueRequest>` object that describes
+the queue parameters.
 
 **Imports**
 
@@ -43,8 +44,8 @@ describes the queue parameters.
    :lines: 33, 36-46
    :dedent: 8
 
-You can use the simplified form of :methodname:`createQueue`, which needs only a queue name, to create
-a standard queue.
+You can use the simplified form of :methodname:`createQueue`, which needs only a queue name, to
+create a standard queue.
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 56
@@ -72,8 +73,8 @@ method.
    :lines: 33, 59-63
    :dedent: 8
 
-Using the :methodname:`listQueues` overload without any parameters returns *all queues*. You can filter
-the returned results by passing it a :code-java:`ListQueuesRequest` object.
+Using the :methodname:`listQueues` overload without any parameters returns *all queues*. You can
+filter the returned results by passing it a :code-java:`ListQueuesRequest` object.
 
 **Imports**
 
