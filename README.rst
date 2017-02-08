@@ -12,8 +12,8 @@
 aws-java-developer-guide
 ########################
 
-This repository contains source content for the official `AWS SDK for Java Developer Guide`_. The
-source code for the `AWS SDK for Java`_ is also on GitHub, at https://github.com/aws/aws-sdk-java/.
+This repository contains source content for the official `AWS Java Developer Guide`_. The source
+code for the `AWS SDK for Java`_ is also on GitHub, at https://github.com/aws/aws-sdk-java/.
 
 The guide content is written in reStructuredText_ and built using Sphinx_. It relies upon content
 which is provided in the AWS documentation team's `shared content`_ and `SDK examples`_
@@ -99,7 +99,7 @@ repository.
 .. =================================================================================
 
 .. _`available sphinx builders`: http://www.sphinx-doc.org/en/stable/builders.html
-.. _`aws sdk for java developer guide`: http://docs.aws.amazon.com/java-sdk/latest/developer-guide/welcome.html
+.. _`aws java developer guide`: http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html
 .. _`aws sdk for java`: https://aws.amazon.com/sdk-for-java/
 .. _`forking the repository`: https://help.github.com/articles/fork-a-repo/
 .. _`pull request`: https://help.github.com/articles/using-pull-requests/
