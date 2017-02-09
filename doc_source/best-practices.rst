@@ -12,8 +12,12 @@
 Best Practices for AWS Development with the |sdk-java|
 ######################################################
 
-Avoid trouble when developing your AWS applications with the |sdk-java|. Best practices are divided
-by service.
+.. meta::
+   :description: AWS coding best practices using the AWS SDK for Java.
+   :keywords:
+
+The following best practices can help you avoid issues or trouble as you develop AWS applications
+with the |sdk-java|. We've organized best practices by service.
 
 .. best-practices-s3:
 
@@ -25,23 +29,24 @@ by service.
 Avoid ResetExceptions
 ---------------------
 
-You might encounter network connectivity or timeout issues when uploading objects to |s3| using
-streams (either through an |s3client| client or |xfermgr|). By default, the |sdk-java| attempts
-to retry failed transfers by marking the input stream before the start of a transfer and then
-resetting it before retrying.
+When you upload objects to |s3| by using
+streams (either through an |s3client| client or |xfermgr|), you might encounter network
+connectivity or timeout issues. By default, the |sdk-java| attempts to retry failed transfers by marking
+the input stream before
+the start of a transfer and then resetting it before retrying.
 
-If the stream doesn't support mark and reset, the SDK will throw a :aws-java-class:`ResetException`
+If the stream doesn't support mark and reset, the SDK throws a :aws-java-class:`ResetException`
 when there are transient failures and retries are enabled.
 
 **Best Practice**
 
 We recommend that you use streams that support mark and reset operations.
 
-The most reliable way to avoid :aws-java-class:`ResetException` is to provide data using a
+The most reliable way to avoid a :aws-java-class:`ResetException` is to provide data by using a
 :javase-ref:`File <java/io/File>` or :javase-ref:`FileInputStream <java/io/FileInputStream>`, which
 the |sdk-java| can handle without being constrained by mark and reset limits.
 
-If the stream isn't a :javase-ref:`FileInputStream <java/io/FileInputStream>` but supports mark and
+If the stream isn't a :javase-ref:`FileInputStream <java/io/FileInputStream>` but does support mark and
 reset, you can set the mark limit by using the :methodname:`setReadLimit` method of
 :aws-java-class:`RequestClientOptions`. Its default value is 128 KB. Setting the read limit value to
 *one byte greater than the size of stream* will reliably avoid a :aws-java-class:`ResetException`.

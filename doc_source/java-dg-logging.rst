@@ -12,34 +12,44 @@
 Logging |sdk-java| Calls
 ########################
 
+.. meta::
+   :description: How to use Apache Log4j with the AWS SDK for Java.
+   :keywords:
+
 The |sdk-java| is instrumented with `Apache Commons Logging
 <http://commons.apache.org/proper/commons-logging/guide.html>`_, which is an abstraction layer that
-enables the use of any one of a number of logging systems at runtime. Supported logging systems
-include the Java Logging Framework and Apache Log4j, among others. This topic explains how to use
-Log4j. You can learn more about Log4j on the `Log4j <http://logging.apache.org/log4j/2.x/>`_ page at
-the `Apache website <http://www.apache.org/>`_. You can use the SDK's logging functionality without
+enables the use of any one of several logging systems at runtime.
+
+Supported logging systems include the Java Logging Framework and Apache Log4j, among others. This
+topic shows you how to use Log4j. You can use the SDK's logging functionality without
 making any changes to your application code.
 
-.. note:: This topic focuses on Log4j 1.x. Log4j2 doesn't directly support Apache Commons Logging, but
-    provides an adapter that directs logging calls automatically to Log4j2 using the Apache Commons
-    Logging interface. For more information, see: `Commons Logging Bridge
-    <http://logging.apache.org/log4j/2.x/log4j-jcl/index.html>`_ in the Log4j2 documentation.
+To learn more about `Log4j <http://logging.apache.org/log4j/2.x/>`_,
+see the `Apache website <http://www.apache.org/>`_.
 
-In order to use Log4j with the SDK, you need to download the Log4j jar from the Apache website. The
-jar is not included in the SDK. Copy the jar file to a location that is on your classpath.
+.. note:: This topic focuses on Log4j 1.x. Log4j2 doesn't directly support Apache Commons Logging, but
+          provides an adapter that directs logging calls automatically to Log4j2 using the Apache Commons
+          Logging interface. For more information, see `Commons Logging Bridge
+          <http://logging.apache.org/log4j/2.x/log4j-jcl/index.html>`_ in the Log4j2 documentation.
+
+Download the Log4J JAR
+======================
+
+To use Log4j with the SDK, you need to download the Log4j JAR from the Apache website. The SDK doesn't
+include the JAR. Copy the JAR file to a location that is on your classpath.
 
 Log4j uses a configuration file, log4j.properties. Example configuration files are shown below. Copy
-this configuration file to a directory on your classpath. The Log4j jar and the log4j.properties
-file do not have to be in the same directory.
+this configuration file to a directory on your classpath. The Log4j JAR and the log4j.properties
+file don't have to be in the same directory.
 
 The log4j.properties configuration file specifies properties such as `logging level
 <http://logging.apache.org/log4j/2.x/manual/configuration.html#Loggers>`_, where logging output is
-sent (such as `to a file or to the console
+sent (for example, `to a file or to the console
 <http://logging.apache.org/log4j/2.x/manual/appenders.html>`_), and the `format of the output
 <http://logging.apache.org/log4j/2.x/manual/layouts.html>`_. The logging level is the granularity of
 output that the logger generates. Log4j supports the concept of multiple logging
 :emphasis:`hierarchies`. The logging level is set independently for each hierarchy. The following
-two logging hierarchies are available in the SDK.
+two logging hierarchies are available in the |sdk-java|:
 
 *   log4j.logger.com.amazonaws
 
@@ -50,10 +60,10 @@ two logging hierarchies are available in the SDK.
 Setting the Classpath
 =====================
 
-Both the Log4j jar and the log4j.properties file must be located on your classpath. If you are using
-`Apache Ant <http://ant.apache.org/manual/>`_, set the classpath in the :code:`path` element in your
-Ant file. Here is an example path element from the Ant file for the Amazon S3 example included with
-the SDK:
+Both the Log4j JAR and the log4j.properties file must be located on your classpath. If
+you're using `Apache Ant <http://ant.apache.org/manual/>`_, set the classpath in the :code:`path` element in your
+Ant file. The following example shows a path element from the Ant file for the |S3| example included
+with the SDK.
 
 .. code-block:: xml
 
@@ -63,7 +73,7 @@ the SDK:
       <pathelement location="."/>
     </path>
 
-If you are using the Eclipse IDE, you can set the classpath by opening the menu and navigating to
+If you're using the Eclipse IDE, you can set the classpath by opening the menu and navigating to
 :guilabel:`Project` | :guilabel:`Properties` | :guilabel:`Java Build Path`.
 
 
@@ -72,13 +82,13 @@ If you are using the Eclipse IDE, you can set the classpath by opening the menu 
 Service-Specific Errors and Warnings
 ====================================
 
-We recommend that you always leave the "com.amazonaws" logger hierarchy set to "WARN" in order to
-catch any important messages from the client libraries. For example, if the Amazon S3 client detects
+We recommend that you always leave the "com.amazonaws" logger hierarchy set to "WARN" to
+catch any important messages from the client libraries. For example, if the |S3| client detects
 that your application hasn't properly closed an :code:`InputStream` and could be leaking resources,
-it will report it through a warning message to the logs. This will also ensure that messages are
-logged if the client has any problems handling requests or responses.
+the S3 client reports it through a warning message to the logs. This also ensures that messages
+are logged if the client has any problems handling requests or responses.
 
-The following log4j.properties file sets the :code:`rootLogger` to WARN, which will cause warning
+The following log4j.properties file sets the :code:`rootLogger` to WARN, which causes warning
 and error messages from all loggers in the "com.amazonaws" hierarchy to be included. Alternatively,
 you can explicitly set the com.amazonaws logger to WARN.
 
@@ -115,7 +125,7 @@ request IDs.
     # a summary of requests/responses with AWS request IDs
     log4j.logger.com.amazonaws.request=DEBUG
 
-Here is an example of the log output:
+Here is an example of the log output.
 
 .. code-block:: none
 
@@ -145,15 +155,16 @@ Here is an example of the log output:
 Verbose Wire Logging
 ====================
 
-In some cases, it may be useful to see the exact requests and responses being sent and received by
-the AWS SDK for Java. This logging should not be enabled in production systems since writing out
-large requests (e.g., a file being uploaded to Amazon S3) or responses can significantly slow down
+In some cases, it can be useful to see the exact requests and responses that the |sdk-java|
+sends and receives. You shouldn't enable this logging in production systems because writing
+out
+large requests (e.g., a file being uploaded to |S3|) or responses can significantly slow down
 an application. If you really need access to this information, you can temporarily enable it through
 the Apache HttpClient 4 logger. Enabling the DEBUG level on the :code:`apache.http.wire` logger
 enables logging for all request and response data.
 
 The following log4j.properties file turns on full wire logging in Apache HttpClient 4 and should
-only be turned on temporarily since it can have a significant performance impact on your
+only be turned on temporarily because it can have a significant performance impact on your
 application.
 
 .. code-block:: properties

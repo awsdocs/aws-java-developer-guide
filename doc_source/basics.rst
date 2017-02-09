@@ -8,15 +8,19 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#############
-Using the SDK
-#############
+####################
+Using the |sdk-java|
+####################
 
-This section provides important general information about programming with the |sdk-java|.
-Information in this section applies to all services that you might be using with the |sdk-java|.
+.. meta::
+   :description: Programming information for the AWS SDK for Java
+   :keywords:
 
-For information that is specific to a particular service (EC2, SWF, etc.), see the
-:doc:`prog-services` section.
+This section provides important general information about programming with the |sdk-java| that applies
+to all services you might use with the SDK.
+
+For service-specific programming information and examples (for |EC2|, |S3|, SWF|, etc.), see
+:doc:`prog-services`.
 
 .. toctree::
    :maxdepth: 1
