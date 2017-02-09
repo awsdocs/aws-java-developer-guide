@@ -12,12 +12,17 @@
 Client Networking Configuration
 ###############################
 
-The |sdk-java| allows you to change the default client configuration, which is helpful when you want
+.. meta::
+   :description: How to change proxy configuration, HTTP transport configuration, and TCP socket buffer
+   size hints by using the AWS SDK for Java.
+   :keywords:
+
+The |sdk-java| enables you to change the default client configuration, which is helpful when you want
 to:
 
 * Connect to the Internet through proxy
 
-* Change HTTP transport settings, such as connection timeout and request retries.
+* Change HTTP transport settings, such as connection timeout and request retries
 
 * Specify TCP socket buffer size hints
 
@@ -27,8 +32,8 @@ Proxy Configuration
 When constructing a client object, you can pass in an optional :aws-java-class:`ClientConfiguration`
 object to customize the client's configuration.
 
-If you connect to the internet through a proxy server, you'll need to configure your proxy server
-settings (proxy host, port and username/password) through the :classname:`ClientConfiguration`
+If you connect to the Internet through a proxy server, you'll need to configure your proxy server
+settings (proxy host, port, and username/password) through the :classname:`ClientConfiguration`
 object.
 
 
@@ -36,8 +41,8 @@ HTTP Transport Configuration
 ============================
 
 You can configure several HTTP transport options by using the :aws-java-class:`ClientConfiguration`
-object. New options are occasionally added; to see the full list of options that can be retrieved or
-set, see the |sdk-java| reference.
+object. New options are occasionally added; to see the full list of options you can retrieve or
+set, see the |sdk-java-ref|.
 
 Each of the configurable values has a default value defined by a constant. For a list of the
 constant values for :classname:`ClientConfiguration`, see :sdk-java-ref:`Constant Field Values
@@ -63,19 +68,19 @@ You can set the maximum allowed number of open HTTP connections by using the
 Proxy Options
 -------------
 
-If you use a proxy with your HTTP connections, you may need to set certain options related to HTTP
-proxies:
+If you use a proxy with your HTTP connections, you might need to set certain options related to HTTP
+proxies.
 
 
 Timeouts and Error Handling
 ---------------------------
 
-You can set options related to timeouts and handling errors with HTTP connections:
+You can set options related to timeouts and handling errors with HTTP connections.
 
 * :strong:`Connection Timeout`
 
   The connection timeout is the amount of time (in milliseconds) that the HTTP connection will wait
-  to establish a connection before giving up. The default is 50,000ms.
+  to establish a connection before giving up. The default is 50,000 ms.
 
   To set this value yourself, use the :aws-java-ref:`ClientConfiguration.setConnectionTimeout
   <ClientConfiguration.html#setConnectionTimeout-int->` method.
@@ -105,22 +110,25 @@ Advanced users who want to tune low-level TCP parameters can additionally set TC
 through the :aws-java-class:`ClientConfiguration` object. The majority of users will never need to tweak
 these values, but they are provided for advanced users.
 
-Optimal TCP buffer sizes for an application are highly dependent on network and OS configuration and
+Optimal TCP buffer sizes for an application are highly dependent on network and operating system configuration
+and
 capabilities. For example, most modern operating systems provide auto-tuning logic for TCP buffer
-sizes, which can have a big impact on performance for TCP connections that are held open long enough
+sizes.This can have a big impact on performance for TCP connections that are held open long enough
 for the auto-tuning to optimize buffer sizes.
 
-Large buffer sizes (e.g., 2 MB) allow the OS to buffer more data in memory without requiring the
-remote server to acknowledge receipt of that information, so can be particularly useful when the
+Large buffer sizes (e.g., 2 MB) allow the operating system to buffer more data in memory without requiring
+the
+remote server to acknowledge receipt of that information, and so can be particularly useful when the
 network has high latency.
 
-This is only a *hint*, and the OS may choose not to honor it. When using this option, users should
-always check the operating system's configured limits and defaults. Most OS's have a maximum TCP
+This is only a *hint*, and the operating system might not to honor it. When using this option, users should
+always check the operating system's configured limits and defaults. Most operating systems have a maximum
+TCP
 buffer size limit configured, and won't let you go beyond that limit unless you explicitly raise the
-max TCP buffer size limit.
+maximum TCP buffer size limit.
 
-Many resources available to help with configuring TCP buffer sizes and operating system specific TCP
-settings, including:
+Many resources are available to help with configuring TCP buffer sizes and operating system-specific TCP
+settings, including the following:
 
 * `TCP Tuning and Network Troubleshooting <http://www.onlamp.com/pub/a/onlamp/2005/11/17/tcp_tuning.html>`_
 * `Host Tuning <http://fasterdata.es.net/host-tuning/>`_

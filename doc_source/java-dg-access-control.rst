@@ -12,7 +12,12 @@
 Access Control Policies
 #######################
 
-AWS *access control policies* allow you to specify fine-grained access controls on your AWS
+.. meta::
+   :description: How to specify access control policies using the AWS SDK for Java, with examples for
+   Amazon S3, Amazon SQS, and Amazon SNS.
+   :keywords:
+
+AWS *access control policies* enable you to specify fine-grained access controls on your AWS
 resources. An access control policy consists of a collection of *statements*, which take the form:
 
     *Account A* has permission to perform *action B* on *resource C* where *condition D* applies.

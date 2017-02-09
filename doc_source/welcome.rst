@@ -12,9 +12,9 @@
     :description:
          Welcome to the AWS Java Developer Guide
 
-########################
-AWS Java Developer Guide
-########################
+################################
+AWS SDK for Java Developer Guide
+################################
 
 The |sdk-java|_ provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
 applications that work with |S3|, |EC2|, |SDB|, and more. We regularly add support for new services
@@ -24,10 +24,10 @@ with each release of the SDK, view the `release notes`_ for the version that you
 
 .. _additional-resources:
 
-Additional documentation and resources
+Additional Documentation and Resources
 ======================================
 
-In addition to this guide, there are a number of valuable online resources available for |sdk-java|
+In addition to this guide, the following are valuable online resources for |sdk-java|
 developers:
 
 * |sdk-java-ref|_
@@ -57,29 +57,29 @@ developers:
 
 .. _eclipse-support:
 
-Eclipse IDE support
+Eclipse IDE Support
 ===================
 
 If you develop code using the Eclipse IDE, you can use the |tke|_ to add the |sdk-java| to an
-existing Eclipse project or to create a new AWS Java project. The toolkit also supports the creation
-and uploading of |LAM| functions, launching and monitoring |EC2| instances, management of IAM users
-and security groups, a |CFN| template editor and more.
+existing Eclipse project or to create a new |sdk-java| project. The toolkit also supports creating
+and uploading |LAM| functions, launching and monitoring |EC2| instances, managing |IAM| users
+and security groups, a |CFN| template editor, and more.
 
-Visit the |tke-ug|_ for full documentation.
+See the |tke-ug|_ for full documentation.
 
 
 .. _android-support:
 
-Developing AWS applications for Android
+Developing AWS Applications for Android
 =======================================
 
-If you are an Android developer, |AWSlong| publishes a SDK made specifically for Android
-development: the |sdk-android|_. Visit the |sdk-android-dg|_ for full documentation.
+If you're an Android developer, |AWSlong| publishes an SDK made specifically for Android
+development: the |sdk-android|_. See the |sdk-android-dg|_ for full documentation.
 
 
 .. _java-sdk-history:
 
-Viewing the SDK's revision history
+Viewing the SDK's Revision History
 ==================================
 
 To view the release history of the |sdk-java|, including changes and supported services per SDK
@@ -88,18 +88,18 @@ version, see the SDK's `release notes`_.
 
 .. _build-old-reference-docs:
 
-Building Java reference documentation for old SDK versions
-==========================================================
+Building Java Reference Documentation for Earlier SDK versions
+==============================================================
 
-The |sdk-java-ref|_ represents the most recent version of the SDK. If you're using an older SDK
-version, you may wish to access the SDK reference documentation that matches the version you're
+The |sdk-java-ref|_ represents the most recent version of the SDK. If you're using an earlier SDK
+version, you might want to access the SDK reference documentation that matches the version you're
 using.
 
 The easiest way to build the documentation is using Apache's Maven_ build tool. *Download and
 install Maven first if you don't already have it on your system*, then use the following
 instructions to build the reference documentation.
 
-.. topic:: To build reference documentation for an old SDK version
+.. topic:: To build reference documentation for an earlier SDK version
 
     #. Locate and select the SDK version that you're using on the :github:`releases
        <aws/aws-sdk-java/releases>` page of the SDK repository on GitHub.
@@ -109,7 +109,9 @@ instructions to build the reference documentation.
 
     #. Unpack the archive to a local directory.
 
-    #. On the command-line, navigate to the directory where you unpacked the archive, and type::
+    #. On the command line, navigate to the directory where you unpacked the archive, and type the following.
+
+       ::
 
         mvn javadoc:javadoc
 

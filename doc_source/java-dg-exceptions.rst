@@ -12,14 +12,18 @@
 Exception Handling
 ##################
 
-Understanding how and when the AWS SDK for Java throws exceptions is important in order to build
+.. meta::
+   :description: How to handle exceptions thrown by the AWS SDK for Java.
+   :keywords:
+
+Understanding how and when the |sdk-java| throws exceptions is important to building
 high-quality applications using the SDK. The following sections describe the different cases of
 exceptions that are thrown by the SDK and how to handle them appropriately.
 
 Why Unchecked Exceptions?
 =========================
 
-The AWS Java SDK uses runtime (or unchecked) exceptions instead of checked exceptions for a few
+The |sdk-java| uses runtime (or unchecked) exceptions instead of checked exceptions for these
 reasons:
 
 * To allow developers fine-grained control over the errors they want to handle without forcing them
@@ -30,7 +34,7 @@ reasons:
 In general, checked exceptions work well on small scales, but can become troublesome as applications
 grow and become more complex.
 
-For more information about the use of checked and unchecked exceptions, see the following articles:
+For more information about the use of checked and unchecked exceptions, see:
 
 * `Unchecked Exceptions—The Controversy
   <http://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html>`_
@@ -47,12 +51,13 @@ AmazonServiceException (and Subclasses)
 :aws-java-class:`AmazonServiceException` is the most common exception that you'll experience when using
 the |sdk-java|. This exception represents an error response from an AWS service. For example, if you
 try to terminate an |EC2| instance that doesn't exist, EC2 will return an error response and all the
-details of that error response will be included in the thrown :classname:`AmazonServiceException`.
-For some cases, a subclass of :classname:`AmazonServiceException` will be thrown to allow developers
-fine grained control over handling error cases through catch blocks.
+details of that error response will be included in the :classname:`AmazonServiceException` that's thrown.
+For some cases, a subclass of :classname:`AmazonServiceException` is thrown to allow developers
+fine-grained control over handling error cases through catch blocks.
 
 When you encounter an :classname:`AmazonServiceException`, you know that your request was successfully
-sent to the AWS service, but could not be successfully processed either because of errors in the
+sent to the AWS service but couldn't be successfully processed. This can be because of errors in
+the
 request's parameters or because of issues on the service side.
 
 :classname:`AmazonServiceException` provides you with information such as:
@@ -66,7 +71,7 @@ request's parameters or because of issues on the service side.
 * AWS request ID for the failed request
 
 :classname:`AmazonServiceException` also includes information about whether the failed request was
-the caller's fault (i.e., a request with illegal values) or the AWS service's fault (i.e., an
+the caller's fault (a request with illegal values) or the AWS service's fault (an
 internal service error).
 
 
@@ -75,9 +80,9 @@ AmazonClientException
 
 :aws-java-class:`AmazonClientException` indicates that a problem occurred inside the Java client code,
 either while trying to send a request to AWS or while trying to parse a response from AWS.
-:classname:`AmazonClientException` exceptions are generally more severe than
-:classname:`AmazonServiceException` exceptions and indicate a major problem that is preventing the
-client from being able to make service calls to AWS services. For example, the AWS Java SDK will
-throw an :classname:`AmazonClientException` if no network connection is available when you try to
+An :classname:`AmazonClientException` is generally more severe than an
+:classname:`AmazonServiceException`, and indicates a major problem that is preventing the
+client from making service calls to AWS services. For example, the |sdk-java|
+throws an :classname:`AmazonClientException` if no network connection is available when you try to
 call an operation on one of the clients.
 
