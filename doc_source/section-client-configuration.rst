@@ -13,12 +13,11 @@ Client Networking Configuration
 ###############################
 
 .. meta::
-   :description: How to change proxy configuration, HTTP transport configuration, and TCP socket buffer
-   size hints by using the AWS SDK for Java.
-   :keywords:
+   :description: How to change proxy configuration, HTTP transport configuration, and TCP socket
+                 buffer size hints by using the AWS SDK for Java.
 
-The |sdk-java| enables you to change the default client configuration, which is helpful when you want
-to:
+The |sdk-java| enables you to change the default client configuration, which is helpful when you
+want to:
 
 * Connect to the Internet through proxy
 
@@ -41,8 +40,8 @@ HTTP Transport Configuration
 ============================
 
 You can configure several HTTP transport options by using the :aws-java-class:`ClientConfiguration`
-object. New options are occasionally added; to see the full list of options you can retrieve or
-set, see the |sdk-java-ref|.
+object. New options are occasionally added; to see the full list of options you can retrieve or set,
+see the |sdk-java-ref|.
 
 Each of the configurable values has a default value defined by a constant. For a list of the
 constant values for :classname:`ClientConfiguration`, see :sdk-java-ref:`Constant Field Values
@@ -107,28 +106,25 @@ TCP Socket Buffer Size Hints
 ============================
 
 Advanced users who want to tune low-level TCP parameters can additionally set TCP buffer size hints
-through the :aws-java-class:`ClientConfiguration` object. The majority of users will never need to tweak
-these values, but they are provided for advanced users.
+through the :aws-java-class:`ClientConfiguration` object. The majority of users will never need to
+tweak these values, but they are provided for advanced users.
 
-Optimal TCP buffer sizes for an application are highly dependent on network and operating system configuration
-and
-capabilities. For example, most modern operating systems provide auto-tuning logic for TCP buffer
-sizes.This can have a big impact on performance for TCP connections that are held open long enough
-for the auto-tuning to optimize buffer sizes.
+Optimal TCP buffer sizes for an application are highly dependent on network and operating system
+configuration and capabilities. For example, most modern operating systems provide auto-tuning logic
+for TCP buffer sizes.This can have a big impact on performance for TCP connections that are held
+open long enough for the auto-tuning to optimize buffer sizes.
 
-Large buffer sizes (e.g., 2 MB) allow the operating system to buffer more data in memory without requiring
-the
-remote server to acknowledge receipt of that information, and so can be particularly useful when the
-network has high latency.
+Large buffer sizes (e.g., 2 MB) allow the operating system to buffer more data in memory without
+requiring the remote server to acknowledge receipt of that information, and so can be particularly
+useful when the network has high latency.
 
-This is only a *hint*, and the operating system might not to honor it. When using this option, users should
-always check the operating system's configured limits and defaults. Most operating systems have a maximum
-TCP
-buffer size limit configured, and won't let you go beyond that limit unless you explicitly raise the
-maximum TCP buffer size limit.
+This is only a *hint*, and the operating system might not to honor it. When using this option, users
+should always check the operating system's configured limits and defaults. Most operating systems
+have a maximum TCP buffer size limit configured, and won't let you go beyond that limit unless you
+explicitly raise the maximum TCP buffer size limit.
 
-Many resources are available to help with configuring TCP buffer sizes and operating system-specific TCP
-settings, including the following:
+Many resources are available to help with configuring TCP buffer sizes and operating system-specific
+TCP settings, including the following:
 
 * `TCP Tuning and Network Troubleshooting <http://www.onlamp.com/pub/a/onlamp/2005/11/17/tcp_tuning.html>`_
 * `Host Tuning <http://fasterdata.es.net/host-tuning/>`_

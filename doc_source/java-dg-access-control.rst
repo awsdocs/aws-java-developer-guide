@@ -13,9 +13,8 @@ Access Control Policies
 #######################
 
 .. meta::
-   :description: How to specify access control policies using the AWS SDK for Java, with examples for
-   Amazon S3, Amazon SQS, and Amazon SNS.
-   :keywords:
+   :description: How to specify access control policies using the AWS SDK for Java, with examples
+                 for Amazon S3, Amazon SQS, and Amazon SNS.
 
 AWS *access control policies* enable you to specify fine-grained access controls on your AWS
 resources. An access control policy consists of a collection of *statements*, which take the form:
@@ -88,9 +87,8 @@ One common use of policies is to authorize an |SQS| queue to receive messages fr
 =============
 
 Some services offer additional conditions that can be used in policies. |SNS| provides conditions
-for allowing or denying subscriptions to SNS topics based on the protocol (e.g., email, HTTP,
-HTTPS, |SQS|) and endpoint (e.g., email address, URL, |SQS| ARN) of the request to subscribe to a
-topic.
+for allowing or denying subscriptions to SNS topics based on the protocol (e.g., email, HTTP, HTTPS,
+|SQS|) and endpoint (e.g., email address, URL, |SQS| ARN) of the request to subscribe to a topic.
 
 .. code-block:: java
 
