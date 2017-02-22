@@ -52,7 +52,7 @@ developers:
 
 * `@awsforjava (Twitter) <https://twitter.com/awsforjava>`_
 
-* `release notes <https://aws.amazon.com/releasenotes/Java>`_
+* `release notes <https://github.com/aws/aws-sdk-java#release-notes>`_
 
 
 .. _eclipse-support:

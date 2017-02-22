@@ -30,7 +30,7 @@ To create a basic Maven package, open a terminal (command-line) window and run:
      -DgroupId=org.example.basicapp \
      -DartifactId=myapp
 
-Replace *com.example.basicapp* with the full package namespace of your application, and *myapp* with
+Replace *org.example.basicapp* with the full package namespace of your application, and *myapp* with
 the name of your project (this will become the name of the directory for your project).
 
 By default, |mvn| creates a project template for you using the `quickstart
