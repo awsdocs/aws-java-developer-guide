@@ -36,8 +36,7 @@ public class HelloTypes {
             swf.registerDomain(new RegisterDomainRequest()
                 .withName(DOMAIN)
                 .withWorkflowExecutionRetentionPeriodInDays("1"));
-        }
-        catch (DomainAlreadyExistsException e) {
+        } catch (DomainAlreadyExistsException e) {
             System.out.println("** Domain already exists!");
         }
     }
@@ -55,8 +54,7 @@ public class HelloTypes {
                 .withDefaultTaskStartToCloseTimeout("600")
                 .withDefaultTaskScheduleToCloseTimeout("630")
                 .withDefaultTaskHeartbeatTimeout("10"));
-        }
-        catch (TypeAlreadyExistsException e) {
+        } catch (TypeAlreadyExistsException e) {
             System.out.println("** Activity type already exists!");
         }
     }
@@ -72,8 +70,7 @@ public class HelloTypes {
                 .withDefaultChildPolicy(ChildPolicy.TERMINATE)
                 .withDefaultTaskList(new TaskList().withName(TASKLIST))
                 .withDefaultTaskStartToCloseTimeout("30"));
-        }
-        catch (TypeAlreadyExistsException e) {
+        } catch (TypeAlreadyExistsException e) {
             System.out.println("** Workflow type already exists!");
         }
     }
@@ -84,3 +81,4 @@ public class HelloTypes {
         registerActivityType();
     }
 }
+

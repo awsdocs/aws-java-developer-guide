@@ -17,9 +17,7 @@ package example.swf.hello;
 
 import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
 import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
-import com.amazonaws.services.simpleworkflow.model.Run;
-import com.amazonaws.services.simpleworkflow.model.StartWorkflowExecutionRequest;
-import com.amazonaws.services.simpleworkflow.model.WorkflowType;
+import com.amazonaws.services.simpleworkflow.model.*;
 
 public class WorkflowStarter {
     private static final AmazonSimpleWorkflow swf =

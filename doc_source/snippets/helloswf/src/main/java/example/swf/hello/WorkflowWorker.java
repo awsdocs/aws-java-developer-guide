@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.UUID;
 
 public class WorkflowWorker {
-
     private static final AmazonSimpleWorkflow swf =
         AmazonSimpleWorkflowClientBuilder.defaultClient();
 
@@ -45,8 +44,7 @@ public class WorkflowWorker {
             if (taskToken != null) {
                 try {
                     executeDecisionTask(taskToken, task.getEvents());
-                }
-                catch (Throwable th) {
+                } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
@@ -110,8 +108,7 @@ public class WorkflowWorker {
                     .withCompleteWorkflowExecutionDecisionAttributes(
                         new CompleteWorkflowExecutionDecisionAttributes()
                             .withResult(result)));
-        }
-        else {
+        } else {
             if (open_activities == 0 && scheduled_activities == 0) {
 
                 ScheduleActivityTaskDecisionAttributes attrs =
@@ -126,8 +123,7 @@ public class WorkflowWorker {
                         new Decision()
                             .withDecisionType(DecisionType.ScheduleActivityTask)
                             .withScheduleActivityTaskDecisionAttributes(attrs));
-            }
-            else {
+            } else {
                 // an instance of HelloActivity is already scheduled or running. Do nothing, another
                 // task will be scheduled once the activity completes, fails or times out
             }
@@ -141,3 +137,4 @@ public class WorkflowWorker {
                 .withDecisions(decisions));
     }
 }
+

@@ -20,7 +20,6 @@ import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
 import com.amazonaws.services.simpleworkflow.model.*;
 
 public class ActivityWorker {
-
     private static final AmazonSimpleWorkflow swf =
         AmazonSimpleWorkflowClientBuilder.defaultClient();
 
@@ -50,8 +49,7 @@ public class ActivityWorker {
                     System.out.println("Executing the activity task with input '" +
                             task.getInput() + "'.");
                     result = sayHello(task.getInput());
-                }
-                catch (Throwable th) {
+                } catch (Throwable th) {
                     error = th;
                 }
 
@@ -62,8 +60,7 @@ public class ActivityWorker {
                         new RespondActivityTaskCompletedRequest()
                             .withTaskToken(task_token)
                             .withResult(result));
-                }
-                else {
+                } else {
                     System.out.println("The activity task failed with the error '"
                             + error.getClass().getSimpleName() + "'.");
                     swf.respondActivityTaskFailed(
