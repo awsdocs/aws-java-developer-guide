@@ -30,7 +30,7 @@ attempt a graceful shutdown of the activity worker.
 
 Here is the complete code:
 
-.. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/ActivityWorkerWithGracefulShutdown.java
+.. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/ActivityWorkerWithGracefulShutdown.java
     :language: java
     :lines: 16-
 

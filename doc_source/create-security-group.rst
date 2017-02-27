@@ -123,6 +123,6 @@ ports.
 Whenever you call the :aws-java-ref:`authorizeSecurityGroupIngress
 <services/ec2/AmazonEC2Client.html#authorizeSecurityGroupIngress-com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressRequest->`
 or :aws-java-ref:`authorizeSecurityGroupEgress
-<http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/ec2/AmazonEC2Client.html#authorizeSecurityGroupEgress-com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressRequest->`
+<services/ec2/AmazonEC2Client.html#authorizeSecurityGroupEgress-com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressRequest->`
 methods, a rule is added to your security group.
 

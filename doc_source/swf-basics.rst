@@ -42,7 +42,7 @@ Imports
 
 In general, you can use the following imports for code development:
 
-.. literalinclude:: snippets/helloswf/src/main/java/example/swf/hello/HelloTypes.java
+.. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/HelloTypes.java
     :language: java
     :lines: 18-19
 
