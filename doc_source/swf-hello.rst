@@ -661,8 +661,9 @@ Complete source for this example
 ================================
 
 You can browse the :github:`complete source
-<awsdocs/aws-java-developer-guide/tree/master/doc_source/example_code/swf/>` for this example on
-Github in the *aws-java-developer-guide* repository.
+<awsdocs/aws-doc-sdk-examples/tree/master/java/example_code/swf>` for this example on Github in the
+*aws-java-developer-guide* repository.
+
 
 For more information
 ====================
