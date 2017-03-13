@@ -52,7 +52,7 @@ EC2 Security Groups <using-network-security>` in the |EC2-ug|.
        .. code-block:: java
 
           CreateSecurityGroupResult createSecurityGroupResult =
-              amazonEC2Client.createSecurityGroup(createSecurityGroupRequest);
+              amazonEC2Client.createSecurityGroup(csgr);
 
        If you attempt to create a security group with the same name as an existing security group,
        :code:`createSecurityGroup` throws an exception.
@@ -80,7 +80,10 @@ ports.
           IpPermission ipPermission =
               new IpPermission();
 
-          ipPermission.withIpRanges("111.111.111.111/32", "150.150.150.150/32")
+          IpRange ipRange1 = new IpRange().withCidrIp("111.111.111.111/32");
+          IpRange ipRange2 = new IpRange().withCidrIp("150.150.150.150/32");
+
+          ipPermission.withIpv4Ranges(Arrays.asList(new IpRange[] {ipRange1, ipRange2}))
                       .withIpProtocol("tcp")
                       .withFromPort(22)
                       .withToPort(22);
