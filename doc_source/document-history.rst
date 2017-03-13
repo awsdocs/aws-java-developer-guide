@@ -16,6 +16,10 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **Last documentation update:** |today|
 
+Mar 13, 2017
+   Added three new topics to the |SQS| section: :doc:`examples-sqs-long-polling`,
+   :doc:`examples-sqs-visibility-timeout`, and :doc:`examples-sqs-dead-letter-queues`.
+
 Jan 26, 2017
    Added a new |S3| topic, :doc:`examples-s3-transfermanager`, and a new :doc:`best-practices` topic
    in the :doc:`basics` section.

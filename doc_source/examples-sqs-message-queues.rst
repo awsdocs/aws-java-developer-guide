@@ -20,7 +20,7 @@ A *message queue* is the logical container used for sending messages reliably in
 two types of queues: *standard* and *first-in, first-out* (FIFO). To learn more about queues and the
 differences between these types, see the |sqs-dg|_.
 
-This topic describes how to create, list, delete, and get the URL of an |SQS| queue by using the
+This topic describes how to create, list, delete, and get the URL of an |sqs| queue by using the
 |sdk-java|.
 
 
@@ -36,19 +36,19 @@ the queue parameters.
 **Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 17-20
+   :lines: 16-19
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 33, 36-46
+   :lines: 33, 35-45
    :dedent: 8
 
 You can use the simplified form of :methodname:`createQueue`, which needs only a queue name, to
 create a standard queue.
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 56
+   :lines: 55
    :dedent: 8
 
 See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
@@ -65,12 +65,12 @@ method.
 **Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 17-18, 22
+   :lines: 16-17, 21
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 33, 59-63
+   :lines: 32, 58-62
    :dedent: 8
 
 Using the :methodname:`listQueues` overload without any parameters returns *all queues*. You can
@@ -79,12 +79,12 @@ filter the returned results by passing it a :code-java:`ListQueuesRequest` objec
 **Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 17-18, 21
+   :lines: 16-17, 20
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 33, 66-71
+   :lines: 32, 65-70
    :dedent: 8
 
 See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
@@ -100,12 +100,12 @@ Call the |sqsclient| client's :methodname:`getQueueUrl` method.
 **Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 17-18
+   :lines: 16-17
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 33, 49
+   :lines: 32, 48
    :dedent: 8
 
 See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
@@ -122,12 +122,12 @@ Provide the queue's :ref:`URL <sqs-get-queue-url>` to the |sqsclient| client's
 **Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 17-18
+   :lines: 16-17
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
-   :lines: 33, 52
+   :lines: 32, 51
    :dedent: 8
 
 See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.

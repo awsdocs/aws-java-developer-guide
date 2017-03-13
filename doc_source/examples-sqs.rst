@@ -26,4 +26,7 @@ This section provides examples of programming |sqs|_ using the |sdk-java|_.
 
    examples-sqs-message-queues
    examples-sqs-messages
+   examples-sqs-long-polling
+   examples-sqs-visibility-timeout
+   examples-sqs-dead-letter-queues
 

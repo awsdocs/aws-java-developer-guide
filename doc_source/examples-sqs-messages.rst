@@ -25,7 +25,7 @@ using an :doc:`SQS Queue <examples-sqs-message-queues>`.
 .. _sqs-message-send:
 
 Send a Message
-=================
+==============
 
 Add a single message to an |SQS| queue by calling the |sqsclient| client's
 :methodname:`sendMessage` method. Provide a :aws-java-class:`SendMessageRequest
@@ -35,12 +35,12 @@ Add a single message to an |SQS| queue by calling the |sqsclient| client's
 **Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
-   :lines: 17-18, 24
+   :lines: 16-17, 23
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
-   :lines: 35-36, 45-51
+   :lines: 44-50
    :dedent: 8
 
 
@@ -59,12 +59,12 @@ value per message.
 **Imports**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
-   :lines: 17-18, 22-23
+   :lines: 21-22
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
-   :lines: 35-36, 45-46, 55-63
+   :lines: 54-62
    :dedent: 8
 
 See the :sdk-examples-java-sqs:`complete sample <SendReceiveMessages.java>`.
@@ -87,7 +87,7 @@ Retrieve any messages that are currently in the queue by calling the |sqsclient|
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
-   :lines: 35-36, 45-46, 66
+   :lines: 65
    :dedent: 8
 
 .. _sqs-messages-delete:
@@ -102,7 +102,7 @@ the message's receipt handle and queue URL to the |sqsclient| client's
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/SendReceiveMessages.java
-   :lines: 69-71
+   :lines: 68-70
    :dedent: 8
 
 See the :sdk-examples-java-sqs:`complete sample <SendReceiveMessages.java>`.
