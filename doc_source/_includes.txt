@@ -23,6 +23,7 @@
 .. _mvn: Maven_
 .. _mvnlong: Maven_
 
+.. |iamclient| replace:: :aws-java-class:`AmazonIdentityManagementClient <services/identitymanagement/AmazonIdentityManagementClient>`
 .. |s3client| replace:: :aws-java-class:`AmazonS3 <services/s3/AmazonS3>`
 .. |sqsclient| replace:: :aws-java-class:`AmazonSQS <services/sqs/AmazonSQS>`
 .. |ddbclient| replace:: :aws-java-class:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDB>`

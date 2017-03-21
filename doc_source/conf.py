@@ -391,7 +391,7 @@ extlinks['javase-ref-nf'] = (javase_api_url + javadoc_nf, '')
 
 # links to examples for a particular service (ex: :sdk-examples-java-s3:`ListTables.java`)
 samples_url = 'https://github.com/awsdocs/aws-doc-sdk-examples/'
-for svc in ['s3', 'dynamodb', 'sqs']:
+for svc in ['s3', 'dynamodb', 'sqs', 'iam']:
     extlinks['sdk-examples-java-%s' % svc] = (samples_url +
             'blob/master/java/example_code/{svc}/src/main/java/aws/example/{svc}/'.format(svc=svc) +
             '%s', '')
