@@ -14,7 +14,16 @@ Document History
 
 This topic describes important changes to the |sdk-java-dg| over the course of its history.
 
-**Last documentation update:** |today|
+**This documentation was built on:** |today|
+
+Mar 21, 2017
+   Added a new set of |IAM| examples to the :doc:`examples-iam` section:
+
+   * :doc:`examples-iam-access-keys`
+   * :doc:`examples-iam-users`
+   * :doc:`examples-iam-account-aliases`
+   * :doc:`examples-iam-policies`
+   * :doc:`examples-iam-server-certificates`
 
 Mar 13, 2017
    Added three new topics to the |SQS| section: :doc:`examples-sqs-long-polling`,
