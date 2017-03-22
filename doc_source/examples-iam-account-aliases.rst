@@ -64,10 +64,10 @@ method.
    :lines: 26-33
    :dedent: 8
 
-see the :sdk-examples-java-iam:`complete example <listaccountaliases.java>`.
+see the :sdk-examples-java-iam:`complete example <ListAccountAliases.java>`.
 
 
-deleting an account alias
+Deleting an account alias
 =========================
 
 To delete your account's alias, call the |iamclient|'s :methodname:`deleteAccountAlias` method. When
