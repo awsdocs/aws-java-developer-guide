@@ -49,7 +49,8 @@ Listing Account Aliases
 To list your account's alias, if any, call the |iamclient|'s :methodname:`listAccountAliases`
 method.
 
-.. note:: The returned :aws-java-class:`ListAccountAliasesResponse` supports the same
+.. note:: The returned :aws-java-class:`ListAccountAliasesResponse
+   <services/identitymanagement/model/ListAccountAliasesResponse>` supports the same
    :methodname:`getIsTruncated` and :methodname:`getMarker` methods as other |sdk-java| *list*
    methods, but an AWS account can have only *one* account alias.
 
