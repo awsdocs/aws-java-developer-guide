@@ -49,7 +49,7 @@ For example:
 .. code-block:: java
 
    AmazonS3 s3 = AmazonS3ClientBuilder.standard()
-                 .withCredentials(new InstanceProfileCredentialsProvider())
+                 .withCredentials(new InstanceProfileCredentialsProvider(false))
                  .build();
 
 When using this approach, the SDK retrieves temporary AWS credentials that have the same
