@@ -82,12 +82,17 @@ SDK you want to use:
         <dependency>
           <groupId>com.amazonaws</groupId>
           <artifactId>aws-java-sdk-bom</artifactId>
-          <version>1.11.22</version>
+          <version>1.11.106</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>
       </dependencies>
     </dependencyManagement>
+
+To view the latest version of the |sdk-java| BOM that is available on Maven Central, visit:
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-bom. You can also use this page to see
+which modules (dependencies) are managed by the BOM that you can include within the
+:code-xml:`<dependencies>` section of your project's :file:`pom.xml` file.
 
 You can now select individual modules from the SDK that you use in your application. Because you
 already declared the SDK version in the BOM, you don't need to specify the version number for each
@@ -121,7 +126,7 @@ declare it in your :file:`pom.xml` like this:
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-java-sdk</artifactId>
-      <version>1.11.22</version>
+      <version>1.11.106</version>
     </dependency>
   </dependencies>
 

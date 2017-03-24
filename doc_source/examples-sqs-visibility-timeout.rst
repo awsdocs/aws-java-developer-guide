@@ -43,7 +43,7 @@ handle in a :aws-java-class:`ChangeMessageVisibilityRequest
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/VisibilityTimeout.java
-   :lines: 30-38
+   :lines: 31-39
    :dedent: 8
 
 See the :sdk-examples-java-sqs:`complete example <VisibilityTimeout.java>`.
@@ -66,7 +66,7 @@ string and a receipt handle. Then, pass the list to the |sqs| client class'
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/VisibilityTimeout.java
-   :lines: 44-65
+   :lines: 46-67
    :dedent: 8
 
 See the :sdk-examples-java-sqs:`complete example <VisibilityTimeout.java>`.

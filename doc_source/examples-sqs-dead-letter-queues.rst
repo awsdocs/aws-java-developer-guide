@@ -70,7 +70,7 @@ attribute with your JSON redrive policy.
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/DeadLetterQueues.java
-   :lines: 56-76
+   :lines: 57-76
    :dedent: 8
 
 See the :sdk-examples-java-sqs:`complete example <DeadLetterQueues.java>`.
