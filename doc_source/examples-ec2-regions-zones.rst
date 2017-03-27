@@ -12,6 +12,12 @@
 Using Regions and Availability Zones
 ####################################
 
+.. meta::
+   :description: How to list EC2 regions and availability zones using the AWS SDK for Java.
+   :keywords: AWS SDK for Java, code examples, EC2, list regions, describe regions, list availability
+              zones, describe availability zones
+
+
 Describing Regions
 ==================
 

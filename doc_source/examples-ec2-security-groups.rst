@@ -13,8 +13,9 @@ Working with Security Groups in |EC2|
 #####################################
 
 .. meta::
-   :description: How to manage IAM access keys with the AWS SDK for Java.
-   :keywords: AWS SDK for Java, code examples, EC2 security groups,
+   :description: How to create, configure and delete EC2 security groups with the AWS SDK for Java.
+   :keywords: AWS SDK for Java, code examples, EC2 security groups, create a security group, ingress
+              rules, egress rules, IP permissions, EC2 access
 
 
 Creating a Security Group

@@ -13,8 +13,11 @@ Using Elastic IP Addresses in |EC2|
 ###################################
 
 .. meta::
-   :description: How to manage IAM access keys with the AWS SDK for Java.
-   :keywords: AWS SDK for Java, code examples, EC2 security groups,
+   :description: How to allocate, use, list, and release Elastic IP addresses for EC2 instances with
+                 the AWS SDK for Java.
+   :keywords: AWS SDK for Java, code examples, EC2, Elastic IP, allocate address, release address,
+              assign address, associate address, list addresses
+
 
 Allocating an Elastic IP Address
 ================================

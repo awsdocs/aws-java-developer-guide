@@ -13,8 +13,9 @@ Working with |EC2| Key Pairs
 ############################
 
 .. meta::
-   :description: How to manage IAM access keys with the AWS SDK for Java.
-   :keywords: AWS SDK for Java, code examples, EC2 security groups,
+   :description: How to create, list and delete EC2 key pairs using the AWS SDK for Java.
+   :keywords: AWS SDK for Java, code examples, EC2 key pairs, create key pair, list key pairs, delete
+              key pair
 
 
 Creating a Key Pair
