@@ -27,3 +27,9 @@ This section provides examples of programming |EC2|_ with the |sdk-java|.
    java-dg-roles
    tutorial-spot-instances-java
    tutorial-spot-adv-java
+   examples-ec2-instances
+   examples-ec2-elastic-ip
+   examples-ec2-regions-zones
+   examples-ec2-key-pairs
+   examples-ec2-security-groups
+

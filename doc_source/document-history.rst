@@ -16,14 +16,15 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was built on:** |today|
 
+Mar 27, 2017
+   Added more |EC2| examples to the :doc:`prog-services-ec2` section: :doc:`examples-ec2-instances`,
+   :doc:`examples-ec2-elastic-ip`, :doc:`examples-ec2-regions-zones`, :doc:`examples-ec2-key-pairs`, and
+   :doc:`examples-ec2-security-groups`.
+
 Mar 21, 2017
    Added a new set of |IAM| examples to the :doc:`examples-iam` section:
-
-   * :doc:`examples-iam-access-keys`
-   * :doc:`examples-iam-users`
-   * :doc:`examples-iam-account-aliases`
-   * :doc:`examples-iam-policies`
-   * :doc:`examples-iam-server-certificates`
+   :doc:`examples-iam-access-keys`, :doc:`examples-iam-users`, :doc:`examples-iam-account-aliases`,
+   :doc:`examples-iam-policies`, and :doc:`examples-iam-server-certificates`
 
 Mar 13, 2017
    Added three new topics to the |SQS| section: :doc:`examples-sqs-long-polling`,
@@ -124,6 +125,4 @@ May 9, 2014
 Sep 9, 2013
    This topic, *Document History*, tracks changes to the |sdk-java-dg|. It is intended as a
    companion to the release notes history.
-
-
 
