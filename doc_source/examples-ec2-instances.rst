@@ -115,7 +115,8 @@ for your account and region.
 Instances are grouped by *reservation*. Each reservation corresponds to the call to
 :methodname:`startInstances` that launched the instance. To list your instances, you must first call
 the :classname:`DescribeInstancesResult` class' :methodname:`getReservations' method, and then call
-:methodname:`getInstances` on each returned Reservation object.
+:methodname:`getInstances` on each returned :aws-java-class:`Reservation
+<services/ec2/model/Reservation>` object.
 
 **Imports**
 
@@ -193,6 +194,4 @@ More Information
 * :ec2-api:`DescribeInstances` in the |ec2-api|
 * :ec2-api:`MonitorInstances` in the |ec2-api|
 * :ec2-api:`UnmonitorInstances` in the |ec2-api|
-
-
 

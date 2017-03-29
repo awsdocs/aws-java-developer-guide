@@ -43,8 +43,8 @@ Describing Key Pairs
 ====================
 
 To list your key pairs or to get information about them, call the |ec2client|'s
-:methodname:`describeKeyPairs` method. It returns a :aws-java-class:`CreateKeyPairRequest
-<services/ec2/model/CreateKeyPairRequest>` that you can use to access the list of key pairs by
+:methodname:`describeKeyPairs` method. It returns a :aws-java-class:`DescribeKeyPairsRequest
+<services/ec2/model/DescribeKeyPairsRequest>` that you can use to access the list of key pairs by
 calling its :methodname:`getKeyPairs` method, which returns a list of :aws-java-class:`KeyPairInfo
 <services/ec2/model/KeyPairInfo>` objects.
 

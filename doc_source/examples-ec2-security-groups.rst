@@ -76,9 +76,9 @@ Describing Security Groups
 
 To describe your security groups or get information about them, call the |ec2client|'s
 :methodname:`describeSecurityGroups` method. It returns a
-:aws-java-class:`CreateSecurityGroupRequest <services/ec2/model/CreateSecurityGroupRequest>` that
-you can use to access the list of security groups by calling its :methodname:`getSecurityGroups`
-method, which returns a list of :aws-java-class:`SecurityGroupInfo
+:aws-java-class:`DescribeSecurityGroupsResult <services/ec2/model/DescribeSecurityGroupsResult>`
+that you can use to access the list of security groups by calling its
+:methodname:`getSecurityGroups` method, which returns a list of :aws-java-class:`SecurityGroupInfo
 <services/ec2/model/SecurityGroupInfo>` objects.
 
 **Imports**
