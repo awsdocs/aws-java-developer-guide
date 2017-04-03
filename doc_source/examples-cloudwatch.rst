@@ -8,25 +8,29 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-####################
-Programming Examples
-####################
+#############
+|CW| Examples
+#############
 
-This section provides tutorials and examples of using the |sdk-java| to program AWS services.
+.. meta::
+   :description: Programming Amazon Cloudwatch using the AWS SDK for Java
+   :keywords: AWS SDK for Java code examples, IAM
 
-.. tip:: See :ref:`additional-resources` for more examples and additional resources available for
-   |sdk-java| developers!
+This section provides examples of programming |cw|_ using the |sdk-java|_.
+
+.. include:: common/desc-cloudwatch.txt
+
+For more information about |cw|, see the |cw-ug|_.
+
+.. include:: includes/complete-examples-note.txt
 
 .. toctree::
-   :maxdepth: 1
    :titlesonly:
+   :maxdepth: 1
 
-   java-dg-samples
-   examples-cloudwatch
-   examples-dynamodb
-   prog-services-ec2
-   examples-iam
-   examples-s3
-   examples-sqs
-   prog-services-sts
-   prog-services-swf
+   examples-cloudwatch-get-metrics
+   examples-cloudwatch-publish-custom-metrics
+   examples-cloudwatch-create-alarms
+   examples-cloudwatch-use-alarm-actions
+   examples-cloudwatch-send-events
+
