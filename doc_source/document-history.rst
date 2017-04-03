@@ -16,6 +16,12 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was built on:** |today|
 
+Apr 03, 2017
+   Added new |CW| examples to the :doc:`examples-cloudwatch` section:
+   :doc:`examples-cloudwatch-get-metrics`, :doc:`examples-cloudwatch-publish-custom-metrics`,
+   :doc:`examples-cloudwatch-create-alarms`, :doc:`examples-cloudwatch-use-alarm-actions`, and
+   :doc:`examples-cloudwatch-send-events`
+
 Mar 27, 2017
    Added more |EC2| examples to the :doc:`prog-services-ec2` section: :doc:`examples-ec2-instances`,
    :doc:`examples-ec2-elastic-ip`, :doc:`examples-ec2-regions-zones`, :doc:`examples-ec2-key-pairs`, and

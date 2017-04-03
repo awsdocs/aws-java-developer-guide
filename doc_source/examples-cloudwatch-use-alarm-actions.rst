@@ -13,8 +13,9 @@ Using Alarm Actions in |CW|
 ###########################
 
 .. meta::
-   :description: TBD
-   :keywords: TBD
+   :description: How to enable or disable alarm actions for Amazon Cloudwatch with the AWS SDK for
+                 Java.
+   :keywords: cloudwatch alarms, enable alarms, disable alarms, code examples
 
 Using |cw| alarm actions, you can create alarms that perform actions such as automatically stopping,
 terminating, rebooting, or recovering |ec2| instances.
@@ -48,8 +49,8 @@ Disable Alarm Actions
 =====================
 
 To disable alarm actions for a |cw| alarm, call the |cwclient|'s :methodname:`disableAlarmActions`
-with a :aws-java-class:`EnableAlarmActionsRequest
-<services/cloudwatch/model/EnableAlarmActionsRequest>` containing one or more names of alarms whose
+with a :aws-java-class:`DisableAlarmActionsRequest
+<services/cloudwatch/model/DisableAlarmActionsRequest>` containing one or more names of alarms whose
 actions you want to disable.
 
 **Imports**

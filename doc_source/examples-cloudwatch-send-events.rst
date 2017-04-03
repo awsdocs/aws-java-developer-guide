@@ -13,8 +13,9 @@ Sending Events to |CW|
 ######################
 
 .. meta::
-   :description: TBD
-   :keywords: TBD
+   :description: How to add events, rules and rule targets for Amazon Cloudwatch using the AWS SDK
+                 for Java.
+   :keywords: cloudwatch events, add rule, add events, add targets, code examples
 
 .. include:: common/desc-cloudwatch-events.txt
 
