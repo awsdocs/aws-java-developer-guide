@@ -18,7 +18,10 @@ The |sdk-java| can generate metrics for visualization and monitoring with |cw|_ 
 * the performance of your JVMs when used with AWS
 * runtime environment details such as heap memory, number of threads, and opened file descriptors
 
-This feature is *disabled by default*. To enable it for your local development environment, include
+How to Enable SDK Metric Generation
+===================================
+
+SDK metrics are *disabled by default*. To enable it for your local development environment, include
 a system property that points to your AWS security credential file when starting up the JVM. For
 example::
 
@@ -32,40 +35,45 @@ datapoints to |cw| for later analysis.
 
       -Dcom.amazonaws.sdk.enableDefaultMetrics
 
-Once you enable the feature, every time there is a service request to AWS from the |sdk-java|,
-metric data points will be generated, queued for statistical summary, and uploaded asynchronously to
-|cw| about once every minute.
-
-The default set of metrics is divided into three major categories:
-
-* **AWS Request Metrics** covers areas such as the latency of the HTTP request/response, number of
-  requests, exceptions, and retries.
-
-  .. image:: images/RequestMetric-131111.png
-
-* **AWS Service Metrics** include AWS service-specific data, such as the throughput and byte count
-  for S3 uploads and downloads.
-
-  .. image:: images/ServiceMetric-131111.png
-
-* **Machine Metrics** cover the runtime environment, including heap memory, number of threads, and
-  open file descriptors.
-
-  .. image:: images/MachineMetric-131111.png
-
-  If you want to exclude Machine Metrics, add ``excludeMachineMetrics`` to the system property::
-
-     -Dcom.amazonaws.sdk.enableDefaultMetrics=credentialFile=/path/aws.properties,excludeMachineMetrics
-
-Once you’ve uploaded metrics to |cw|, you can visualize them using the |console|_ and set alarms on
-potential problems such as memory leakage, file descriptor leakage, and so on.
-
 All metrics captured by the SDK for Java are under the namespace **AWSSDK/Java**, and are uploaded
 to the |cw| default region (*us-east-1*). To change the region, specify it by using the
 ``cloudwatchRegion`` attribute in the system property. For example, to set the |cw| region to
 *us-west-2*, use::
 
    -Dcom.amazonaws.sdk.enableDefaultMetrics=credentialFile=/path/aws.properties,cloudwatchRegion=us-west-2
+
+Once you enable the feature, every time there is a service request to AWS from the |sdk-java|,
+metric data points will be generated, queued for statistical summary, and uploaded asynchronously to
+|cw| about once every minute. Once metrics have been uploaded, you can visualize them using the
+|console|_ and set alarms on potential problems such as memory leakage, file descriptor leakage, and
+so on.
+
+Available Metric Types
+======================
+
+The default set of metrics is divided into three major categories:
+
+AWS Request Metrics
+   Covers areas such as the latency of the HTTP request/response, number of requests, exceptions,
+   and retries.
+
+   .. image:: images/RequestMetric-131111.png
+
+AWS Service Metrics
+   Include AWS service-specific data, such as the throughput and byte count for S3 uploads and
+   downloads.
+
+   .. image:: images/ServiceMetric-131111.png
+
+Machine Metrics
+   Cover the runtime environment, including heap memory, number of threads, and open file
+   descriptors.
+
+   .. image:: images/MachineMetric-131111.png
+
+   If you want to exclude Machine Metrics, add ``excludeMachineMetrics`` to the system property::
+
+      -Dcom.amazonaws.sdk.enableDefaultMetrics=credentialFile=/path/aws.properties,excludeMachineMetrics
 
 More Information
 ================
