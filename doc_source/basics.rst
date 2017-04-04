@@ -35,4 +35,5 @@ For service-specific programming information and examples (for |EC2|, |S3|, SWF|
    section-client-configuration
    java-dg-access-control
    java-dg-jvm-ttl
+   generating-sdk-metrics
 

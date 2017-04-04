@@ -16,6 +16,10 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was built on:** |today|
 
+Apr 04, 2017
+   A new topic, :doc:`generating-sdk-metrics` describes how to generate application and SDK
+   performance metrics for the |sdk-java|.
+
 Apr 03, 2017
    Added new |CW| examples to the :doc:`examples-cloudwatch` section:
    :doc:`examples-cloudwatch-get-metrics`, :doc:`examples-cloudwatch-publish-custom-metrics`,
