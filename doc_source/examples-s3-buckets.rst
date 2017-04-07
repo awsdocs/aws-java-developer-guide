@@ -19,7 +19,8 @@ Creating, Listing, and Deleting |S3| Buckets
 
 Every object (file) in |S3| must reside within a *bucket*, which represents a collection (container)
 of objects. Each bucket is known by a *key* (name), which must be unique. For detailed information
-about buckets and their configuration, see :s3-dg:`Working with Amazon S3 Buckets <UsingBucket>` in the |s3-dg|.
+about buckets and their configuration, see :s3-dg:`Working with Amazon S3 Buckets <UsingBucket>` in
+the |s3-dg|.
 
 .. include:: common/s3-note-incomplete-upload-policy.txt
 
@@ -31,17 +32,22 @@ Create a Bucket
 ===============
 
 Use the |s3client| client's :methodname:`createBucket` method. The new :aws-java-class:`Bucket
-<services/s3/model/Bucket>` is returned.
+<services/s3/model/Bucket>` is returned. The :methodname:`createBucket` method will raise an
+exception if the bucket already exists.
+
+.. tip:: To check whether a bucket already exists before attempting to create one with the same
+   name, call the :methodname:`doesBucketExist` method. It will return :code-java:`true` if the
+   bucket exists, and :code-java:`false` otherwise.
 
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
-   :lines: 15-18
+   :lines: 15-19
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
-   :lines: 42-50
+   :lines: 42-54
    :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <CreateBucket.java>`.
@@ -81,6 +87,8 @@ versioned objects associated with the bucket.
 .. note:: The :sdk-examples-java-s3:`complete example <DeleteBucket.java>` includes each of these
    steps in order, providing a complete solution for deleting an |S3| bucket and its contents.
 
+.. contents::
+   :local:
 
 Remove Objects from an Unversioned Bucket Before Deleting It
 ------------------------------------------------------------

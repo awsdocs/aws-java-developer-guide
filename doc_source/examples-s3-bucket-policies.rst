@@ -39,8 +39,8 @@ You can set the bucket policy for a particular S3 bucket by:
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
-   :dedent: 6
-   :lines: 113-119
+   :dedent: 8
+   :lines: 82-88
 
 
 .. _use-s3-bucket-policy-class:
@@ -54,7 +54,8 @@ When providing a bucket policy to :methodname:`setBucketPolicy`, you can do the 
 * Build the policy using the :aws-java-class:`Policy <auth/policy/Policy>` class
 
 By using the :classname:`Policy` class, you don't have to be concerned about correctly formatting
-your text string, as shown in the following example.
+your text string. To get the JSON policy text from the :classname:`Policy` class, use its
+:methodname:`toJson` method.
 
 **Imports**
 
@@ -64,14 +65,8 @@ your text string, as shown in the following example.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
-   :dedent: 6
-   :lines: 68-73
-
-To get the JSON policy text from the Policy class, use its :methodname:`toJson` method.
-
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
-   :dedent: 6
-   :lines: 74
+   :dedent: 8
+   :lines: 71-77
 
 The :classname:`Policy` class also provides a :methodname:`fromJson` method that can attempt to
 build a policy using a passed-in JSON string. The method validates it to ensure that the text
@@ -79,8 +74,8 @@ can be transformed into a valid policy structure, and will fail with an :code-ja
 if the policy text is invalid.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
-   :dedent: 6
-   :lines: 56-62
+   :dedent: 8
+   :lines: 56-63
 
 You can use this technique to prevalidate a policy that you read in from a file or other means.
 
