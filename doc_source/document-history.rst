@@ -16,6 +16,11 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was built on:** |today|
 
+Apr 14, 2017
+   Made a number of updates to the :doc:`examples-s3` section, including new topics:
+   :doc:`examples-s3-access-permissions`, :doc:`examples-s3-bucket-policies` and
+   :doc:`examples-s3-website-configuration`.
+
 Apr 04, 2017
    A new topic, :doc:`generating-sdk-metrics` describes how to generate application and SDK
    performance metrics for the |sdk-java|.

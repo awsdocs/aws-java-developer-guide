@@ -8,20 +8,28 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#######################################
-Managing |S3| Bucket Access Permissions
-#######################################
+########################################################
+Managing |S3| Access Permissions for Buckets and Objects
+########################################################
 
 .. meta::
    :description: How to retrieve or set the access control list for an Amazon S3 bucket.
    :keywords: AWS for Java SDK code examples, bucket access permissions
 
-You can get or set the access control list for an Amazon S3 bucket.
+You can use access control lists (ACLs) for |s3| buckets and objects for fine-grained control over
+your |s3| resources.
 
 .. include:: includes/examples-note.txt
 
-Get the Current Bucket Access Control List
-==========================================
+
+Get the Access Control List for a Bucket
+========================================
+
+To get the current ACL for a bucket, call the |s3client|'s :methodname:`getBucketAcl` method,
+passing it the *bucket name* to query. This method returns an :aws-java-class:`AccessControlList
+<services/s3/model/AccessControlList>` object. To get each access grant in the list, call its
+:methodname:`getGrantsAsList` method, which will return a standard Java list of
+:aws-java-class:`Grant <services/s3/model/Grant>` objects.
 
 **Imports**
 
@@ -31,23 +39,92 @@ Get the Current Bucket Access Control List
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetAcl.java
-   :lines: 31-47
-   :dedent: 4
+   :lines: 35-46
+   :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <GetAcl.java>`.
 
-Set a Bucket Access Control List
-================================
+
+Set the Access Control List for a Bucket
+========================================
+
+To add or modify permissions to an ACL for a bucket, call the |s3client|'s
+:methodname:`setBucketAcl` method. It takes an :aws-java-class:`AccessControlList
+<services/s3/model/AccessControlList>` object that contains a list of grantees and access levels to
+set.
 
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
-   :lines: 16-22
+   :lines: 15-21
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
-   :lines: 33-51
-   :dedent: 4
+   :lines: 36-48
+   :dedent: 8
+
+.. note:: You can provide the grantee's unique identifier directly using the
+   :aws-java-class:`Grantee <services/s3/model/Grantee>` class, or use the
+   :aws-java-class:`EmailAddressGrantee <services/s3/model/EmailAddressGrantee>` class to set the
+   grantee by email, as we've done here.
 
 See the :sdk-examples-java-s3:`complete example <SetAcl.java>`.
+
+
+Get the Access Control List for an Object
+=========================================
+
+To get the current ACL for an object, call the |s3client|'s :methodname:`getObjectAcl` method,
+passing it the *bucket name* and *object name* to query. Like :methodname:`getBucketAcl`, this
+method returns an :aws-java-class:`AccessControlList <services/s3/model/AccessControlList>` object
+that you can use to examine each :aws-java-class:`Grant <services/s3/model/Grant>`.
+
+**Imports**
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetAcl.java
+   :lines: 16-21
+
+**Code**
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetAcl.java
+   :lines: 54-65
+   :dedent: 8
+
+See the :sdk-examples-java-s3:`complete example <GetAcl.java>`.
+
+
+Set the Access Control List for an Object
+=========================================
+
+To add or modify permissions to an ACL for an object, call the |s3client|'s
+:methodname:`setObjectAcl` method. It takes an :aws-java-class:`AccessControlList
+<services/s3/model/AccessControlList>` object that contains a list of grantees and access levels to
+set.
+
+**Imports**
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
+   :lines: 15-21
+
+**Code**
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
+   :lines: 57-69
+   :dedent: 4
+
+.. note:: You can provide the grantee's unique identifier directly using the
+   :aws-java-class:`Grantee <services/s3/model/Grantee>` class, or use the
+   :aws-java-class:`EmailAddressGrantee <services/s3/model/EmailAddressGrantee>` class to set the
+   grantee by email, as we've done here.
+
+See the :sdk-examples-java-s3:`complete example <SetAcl.java>`.
+
+More Information
+================
+
+* :s3-api:`GET Bucket acl <RESTBucketGETacl>` in the |s3-api|
+* :s3-api:`PUT Bucket acl <RESTBucketPUTacl>` in the |s3-api|
+* :s3-api:`GET Object acl <RESTObjectGETacl>` in the |s3-api|
+* :s3-api:`PUT Object acl <RESTObjectPUTacl>` in the |s3-api|
+
