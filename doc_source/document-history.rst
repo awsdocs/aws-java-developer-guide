@@ -18,8 +18,7 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 Apr 14, 2017
    Made a number of updates to the :doc:`examples-s3` section, including new topics:
-   :doc:`examples-s3-access-permissions`, :doc:`examples-s3-bucket-policies` and
-   :doc:`examples-s3-website-configuration`.
+   :doc:`examples-s3-access-permissions` and :doc:`examples-s3-website-configuration`.
 
 Apr 04, 2017
    A new topic, :doc:`generating-sdk-metrics` describes how to generate application and SDK
@@ -33,8 +32,8 @@ Apr 03, 2017
 
 Mar 27, 2017
    Added more |EC2| examples to the :doc:`prog-services-ec2` section: :doc:`examples-ec2-instances`,
-   :doc:`examples-ec2-elastic-ip`, :doc:`examples-ec2-regions-zones`, :doc:`examples-ec2-key-pairs`, and
-   :doc:`examples-ec2-security-groups`.
+   :doc:`examples-ec2-elastic-ip`, :doc:`examples-ec2-regions-zones`, :doc:`examples-ec2-key-pairs`,
+   and :doc:`examples-ec2-security-groups`.
 
 Mar 21, 2017
    Added a new set of |IAM| examples to the :doc:`examples-iam` section:
