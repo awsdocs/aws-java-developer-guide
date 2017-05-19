@@ -130,7 +130,7 @@ can set the environment variable in your user or system environment to change it
 AWS Credentials File Format
 ---------------------------
 
-When you use the :code:`aws configure` command to create an AWS credentials file, the commmand creates
+When you use the :code:`aws configure` command to create an AWS credentials file, the command creates
 a file with the following format.
 
 .. code-block:: ini
@@ -244,4 +244,3 @@ More Info
 * :doc:`signup-create-iam-user`
 * :doc:`setup-credentials`
 * :doc:`java-dg-roles`
-
