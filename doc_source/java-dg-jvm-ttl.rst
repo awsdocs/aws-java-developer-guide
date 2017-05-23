@@ -49,10 +49,14 @@ one of the following methods, depending on your needs:
 
       networkaddress.cache.ttl=60
 
+  or set ``-Dsun.net.inetaddr.ttl=60`` as a command line flag. 
+
 * **for your application only**, set ``networkaddress.cache.ttl`` in your application's
   initialization code:
 
   .. code-block:: java
 
       java.security.Security.setProperty("networkaddress.cache.ttl" , "60");
+      
+.. note:: Setting via `java.security.Security.setProperty` will only be effective if the property is set before any DNS lookups occur. This makes this method unsuitable for applications deployed within a container. 
 
