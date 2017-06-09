@@ -61,7 +61,7 @@ set.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
-   :lines: 36-48
+   :lines: 35-48
    :dedent: 8
 
 .. note:: You can provide the grantee's unique identifier directly using the
@@ -110,7 +110,7 @@ set.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
-   :lines: 57-69
+   :lines: 56-69
    :dedent: 4
 
 .. note:: You can provide the grantee's unique identifier directly using the
@@ -127,4 +127,3 @@ More Information
 * :s3-api:`PUT Bucket acl <RESTBucketPUTacl>` in the |s3-api|
 * :s3-api:`GET Object acl <RESTObjectGETacl>` in the |s3-api|
 * :s3-api:`PUT Object acl <RESTObjectPUTacl>` in the |s3-api|
-

@@ -72,7 +72,7 @@ name.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListObjects.java
-   :lines: 45-50
+   :lines: 44-50
    :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <ListObjects.java>`.
@@ -178,4 +178,3 @@ from the same bucket by passing their names to the :aws-java-class:`DeleteObject
    :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <DeleteObjects.java>`.
-

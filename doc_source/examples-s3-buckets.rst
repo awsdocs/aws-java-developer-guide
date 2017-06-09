@@ -69,7 +69,7 @@ Use the |s3client| client's :methodname:`listBucket` method. If successful, a li
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
-   :lines: 31-36
+   :lines: 30-36
    :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <ListBuckets.java>`.
@@ -153,4 +153,3 @@ bucket itself by using the |s3client| client's :methodname:`deleteBucket` method
    :dedent: 8
 
 See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.
-

@@ -40,7 +40,7 @@ You can set the bucket policy for a particular S3 bucket by:
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :dedent: 8
-   :lines: 82-88
+   :lines: 81-88
 
 
 .. _use-s3-bucket-policy-class:
@@ -66,7 +66,7 @@ your text string. To get the JSON policy text from the :classname:`Policy` class
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :dedent: 8
-   :lines: 71-77
+   :lines: 70-77
 
 The :classname:`Policy` class also provides a :methodname:`fromJson` method that can attempt to
 build a policy using a passed-in JSON string. The method validates it to ensure that the text
@@ -75,7 +75,7 @@ if the policy text is invalid.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :dedent: 8
-   :lines: 56-63
+   :lines: 55-63
 
 You can use this technique to prevalidate a policy that you read in from a file or other means.
 
@@ -137,4 +137,3 @@ More Info
 
 * :s3-dg:`Access Policy Language Overview <access-policy-language-overview>` in the |S3-dg|
 * :s3-dg:`Bucket Policy Examples <example-bucket-policies>` in the |S3-dg|
-
