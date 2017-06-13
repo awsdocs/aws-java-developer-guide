@@ -14,12 +14,6 @@ Tutorial: Starting an EC2 Instance
 
 This tutorial demonstrates how to use the AWS SDK for Java to start an EC2 instance.
 
-Prerequisites
-=============
-
-Before you begin, be sure that you have created an AWS account and that you have set up your AWS
-credentials. For more information, see :doc:`getting-started`.
-
 .. toctree::
    :maxdepth: 1
 
@@ -27,3 +21,8 @@ credentials. For more information, see :doc:`getting-started`.
    create-key-pair
    run-instance
 
+Prerequisites
+=============
+
+Before you begin, be sure that you have created an AWS account and that you have set up your AWS
+credentials. For more information, see :doc:`getting-started`.
