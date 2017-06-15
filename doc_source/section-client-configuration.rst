@@ -97,9 +97,9 @@ You can set options related to timeouts and handling errors with HTTP connection
 
 * :strong:`Maximum Error Retries`
 
-  You can set the maximum retry count for retriable errors by using the
-  :aws-java-ref:`ClientConfiguration.setMaxErrorRetry
-  <ClientConfiguration.html#setMaxErrorRetry-int->` method.
+  The default maximum retry count for retriable errors is 3. You can set a different value
+  by using the :aws-java-ref:`ClientConfiguration.setMaxErrorRetry
+  <ClientConfiguration.html#setMaxErrorRetry-int->` method. 
 
 
 TCP Socket Buffer Size Hints
@@ -128,4 +128,3 @@ TCP settings, including the following:
 
 * `TCP Tuning and Network Troubleshooting <http://www.onlamp.com/pub/a/onlamp/2005/11/17/tcp_tuning.html>`_
 * `Host Tuning <http://fasterdata.es.net/host-tuning/>`_
-
