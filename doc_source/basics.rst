@@ -19,7 +19,7 @@ Using the |sdk-java|
 This section provides important general information about programming with the |sdk-java| that applies
 to all services you might use with the SDK.
 
-For service-specific programming information and examples (for |EC2|, |S3|, SWF|, etc.), see
+For service-specific programming information and examples (for |EC2|, |S3|, |SWF|, etc.), see
 :doc:`prog-services`.
 
 .. toctree::
@@ -36,4 +36,3 @@ For service-specific programming information and examples (for |EC2|, |S3|, SWF|
    java-dg-access-control
    java-dg-jvm-ttl
    generating-sdk-metrics
-
