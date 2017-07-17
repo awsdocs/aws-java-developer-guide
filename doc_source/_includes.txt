@@ -31,4 +31,3 @@
 .. |s3client| replace:: :aws-java-class:`AmazonS3 <services/s3/AmazonS3Client>`
 .. |sqsclient| replace:: :aws-java-class:`AmazonSQS <services/sqs/AmazonSQSClient>`
 .. |xfermgr| replace:: :aws-java-class:`TransferManager <services/s3/transfer/TransferManager>`
-

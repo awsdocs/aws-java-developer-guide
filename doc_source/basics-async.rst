@@ -97,8 +97,7 @@ are named, or to log additional information about thread usage.
 |S3| Asynchronous Access
 ------------------------
 
-The :aws-java-class:`TransferManager <amazonaws/services/s3/transfer/TransferManager>` class in the
+The :aws-java-class:`TransferManager <services/s3/transfer/TransferManager>` class in the
 SDK offers asynchronous support for working with the |S3|. :classname:`TransferManager` manages
 asynchronous uploads and downloads, provides detailed progress reporting on transfers, and supports
 callbacks into different events.
-

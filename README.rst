@@ -19,6 +19,11 @@ The guide content is written in reStructuredText_ and built using Sphinx_. It re
 which is provided in the AWS documentation team's `shared content`_ and `SDK examples`_
 repositories.
 
+2.0 Developer Preview Release
+==============================
+Check out the new developer preview 2.0 release of the AWS SDK for Java at https://github.com/aws/aws-sdk-java-v2/.
+It includes some much awaited features like pluggable HTTP implementation. To get started with 2.0,
+see `AWS Java Developer Guide 2.0`_.
 
 Reporting issues
 ================
@@ -100,6 +105,7 @@ repository.
 
 .. _`available sphinx builders`: http://www.sphinx-doc.org/en/stable/builders.html
 .. _`aws java developer guide`: http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html
+.. _`aws java developer guide 2.0`: http://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
 .. _`aws sdk for java`: https://aws.amazon.com/sdk-for-java/
 .. _`forking the repository`: https://help.github.com/articles/fork-a-repo/
 .. _`pull request`: https://help.github.com/articles/using-pull-requests/
@@ -110,4 +116,3 @@ repository.
 .. _restructuredtext: http://docutils.sourceforge.net/rst.html
 .. _sphinx: http://www.sphinx-doc.org/en/stable/
 .. _substitutions: http://www.sphinx-doc.org/en/stable/rest.html#substitutions
-
