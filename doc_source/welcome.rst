@@ -12,7 +12,7 @@
     :description:
          Welcome to the AWS Java Developer Guide
 
-.. _`aws java developer guide 2.0`: http://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
+.. _`aws sdk for java 2.0 developer guide`: http://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
 
 
 ################################
@@ -24,11 +24,11 @@ applications that work with |S3|, |EC2|, |SDB|, and more. We regularly add suppo
 to the |sdk-java|. For a list of the supported services and their API versions that are included
 with each release of the SDK, view the `release notes`_ for the version that you're working with.
 
-2.0 Developer Preview Release
-==============================
-Check out the new developer preview 2.0 release of the AWS SDK for Java at https://github.com/aws/aws-sdk-java-v2.
-It includes some much awaited features like pluggable HTTP implementation. To get started with 2.0,
-see `AWS Java Developer Guide 2.0`_.
+AWS SDK for Java 2.0 Developer Preview
+======================================
+Take a look at the new AWS SDK for Java 2.0 developer preview at https://github.com/aws/aws-sdk-java-v2/.
+It includes much awaited features, such as a way to plug in a HTTP implementation. To get started,
+see the `AWS SDK for Java 2.0 Developer Guide`_.
 
 .. _additional-resources:
 

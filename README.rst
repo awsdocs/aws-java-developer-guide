@@ -19,11 +19,11 @@ The guide content is written in reStructuredText_ and built using Sphinx_. It re
 which is provided in the AWS documentation team's `shared content`_ and `SDK examples`_
 repositories.
 
-2.0 Developer Preview Release
-==============================
-Check out the new developer preview 2.0 release of the AWS SDK for Java at https://github.com/aws/aws-sdk-java-v2/.
-It includes some much awaited features like pluggable HTTP implementation. To get started with 2.0,
-see `AWS Java Developer Guide 2.0`_.
+AWS SDK for Java 2.0 Developer Preview
+======================================
+Take a look at the new AWS SDK for Java 2.0 developer preview at https://github.com/aws/aws-sdk-java-v2/.
+It includes much awaited features, such as a way to plug in a HTTP implementation. To get started,
+see the `AWS SDK for Java 2.0 Developer Guide`_.
 
 Reporting issues
 ================
@@ -105,7 +105,7 @@ repository.
 
 .. _`available sphinx builders`: http://www.sphinx-doc.org/en/stable/builders.html
 .. _`aws java developer guide`: http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html
-.. _`aws java developer guide 2.0`: http://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
+.. _`aws sdk for java 2.0 developer guide`: http://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
 .. _`aws sdk for java`: https://aws.amazon.com/sdk-for-java/
 .. _`forking the repository`: https://help.github.com/articles/fork-a-repo/
 .. _`pull request`: https://help.github.com/articles/using-pull-requests/
