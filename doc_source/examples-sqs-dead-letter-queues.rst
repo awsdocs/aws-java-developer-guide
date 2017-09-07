@@ -37,12 +37,14 @@ Here we create two identical |SQS| queues, one of which will serve as the dead l
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/DeadLetterQueues.java
    :lines: 16-18
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/DeadLetterQueues.java
    :lines: 36-54
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete example <DeadLetterQueues.java>`.
 
@@ -66,12 +68,14 @@ attribute with your JSON redrive policy.
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/DeadLetterQueues.java
    :lines: 19-21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/DeadLetterQueues.java
    :lines: 57-76
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete example <DeadLetterQueues.java>`.
 
@@ -81,4 +85,3 @@ More Info
 
 * :sqs-dg:`Using Amazon SQS Dead Letter Queues <sqs-dead-letter-queues>` in the |sqs-dg|
 * :sqs-api:`SetQueueAttributes` in the |sqs-api|
-

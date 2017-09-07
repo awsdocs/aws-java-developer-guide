@@ -27,12 +27,14 @@ method, either directly or using a :aws-java-class:`CreateUserRequest
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/CreateUser.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/CreateUser.java
    :lines: 39-45
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <CreateUser.java>`.
 
@@ -55,12 +57,14 @@ it the return value of the response object's :methodname:`getMarker()` method.
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/ListUsers.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/ListUsers.java
    :lines: 28-46
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <ListUsers.java>`.
 
@@ -76,12 +80,14 @@ that you can use to change the user's *name* or *path*.
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/UpdateUser.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/UpdateUser.java
    :lines: 40-47
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <UpdateUser.java>`.
 
@@ -97,12 +103,14 @@ with the user name to delete.
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DeleteUser.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DeleteUser.java
    :lines: 39-51
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <DeleteUser.java>`.
 
@@ -115,4 +123,3 @@ More Information
 * :iam-api:`ListUsers` in the |iam-api|
 * :iam-api:`UpdateUser` in the |iam-api|
 * :iam-api:`DeleteUser` in the |iam-api|
-

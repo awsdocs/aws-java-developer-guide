@@ -37,12 +37,14 @@ the queue parameters.
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 31, 34-44
    :dedent: 8
+   :language: java
 
 You can use the simplified form of :methodname:`createQueue`, which needs only a queue name, to
 create a standard queue.
@@ -50,6 +52,7 @@ create a standard queue.
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 54
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
 
@@ -66,12 +69,14 @@ method.
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 16-17, 21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 31, 57-61
    :dedent: 8
+   :language: java
 
 Using the :methodname:`listQueues` overload without any parameters returns *all queues*. You can
 filter the returned results by passing it a :code-java:`ListQueuesRequest` object.
@@ -80,12 +85,14 @@ filter the returned results by passing it a :code-java:`ListQueuesRequest` objec
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 16-17, 20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 31, 64-69
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
 
@@ -101,12 +108,14 @@ Call the |sqsclient| client's :methodname:`getQueueUrl` method.
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 16-17
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 31, 47
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
 
@@ -123,12 +132,14 @@ Provide the queue's :ref:`URL <sqs-get-queue-url>` to the |sqsclient| client's
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 16-17
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
    :lines: 31, 50
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
 
@@ -140,4 +151,3 @@ More Info
 * :sqs-api:`GetQueueUrl` in the |sqs-api|
 * :sqs-api:`ListQueues` in the |sqs-api|
 * :sqs-api:`DeleteQueues` in the |sqs-api|
-

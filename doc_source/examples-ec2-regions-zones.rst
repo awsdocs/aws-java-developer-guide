@@ -31,12 +31,14 @@ each region.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeRegionsAndZones.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeRegionsAndZones.java
    :lines: 30-40
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>`.
 
@@ -55,12 +57,14 @@ objects that represent each availability zone.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeRegionsAndZones.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeRegionsAndZones.java
    :lines: 42-53
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>`.
 
@@ -71,4 +75,3 @@ More Information
 * :ec2-ug:`Regions and Availability Zones <using-regions-availability-zones>` in the |ec2-ug|
 * :ec2-api:`DescribeRegions` in the |ec2-api|
 * :ec2-api:`DescribeAvailabilityZones` in the |ec2-api|
-

@@ -27,12 +27,14 @@ To create a new policy, provide the policy's name and a JSON-formatted policy do
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/CreatePolicy.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/CreatePolicy.java
    :lines: 62-69
    :dedent: 8
+   :language: java
 
 |iam| policy documents are JSON strings with a :iam-ug:`well-documented syntax
 <reference_policies_grammar>`. Here is an example that provides access to make particular requests
@@ -41,6 +43,7 @@ to |ddb|.
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/CreatePolicy.java
    :lines: 26-47
    :dedent: 4
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <CreatePolicy.java>`.
 
@@ -56,12 +59,14 @@ policy's ARN within a :aws-java-class:`GetPolicyRequest
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/GetPolicy.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/GetPolicy.java
    :lines: 39-45
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <GetPolicy.java>`.
 
@@ -78,12 +83,14 @@ You can attach a policy to an |IAM| :iam-ug:`role <id_roles>` by calling the |ia
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/AttachRolePolicy.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/AttachRolePolicy.java
    :lines: 43-45, 76-81
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <AttachRolePolicy.java>`.
 
@@ -108,12 +115,14 @@ call :methodname:`listAttachedRolePolicies` again to get the next batch of resul
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/AttachRolePolicy.java
    :lines: 16-17, 20-24
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/AttachRolePolicy.java
    :lines: 43-68
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <AttachRolePolicy.java>`.
 
@@ -129,12 +138,14 @@ providing it with the role name and policy ARN in a :aws-java-class:`DetachRoleP
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DetachRolePolicy.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DetachRolePolicy.java
    :lines: 39-46
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <DetachRolePolicy.java>`.
 
@@ -149,4 +160,3 @@ More Information
 * :iam-api:`AttachRolePolicy` in the |iam-api|
 * :iam-api:`ListAttachedRolePolicies` in the |iam-api|
 * :iam-api:`DetachRolePolicy` in the |iam-api|
-

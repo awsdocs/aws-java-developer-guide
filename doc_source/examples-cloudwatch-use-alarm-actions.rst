@@ -37,12 +37,14 @@ actions you want to enable.
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/EnableAlarmActions.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/EnableAlarmActions.java
    :lines: 39-45
    :dedent: 8
+   :language: java
 
 
 Disable Alarm Actions
@@ -57,12 +59,14 @@ actions you want to disable.
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/DisableAlarmActions.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/DisableAlarmActions.java
    :lines: 39-45
    :dedent: 8
+   :language: java
 
 More Information
 ================
@@ -72,4 +76,3 @@ More Information
 * :cw-api:`PutMetricAlarm` in the |cw-api|
 * :cw-api:`EnableAlarmActions` in the |cw-api|
 * :cw-api:`DisableAlarmActions` in the |cw-api|
-

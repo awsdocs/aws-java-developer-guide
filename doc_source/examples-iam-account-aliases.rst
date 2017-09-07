@@ -33,12 +33,14 @@ To create an account alias, call the |iamclient|'s :methodname:`createAccountAli
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/CreateAccountAlias.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/CreateAccountAlias.java
    :lines: 38-44
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <CreateAccountAlias.java>`.
 
@@ -58,12 +60,14 @@ method.
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/ListAccountAliases.java
    :lines: 16-18
+   :language: java
 
 **code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/ListAccountAliases.java
    :lines: 26-33
    :dedent: 8
+   :language: java
 
 see the :sdk-examples-java-iam:`complete example <ListAccountAliases.java>`.
 
@@ -80,12 +84,14 @@ deleting an account alias, you must supply its name using a
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DeleteAccountAlias.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DeleteAccountAlias.java
    :lines: 38-44
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <DeleteAccountAlias.java>`.
 
@@ -96,4 +102,3 @@ More Information
 * :iam-api:`CreateAccountAlias` in the |iam-api|
 * :iam-api:`ListAccountAliases` in the |iam-api|
 * :iam-api:`DeleteAccountAlias` in the |iam-api|
-

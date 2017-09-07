@@ -38,12 +38,14 @@ before calling the |sqsclient| class' :methodname:`createQueue` method.
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/LongPolling.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/LongPolling.java
    :lines: 40-53
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete example <LongPolling.java>`.
 
@@ -62,12 +64,14 @@ queue by setting ``ReceiveMessageWaitTimeSeconds`` on the :aws-java-class:`SetQu
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/LongPolling.java
    :lines: 20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/LongPolling.java
    :lines: 56-59
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete example <LongPolling.java>`.
 
@@ -89,12 +93,14 @@ you supply to the |sqsclient| class' :methodname:`receiveMessage` method.
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/LongPolling.java
    :lines: 21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/LongPolling.java
    :lines: 62-65
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete example <LongPolling.java>`.
 
@@ -105,4 +111,3 @@ More Info
 * :sqs-api:`CreateQueue` in the |sqs-api|
 * :sqs-api:`ReceiveMessage` in the |sqs-api|
 * :sqs-api:`SetQueueAttributes` in the |sqs-api|
-

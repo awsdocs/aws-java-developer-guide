@@ -29,12 +29,14 @@ key's name.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/CreateKeyPair.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/CreateKeyPair.java
    :lines: 39-44
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <CreateKeyPair.java>`.
 
@@ -52,12 +54,14 @@ calling its :methodname:`getKeyPairs` method, which returns a list of :aws-java-
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeKeyPairs.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeKeyPairs.java
    :lines: 28-38
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <DescribeKeyPairs.java>`.
 
@@ -73,12 +77,14 @@ name of the key pair to delete.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DeleteKeyPair.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DeleteKeyPair.java
    :lines: 39-44
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <DeleteKeyPair.java>`.
 
@@ -90,4 +96,3 @@ More Information
 * :ec2-api:`CreateKeyPair` in the |ec2-api|
 * :ec2-api:`DescribeKeyPairs` in the |ec2-api|
 * :ec2-api:`DeleteKeyPair` in the |ec2-api|
-

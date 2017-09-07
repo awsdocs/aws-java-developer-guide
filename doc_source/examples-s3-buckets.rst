@@ -43,12 +43,14 @@ exception if the bucket already exists.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
    :lines: 15-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
    :lines: 42-54
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <CreateBucket.java>`.
 
@@ -65,12 +67,14 @@ Use the |s3client| client's :methodname:`listBucket` method. If successful, a li
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
    :lines: 15-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
    :lines: 30-36
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <ListBuckets.java>`.
 
@@ -101,12 +105,14 @@ delete each one.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 15-17, 19-20, 23
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 51, 53-70, 94-97
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.
 
@@ -125,12 +131,14 @@ objects, and then :methodname:`deleteVersion` to delete each one.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 15-23
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 51, 53-90, 94-97
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.
 
@@ -145,11 +153,13 @@ bucket itself by using the |s3client| client's :methodname:`deleteBucket` method
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 15-17
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
    :lines: 51, 53, 93-97
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.

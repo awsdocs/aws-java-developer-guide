@@ -39,12 +39,14 @@ method.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/AllocateAddress.java
    :lines: 16-22
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/AllocateAddress.java
    :lines: 42-58
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <AllocateAddress.java>`.
 
@@ -62,12 +64,14 @@ addresses on your account.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeAddresses.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeAddresses.java
    :lines: 28-42
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <DescribeAddresses.java>`.
 
@@ -83,12 +87,14 @@ containing the allocation ID of the Elastic IP address you want to release.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/ReleaseAddress.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/ReleaseAddress.java
    :lines: 39-44
    :dedent: 8
+   :language: java
 
 After you release an Elastic IP address, it is released to the AWS IP address pool and might be
 unavailable to you afterward. Be sure to update your DNS records and any servers or devices that
@@ -115,4 +121,3 @@ More Information
 * :ec2-api:`AllocateAddress` in the |ec2-api|
 * :ec2-api:`DescribeAddresses` in the |ec2-api|
 * :ec2-api:`ReleaseAddress` in the |ec2-api|
-

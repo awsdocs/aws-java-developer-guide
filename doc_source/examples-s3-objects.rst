@@ -40,12 +40,14 @@ name, and file to upload. *The bucket must exist, or an error will result*.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/PutObject.java
    :lines: 15-17
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/PutObject.java
    :lines: 46-52
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <PutObject.java>`.
 
@@ -68,12 +70,14 @@ name.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListObjects.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListObjects.java
    :lines: 44-50
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <ListObjects.java>`.
 
@@ -99,12 +103,14 @@ name as the object's key).
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetObject.java
    :lines: 15-23
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetObject.java
    :lines: 50-71
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <GetObject.java>`.
 
@@ -121,12 +127,14 @@ and the destination bucket and name.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CopyObject.java
    :lines: 15-17
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CopyObject.java
    :lines: 46-52
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <CopyObject.java>`.
 
@@ -147,12 +155,14 @@ object to delete. *The specified bucket and object key must exist, or an error w
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteObject.java
    :lines: 15-17
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteObject.java
    :lines: 47-53
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteObject.java>`.
 
@@ -170,11 +180,13 @@ from the same bucket by passing their names to the :aws-java-class:`DeleteObject
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteObjects.java
    :lines: 15-18
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteObjects.java
    :lines: 52-60
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteObjects.java>`.

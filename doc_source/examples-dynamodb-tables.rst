@@ -64,6 +64,7 @@ must also supply initial provisioned throughput values and a table name.
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
    :lines: 15-23
+   :language: java
 
 .. _dynamodb-create-table-simple:
 
@@ -77,6 +78,7 @@ This code creates a table with a simple primary key ("Name").
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
    :lines: 58-73
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-dynamodb:`complete sample <CreateTable.java>`.
 
@@ -95,6 +97,7 @@ Add another
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTableCompositeKey.java
    :lines: 58-67
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-dynamodb:`complete sample <CreateTableCompositeKey.java>`.
 
@@ -114,12 +117,14 @@ You can list the tables in a particular region by calling the :aws-java-class:`D
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
    :lines: 15-18
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
    :lines: 32-64
    :dedent: 8
+   :language: java
 
 By default, up to 100 tables are returned per call |mdash| use
 :methodname:`getLastEvaluatedTableName` on the returned :aws-java-class:`ListTablesResult <>` object
@@ -145,12 +150,14 @@ Call the :aws-java-class:`DynamoDB client
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
    :lines: 15-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
    :lines: 50-87
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-dynamodb:`complete sample <DescribeTable.java>`.
 
@@ -172,12 +179,14 @@ method.
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
    :lines: 15-17
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
    :lines: 57-67
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-dynamodb:`complete sample <UpdateTable.java>`.
 
@@ -198,12 +207,14 @@ Call the :aws-java-class:`DynamoDB client <services/dynamodbv2/AmazonDynamoDB>`'
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
    :lines: 15-16
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
    :lines: 51-58
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-dynamodb:`complete sample <DeleteTable.java>`.
 
@@ -212,4 +223,3 @@ More Info
 
 * :ddb-dg:`Guidelines for Working with Tables <GuidelinesForTables>` in the |ddb-dg|
 * :ddb-dg:`Working with Tables in DynamoDB <WorkingWithTables>` in the |ddb-dg|
-

@@ -53,6 +53,7 @@ represents the file to upload.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
    :lines: 16-18, 20
+   :language: java
 
 **Code**
 
@@ -61,6 +62,7 @@ represents the file to upload.
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
    :lines: 93-97, 99, 101-105
    :dedent: 8
+   :language: java
 
 The :methodname:`upload` method returns *immediately*, providing an :code-java:`Upload` object to use
 to check the transfer state or to wait for it to complete.
@@ -90,6 +92,7 @@ providing the following:
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
    :lines: 16-17, 19-21
+   :language: java
 
 **Code**
 
@@ -98,6 +101,7 @@ providing the following:
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
    :lines: 60-69, 71, 73-77
    :dedent: 8
+   :language: java
 
 .. include:: includes/transfermanager-complete-get-status-note.txt
 
@@ -121,6 +125,7 @@ recursively (*true* or *false*).
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
@@ -129,6 +134,7 @@ recursively (*true* or *false*).
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
    :lines: 38-42, 44, 46-50
    :dedent: 8
+   :language: java
 
 .. include:: includes/transfermanager-complete-get-status-note.txt
 
@@ -163,6 +169,7 @@ Use the |xfermgr|'s :methodname:`download` method, providing the
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
    :lines: 16-18, 20
+   :language: java
 
 **Code**
 
@@ -171,6 +178,7 @@ Use the |xfermgr|'s :methodname:`download` method, providing the
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
    :lines: 57-61, 63, 65-69
    :dedent: 8
+   :language: java
 
 .. include:: includes/transfermanager-complete-get-status-note.txt
 
@@ -192,6 +200,7 @@ into on your local system. If the named directory doesn't exist yet, it will be 
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
    :lines: 16-17, 19-20
+   :language: java
 
 **Code**
 
@@ -200,6 +209,7 @@ into on your local system. If the named directory doesn't exist yet, it will be 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
    :lines: 36-40, 42, 44-48
    :dedent: 8
+   :language: java
 
 .. include:: includes/transfermanager-complete-get-status-note.txt
 
@@ -217,6 +227,7 @@ To copy an object from one S3 bucket to another, use the |xfermgr| :methodname:`
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrCopy.java
    :lines: 16-18
+   :language: java
 
 **Code**
 
@@ -225,6 +236,7 @@ To copy an object from one S3 bucket to another, use the |xfermgr| :methodname:`
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrCopy.java
    :lines: 35-38, 40, 42-46
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <XferMgrCopy.java>`.
 
@@ -244,6 +256,7 @@ occurs.
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 34-45
    :dedent: 8
+   :language: java
 
 .. Already said that the method blocks til complete
 
@@ -306,6 +319,7 @@ prints its final state.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 22
+   :language: java
 
 **Code**
 
@@ -314,6 +328,7 @@ prints its final state.
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 56-61, 64-67, 70
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 
@@ -337,6 +352,7 @@ object. You can use the object to get the total bytes of the operation by callin
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 16-18, 23, 25
+   :language: java
 
 **Code**
 
@@ -345,6 +361,7 @@ object. You can use the object to get the total bytes of the operation by callin
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 146-149, 152-154, 157-159, 162-168
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 
@@ -364,6 +381,7 @@ subtransfer.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 23-24, 26-27
+   :language: java
 
 **Code**
 
@@ -372,6 +390,7 @@ subtransfer.
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
    :lines: 82-83
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
 
@@ -382,4 +401,3 @@ More Info
 =========
 
 * :s3-dg:`Object Keys <UsingMetadata>` in the |s3-dg|
-

@@ -35,12 +35,14 @@ passing it the *bucket name* to query. This method returns an :aws-java-class:`A
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetAcl.java
    :lines: 16-21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetAcl.java
    :lines: 35-46
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <GetAcl.java>`.
 
@@ -57,12 +59,14 @@ set.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
    :lines: 15-21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
    :lines: 35-48
    :dedent: 8
+   :language: java
 
 .. note:: You can provide the grantee's unique identifier directly using the
    :aws-java-class:`Grantee <services/s3/model/Grantee>` class, or use the
@@ -84,12 +88,14 @@ that you can use to examine each :aws-java-class:`Grant <services/s3/model/Grant
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetAcl.java
    :lines: 16-21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetAcl.java
    :lines: 54-65
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <GetAcl.java>`.
 
@@ -106,12 +112,14 @@ set.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
    :lines: 15-21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetAcl.java
    :lines: 56-69
    :dedent: 4
+   :language: java
 
 .. note:: You can provide the grantee's unique identifier directly using the
    :aws-java-class:`Grantee <services/s3/model/Grantee>` class, or use the

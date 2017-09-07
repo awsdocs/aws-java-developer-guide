@@ -29,12 +29,14 @@ contains the key's name.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/CreateSecurityGroup.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/CreateSecurityGroup.java
    :lines: 45-54
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <CreateSecurityGroup.java>`.
 
@@ -56,12 +58,14 @@ to add IP permissions to a security group.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/CreateSecurityGroup.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/CreateSecurityGroup.java
    :lines: 60-81
    :dedent: 8
+   :language: java
 
 To add an egress rule to the security group, provide similar data in an
 :aws-java-class:`AuthorizeSecurityGroupEgressRequest
@@ -85,12 +89,14 @@ that you can use to access the list of security groups by calling its
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeSecurityGroups.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeSecurityGroups.java
    :lines: 28-38
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <DescribeSecurityGroups.java>`.
 
@@ -106,12 +112,14 @@ that contains the ID of the security group to delete.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DeleteSecurityGroup.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DeleteSecurityGroup.java
    :lines: 39-44
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <DeleteSecurityGroup.java>`.
 
@@ -125,4 +133,3 @@ More Information
 * :ec2-api:`DescribeSecurityGroups` in the |ec2-api|
 * :ec2-api:`DeleteSecurityGroup` in the |ec2-api|
 * :ec2-api:`AuthorizeSecurityGroupIngress` in the |ec2-api|
-

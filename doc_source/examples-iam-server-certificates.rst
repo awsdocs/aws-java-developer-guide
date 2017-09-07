@@ -37,12 +37,14 @@ You can retrieve a server certificate by calling the |iamclient|'s
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/GetServerCertificate.java
    :lines: 15-18
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/GetServerCertificate.java
    :lines: 38-44
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <GetServerCertificate.java>`.
 
@@ -71,12 +73,14 @@ call :methodname:`listServerCertificates` again to get the next batch of results
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/ListServerCertificates.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/ListServerCertificates.java
    :lines: 28-51
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <ListServerCertificates.java>`.
 
@@ -94,12 +98,14 @@ certificate's current name and either a new name or new path to use.
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/UpdateServerCertificate.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/UpdateServerCertificate.java
    :lines: 40-49
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <UpdateServerCertificate.java>`.
 
@@ -116,12 +122,14 @@ name.
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DeleteServerCertificate.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DeleteServerCertificate.java
    :lines: 38-46
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <DeleteServerCertificate.java>`.
 
@@ -135,4 +143,3 @@ More Information
 * :iam-api:`UpdateServerCertificate` in the |iam-api|
 * :iam-api:`DeleteServerCertificate` in the |iam-api|
 * |acm-ug|_
-

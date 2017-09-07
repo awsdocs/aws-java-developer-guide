@@ -28,12 +28,14 @@ filled with the alarm conditions.
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutMetricAlarm.java
    :lines: 16-23
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutMetricAlarm.java
    :lines: 43-66
    :dedent: 8
+   :language: java
 
 
 List Alarms
@@ -47,12 +49,14 @@ method with a :aws-java-class:`DescribeAlarmsRequest
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/DescribeAlarms.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/DescribeAlarms.java
    :lines: 29-48
    :dedent: 8
+   :language: java
 
 The list of alarms can be obtained by calling :methodname:`getMetricAlarms` on the
 :aws-java-class:`DescribeAlarmsResult <services/cloudwatch/model/DescribeAlarmsResult>` that is
@@ -78,12 +82,14 @@ or more names of alarms that you want to delete.
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/DeleteAlarm.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/DeleteAlarm.java
    :lines: 38-44
    :dedent: 8
+   :language: java
 
 
 More Information
@@ -93,4 +99,3 @@ More Information
 * :cw-api:`PutMetricAlarm` in the |cw-api|
 * :cw-api:`DescribeAlarms` in the |cw-api|
 * :cw-api:`DeleteAlarms` in the |cw-api|
-

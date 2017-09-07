@@ -31,12 +31,14 @@ metric name, or dimensions.
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/ListMetrics.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/ListMetrics.java
    :lines: 41-63
    :dedent: 8
+   :language: java
 
 The metrics are returned in a :aws-java-class:`ListMetricsResult
 <services/cloudwatch/model/ListMetricsResult>` by calling its :methodname:`getMetrics` method. The
@@ -49,4 +51,3 @@ More Information
 ================
 
 * :cw-api:`ListMetrics` in the |cw-api|.
-

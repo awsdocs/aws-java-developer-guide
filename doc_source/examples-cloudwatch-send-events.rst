@@ -35,12 +35,14 @@ resources associated with the event, and so on.
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutEvents.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutEvents.java
    :lines: 40-55
    :dedent: 8
+   :language: java
 
 
 Add Rules
@@ -56,12 +58,14 @@ expression <ScheduledEvents>` that describes how often the rule is run.
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutRule.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutRule.java
    :lines: 41-50
    :dedent: 8
+   :language: java
 
 
 Add Targets
@@ -78,12 +82,14 @@ the rule to update and a list of targets to add to the rule.
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutTargets.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutTargets.java
    :lines: 45-56
    :dedent: 8
+   :language: java
 
 
 More Information
@@ -96,5 +102,3 @@ More Information
 * :cwe-api:`PutEvents` in the |cwe-api|
 * :cwe-api:`PutTargets` in the |cwe-api|
 * :cwe-api:`PutRule` in the |cwe-api|
-
-

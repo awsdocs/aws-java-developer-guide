@@ -38,12 +38,14 @@ information about the data point itself in a :aws-java-class:`MetricDatum
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutMetricData.java
    :lines: 16-22
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/cloudwatch/src/main/java/aws/example/cloudwatch/PutMetricData.java
    :lines: 41-58
    :dedent: 8
+   :language: java
 
 More Information
 ================
@@ -51,4 +53,3 @@ More Information
 * :cw-ug:`Using Amazon CloudWatch Metrics <working_with_metrics>` in the |cw-ug|.
 * :cw-ug:`AWS Namespaces <aws-namespaces>` in the |cw-ug|.
 * :cw-api:`PutMetricData` in the |cw-api|.
-

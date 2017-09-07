@@ -41,12 +41,14 @@ the item.
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/GetItem.java
    :lines: 15-21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/GetItem.java
    :lines: 68-102
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-dynamodb:`complete sample <GetItem.java>`.
 
@@ -68,12 +70,14 @@ item identified by the primary key already exists, its fields are *updated* by t
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/PutItem.java
    :lines: 15-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/PutItem.java
    :lines: 76-96
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-dynamodb:`complete sample <PutItem.java>`.
 
@@ -95,12 +99,14 @@ update.
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
    :lines: 15-22
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
    :lines: 82-105
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-dynamodb:`complete sample <UpdateItem.java>`.
 
@@ -110,4 +116,3 @@ More Info
 
 * :ddb-dg:`Guidelines for Working with Items <GuidelinesForItems>` in the |ddb-dg|
 * :ddb-dg:`Working with Items in DynamoDB <WorkingWithItems>` in the |ddb-dg|
-

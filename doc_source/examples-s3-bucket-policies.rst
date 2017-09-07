@@ -35,12 +35,14 @@ You can set the bucket policy for a particular S3 bucket by:
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :lines: 16-18
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :dedent: 8
    :lines: 81-88
+   :language: java
 
 
 .. _use-s3-bucket-policy-class:
@@ -61,12 +63,14 @@ your text string. To get the JSON policy text from the :classname:`Policy` class
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :lines: 19-24
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :dedent: 8
    :lines: 70-77
+   :language: java
 
 The :classname:`Policy` class also provides a :methodname:`fromJson` method that can attempt to
 build a policy using a passed-in JSON string. The method validates it to ensure that the text
@@ -76,6 +80,7 @@ if the policy text is invalid.
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :dedent: 8
    :lines: 55-63
+   :language: java
 
 You can use this technique to prevalidate a policy that you read in from a file or other means.
 
@@ -94,12 +99,14 @@ To retrieve the policy for an |S3| bucket, call the |s3client| client's
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetBucketPolicy.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetBucketPolicy.java
    :dedent: 6
    :lines: 49-56
+   :language: java
 
 If the named bucket doesn't exist, if you don't have access to it, or if it has no bucket policy,
 an :classname:`AmazonServiceException` is thrown.
@@ -119,12 +126,14 @@ providing it with the bucket name.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucketPolicy.java
    :lines: 16-18
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucketPolicy.java
    :dedent: 6
    :lines: 48-54
+   :language: java
 
 This method succeeds even if the bucket doesn't already have a policy. If you specify a bucket
 name that doesn't exist or if you don't have access to the bucket, an :classname:`AmazonServiceException`

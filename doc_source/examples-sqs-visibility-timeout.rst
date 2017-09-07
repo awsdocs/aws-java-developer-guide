@@ -39,12 +39,14 @@ handle in a :aws-java-class:`ChangeMessageVisibilityRequest
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/VisibilityTimeout.java
    :lines: 16-17
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/VisibilityTimeout.java
    :lines: 31-39
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete example <VisibilityTimeout.java>`.
 
@@ -62,12 +64,14 @@ string and a receipt handle. Then, pass the list to the |sqs| client class'
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/VisibilityTimeout.java
    :lines: 16-18, 21-22
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/aws/example/sqs/VisibilityTimeout.java
    :lines: 46-67
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete example <VisibilityTimeout.java>`.
 
@@ -81,4 +85,3 @@ More Info
 * :sqs-api:`ReceiveMessage` in the |sqs-api|
 * :sqs-api:`ChangeMessageVisibility` in the |sqs-api|
 * :sqs-api:`ChangeMessageVisibilityBatch` in the |sqs-api|
-

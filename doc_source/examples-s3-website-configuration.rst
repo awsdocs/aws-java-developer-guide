@@ -35,12 +35,14 @@ Setting an index document is *required*; all other parameters are optional.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetWebsiteConfiguration.java
    :lines: 15-18
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetWebsiteConfiguration.java
    :dedent: 8
    :lines: 31-50
+   :language: java
 
 .. note:: Setting a website configuration does not modify the access permissions for your bucket.
    To make your files visible on the web, you will also need to set a *bucket policy* that allows
@@ -65,12 +67,14 @@ bucket, then :code-java:`null` will be returned.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetWebsiteConfiguration.java
    :lines: 15-18
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetWebsiteConfiguration.java
    :dedent: 8
    :lines: 30-46
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <GetWebsiteConfiguration.java>`.
 
@@ -86,12 +90,14 @@ configuration from.
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteWebsiteConfiguration.java
    :lines: 15-17
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteWebsiteConfiguration.java
    :dedent: 8
    :lines: 29-36
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteWebsiteConfiguration.java>`.
 
@@ -102,4 +108,3 @@ More Information
 * :s3-api:`PUT Bucket website <RESTBucketPUTwebsite>` in the |s3-api|
 * :s3-api:`GET Bucket website <RESTBucketGETwebsite>` in the |s3-api|
 * :s3-api:`DELETE Bucket website <RESTBucketDELETEwebsite>` in the |s3-api|
-

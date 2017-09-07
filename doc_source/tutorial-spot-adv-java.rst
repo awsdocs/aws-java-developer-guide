@@ -567,6 +567,7 @@ you can use to get the spot request IDs for tagging:
 
 .. literalinclude:: snippets/ec2/tag-spot-requests.java
    :lines: 18-30
+   :language: java
 
 Once you have the IDs, you can tag the requests by adding their IDs to a
 :aws-java-class:`CreateTagsRequest <services/ec2/model/CreateTagsRequest>` and calling the EC2 client's
@@ -574,6 +575,7 @@ Once you have the IDs, you can tag the requests by adding their IDs to a
 
 .. literalinclude:: snippets/ec2/tag-spot-requests.java
    :lines: 32-51
+   :language: java
 
 Tagging instances
 -----------------
@@ -595,11 +597,13 @@ Once the spot request is no longer open, you can retrieve its instance ID from t
 
 .. literalinclude:: snippets/ec2/tag-spot-instances.java
    :lines: 18-59
+   :language: java
 
 Now you can tag the instances that are returned:
 
 .. literalinclude:: snippets/ec2/tag-spot-instances.java
    :lines: 61-81
+   :language: java
 
 
 Canceling spot requests and terminating instances
@@ -614,6 +618,7 @@ with a :aws-java-class:`CancelSpotInstanceRequestsRequest
 
 .. literalinclude:: snippets/ec2/cancel-terminate-spot-request.java
    :lines: 18-27
+   :language: java
 
 Terminating spot instances
 --------------------------
@@ -623,6 +628,7 @@ You can terminate any spot instances that are running by passing their IDs to th
 
 .. literalinclude:: snippets/ec2/cancel-terminate-spot-request.java
    :lines: 29-38
+   :language: java
 
 
 .. _tutor-spot-adv-bring-together:
@@ -640,4 +646,3 @@ The complete source code for this example can be viewed or downloaded at :github
 
 Congratulations! You've completed the Advanced Request Features tutorial for developing Spot
 Instance software with the |sdk-java|.
-

@@ -34,12 +34,14 @@ using the :methodname:`withUserName` setter method before passing it to the
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/CreateAccessKey.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/CreateAccessKey.java
    :lines: 39-45
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <CreateAccessKey.java>`.
 
@@ -58,12 +60,14 @@ list keys for, and pass it to the |iamclient|'s :methodname:`listAccessKeys` met
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/ListAccessKeys.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/ListAccessKeys.java
    :lines: 39-61
    :dedent: 8
+   :language: java
 
 The results of :methodname:`listAccessKeys` are paged (with a default maximum of 100 records per
 call). You can call :methodname:`getIsTruncated` on the returned
@@ -92,12 +96,14 @@ used time.
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/AccessKeyLastUsed.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/AccessKeyLastUsed.java
    :lines: 38-47
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <AccessKeyLastUsed.java>`.
 
@@ -117,12 +123,14 @@ optionally the user name, and the desired :aws-java-class:`Status
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/UpdateAccessKey.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/UpdateAccessKey.java
    :lines: 41-49
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <UpdateAccessKey.java>`.
 
@@ -143,12 +151,14 @@ username.
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DeleteAccessKey.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/iam/src/main/java/aws/example/iam/DeleteAccessKey.java
    :lines: 39-46
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-iam:`complete example <DeleteAccessKey.java>`.
 
@@ -161,4 +171,3 @@ More Information
 * :iam-api:`GetAccessKeyLastUsed` in the |iam-api|
 * :iam-api:`UpdateAccessKey` in the |iam-api|
 * :iam-api:`DeleteAccessKey` in the |iam-api|
-

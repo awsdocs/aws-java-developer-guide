@@ -30,12 +30,14 @@ containing the :ec2-ug:`Amazon Machine Image (AMI) <AMIs>` to use and an :ec2-ug
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/CreateInstance.java
    :lines: 16-20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/CreateInstance.java
    :lines: 44-54
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <CreateInstance.java>`.
 
@@ -51,12 +53,14 @@ the ID of the instance to start.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/StartStopInstance.java
    :lines: 16-17, 20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/StartStopInstance.java
    :lines: 30-31, 49-52
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <StartStopInstance.java>`.
 
@@ -72,12 +76,14 @@ the ID of the instance to stop.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/StartStopInstance.java
    :lines: 16-17, 21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/StartStopInstance.java
    :lines: 59-60, 77-80
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <StartStopInstance.java>`.
 
@@ -93,12 +99,14 @@ the ID of the instance to reboot.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/RebootInstance.java
    :lines: 16-19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/RebootInstance.java
    :lines: 39-44
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <RebootInstance.java>`.
 
@@ -122,12 +130,14 @@ the :classname:`DescribeInstancesResult` class' :methodname:`getReservations' me
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeInstances.java
    :lines: 16-21
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/DescribeInstances.java
    :lines: 30-58
    :dedent: 8
+   :language: java
 
 Results are paged; you can get further results by passing the value returned from the result
 object's :methodname:`getNextToken` method to your original request object's
@@ -152,12 +162,14 @@ the |ec2client|'s :methodname:`monitorInstances` method.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/MonitorInstance.java
    :lines: 16-18
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/MonitorInstance.java
    :lines: 30-31, 50-53
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <MonitorInstance.java>`.
 
@@ -173,12 +185,14 @@ pass it to the |ec2client|'s :methodname:`unmonitorInstances` method.
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/MonitorInstance.java
    :lines: 16-17, 19
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/ec2/src/main/java/aws/example/ec2/MonitorInstance.java
    :lines: 62-63, 82-85
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-ec2:`complete example <MonitorInstance.java>`.
 
@@ -194,4 +208,3 @@ More Information
 * :ec2-api:`DescribeInstances` in the |ec2-api|
 * :ec2-api:`MonitorInstances` in the |ec2-api|
 * :ec2-api:`UnmonitorInstances` in the |ec2-api|
-
