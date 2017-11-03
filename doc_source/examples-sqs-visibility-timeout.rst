@@ -48,7 +48,7 @@ handle in a :aws-java-class:`ChangeMessageVisibilityRequest
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete example <VisibilityTimeout.java>`.
+See the :sdk-examples-java-sqs:`complete example <VisibilityTimeout.java>` on GitHub.
 
 
 Setting the Message Visibility Timeout for Multiple Messages at Once
@@ -73,7 +73,7 @@ string and a receipt handle. Then, pass the list to the |sqs| client class'
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete example <VisibilityTimeout.java>`.
+See the :sdk-examples-java-sqs:`complete example <VisibilityTimeout.java>` on GitHub.
 
 
 More Info

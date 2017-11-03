@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##############
-|ddb| Examples
-##############
+###################################
+|ddb| Examples Using the |sdk-java|
+###################################
 
 This section provides examples of programming |ddb|_ using the |sdk-java|_.
 

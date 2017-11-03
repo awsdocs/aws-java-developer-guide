@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-####################
-Programming Examples
-####################
+########################
+|sdk-java| Code Examples
+########################
 
 This section provides tutorials and examples of using the |sdk-java| to program AWS services.
 
@@ -21,12 +21,12 @@ This section provides tutorials and examples of using the |sdk-java| to program 
    :maxdepth: 1
    :titlesonly:
 
-   java-dg-samples
-   examples-cloudwatch
-   examples-dynamodb
-   prog-services-ec2
-   examples-iam
-   examples-s3
-   examples-sqs
+   SDK Code Samples <java-dg-samples>
+   Amazon CloudWatch Examples <examples-cloudwatch>
+   Amazon DynamoDB Examples <examples-dynamodb>
+   Amazon EC2 Examples <prog-services-ec2>
+   AWS Identity and Access Management (IAM) Examples <examples-iam>
+   Amazon S3 Examples <examples-s3>
+   Amazon SQS Examples <examples-sqs>
    prog-services-sts
-   prog-services-swf
+   Amazon SWF Examples <prog-services-swf>

@@ -42,7 +42,7 @@ To create an account alias, call the |iamclient|'s :methodname:`createAccountAli
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <CreateAccountAlias.java>`.
+See the :sdk-examples-java-iam:`complete example <CreateAccountAlias.java>` on GitHub.
 
 
 Listing Account Aliases
@@ -69,7 +69,7 @@ method.
    :dedent: 8
    :language: java
 
-see the :sdk-examples-java-iam:`complete example <ListAccountAliases.java>`.
+see the :sdk-examples-java-iam:`complete example <ListAccountAliases.java>` on GitHub.
 
 
 Deleting an account alias
@@ -93,7 +93,7 @@ deleting an account alias, you must supply its name using a
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <DeleteAccountAlias.java>`.
+See the :sdk-examples-java-iam:`complete example <DeleteAccountAlias.java>` on GitHub.
 
 More Information
 ================

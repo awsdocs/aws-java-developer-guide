@@ -45,7 +45,7 @@ to |ddb|.
    :dedent: 4
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <CreatePolicy.java>`.
+See the :sdk-examples-java-iam:`complete example <CreatePolicy.java>` on GitHub.
 
 
 Getting a Policy
@@ -68,7 +68,7 @@ policy's ARN within a :aws-java-class:`GetPolicyRequest
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <GetPolicy.java>`.
+See the :sdk-examples-java-iam:`complete example <GetPolicy.java>` on GitHub.
 
 
 Attaching a Role Policy
@@ -92,7 +92,7 @@ You can attach a policy to an |IAM| :iam-ug:`role <id_roles>` by calling the |ia
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <AttachRolePolicy.java>`.
+See the :sdk-examples-java-iam:`complete example <AttachRolePolicy.java>` on GitHub.
 
 
 Listing Attached Role Policies
@@ -124,7 +124,7 @@ call :methodname:`listAttachedRolePolicies` again to get the next batch of resul
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <AttachRolePolicy.java>`.
+See the :sdk-examples-java-iam:`complete example <AttachRolePolicy.java>` on GitHub.
 
 
 Detaching a Role Policy
@@ -147,7 +147,7 @@ providing it with the role name and policy ARN in a :aws-java-class:`DetachRoleP
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <DetachRolePolicy.java>`.
+See the :sdk-examples-java-iam:`complete example <DetachRolePolicy.java>` on GitHub.
 
 
 More Information

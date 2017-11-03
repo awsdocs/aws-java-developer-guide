@@ -69,7 +69,7 @@ to check the transfer state or to wait for it to complete.
 
 .. include:: includes/transfermanager-complete-get-status-note.txt
 
-See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>` on GitHub.
 
 
 .. _transfermanager-upload-file-list:
@@ -107,7 +107,7 @@ providing the following:
 
 .. include:: includes/transfermanager-multifileupload-notes.txt
 
-See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>` on GitHub.
 
 
 .. _transfermanager-upload-directory:
@@ -140,7 +140,7 @@ recursively (*true* or *false*).
 
 .. include:: includes/transfermanager-multifileupload-notes.txt
 
-See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrUpload.java>` on GitHub.
 
 
 .. _transfermanager-downloading:
@@ -182,7 +182,7 @@ Use the |xfermgr|'s :methodname:`download` method, providing the
 
 .. include:: includes/transfermanager-complete-get-status-note.txt
 
-See the :sdk-examples-java-s3:`complete example <XferMgrDownload.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrDownload.java>` on GitHub.
 
 
 .. _tranfermanager-download-directory:
@@ -213,7 +213,7 @@ into on your local system. If the named directory doesn't exist yet, it will be 
 
 .. include:: includes/transfermanager-complete-get-status-note.txt
 
-See the :sdk-examples-java-s3:`complete example <XferMgrDownload.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrDownload.java>` on GitHub.
 
 
 .. _transfermanager-copy-object:
@@ -238,7 +238,7 @@ To copy an object from one S3 bucket to another, use the |xfermgr| :methodname:`
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <XferMgrCopy.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrCopy.java>` on GitHub.
 
 
 .. _transfermanager-wait-for-completion:
@@ -265,7 +265,7 @@ events *before* calling :methodname:`waitForCompletion`, implement a polling mec
 thread, or receive progress updates asynchronously using a
 :aws-java-class:`ProgressListener <event/ProgressListener>`.
 
-See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>` on GitHub.
 
 
 .. _transfermanager-get-status-and-progress:
@@ -330,7 +330,7 @@ prints its final state.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>` on GitHub.
 
 
 .. _transfermanager-progress-listener:
@@ -363,7 +363,7 @@ object. You can use the object to get the total bytes of the operation by callin
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>` on GitHub.
 
 
 .. _transfermanager-get-subtransfer-progress:
@@ -392,7 +392,7 @@ subtransfer.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>`.
+See the :sdk-examples-java-s3:`complete example <XferMgrProgress.java>` on GitHub.
 
 
 .. _transfermanager-see-also:

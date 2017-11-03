@@ -52,7 +52,7 @@ exception if the bucket already exists.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <CreateBucket.java>`.
+See the :sdk-examples-java-s3:`complete example <CreateBucket.java>` on GitHub.
 
 
 .. _list-buckets:
@@ -76,7 +76,7 @@ Use the |s3client| client's :methodname:`listBucket` method. If successful, a li
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <ListBuckets.java>`.
+See the :sdk-examples-java-s3:`complete example <ListBuckets.java>` on GitHub.
 
 
 .. _delete-bucket:
@@ -114,7 +114,7 @@ delete each one.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>` on GitHub.
 
 
 Remove Objects from a Versioned Bucket Before Deleting It
@@ -140,7 +140,7 @@ objects, and then :methodname:`deleteVersion` to delete each one.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>` on GitHub.
 
 
 Delete an Empty Bucket
@@ -162,4 +162,4 @@ bucket itself by using the |s3client| client's :methodname:`deleteBucket` method
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>` on GitHub.

@@ -44,7 +44,7 @@ passing it the *bucket name* to query. This method returns an :aws-java-class:`A
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <GetAcl.java>`.
+See the :sdk-examples-java-s3:`complete example <GetAcl.java>` on GitHub.
 
 
 Set the Access Control List for a Bucket
@@ -73,7 +73,7 @@ set.
    :aws-java-class:`EmailAddressGrantee <services/s3/model/EmailAddressGrantee>` class to set the
    grantee by email, as we've done here.
 
-See the :sdk-examples-java-s3:`complete example <SetAcl.java>`.
+See the :sdk-examples-java-s3:`complete example <SetAcl.java>` on GitHub.
 
 
 Get the Access Control List for an Object
@@ -97,7 +97,7 @@ that you can use to examine each :aws-java-class:`Grant <services/s3/model/Grant
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <GetAcl.java>`.
+See the :sdk-examples-java-s3:`complete example <GetAcl.java>` on GitHub.
 
 
 Set the Access Control List for an Object
@@ -126,7 +126,7 @@ set.
    :aws-java-class:`EmailAddressGrantee <services/s3/model/EmailAddressGrantee>` class to set the
    grantee by email, as we've done here.
 
-See the :sdk-examples-java-s3:`complete example <SetAcl.java>`.
+See the :sdk-examples-java-s3:`complete example <SetAcl.java>` on GitHub.
 
 More Information
 ================

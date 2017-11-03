@@ -46,7 +46,7 @@ You can retrieve a server certificate by calling the |iamclient|'s
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <GetServerCertificate.java>`.
+See the :sdk-examples-java-iam:`complete example <GetServerCertificate.java>` on GitHub.
 
 
 Listing Server Certificates
@@ -82,7 +82,7 @@ call :methodname:`listServerCertificates` again to get the next batch of results
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <ListServerCertificates.java>`.
+See the :sdk-examples-java-iam:`complete example <ListServerCertificates.java>` on GitHub.
 
 
 Updating a Server Certificate
@@ -107,7 +107,7 @@ certificate's current name and either a new name or new path to use.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <UpdateServerCertificate.java>`.
+See the :sdk-examples-java-iam:`complete example <UpdateServerCertificate.java>` on GitHub.
 
 
 Deleting a Server Certificate
@@ -131,7 +131,7 @@ name.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <DeleteServerCertificate.java>`.
+See the :sdk-examples-java-iam:`complete example <DeleteServerCertificate.java>` on GitHub.
 
 
 More Information

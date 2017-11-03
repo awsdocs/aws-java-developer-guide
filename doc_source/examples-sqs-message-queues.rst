@@ -54,7 +54,7 @@ create a standard queue.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
+See the :sdk-examples-java-sqs:`complete example <UsingQueues.java>` on GitHub.
 
 
 .. _sqs-list-queues:
@@ -94,7 +94,7 @@ filter the returned results by passing it a :code-java:`ListQueuesRequest` objec
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
+See the :sdk-examples-java-sqs:`complete example <UsingQueues.java>` on GitHub.
 
 
 .. _sqs-get-queue-url:
@@ -117,7 +117,7 @@ Call the |sqsclient| client's :methodname:`getQueueUrl` method.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
+See the :sdk-examples-java-sqs:`complete example <UsingQueues.java>` on GitHub.
 
 
 .. _sqs-delete-queue:
@@ -141,7 +141,7 @@ Provide the queue's :ref:`URL <sqs-get-queue-url>` to the |sqsclient| client's
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <UsingQueues.java>`.
+See the :sdk-examples-java-sqs:`complete example <UsingQueues.java>` on GitHub.
 
 More Info
 =========

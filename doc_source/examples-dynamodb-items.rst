@@ -50,7 +50,7 @@ the item.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete sample <GetItem.java>`.
+See the :sdk-examples-java-dynamodb:`complete example <GetItem.java>` on GitHub.
 
 
 .. _dynamodb-add-item:
@@ -79,7 +79,7 @@ item identified by the primary key already exists, its fields are *updated* by t
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete sample <PutItem.java>`.
+See the :sdk-examples-java-dynamodb:`complete example <PutItem.java>` on GitHub.
 
 
 .. _dynamodb-update-item:
@@ -108,7 +108,7 @@ update.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete sample <UpdateItem.java>`.
+See the :sdk-examples-java-dynamodb:`complete example <UpdateItem.java>` on GitHub.
 
 
 More Info

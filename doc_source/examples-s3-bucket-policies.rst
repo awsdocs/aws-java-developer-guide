@@ -84,7 +84,7 @@ if the policy text is invalid.
 
 You can use this technique to prevalidate a policy that you read in from a file or other means.
 
-See the :sdk-examples-java-s3:`complete example <SetBucketPolicy.java>`.
+See the :sdk-examples-java-s3:`complete example <SetBucketPolicy.java>` on GitHub.
 
 
 .. _get-s3-bucket-policy:
@@ -111,7 +111,7 @@ To retrieve the policy for an |S3| bucket, call the |s3client| client's
 If the named bucket doesn't exist, if you don't have access to it, or if it has no bucket policy,
 an :classname:`AmazonServiceException` is thrown.
 
-See the :sdk-examples-java-s3:`complete example <GetBucketPolicy.java>`.
+See the :sdk-examples-java-s3:`complete example <GetBucketPolicy.java>` on GitHub.
 
 
 .. _delete-s3-bucket-policy:
@@ -139,7 +139,7 @@ This method succeeds even if the bucket doesn't already have a policy. If you sp
 name that doesn't exist or if you don't have access to the bucket, an :classname:`AmazonServiceException`
 is thrown.
 
-See the :sdk-examples-java-s3:`complete example <DeleteBucketPolicy.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteBucketPolicy.java>` on GitHub.
 
 More Info
 =========

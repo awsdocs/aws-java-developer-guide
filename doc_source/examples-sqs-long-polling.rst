@@ -47,7 +47,7 @@ before calling the |sqsclient| class' :methodname:`createQueue` method.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete example <LongPolling.java>`.
+See the :sdk-examples-java-sqs:`complete example <LongPolling.java>` on GitHub.
 
 
 .. _sqs-long-polling-existing-queue:
@@ -73,7 +73,7 @@ queue by setting ``ReceiveMessageWaitTimeSeconds`` on the :aws-java-class:`SetQu
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete example <LongPolling.java>`.
+See the :sdk-examples-java-sqs:`complete example <LongPolling.java>` on GitHub.
 
 
 .. _sqs-long-polling-receive-message:
@@ -102,7 +102,7 @@ you supply to the |sqsclient| class' :methodname:`receiveMessage` method.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete example <LongPolling.java>`.
+See the :sdk-examples-java-sqs:`complete example <LongPolling.java>` on GitHub.
 
 More Info
 =========

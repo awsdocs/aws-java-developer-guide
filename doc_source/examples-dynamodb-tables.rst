@@ -80,7 +80,7 @@ This code creates a table with a simple primary key ("Name").
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete sample <CreateTable.java>`.
+See the :sdk-examples-java-dynamodb:`complete example <CreateTable.java>` on GitHub.
 
 .. _dynamodb-create-table-composite:
 
@@ -99,7 +99,7 @@ Add another
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete sample <CreateTableCompositeKey.java>`.
+See the :sdk-examples-java-dynamodb:`complete example <CreateTableCompositeKey.java>` on GitHub.
 
 .. _dynamodb-list-tables:
 
@@ -132,7 +132,7 @@ to get the last table that was evaluated. You can use this value to start the li
 returned
 value of the previous listing.
 
-See the :sdk-examples-java-dynamodb:`complete sample <ListTables.java>`.
+See the :sdk-examples-java-dynamodb:`complete example <ListTables.java>` on GitHub.
 
 .. _dynamodb-describe-table:
 
@@ -159,7 +159,7 @@ Call the :aws-java-class:`DynamoDB client
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete sample <DescribeTable.java>`.
+See the :sdk-examples-java-dynamodb:`complete example <DescribeTable.java>` on GitHub.
 
 
 .. _dynamodb-update-table:
@@ -188,7 +188,7 @@ method.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete sample <UpdateTable.java>`.
+See the :sdk-examples-java-dynamodb:`complete example <UpdateTable.java>` on GitHub.
 
 
 .. _dynamodb-delete-table:
@@ -216,7 +216,7 @@ Call the :aws-java-class:`DynamoDB client <services/dynamodbv2/AmazonDynamoDB>`'
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete sample <DeleteTable.java>`.
+See the :sdk-examples-java-dynamodb:`complete example <DeleteTable.java>` on GitHub.
 
 More Info
 =========

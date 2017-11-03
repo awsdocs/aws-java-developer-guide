@@ -43,7 +43,7 @@ using the :methodname:`withUserName` setter method before passing it to the
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <CreateAccessKey.java>`.
+See the :sdk-examples-java-iam:`complete example <CreateAccessKey.java>` on GitHub.
 
 
 Listing Access Keys
@@ -76,7 +76,7 @@ object to see if the query returned fewer results then are available. If so, the
 :methodname:`setMarker` on the :classname:`ListAccessKeysRequest` and pass it back to the next
 invocation of :methodname:`listAccessKeys`.
 
-See the :sdk-examples-java-iam:`complete example <ListAccessKeys.java>`.
+See the :sdk-examples-java-iam:`complete example <ListAccessKeys.java>` on GitHub.
 
 
 Retrieving an Access Key's Last Used Time
@@ -105,7 +105,7 @@ used time.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <AccessKeyLastUsed.java>`.
+See the :sdk-examples-java-iam:`complete example <AccessKeyLastUsed.java>` on GitHub.
 
 
 .. _iam-access-keys-update:
@@ -132,7 +132,7 @@ optionally the user name, and the desired :aws-java-class:`Status
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <UpdateAccessKey.java>`.
+See the :sdk-examples-java-iam:`complete example <UpdateAccessKey.java>` on GitHub.
 
 
 Deleting an Access Key
@@ -160,7 +160,7 @@ username.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <DeleteAccessKey.java>`.
+See the :sdk-examples-java-iam:`complete example <DeleteAccessKey.java>` on GitHub.
 
 
 More Information

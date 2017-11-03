@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#############
-|S3| Examples
-#############
+##################################
+|S3| Examples Using the |sdk-java|
+##################################
 
 .. meta::
    :description: Programming Amazon S3 using the AWS SDK for Java

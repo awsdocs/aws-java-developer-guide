@@ -49,7 +49,7 @@ name, and file to upload. *The bucket must exist, or an error will result*.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <PutObject.java>`.
+See the :sdk-examples-java-s3:`complete example <PutObject.java>` on GitHub.
 
 .. _list-objects:
 
@@ -79,7 +79,7 @@ name.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <ListObjects.java>`.
+See the :sdk-examples-java-s3:`complete example <ListObjects.java>` on GitHub.
 
 .. _download-object:
 
@@ -112,7 +112,7 @@ name as the object's key).
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <GetObject.java>`.
+See the :sdk-examples-java-s3:`complete example <GetObject.java>` on GitHub.
 
 .. _copy-object:
 
@@ -136,7 +136,7 @@ and the destination bucket and name.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <CopyObject.java>`.
+See the :sdk-examples-java-s3:`complete example <CopyObject.java>` on GitHub.
 
 .. note:: You can use :methodname:`copyObject` with :ref:`deleteObject <delete-object>` to **move**
    or **rename** an object, by first copying the object to a new name (you can use the same bucket
@@ -164,7 +164,7 @@ object to delete. *The specified bucket and object key must exist, or an error w
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <DeleteObject.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteObject.java>` on GitHub.
 
 
 .. _delete-objects:
@@ -189,4 +189,4 @@ from the same bucket by passing their names to the :aws-java-class:`DeleteObject
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <DeleteObjects.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteObjects.java>` on GitHub.

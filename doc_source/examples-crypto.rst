@@ -14,12 +14,12 @@ Using |S3| Client-Side Encryption
 
 .. meta::
    :description: How to use the cryptography configuration settings for the AWS SDK for Java
-   :keywords: cryptography, encryption, example code
+   :keywords: AWS SDK for Java code examples
 
 Encrypting data using the |S3| encryption client is one way you can provide an
 additional layer of protection for sensitive information you store in |S3|.
-The examples in the linked topics demonstrate how to create and configure the |S3|
-encryption client for your application. 
+The examples in this section demonstrate how to create and configure the |S3|
+encryption client for your application.
 If you are new to cryptography,
 see the :KMS-dg:`Cryptography Basics <crypto-intro>` in the |KMS-dg| for a basic overview of
 cryptography terms and algorithms.
