@@ -36,7 +36,7 @@ method, either directly or using a :aws-java-class:`CreateUserRequest
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <CreateUser.java>`.
+See the :sdk-examples-java-iam:`complete example <CreateUser.java>` on GitHub.
 
 
 Listing Users
@@ -66,7 +66,7 @@ it the return value of the response object's :methodname:`getMarker()` method.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <ListUsers.java>`.
+See the :sdk-examples-java-iam:`complete example <ListUsers.java>` on GitHub.
 
 
 Updating a User
@@ -89,7 +89,7 @@ that you can use to change the user's *name* or *path*.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <UpdateUser.java>`.
+See the :sdk-examples-java-iam:`complete example <UpdateUser.java>` on GitHub.
 
 
 Deleting a User
@@ -112,7 +112,7 @@ with the user name to delete.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <DeleteUser.java>`.
+See the :sdk-examples-java-iam:`complete example <DeleteUser.java>` on GitHub.
 
 More Information
 ================

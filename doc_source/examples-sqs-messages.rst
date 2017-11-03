@@ -71,7 +71,7 @@ value per message.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <SendReceiveMessages.java>`.
+See the :sdk-examples-java-sqs:`complete example <SendReceiveMessages.java>` on GitHub.
 
 
 .. _sqs-messages-receive:
@@ -112,7 +112,7 @@ the message's receipt handle and queue URL to the |sqsclient| client's
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <SendReceiveMessages.java>`.
+See the :sdk-examples-java-sqs:`complete example <SendReceiveMessages.java>` on GitHub.
 
 
 More Info

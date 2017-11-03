@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#####
-|SWF|
-#####
+###################################
+|SWF| Examples Using the |sdk-java|
+###################################
 
 |SWF|_ is a workflow-management service that helps developers build and scale distributed
 workflows that can have parallel or sequential steps consisting of activities, child workflows or

@@ -23,7 +23,7 @@
    welcome
    getting-started
    basics
-   prog-services
+   Code Examples <prog-services>
    document-history
 
 .. include:: about-aws.txt

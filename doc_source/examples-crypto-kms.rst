@@ -14,29 +14,30 @@
 
 .. meta::
    :description: How to use the cryptography configuration settings for the AWS SDK for Java
-   :keywords: cryptography, encryption, example code
+   :keywords: AWS SDK for Java code examples, cryptography, encryption
 
 The following examples use the
-:aws-java-class:`AmazonS3EncryptionClientBuilder <services/s3/AmazonS3EncryptionClientBuilder>`
+:aws-java-class:`AmazonS3EncryptionClientBuilder <services/s3/AmazonS3EncryptionClientBuilder>` class
 to create an |S3| client with client-side encryption enabled. Once configured,
-any object you upload to |S3| using this client
-will be encrypted. Any objects you get from |S3| using this client will automatically
-be decrypted.
+any objects you upload to |S3| using this client
+will be encrypted. Any objects you get from |S3| using this client are automatically
+decrypted.
 
 .. note::
-   The examples here demonstrate using the |S3| client-side
+   The following examples demonstrate how to use the |S3| client-side
    encryption with |KMS| managed keys. To learn how to use encryption with your own keys,
-   see the :doc:`examples-crypto-masterkey` topic.
+   see :doc:`examples-crypto-masterkey`.
 
-You can choose from three encryption modes when enabling client-side |S3| encryption.
-The sections below show how to enable each type. To learn which algorithms each mode uses,
-see :aws-java-class:`CryptoMode <services/s3/model/CryptoMode>` definition.
+You can choose from three encryption modes when enabling client-side |S3| encryption: encryption-only,
+authenticated, and strict authenticated.
+The following sections show how to enable each type. To learn which algorithms each mode uses,
+see the :aws-java-class:`CryptoMode <services/s3/model/CryptoMode>` definition.
 
 
 Required Imports
 ================
 
-Import the following libraries for the examples on this page.
+Import the following libraries for these examples.
 
 **Imports**
 
@@ -46,10 +47,11 @@ Import the following libraries for the examples on this page.
 
 .. _encryption-only:
 
-Encryption only Mode
+Encryption-Only Mode
 ====================
 
-This is the default mode, if no :classname:`CryptoMode` is not specified. To use |KMS|
+Encryption-only is the default mode, if no :classname:`CryptoMode` is specified.
+To use an |KMS|
 managed key for encryption, pass the |KMS| key ID or alias to the
 :aws-java-class:`KMSEncryptionMaterialsProvider` constructor.
 
@@ -60,7 +62,7 @@ managed key for encryption, pass the |KMS| key ID or alias to the
   :dedent: 8
   :language: java
 
-You can retrieve the object with the same client.
+You can retrieve the object using the same client.
 
 **Code**
 
@@ -69,25 +71,25 @@ You can retrieve the object with the same client.
   :dedent: 8
   :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>`.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
 
 .. _authenticated-encryption:
 
 Authenticated Encryption Mode
 =============================
 
-When :classname:`AuthenticatedEncryption` mode is used, an improved key wrapping algorithm is
-applied during encryption. When decrypting in this mode, the algorithm is able to verify the integrity
+When you use :classname:`AuthenticatedEncryption` mode, an improved key wrapping algorithm is
+applied during encryption. When decrypting in this mode, the algorithm can verify the integrity
 of the decrypted object and throw an exception if the check fails.
-To get more details about how authenticated encryption works, see the
+For more details about how authenticated encryption works, see the
 :blog:`Amazon S3 Client-Side Authenticated Encryption <developer/amazon-s3-client-side-authenticated-encryption>`
 blog post.
 
 .. note:: To use client-side authenticated encryption, you must include the latest
           `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_
-          in the classpath of your application.
+          file in the classpath of your application.
 
-To enable this mode, specify the :classname:`AuthenticatedEncryption` value in
+To enable this mode, specify the :classname:`AuthenticatedEncryption` value in the
 :method:`withCryptoConfiguration` method.
 
 
@@ -98,8 +100,8 @@ To enable this mode, specify the :classname:`AuthenticatedEncryption` value in
    :dedent: 8
    :language: java
 
-The :classname:`AuthenticatedEncryption` mode can retrieve unencrypted objects as well as
-objects encrypted with :classname:`EncryptionOnly` mode. This example shows the
+The :classname:`AuthenticatedEncryption` mode can retrieve unencrypted objects and
+objects encrypted with :classname:`EncryptionOnly` mode. The following example shows the
 |S3| encryption client retrieving an unencrypted object.
 
 **Code**
@@ -109,18 +111,18 @@ objects encrypted with :classname:`EncryptionOnly` mode. This example shows the
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>`.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
 
 .. _strict-authenticated-encryption:
 
 Strict Authenticated Encryption
 ===============================
 
-To enable this mode, specify the :classname:`StrictAuthenticatedEncryption` value in
+To enable this mode, specify the :classname:`StrictAuthenticatedEncryption` value in the
 :method:`withCryptoConfiguration` method.
 
 .. note:: To use client-side authenticated encryption, you must include the latest
-          `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_
+          `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_ file
           in the classpath of your application.
 
 **Code**
@@ -130,7 +132,7 @@ To enable this mode, specify the :classname:`StrictAuthenticatedEncryption` valu
    :dedent: 8
    :language: java
 
-In :classname:`StrictAuthenticatedEncryption` mode, the |S3| client will throw an
+In :classname:`StrictAuthenticatedEncryption` mode, the |S3| client throws an
 exception when retrieving an object that was not encrypted using an
 authenticated mode.
 
@@ -141,4 +143,4 @@ authenticated mode.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>`.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.

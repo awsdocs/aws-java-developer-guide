@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-################
-SDK Code Samples
-################
+#######################
+|sdk-java| Code Samples
+#######################
 
 The |sdk-java| comes packaged with code samples that demonstrate many of the features of
 the SDK in buildable, runnable programs. You can study or modify these to implement your own AWS

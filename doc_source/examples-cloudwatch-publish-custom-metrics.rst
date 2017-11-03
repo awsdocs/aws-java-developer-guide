@@ -32,7 +32,7 @@ information about the data point itself in a :aws-java-class:`MetricDatum
 <services/cloudwatch/model/MetricDatum>` object.
 
 .. note:: You cannot specify a namespace that begins with "AWS/". Namespaces that begin with
-   "AWS/" are reserved for use by Amazon Web Services products. .
+   "AWS/" are reserved for use by Amazon Web Services products.
 
 **Imports**
 

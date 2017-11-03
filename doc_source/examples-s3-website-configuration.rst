@@ -49,7 +49,7 @@ Setting an index document is *required*; all other parameters are optional.
    public read access to the files in the bucket. For more information, see
    :doc:`examples-s3-bucket-policies`.
 
-See the :sdk-examples-java-s3:`complete example <SetWebsiteConfiguration.java>`.
+See the :sdk-examples-java-s3:`complete example <SetWebsiteConfiguration.java>` on GitHub.
 
 
 Get a Bucket's Website Configuration
@@ -76,7 +76,7 @@ bucket, then :code-java:`null` will be returned.
    :lines: 30-46
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <GetWebsiteConfiguration.java>`.
+See the :sdk-examples-java-s3:`complete example <GetWebsiteConfiguration.java>` on GitHub.
 
 
 Delete a Bucket's Website Configuration
@@ -99,7 +99,7 @@ configuration from.
    :lines: 29-36
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <DeleteWebsiteConfiguration.java>`.
+See the :sdk-examples-java-s3:`complete example <DeleteWebsiteConfiguration.java>` on GitHub.
 
 
 More Information

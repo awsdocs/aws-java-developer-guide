@@ -8,6 +8,6 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-.. note:: These code snippets assume that you understand the material in :doc:`basics` and have
+.. note:: These code examples assume that you understand the material in :doc:`basics` and have
    configured default AWS credentials using the information in :doc:`setup-credentials`.
 

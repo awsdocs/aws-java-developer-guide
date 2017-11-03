@@ -46,7 +46,7 @@ Here we create two identical |SQS| queues, one of which will serve as the dead l
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete example <DeadLetterQueues.java>`.
+See the :sdk-examples-java-sqs:`complete example <DeadLetterQueues.java>` on GitHub.
 
 
 .. _sqs-dead-letter-queue-set-redrive-policy:
@@ -77,7 +77,7 @@ attribute with your JSON redrive policy.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete example <DeadLetterQueues.java>`.
+See the :sdk-examples-java-sqs:`complete example <DeadLetterQueues.java>` on GitHub.
 
 
 More Info
