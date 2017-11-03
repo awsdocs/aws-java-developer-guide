@@ -16,6 +16,10 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was built on:** |today|
 
+Nov 2, 2017
+  Added cryptography examples for |S3| encryption client, including new topics:
+  :doc:`examples-crypto` and :doc:`examples-crypto-kms` and :doc:`examples-crypto-masterkey`.
+
 Apr 14, 2017
    Made a number of updates to the :doc:`examples-s3` section, including new topics:
    :doc:`examples-s3-access-permissions` and :doc:`examples-s3-website-configuration`.
@@ -139,4 +143,3 @@ May 9, 2014
 Sep 9, 2013
    This topic, *Document History*, tracks changes to the |sdk-java-dg|. It is intended as a
    companion to the release notes history.
-

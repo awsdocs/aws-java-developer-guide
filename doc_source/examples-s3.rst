@@ -31,3 +31,4 @@ This section provides examples of programming |S3|_ using the |sdk-java|_.
     examples-s3-bucket-policies
     examples-s3-transfermanager
     examples-s3-website-configuration
+    examples-crypto
