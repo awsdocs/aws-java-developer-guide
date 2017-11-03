@@ -76,22 +76,20 @@ See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>`.
 Authenticated Encryption Mode
 =============================
 
-When :classname:`AuthenticatedEncryption` mode is used, an improved key wrapping algorithm is applied
+When :classname:`AuthenticatedEncryption` mode is used, an improved key wrapping algorithm is
 applied during encryption. When decrypting in this mode, the algorithm is able to verify the integrity
 of the decrypted object and throw an exception if the check fails.
 To get more details about how authenticated encryption works, see the
 :blog:`Amazon S3 Client-Side Authenticated Encryption <developer/amazon-s3-client-side-authenticated-encryption>`
 blog post.
 
-To use client-side authenticated encryption, two steps are required:
+.. note:: To use client-side authenticated encryption, you must include the latest
+          `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_
+          in the classpath of your application.
 
-    #. Include the latest `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_
-       in the classpath.
-    #. Explicitly specify the cryptographic mode of authenticated encryption when
-       instantiating an S3 encryption client.
+To enable this mode, specify the :classname:`AuthenticatedEncryption` value in
+:method:`withCryptoConfiguration` method.
 
-Use the :aws-java-class:`CryptoMode <service/s3/model/CryptoMode>` to specify
-:classname:`AuthenticatedEncryption`.
 
 **Code**
 
@@ -118,8 +116,12 @@ See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>`.
 Strict Authenticated Encryption
 ===============================
 
-Use the :aws-java-class:`CryptoMode <service/s3/model/CryptoMode>` to specify
-:classname:`StrictAuthenticatedEncryption`.
+To enable this mode, specify the :classname:`StrictAuthenticatedEncryption` value in
+:method:`withCryptoConfiguration` method.
+
+.. note:: To use client-side authenticated encryption, you must include the latest
+          `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_
+          in the classpath of your application.
 
 **Code**
 
