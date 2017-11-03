@@ -36,7 +36,7 @@ see the :aws-java-class:`CryptoMode <services/s3/model/CryptoMode>` definition.
 Required Imports
 ================
 
-Import the following libraries for these examples.
+Import the following classes for these examples.
 
 **Imports**
 
@@ -72,7 +72,17 @@ To use an asymmetric key or a key pair, simply pass the key pair to the same
   :dedent: 8
   :language: java
 
-You can retrieve the object using the same client.
+Call the :methodname:`putObject` method on the |S3| encryption client to upload objects.
+
+**Code**
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
+  :lines: 227
+  :dedent: 8
+  :language: java
+
+You can retrieve the object using the same client. This example calls the
+:methodname:`getObjectAsString` method to retrieve the string that was stored.
 
 **Code**
 
@@ -81,7 +91,7 @@ You can retrieve the object using the same client.
   :dedent: 8
   :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L216-L230>` on GitHub.
 
 .. _authenticated-encryption:
 
@@ -120,7 +130,7 @@ objects encrypted with :classname:`EncryptionOnly` mode. The following example s
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L66-L80>` on GitHub.
 
 .. _strict-authenticated-encryption:
 
@@ -152,4 +162,4 @@ authenticated mode.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L131-L150>` on GitHub.
