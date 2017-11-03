@@ -36,7 +36,7 @@ see :aws-java-class:`CryptoMode <services/s3/model/CryptoMode>` definition.
 Required Imports
 ================
 
-Import the following libraries for the examples on this page.
+Import the following classes for the examples on this page.
 
 **Imports**
 
@@ -60,7 +60,17 @@ managed key for encryption, pass the |KMS| key ID or alias to the
   :dedent: 8
   :language: java
 
-You can retrieve the object with the same client.
+Call the :methodname:`putObject` method on the |S3| encryption client to upload objects.
+
+**Code**
+
+.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
+  :lines: 247
+  :dedent: 8
+  :language: java
+
+You can retrieve the object using the same client. This example calls the
+:methodname:`getObjectAsString` method to retrieve the string that was stored.
 
 **Code**
 
@@ -69,7 +79,7 @@ You can retrieve the object with the same client.
   :dedent: 8
   :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>`.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L236-L250>`.
 
 .. _authenticated-encryption:
 
@@ -109,7 +119,7 @@ objects encrypted with :classname:`EncryptionOnly` mode. This example shows the
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>`.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L256-L271>`.
 
 .. _strict-authenticated-encryption:
 
@@ -141,4 +151,4 @@ authenticated mode.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>`.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L278-L296>`.
