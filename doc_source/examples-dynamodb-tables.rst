@@ -63,7 +63,7 @@ must also supply initial provisioned throughput values and a table name.
 **Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
-   :lines: 15-23
+   :lines: 15-24
    :language: java
 
 .. _dynamodb-create-table-simple:
@@ -76,7 +76,7 @@ This code creates a table with a simple primary key ("Name").
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
-   :lines: 58-73
+   :lines: 59-75
    :dedent: 8
    :language: java
 
@@ -95,7 +95,7 @@ Add another
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTableCompositeKey.java
-   :lines: 58-67
+   :lines: 59-68
    :dedent: 8
    :language: java
 
@@ -122,7 +122,7 @@ You can list the tables in a particular region by calling the :aws-java-class:`D
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
-   :lines: 32-64
+   :lines: 33-63
    :dedent: 8
    :language: java
 
@@ -155,7 +155,7 @@ Call the :aws-java-class:`DynamoDB client
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
-   :lines: 50-87
+   :lines: 51-88
    :dedent: 8
    :language: java
 
@@ -178,13 +178,13 @@ method.
 **Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
-   :lines: 15-17
+   :lines: 15-18
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
-   :lines: 57-67
+   :lines: 57-68
    :dedent: 8
    :language: java
 
@@ -206,13 +206,13 @@ Call the :aws-java-class:`DynamoDB client <services/dynamodbv2/AmazonDynamoDB>`'
 **Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
-   :lines: 15-16
+   :lines: 15-17
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
-   :lines: 51-58
+   :lines: 52-59
    :dedent: 8
    :language: java
 
