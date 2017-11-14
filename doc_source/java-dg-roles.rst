@@ -138,7 +138,7 @@ Next, copy the |sdk-java| libraries into your newly-created directory. If you do
     cp -r ~/Downloads/aws-java-sdk-{1.7.5}/lib .
     cp -r ~/Downloads/aws-java-sdk-{1.7.5}/third-party .
 
-Open a new file, call it :file:`GetS3Ojbect.java`, and add the following code:
+Open a new file, call it :file:`GetS3Object.java`, and add the following code:
 
 .. literalinclude:: snippets/GetS3ObjectApp/GetS3Object.java
     :language: java
@@ -234,4 +234,3 @@ Then, run the program using :code:`ant` as follows:
    ant run
 
 The program will write the contents of your |S3| object to your command window.
-
