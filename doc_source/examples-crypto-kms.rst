@@ -45,7 +45,7 @@ Import the following classes for these examples.
    :lines: 16-31
    :language: java
 
-.. _encryption-only:
+.. _encryption-only-kms:
 
 Encryption-Only Mode
 ====================
@@ -84,7 +84,7 @@ You can retrieve the object using the same client. This example calls the
 
 See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L236-L250>` on GitHub.
 
-.. _authenticated-encryption:
+.. _authenticated-encryption-kms:
 
 Authenticated Encryption Mode
 =============================
@@ -101,7 +101,7 @@ blog post.
           file in the classpath of your application.
 
 To enable this mode, specify the :classname:`AuthenticatedEncryption` value in the
-:method:`withCryptoConfiguration` method.
+:methodName:`withCryptoConfiguration` method.
 
 
 **Code**
@@ -124,13 +124,13 @@ objects encrypted with :classname:`EncryptionOnly` mode. The following example s
 
 See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L256-L271>` on GitHub.
 
-.. _strict-authenticated-encryption:
+.. _strict-authenticated-encryption-kms:
 
 Strict Authenticated Encryption
 ===============================
 
 To enable this mode, specify the :classname:`StrictAuthenticatedEncryption` value in the
-:method:`withCryptoConfiguration` method.
+:methodName:`withCryptoConfiguration` method.
 
 .. note:: To use client-side authenticated encryption, you must include the latest
           `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_ file

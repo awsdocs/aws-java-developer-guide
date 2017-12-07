@@ -110,7 +110,7 @@ blog post.
           in the classpath of your application.
 
 To enable this mode, specify the :classname:`AuthenticatedEncryption` value in the
-:method:`withCryptoConfiguration` method.
+:methodName:`withCryptoConfiguration` method.
 
 **Code**
 
@@ -138,7 +138,7 @@ Strict Authenticated Encryption
 ===============================
 
 To enable this mode, specify the :classname:`StrictAuthenticatedEncryption` value in the
-:method:`withCryptoConfiguration` method.
+:methodName:`withCryptoConfiguration` method.
 
 .. note:: To use client-side authenticated encryption, you must include the latest
           `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_ file
