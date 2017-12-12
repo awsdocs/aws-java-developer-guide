@@ -116,13 +116,13 @@ You can list the tables in a particular region by calling the :aws-java-class:`D
 **Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
-   :lines: 15-18
+   :lines: 15-19
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
-   :lines: 33-63
+   :lines: 33-67
    :dedent: 8
    :language: java
 
