@@ -50,4 +50,4 @@ the original request object with the return value of the :classname:`ListMetrics
 More Information
 ================
 
-* :cw-api:`ListMetrics` in the |cw-api|.
+* :cw-api:`ListMetrics <API_ListMetrics>` in the |cw-api|.

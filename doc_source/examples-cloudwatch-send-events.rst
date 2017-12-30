@@ -99,6 +99,6 @@ More Information
 * :cwe-ug:`Schedule Expressions for Rules <ScheduledEvents>` in the |cwe-ug|
 * :cwe-ug:`Event Types for CloudWatch Events <EventTypes>` in the |cwe-ug|
 * :cwe-ug:`Events and Event Patterns <CloudWatchEventsandEventPatterns>` in the |cwe-ug|
-* :cwe-api:`PutEvents` in the |cwe-api|
-* :cwe-api:`PutTargets` in the |cwe-api|
-* :cwe-api:`PutRule` in the |cwe-api|
+* :cwe-api:`PutEvents <API_PutEvents>` in the |cwe-api|
+* :cwe-api:`PutTargets <API_PutTargets>` in the |cwe-api|
+* :cwe-api:`PutRule <API_PutRule>` in the |cwe-api|

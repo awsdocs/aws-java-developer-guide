@@ -28,8 +28,8 @@ Retrieve (Get) an Item from a Table
 
 Call the |ddbclient|'s :methodname:`getItem` method and pass it a
 :aws-java-class:`GetItemRequest <services/dynamodbv2/model/GetItemRequest>` object with the table
-name and primary key value of the item you want. It returns a `GetItemResult
-<services/dynamodbv2/model/GetItemResult>` object.
+name and primary key value of the item you want. It returns a
+:aws-java-class:`GetItemResult <services/dynamodbv2/model/GetItemResult>` object.
 
 You can use the returned :classname:`GetItemResult` object's :methodname:`getItem()` method to
 retrieve a :javase-ref:`Map <java/util/Map>` of key (String) and value

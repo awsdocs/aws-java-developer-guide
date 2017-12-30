@@ -90,7 +90,7 @@ Create a Table with a Composite Primary Key
 Add another
 :aws-java-class:`AttributeDefinition <services/dynamodbv2/model/AttributeDefinition>` and
 :aws-java-class:`KeySchemaElement <services/dynamodbv2/model/KeySchemaElement>` to
-:aws-java-class:`CreateTableRequest <dynamodbv2/model/CreateTableRequest>`.
+:aws-java-class:`CreateTableRequest <services/dynamodbv2/model/CreateTableRequest>`.
 
 **Code**
 
@@ -127,7 +127,7 @@ You can list the tables in a particular region by calling the :aws-java-class:`D
    :language: java
 
 By default, up to 100 tables are returned per call |mdash| use
-:methodname:`getLastEvaluatedTableName` on the returned :aws-java-class:`ListTablesResult <>` object
+:methodname:`getLastEvaluatedTableName` on the returned :aws-java-class:`ListTablesResult <ListTablesResult>` object
 to get the last table that was evaluated. You can use this value to start the listing after the last
 returned
 value of the previous listing.

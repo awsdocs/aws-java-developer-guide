@@ -73,6 +73,6 @@ More Information
 
 * :cw-ug:`Create Alarms to Stop, Terminate, Reboot, or Recover an Instance <UsingAlarmActions>` in
   the |cw-ug|
-* :cw-api:`PutMetricAlarm` in the |cw-api|
-* :cw-api:`EnableAlarmActions` in the |cw-api|
-* :cw-api:`DisableAlarmActions` in the |cw-api|
+* :cw-api:`PutMetricAlarm <API_PutMetricAlarm>` in the |cw-api|
+* :cw-api:`EnableAlarmActions <API_EnableAlarmActions>` in the |cw-api|
+* :cw-api:`DisableAlarmActions <API_DisableAlarmActions>` in the |cw-api|

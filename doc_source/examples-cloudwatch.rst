@@ -14,7 +14,7 @@
 
 .. meta::
    :description: Programming Amazon Cloudwatch using the AWS SDK for Java
-   :keywords: AWS SDK for Java code examples, IAM
+   :keywords: AWS SDK for Java code examples, Cloudwatch
 
 This section provides examples of programming |cw|_ using the |sdk-java|_.
 
@@ -33,4 +33,3 @@ For more information about |cw|, see the |cw-ug|_.
    examples-cloudwatch-create-alarms
    examples-cloudwatch-use-alarm-actions
    examples-cloudwatch-send-events
-

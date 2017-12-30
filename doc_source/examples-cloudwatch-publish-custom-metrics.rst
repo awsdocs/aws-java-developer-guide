@@ -52,4 +52,4 @@ More Information
 
 * :cw-ug:`Using Amazon CloudWatch Metrics <working_with_metrics>` in the |cw-ug|.
 * :cw-ug:`AWS Namespaces <aws-namespaces>` in the |cw-ug|.
-* :cw-api:`PutMetricData` in the |cw-api|.
+* :cw-api:`PutMetricData <API_PutMetricData>` in the |cw-api|.

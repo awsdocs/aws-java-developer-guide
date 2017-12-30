@@ -96,6 +96,6 @@ More Information
 ================
 
 * :cw-ug:`Creating Amazon CloudWatch Alarms <AlarmThatSendsEmail>` in the |cw-ug|
-* :cw-api:`PutMetricAlarm` in the |cw-api|
-* :cw-api:`DescribeAlarms` in the |cw-api|
-* :cw-api:`DeleteAlarms` in the |cw-api|
+* :cw-api:`PutMetricAlarm <API_PutMetricAlarm>` in the |cw-api|
+* :cw-api:`DescribeAlarms <API_DescribeAlarms>` in the |cw-api|
+* :cw-api:`DeleteAlarms <API_DeleteAlarms>` in the |cw-api|
