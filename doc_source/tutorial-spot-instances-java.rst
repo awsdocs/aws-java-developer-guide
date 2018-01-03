@@ -114,7 +114,6 @@ address indicates the subnet for the specified IP address. We also configure the
 
 .. code-block:: java
 
-    <?dbhtml linenumbering.everyNth="1" ?>
     // Create the AmazonEC2 client so we can call various APIs.
     AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
@@ -531,5 +530,3 @@ Next Steps
 ==========
 
 Proceed with :doc:`tutorial-spot-adv-java`.
-
-
