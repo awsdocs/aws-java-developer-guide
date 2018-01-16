@@ -26,6 +26,7 @@ This section provides tutorials and examples of using the |sdk-java| to program 
    Amazon DynamoDB Examples <examples-dynamodb>
    Amazon EC2 Examples <prog-services-ec2>
    AWS Identity and Access Management (IAM) Examples <examples-iam>
+   Amazon Pinpoint Examples <examples-pinpoint>
    Amazon S3 Examples <examples-s3>
    Amazon SQS Examples <examples-sqs>
    prog-services-sts
