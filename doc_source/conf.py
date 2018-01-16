@@ -404,3 +404,9 @@ for svc in [
         'blob/master/java/example_code/{svc}/src/main/java/aws/example/{svc}/'.format(svc=svc) +
         '%s', '')
 
+for svc in [
+        'pinpoint'
+    ]:
+    extlinks['sdk-examples-java-%s' % svc] = (samples_url +
+        'blob/master/java/example_code/{svc}/src/main/java/com/example/{svc}/'.format(svc=svc) +
+        '%s', '')

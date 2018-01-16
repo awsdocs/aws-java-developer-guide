@@ -28,6 +28,7 @@
 .. |ddbclient| replace:: :aws-java-class:`AmazonDynamoDB <services/dynamodbv2/AmazonDynamoDBClient>`
 .. |ec2client| replace:: :aws-java-class:`AmazonEC2Client <services/ec2/AmazonEC2Client>`
 .. |iamclient| replace:: :aws-java-class:`AmazonIdentityManagementClient <services/identitymanagement/AmazonIdentityManagementClient>`
+.. |pinpointclient| replace:: :aws-java-class:`AmazonPinpointClient <services/pinpoint/AmazonPinpointClient>`
 .. |s3client| replace:: :aws-java-class:`AmazonS3 <services/s3/AmazonS3Client>`
 .. |sqsclient| replace:: :aws-java-class:`AmazonSQS <services/sqs/AmazonSQSClient>`
 .. |xfermgr| replace:: :aws-java-class:`TransferManager <services/s3/transfer/TransferManager>`
