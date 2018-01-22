@@ -8,16 +8,20 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-############################
-Creating an App in |PINlong|
-############################
+#########################################
+Creating and Deleting an App in |PINlong|
+#########################################
 
 .. meta::
    :description: How to create or delete an app in Amazon pinpoint.
    :keywords: AWS for Java SDK code examples, amazon pinpoint
 
-Creating an App
-===============
+An app is an |PINlong| project in which you define the audience for a distinct
+application, and you engage this audience with tailored messages. The examples on
+this page demonstrate how to create a new app or delete an existing one.
+
+Create an App
+=============
 
 Create a new app in |PINlong| by providing an app name to the :aws-java-class:`CreateAppRequest
 <services/pinpoint/model/CreateAppRequest>` object then passing that object to the
@@ -33,18 +37,18 @@ Create a new app in |PINlong| by providing an app name to the :aws-java-class:`C
 
 .. literalinclude:: example_code/pinpoint/src/main/java/com/example/pinpoint/CreateApp.java
    :lines: 44-49
-   :dedent: 8
+   :dedent: 2
    :language: java
 
 See the :sdk-examples-java-pinpoint:`complete example <CreateApp.java>` on GitHub.
 
 
-Deleting an App
-===============
+Delete an App
+=============
 
 To delete a user, call the |pinpointclient|'s :methodname:`deleteApp` request with a
-:aws-java-class:`UpdateAppRequest <services/pinpoint/model/UpdateAppRequest>` object set
-with the user name to delete.
+:aws-java-class:`DeleteAppRequest <services/pinpoint/model/DeleteAppRequest>` object set
+with the app name to delete.
 
 **Imports**
 
@@ -56,7 +60,7 @@ with the user name to delete.
 
 .. literalinclude:: example_code/pinpoint/src/main/java/com/example/pinpoint/DeleteApp.java
    :lines: 42-45
-   :dedent: 8
+   :dedent: 2
    :language: java
 
 See the :sdk-examples-java-pinpoint:`complete example <DeleteApp.java>` on GitHub.
@@ -64,4 +68,5 @@ See the :sdk-examples-java-pinpoint:`complete example <DeleteApp.java>` on GitHu
 More Information
 ================
 
-* See :pinpoint-api:`Apps <apps>` in the |PIN-api|
+* See :pin-api:`Apps <apps>` in the |PIN-api|
+* See :pin-api:`App <app>` in the |PIN-api|
