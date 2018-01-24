@@ -24,8 +24,8 @@ This section provides examples of programming |PINLong|_ using the |sdk-java|_.
     :titlesonly:
     :maxdepth: 1
 
-    Create an App <examples-pinpoint-create-app>
-    Create an Endpoint <examples-pinpoint-create-endpoint>
-    Create a Segment <examples-pinpoint-create-segment>
-    Create a Campaign <examples-pinpoint-create-campaign>
-    Update a Channel <examples-pinpoint-update-channel>
+    examples-pinpoint-create-app
+    examples-pinpoint-create-endpoint
+    examples-pinpoint-create-segment
+    examples-pinpoint-create-campaign
+    examples-pinpoint-update-channel

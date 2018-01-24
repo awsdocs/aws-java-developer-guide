@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##############################
-Creating Endpoint in |PINlong|
-##############################
+###############################
+Creating Endpoints in |PINlong|
+###############################
 
 .. meta::
    :description: How to update an app endpoint in Amazon pinpoint.
@@ -19,7 +19,7 @@ Creating Endpoint in |PINlong|
 An endpoint uniquely identifies a user device to which you can send
 push notifications with |PINlong|. If your app is enabled with |PINlong|
 support, your app automatically registers an endpoint with |PINlong|
-when a new user opens your app. The following example demonstrates how to set
+when a new user opens your app. The following example demonstrates how to
 add a new endpoint programmatically.
 
 Create an Endpoint
@@ -42,7 +42,7 @@ Create a new endpoint in |PINlong| by providing the endpoint data in an
    :language: java
 
 Then create an :aws-java-class:`UpdateEndpointRequest <services/pinpoint/model/UpdateEndpointRequest>`
-object with that EndpointRequest object. Finally pass the UpdateEndpointRequest object to the
+object with that EndpointRequest object. Finally, pass the UpdateEndpointRequest object to the
 |pinpointclient|'s :methodname:`updateEndpoint` method.
 
 **Code**
@@ -58,5 +58,5 @@ See the :sdk-examples-java-pinpoint:`complete example <CreateEndpoint.java>` on 
 More Information
 ================
 
-* See :pin-dg:`Adding Endpoint <endpoints>` in the |pin-dg|
-* See :pin-api:`Endpoint <endpoint>` in the |pin-api|
+* :pin-dg:`Adding Endpoint <endpoints>` in the |pin-dg|
+* :pin-api:`Endpoint <endpoint>` in the |pin-api|

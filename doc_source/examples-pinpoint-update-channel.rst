@@ -9,7 +9,7 @@
    limitations under the License.
 
 #############################
-Updating Channel in |PINlong|
+Updating Channels in |PINlong|
 #############################
 
 .. meta::
@@ -23,7 +23,7 @@ Update a Channel
 ================
 
 Enable a channel in |PINlong| by providing an app ID and a request object of the channel type
-you want to update. This example updates the APNs channel which requires the
+you want to update. This example updates the APNs channel, which requires the
 :aws-java-class:`APNSChannelRequest <services/pinpoint/model/APNSChannelRequest>` object.
 Set these in the :aws-java-class:`UpdateApnsChannelRequest <services/pinpoint/model/UpdateApnsChannelRequest>`
 and pass that object to the
@@ -48,13 +48,13 @@ See the :sdk-examples-java-pinpoint:`complete example <CreateApp.java>` on GitHu
 More Information
 ================
 
-* See :pin-ug:`Amazon Pinpoint Channels <channels>` in the |pin-ug|
-* See :pin-api:`ADM Channel <adm-channel>` in the |pin-api|
-* See :pin-api:`APNs Channel <apns-channel>` in the |pin-api|
-* See :pin-api:`APNs Sandbox Channel <apns-sandbox-channel>` in the |pin-api|
-* See :pin-api:`APNs VoIP Channel <apns-voip-channel>` in the |pin-api|
-* See :pin-api:`APNs VoIP Sandbox Channel <apns-voip-sandbox-channel>` in the |pin-api|
-* See :pin-api:`Baidu Channel <baidu-channel>` in the |pin-api|
-* See :pin-api:`Email Channel <email-channel>` in the |pin-api|
-* See :pin-api:`GCM Channel <gcm-channel>` in the |pin-api|
-* See :pin-api:`SMS Channel <sms-channel>` in the |pin-api|
+* :pin-ug:`Amazon Pinpoint Channels <channels>` in the |pin-ug|
+* :pin-api:`ADM Channel <adm-channel>` in the |pin-api|
+* :pin-api:`APNs Channel <apns-channel>` in the |pin-api|
+* :pin-api:`APNs Sandbox Channel <apns-sandbox-channel>` in the |pin-api|
+* :pin-api:`APNs VoIP Channel <apns-voip-channel>` in the |pin-api|
+* :pin-api:`APNs VoIP Sandbox Channel <apns-voip-sandbox-channel>` in the |pin-api|
+* :pin-api:`Baidu Channel <baidu-channel>` in the |pin-api|
+* :pin-api:`Email Channel <email-channel>` in the |pin-api|
+* :pin-api:`GCM Channel <gcm-channel>` in the |pin-api|
+* :pin-api:`SMS Channel <sms-channel>` in the |pin-api|

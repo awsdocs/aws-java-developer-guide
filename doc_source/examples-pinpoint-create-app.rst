@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#########################################
-Creating and Deleting an App in |PINlong|
-#########################################
+#######################################
+Creating and Deleting Apps in |PINlong|
+#######################################
 
 .. meta::
    :description: How to create or delete an app in Amazon pinpoint.
@@ -24,7 +24,7 @@ Create an App
 =============
 
 Create a new app in |PINlong| by providing an app name to the :aws-java-class:`CreateAppRequest
-<services/pinpoint/model/CreateAppRequest>` object then passing that object to the
+<services/pinpoint/model/CreateAppRequest>` object, and then passing that object to the
 |pinpointclient|'s :methodname:`createApp` method.
 
 **Imports**
@@ -46,9 +46,9 @@ See the :sdk-examples-java-pinpoint:`complete example <CreateApp.java>` on GitHu
 Delete an App
 =============
 
-To delete a user, call the |pinpointclient|'s :methodname:`deleteApp` request with a
-:aws-java-class:`DeleteAppRequest <services/pinpoint/model/DeleteAppRequest>` object set
-with the app name to delete.
+To delete an app, call the |pinpointclient|'s :methodname:`deleteApp` request with a
+:aws-java-class:`DeleteAppRequest <services/pinpoint/model/DeleteAppRequest>` object that's
+set with the app name to delete.
 
 **Imports**
 
@@ -68,5 +68,5 @@ See the :sdk-examples-java-pinpoint:`complete example <DeleteApp.java>` on GitHu
 More Information
 ================
 
-* See :pin-api:`Apps <apps>` in the |PIN-api|
-* See :pin-api:`App <app>` in the |PIN-api|
+* :pin-api:`Apps <apps>` in the |PIN-api|
+* :pin-api:`App <app>` in the |PIN-api|
