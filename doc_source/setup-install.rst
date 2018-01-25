@@ -76,7 +76,7 @@ The SDK contains the following directories:
 
 * :file:`samples` |ndash| contains working sample code that demonstrates how to use the SDK.
 
-* :file:`third-party` |ndash| contains third-party libraries that are used by the SDK, such as
+* :file:`third-party/lib` |ndash| contains third-party libraries that are used by the SDK, such as
   Apache commons logging, AspectJ and the Spring framework.
 
 To use the SDK, add the full path to the ``lib`` and ``third-party`` directories to the dependencies
@@ -142,4 +142,3 @@ mode, even if you specify the ``-Client`` option at run time.
 
 Using the 32-bit version of the JVM with the ``-Server`` option at run time should provide
 comparable performance to the 64-bit JVM.
-
