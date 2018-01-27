@@ -83,3 +83,6 @@ More Information
 
 * Learn about working with |cw| using the |sdk-java| in :doc:`examples-cloudwatch`.
 
+* Learn more about performance tuning in
+  :blog:`Tuning the AWS SDK for Java to Improve Resiliency <developer/tuning-the-aws-sdk-for-java-to-improve-resiliency>`
+  blog post.
