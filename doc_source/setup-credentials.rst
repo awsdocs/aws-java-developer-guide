@@ -54,8 +54,9 @@ Setting the AWS Region
 ======================
 
 You should set a default AWS Region that will be used for accessing AWS services with the AWS SDK
-for Java. For the best network performance, you should choose a region that's geographically close
-to you (or to your customers).
+for Java. For the best network performance, choose a region that's geographically close
+to you (or to your customers). For a list of regions for each service, see |regions-and-endpoints|_
+in the |AWS-gr|.
 
 .. note:: If you *don't* select a region, then |region-api-default| will be used by default.
 
@@ -64,4 +65,3 @@ You can use similar techniques to setting credentials to set your default AWS re
 .. The following file is in the shared content at https://github.com/awsdocs/aws-doc-shared-content
 
 .. include:: common/sdk-shared-region.txt
-
