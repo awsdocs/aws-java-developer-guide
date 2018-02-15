@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###############################
-Client Networking Configuration
-###############################
+######################
+Client Configuration
+######################
 
 .. meta::
    :description: How to change proxy configuration, HTTP transport configuration, and TCP socket
@@ -43,17 +43,10 @@ You can configure several HTTP transport options by using the :aws-java-class:`C
 object. New options are occasionally added; to see the full list of options you can retrieve or set,
 see the |sdk-java-ref|.
 
-Each of the configurable values has a default value defined by a constant. For a list of the
-constant values for :classname:`ClientConfiguration`, see :sdk-java-ref:`Constant Field Values
-<constant-values>` in the |sdk-java-ref|.
-
-
-Local Address
--------------
-
-To set the local address that the HTTP client will bind to, use
-:aws-java-ref:`ClientConfiguration.setLocalAddress
-<ClientConfiguration.html#setLocalAddress-java.net.InetAddress->`.
+.. note::
+   Each of the configurable values has a default value defined by a constant. For a list of the
+   constant values for :classname:`ClientConfiguration`, see :sdk-java-ref:`Constant Field Values
+   <constant-values>` in the |sdk-java-ref|.
 
 
 Maximum Connections
@@ -63,12 +56,10 @@ You can set the maximum allowed number of open HTTP connections by using the
 :aws-java-ref:`ClientConfiguration.setMaxConnections
 <ClientConfiguration.html#setMaxConnections-int->` method.
 
-
-Proxy Options
--------------
-
-If you use a proxy with your HTTP connections, you might need to set certain options related to HTTP
-proxies.
+.. important::
+   Set the maximum connections to the number of concurrent transactions to avoid
+   connection contentions and poor performance. For the default maximum connections value,
+   see :sdk-java-ref:`Constant Field Values <constant-values>` in the |sdk-java-ref|.
 
 
 Timeouts and Error Handling
@@ -99,7 +90,17 @@ You can set options related to timeouts and handling errors with HTTP connection
 
   The default maximum retry count for retriable errors is 3. You can set a different value
   by using the :aws-java-ref:`ClientConfiguration.setMaxErrorRetry
-  <ClientConfiguration.html#setMaxErrorRetry-int->` method. 
+  <ClientConfiguration.html#setMaxErrorRetry-int->` method.
+
+
+Local Address
+-------------
+
+To set the local address that the HTTP client will bind to, use
+:aws-java-ref:`ClientConfiguration.setLocalAddress
+<ClientConfiguration.html#setLocalAddress-java.net.InetAddress->`.
+
+
 
 
 TCP Socket Buffer Size Hints
