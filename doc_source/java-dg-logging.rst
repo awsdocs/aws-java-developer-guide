@@ -62,7 +62,7 @@ Setting the Classpath
 
 Both the Log4j JAR and the log4j.properties file must be located on your classpath. If
 you're using `Apache Ant <http://ant.apache.org/manual/>`_, set the classpath in the :code:`path` element in your
-Ant file. The following example shows a path element from the Ant file for the |S3|
+Ant file. The following example shows a path element from the Ant file for the |S3| 
 `example <https://github.com/aws/aws-sdk-java/blob/master/src/samples/AmazonS3/build.xml>`_ included
 with the SDK.
 
