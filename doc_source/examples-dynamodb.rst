@@ -26,5 +26,3 @@ This section provides examples of programming |ddb|_ using the |sdk-java|_.
 
    examples-dynamodb-tables
    examples-dynamodb-items
-   java-dg-tomcat-session-manager
-

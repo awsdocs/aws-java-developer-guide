@@ -16,6 +16,9 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was built on:** |today|
 
+Mar 22, 2018
+  Removed managinag Tomcat sessions in |DDB| example as that tool is no longer supported.
+
 Nov 2, 2017
   Added cryptography examples for |S3| encryption client, including new topics:
   :doc:`examples-crypto` and :doc:`examples-crypto-kms` and :doc:`examples-crypto-masterkey`.
