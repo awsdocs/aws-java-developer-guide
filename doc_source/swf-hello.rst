@@ -143,14 +143,14 @@ Create a SWF project
    .. literalinclude:: example_code/swf/pom.xml
        :language: xml
        :lines: 10-16
-       :dedent: 4
+       :dedent: 2
 
 #. *Make sure that Maven builds your project with JDK 1.7+ support*. Add the following to your
    project (either before or after the :code-xml:`<dependencies>` block) in :file:`pom.xml`:
 
    .. literalinclude:: example_code/swf/pom.xml
        :language: xml
-       :lines: 17-27
+       :lines: 17-28
        :dedent: 2
 
 Code the project
