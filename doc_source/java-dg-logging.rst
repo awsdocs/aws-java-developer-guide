@@ -178,3 +178,35 @@ application.
     # all requests and responses. Use caution with this since it can
     # be very expensive to log such verbose data!
     log4j.logger.org.apache.http.wire=DEBUG
+
+
+.. _sdk-latency-logging:
+
+Latency Metrics Logging
+=======================
+
+If you have SDK metrics enabled, you can log the latency metrics of each request.
+Set the :code:`com.amazonaws.latency` logger to DEBUG to enable this logger. It will
+logs the raw latency data collected by the metrics package and may help with troubleshooting.
+This logger can also be verbose and should be enabled with caution.
+(To learn how to enable SDK metrics, see :doc:`generating-sdk-metrics`.)
+
+.. code-block:: properties
+
+   log4j.rootLogger=WARN, A1
+   log4j.appender.A1=org.apache.log4j.ConsoleAppender
+   log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+   log4j.appender.A1.layout.ConversionPattern=%d [%t] %-5p %c -  %m%n
+   log4j.logger.com.amazonaws.latency=DEBUG
+
+Here is an example of the log output.
+
+.. code-block:: none
+
+   com.amazonaws.latency - ServiceName=[Amazon S3], StatusCode=[200],
+   ServiceEndpoint=[https://list-objects-integ-test-test.s3.amazonaws.com],
+   RequestType=[ListObjectsV2Request], AWSRequestID=[REQUESTID], HttpClientPoolPendingCount=0,
+   RetryCapacityConsumed=0, HttpClientPoolAvailableCount=0, RequestCount=1,
+   HttpClientPoolLeasedCount=0, ResponseProcessingTime=[52.154], ClientExecuteTime=[487.041],
+   HttpClientSendRequestTime=[192.931], HttpRequestTime=[431.652], RequestSigningTime=[0.357],
+   CredentialsRequestTime=[0.011, 0.001], HttpClientReceiveResponseTime=[146.272]

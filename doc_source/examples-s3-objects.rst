@@ -39,13 +39,13 @@ name, and file to upload. *The bucket must exist, or an error will result*.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/PutObject.java
-   :lines: 15-17
+   :lines: 15-18
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/PutObject.java
-   :lines: 46-52
+   :lines: 46-53
    :dedent: 8
    :language: java
 

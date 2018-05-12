@@ -82,7 +82,7 @@ SDK you want to use:
         <dependency>
           <groupId>com.amazonaws</groupId>
           <artifactId>aws-java-sdk-bom</artifactId>
-          <version>1.11.106</version>
+          <version>1.11.327</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>
@@ -126,7 +126,7 @@ declare it in your :file:`pom.xml` like this:
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-java-sdk</artifactId>
-      <version>1.11.106</version>
+      <version>1.11.327</version>
     </dependency>
   </dependencies>
 
@@ -151,4 +151,3 @@ GitHub <https://github.com/aws/aws-sdk-java>`_, unpack it locally, and then exec
 Maven command::
 
  mvn clean install
-
