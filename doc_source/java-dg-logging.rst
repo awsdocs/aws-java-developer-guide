@@ -185,11 +185,14 @@ application.
 Latency Metrics Logging
 =======================
 
-If you have SDK metrics enabled, you can log the latency metrics of each request.
-Set the :code:`com.amazonaws.latency` logger to DEBUG to enable this logger. It will
-logs the raw latency data collected by the metrics package and may help with troubleshooting.
-This logger can also be verbose and should be enabled with caution.
-(To learn how to enable SDK metrics, see :doc:`generating-sdk-metrics`.)
+If you are troubleshooting and want to see metrics such as which process is taking the most time
+or whether server or client side has the greater latency, the latency logger can be helpful.
+Set the :code:`com.amazonaws.latency` logger to DEBUG to enable this logger.
+
+.. note::
+
+   This logger is only available if SDK metrics is enabled.
+   To learn more about the SDK metrics package, see :doc:`generating-sdk-metrics`.
 
 .. code-block:: properties
 
