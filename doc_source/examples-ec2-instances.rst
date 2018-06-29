@@ -205,6 +205,5 @@ More Information
 * :ec2-api:`StartInstances` in the |ec2-api|
 * :ec2-api:`StopInstances` in the |ec2-api|
 * :ec2-api:`RebootInstances` in the |ec2-api|
-* :ec2-api:`DescribeInstances` in the |ec2-api|
 * :ec2-api:`MonitorInstances` in the |ec2-api|
 * :ec2-api:`UnmonitorInstances` in the |ec2-api|
