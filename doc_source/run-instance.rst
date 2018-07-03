@@ -28,15 +28,16 @@ your EC2 instances are running, you can connect to them.
          RunInstancesRequest runInstancesRequest =
             new RunInstancesRequest();
 
-         runInstancesRequest.withImageId("ami-4b814f22")
-                            .withInstanceType("m1.small")
+         runInstancesRequest.withImageId("ami-a9d09ed1")
+                            .withInstanceType(InstanceType.T1Micro)
                             .withMinCount(1)
                             .withMaxCount(1)
                             .withKeyName("my-key-pair")
                             .withSecurityGroups("my-security-group");
 
       :aws-java-ref:`withImageId <services/ec2/model/RunInstancesRequest.html#withImageId-java.lang.String->`
-         The ID of the AMI. For a list of public AMIs provided by Amazon, see Amazon Machine Images.
+         The ID of the AMI. To learn how to find public AMIs provided by Amazon or
+         create your own, see :ec2-ug:`Amazon Machine Image (AMI) <AMIs>`.
 
       :aws-java-ref:`withInstanceType <services/ec2/model/RunInstancesRequest.html#withInstanceType-java.lang.String->`
          An instance type that is compatible with the specified AMI. For more information, see
@@ -72,4 +73,3 @@ your EC2 instances are running, you can connect to them.
 
 After your instance is running, you can connect to it using your key pair. For more information, see
 :ec2-ug:`Connect to Your Linux Instance <AccessingInstances>`. in the |EC2-ug|.
-

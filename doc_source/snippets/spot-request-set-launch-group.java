@@ -29,7 +29,7 @@ requestRequest.setLaunchGroup("ADVANCED-DEMO-LAUNCH-GROUP");
 // AMI id available. Note, you should always use the latest
 // Amazon Linux AMI id or another of your choosing.
 LaunchSpecification launchSpecification = new LaunchSpecification();
-launchSpecification.setImageId("ami-8c1fece5");
+launchSpecification.setImageId("ami-a9d09ed1");
 launchSpecification.setInstanceType("t1.micro");
 
 // Add the security group to the request.

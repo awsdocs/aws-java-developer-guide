@@ -74,12 +74,8 @@ installation prerequisites. See :doc:`setup-install` for more information.
 Step 1: Setting Up Your Credentials
 ===================================
 
-To begin using this code sample, you need to add AWS credentials to the
-:file:`AwsCredentials.properties` file as follows:
-
-1. Open the `AwsCredentials.properties` file.
-
-2. Set your access key / secret key id combination in the :file:`AwsCredentials.properties` file.
+To begin using this code sample, you need to set up AWS credentials.
+See :doc:`setup-credentials` for instructions on how to do that.
 
 .. note:: We recommend that you use the credentials of an IAM user to provide these values. For more
    information, see :doc:`signup-create-iam-user`.
@@ -163,8 +159,7 @@ address indicates the subnet for the specified IP address. We also configure the
         System.out.println(ase.getMessage());
     }
 
-You can view this entire code sample in the :code:`CreateSecurityGroupApp.java` code sample. Note
-you only need to run this application once to create a new security group.
+Note you only need to run this application once to create a new security group.
 
 You can also create the security group using the |tke|. See :tke-ug:`Managing Security Groups from
 AWS Explorer <tke-sg>` for more information.
@@ -181,26 +176,17 @@ previously, so that you can log into the instance if desired.
 
 There are several instance types to choose from; go to Amazon EC2 Instance Types for a complete
 list. For this tutorial, we will use t1.micro, the cheapest instance type available. Next, we will
-determine the type of AMI we would like to use. We'll use ami-8c1fece5, the most up-to-date Amazon
+determine the type of AMI we would like to use. We'll use ami-a9d09ed1, the most up-to-date Amazon
 Linux AMI available when we wrote this tutorial. The latest AMI may change over time, but you can
 always determine the latest version AMI by following these steps:
 
-1.  Log into the |console|, click the :guilabel:`EC2` tab, and, from the EC2 Console Dashboard,
-    attempt to launch an instance.
+1.  Open the :console:`Amazon EC2 console <ec2>`.
 
-    .. image:: images/java-spot-recent-ami-1.png
-        :scale: 50
+2.  Choose the :guilabel:`Launch Instance` button.
 
-    AWS Management Console to launch an instance
-
-2.  In the window that displays AMIs, just use the AMI ID as shown in the following screen shot.
+3.  The first window displays the AMIs available. The AMI ID is listed next to each AMI title.
     Alternatively, you can use the :code:`DescribeImages` API, but leveraging that command is
     outside the scope of this tutorial.
-
-    .. image:: images/java-spot-recent-ami-2.png
-        :scale: 50
-
-    Identifying the most-recent AMI
 
 There are many ways to approach bidding for Spot instances; to get a broad overview of the various
 approaches you should view the `Bidding for Spot Instances
@@ -252,17 +238,6 @@ request is populated, you call the :code:`requestSpotInstances` method on the
 
 .. code-block:: java
 
-    // Retrieves the credentials from a AWSCrentials.properties file.
-    AWSCredentials credentials = null;
-    try {
-        credentials = new PropertiesCredentials(
-            GettingStartedApp.class.getResourceAsStream("AwsCredentials.properties"));
-    } catch (IOException e1) {
-        System.out.println("Credentials were not properly entered into AwsCredentials.properties.");
-        System.out.println(e1.getMessage());
-        System.exit(-1);
-    }
-
     // Create the AmazonEC2 client so we can call various APIs.
     AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
@@ -278,8 +253,8 @@ request is populated, you call the :code:`requestSpotInstances` method on the
     // AMI id available. Note, you should always use the latest
     // Amazon Linux AMI id or another of your choosing.
     LaunchSpecification launchSpecification = new LaunchSpecification();
-    launchSpecification.setImageId("ami-8c1fece5");
-    launchSpecification.setInstanceType("t1.micro");
+    launchSpecification.setImageId("ami-a9d09ed1");
+    launchSpecification.setInstanceType(InstanceType.T1Micro);
 
     // Add the security group to the request.
     ArrayList<String> securityGroups = new ArrayList<String>();
@@ -309,7 +284,7 @@ Step 4: Determining the State of Your Spot Request
 Next, we want to create code to wait until the Spot request reaches the "active" state before
 proceeding to the last step. To determine the state of our Spot request, we poll the
 :aws-java-ref:`describeSpotInstanceRequests
-<services/ec2/AmazonEC2Client.html#describeSpotInstanceRequests-->` method for the state of the Spot
+<services/ec2/AmazonEC2Client.html#describeSpotInstanceRequests>` method for the state of the Spot
 request ID we want to monitor.
 
 The request ID created in Step 2 is embedded in the response to our :code:`requestSpotInstances`
@@ -400,8 +375,8 @@ Step 5: Cleaning Up Your Spot Requests and Instances
 Lastly, we need to clean up our requests and instances. It is important to both cancel any
 outstanding requests :emphasis:`and` terminate any instances. Just canceling your requests will not
 terminate your instances, which means that you will continue to pay for them. If you terminate your
-instances, your Spot requests may be canceled, but there are some scenarios |mdash| such as if you
-use persistent bids|mdash|where terminating your instances is not sufficient to stop your request
+instances, your Spot requests may be canceled, but there are some scenarios such as if you
+use persistent bids where terminating your instances is not sufficient to stop your request
 from being re-fulfilled. Therefore, it is a best practice to both cancel any active bids and
 terminate any running instances.
 

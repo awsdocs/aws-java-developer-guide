@@ -36,12 +36,8 @@ installation prerequisites. See :doc:`setup-install` for more information.
 Setting up your credentials
 ===========================
 
-To begin using this code sample, you need to add AWS credentials to the
-:file:`AwsCredentials.properties` file as follows:
-
-1. Open the `AwsCredentials.properties` file.
-
-2. Set your access key / secret key id combination in the :file:`AwsCredentials.properties` file.
+To begin using this code sample, you need to set up AWS credentials.
+See :doc:`setup-credentials` for instructions on how to do that.
 
 .. note:: We recommend that you use the credentials of an IAM user to provide these values. For more
    information, see :doc:`signup-create-iam-user`.
@@ -77,9 +73,6 @@ address indicates the subnet for the specified IP address. We also configure the
 (The following code is the same as what we used in the first tutorial.)
 
 .. code-block:: java
-
-    // Retrieves the credentials from the shared credentials file
-    AWSCredentialsProvider credentials = new ProfileCredentialsProvider("my-profile");
 
     // Create the AmazonEC2Client object so we can call various APIs.
     AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
@@ -177,8 +170,8 @@ method on the :code:`AmazonEC2Client` object. An example of how to request a Spo
     // AMI id available. Note, you should always use the latest
     // Amazon Linux AMI id or another of your choosing.
     LaunchSpecification launchSpecification = new LaunchSpecification();
-    launchSpecification.setImageId("ami-8c1fece5");
-    launchSpecification.setInstanceType("t1.micro");
+    launchSpecification.setImageId("ami-a9d09ed1");
+    launchSpecification.setInstanceType(InstanceType.T1Micro);
 
     // Add the security group to the request.
     ArrayList<String> securityGroups = new ArrayList<String>();
@@ -239,8 +232,8 @@ Spot request. This can be done with the following code.
     // AMI id available. Note, you should always use the latest
     // Amazon Linux AMI id or another of your choosing.
     LaunchSpecification launchSpecification = new LaunchSpecification();
-    launchSpecification.setImageId("ami-8c1fece5");
-    launchSpecification.setInstanceType("t1.micro");
+    launchSpecification.setImageId("ami-a9d09ed1");
+    launchSpecification.setInstanceType(InstanceType.T1Micro);
 
     // Add the security group to the request.
     ArrayList<String> securityGroups = new ArrayList<String>();
@@ -305,8 +298,8 @@ following code example.
     // AMI id available. Note, you should always use the latest
     // Amazon Linux AMI id or another of your choosing.
     LaunchSpecification launchSpecification = new LaunchSpecification();
-    launchSpecification.setImageId("ami-8c1fece5");
-    launchSpecification.setInstanceType("t1.micro");
+    launchSpecification.setImageId("ami-a9d09ed1");
+    launchSpecification.setInstanceType(InstanceType.T1Micro);
 
     // Add the security group to the request.
     ArrayList<String> securityGroups = new ArrayList<String>();
@@ -346,8 +339,8 @@ same Availability Zone. An example of how to set an Availability Zone group foll
     // Note, you should always use the latest Amazon Linux AMI id or another
     // of your choosing.
     LaunchSpecification launchSpecification = new LaunchSpecification();
-    launchSpecification.setImageId("ami-8c1fece5");
-    launchSpecification.setInstanceType("t1.micro");
+    launchSpecification.setImageId("ami-a9d09ed1");
+    launchSpecification.setInstanceType(InstanceType.T1Micro);
 
     // Add the security group to the request.
     ArrayList<String> securityGroups = new ArrayList<String>();
@@ -381,8 +374,8 @@ example shows you how to set an Availability Zone.
     // Note, you should always use the latest Amazon Linux AMI id or another
     // of your choosing.
     LaunchSpecification launchSpecification = new LaunchSpecification();
-    launchSpecification.setImageId("ami-8c1fece5");
-    launchSpecification.setInstanceType("t1.micro");
+    launchSpecification.setImageId("ami-a9d09ed1");
+    launchSpecification.setInstanceType(InstanceType.T1Micro);
 
     // Add the security group to the request.
     ArrayList<String> securityGroups = new ArrayList<String>();
@@ -425,8 +418,8 @@ how to set a placement group follows.
     // of your choosing.
 
     LaunchSpecification launchSpecification = new LaunchSpecification();
-    launchSpecification.setImageId("ami-8c1fece5");
-    launchSpecification.setInstanceType("t1.micro");
+    launchSpecification.setImageId("ami-a9d09ed1");
+    launchSpecification.setInstanceType(InstanceType.T1Micro);
 
     // Add the security group to the request.
     ArrayList<String> securityGroups = new ArrayList<String>();
@@ -502,8 +495,8 @@ that we include in the launch specification.
     // Note, you should always use the latest Amazon Linux AMI id or another
     // of your choosing.
     LaunchSpecification launchSpecification = new LaunchSpecification();
-    launchSpecification.setImageId("ami-8c1fece5");
-    launchSpecification.setInstanceType("t1.micro");
+    launchSpecification.setImageId("ami-a9d09ed1");
+    launchSpecification.setInstanceType(InstanceType.T1Micro);
 
     // Add the security group to the request.
     ArrayList<String> securityGroups = new ArrayList<String>();
