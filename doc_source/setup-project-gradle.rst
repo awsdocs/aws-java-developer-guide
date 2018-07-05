@@ -93,4 +93,5 @@ Here's the complete :file:`build.gradle` file:
    }
 
 .. note:: For more detail about specifying SDK dependencies using the BOM, see
-   the document setup-project-maven.rst._.
+   the document setup-project-maven.rst_.
+   .. _setup-project-maven.rst: https://github.com/ionakathryn/aws-java-developer-guide/blob/master/doc_source/setup-project-maven.rst
