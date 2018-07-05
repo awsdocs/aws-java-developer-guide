@@ -93,4 +93,4 @@ Here's the complete :file:`build.gradle` file:
    }
 
 .. note:: For more detail about specifying SDK dependencies using the BOM, see
-   :doc:`setup-project-maven`.
+   the document setup-project-maven.rst._.
