@@ -92,5 +92,5 @@ Here's the complete :file:`build.gradle` file:
      testCompile group: 'junit', name: 'junit', version: '4.11'
    }
 
-::note: For more detail about specifying SDK dependencies using the BOM, see
-the document Using the SDK with Apache Maven. <https://github.com/awsdocs/aws-java-developer-guide/blob/master/doc_source/setup-project-maven.rst>`_
+For more detail about specifying SDK dependencies using the BOM, see
+the document Using the SDK with Apache Maven. <https://github.com/awsdocs/aws-java-developer-guide/blob/master/doc_source/setup-project-maven.rst>`_.
