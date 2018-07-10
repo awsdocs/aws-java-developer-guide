@@ -17,5 +17,5 @@ BasicSessionCredentials sessionCredentials = new BasicSessionCredentials(
    session_creds.getSessionToken());
 
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
-                        .withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)
+                        .withCredentials(new AWSStaticCredentialsProvider(sessionCredentials))
                         .build();
