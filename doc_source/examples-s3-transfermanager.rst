@@ -99,7 +99,7 @@ providing the following:
 .. uploadFileList() method in the example code...
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 60-69, 71, 73-77
+   :lines: 61-69, 71, 73-77
    :dedent: 8
    :language: java
 
@@ -176,7 +176,7 @@ Use the |xfermgr|'s :methodname:`download` method, providing the
 .. downloadFile() method in the example code...
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
-   :lines: 57-61, 63, 65-69
+   :lines: 59-62, 64, 66-70
    :dedent: 8
    :language: java
 
@@ -207,7 +207,7 @@ into on your local system. If the named directory doesn't exist yet, it will be 
 .. downloadFile() method in the example code...
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
-   :lines: 36-40, 42, 44-48
+   :lines: 37-41, 43, 45-49
    :dedent: 8
    :language: java
 
@@ -254,7 +254,7 @@ occurs.
 .. the waitForCompletion() function in XferMgrProgress.java
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 34-45
+   :lines: 35-46
    :dedent: 8
    :language: java
 
@@ -326,7 +326,7 @@ prints its final state.
 .. the showTransferProgress() function in XferMgrProgress.java
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 56-61, 64-67, 70
+   :lines: 56-62, 65-68, 71-74
    :dedent: 8
    :language: java
 
@@ -359,7 +359,7 @@ object. You can use the object to get the total bytes of the operation by callin
 .. the uploadFileWithListener() function in XferMgrProgress.java
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 146-149, 152-154, 157-159, 162-168
+   :lines: 146-150, 153-155, 158-168
    :dedent: 8
    :language: java
 
@@ -388,7 +388,7 @@ subtransfer.
 .. the showMultiUploadProgress() function in XferMgrProgress.java
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 82-83
+   :lines: 83-84
    :dedent: 8
    :language: java
 
