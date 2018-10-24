@@ -70,7 +70,7 @@ You can set options related to timeouts and handling errors with HTTP connection
 * :strong:`Connection Timeout`
 
   The connection timeout is the amount of time (in milliseconds) that the HTTP connection will wait
-  to establish a connection before giving up. The default is 50,000 ms.
+  to establish a connection before giving up. The default is 10,000 ms.
 
   To set this value yourself, use the :aws-java-ref:`ClientConfiguration.setConnectionTimeout
   <ClientConfiguration.html#setConnectionTimeout-int->` method.
