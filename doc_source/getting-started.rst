@@ -23,4 +23,4 @@ This section provides information about how to install, set up, and use the |sdk
    setup-credentials
    setup-project-maven
    setup-project-gradle
-
+   sdk-metrics

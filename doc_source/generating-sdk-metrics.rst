@@ -8,6 +8,10 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
+.. |CSMlong| replace:: AWS SDK Metrics for Enterprise Support
+.. |CSM| replace:: SDK Metrics
+
+
 ###################################
 Enabling Metrics for the |sdk-java|
 ###################################
@@ -18,10 +22,15 @@ The |sdk-java| can generate metrics for visualization and monitoring with |cw|_ 
 * the performance of your JVMs when used with AWS
 * runtime environment details such as heap memory, number of threads, and opened file descriptors
 
-How to Enable SDK Metric Generation
-===================================
+.. note:: The |CSMlong| is another option for gathering metrics about your application.
+   |CSM| is an |AWS| service that publishes data to |CWlong| and enables you to share metric data with AWS Support
+   for easier troubleshooting. See :doc:`sdk-metrics` to learn how to enable the |CSM|
+   service for your application.
 
-SDK metrics are *disabled by default*. To enable it for your local development environment, include
+How to Enable |sdk-java| Metric Generation
+==========================================
+
+|sdk-java| metrics are *disabled by default*. To enable it for your local development environment, include
 a system property that points to your AWS security credential file when starting up the JVM. For
 example::
 
