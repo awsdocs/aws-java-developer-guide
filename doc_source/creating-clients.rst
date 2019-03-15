@@ -139,8 +139,10 @@ Client Lifecycle
 ================
 
 Service clients in the SDK are thread-safe and, for best performance, you should treat them as
-long-lived objects. Each client has its own connection pool resource that is shut down when the
-client is garbage collected. To explicitly shut down a client, call the
+long-lived objects. Each client has its own connection pool resource.
+Explicitly shut down clients when they are no longer needed to avoid resource leaks.  
+
+To explicitly shut down a client, call the
 :methodname:`shutdown` method. After calling :methodname:`shutdown`, all client resources are
 released and the client is unusable.
 
@@ -151,4 +153,3 @@ released and the client is unusable.
        AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
        ddb.shutdown();
        // Client is now unusable
-
