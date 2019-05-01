@@ -66,7 +66,7 @@ Retrieve temporary security credentials from |STS|
 
        .. code-block:: java
 
-          AWSSecurityTokenServiceClient sts_client = new AWSSecurityTokenServiceClient();
+          AWSSecurityTokenServiceClient sts_client = new AWSSecurityTokenServiceClientBuilder().standard().build();
 
        When creating the client with no arguments, the default credential provider chain is used to
        retrieve credentials. You can provide a specific credential provider if you want. For more
