@@ -13,7 +13,7 @@
 ##########
 
 .. meta::
-    :description: Developer Guide for the AWS SDK for Java
+    :description: Describes the various features of the SDK and how to use them.
     :keywords: java, sdk, aws
 
 .. toctree::
