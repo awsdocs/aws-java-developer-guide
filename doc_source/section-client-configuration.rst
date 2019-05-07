@@ -127,5 +127,4 @@ explicitly raise the maximum TCP buffer size limit.
 Many resources are available to help with configuring TCP buffer sizes and operating system-specific
 TCP settings, including the following:
 
-* `TCP Tuning and Network Troubleshooting <http://www.onlamp.com/pub/a/onlamp/2005/11/17/tcp_tuning.html>`_
 * `Host Tuning <http://fasterdata.es.net/host-tuning/>`_
