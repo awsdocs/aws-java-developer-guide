@@ -132,7 +132,7 @@ Default Region Provider Chain
 #. Any explicit region set by using :methodname:`withRegion` or :methodname:`setRegion` on the builder
    itself takes precedence over anything else.
 
-#. The :envvar:`AWS_DEFAULT_REGION` environment variable is checked. If it's set, that region is
+#. The :envvar:`AWS_REGION` environment variable is checked. If it's set, that region is
    used to configure the client.
 
    .. note:: This environment variable is set by the |LAM| container.
