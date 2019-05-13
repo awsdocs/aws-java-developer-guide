@@ -83,7 +83,7 @@ signing up for AWS and creating an |IAM| user (recommended over using root accou
 This tutorial uses the terminal (command-line) to run the example code, and expects that you have
 your AWS credentials and configuration accessible to the SDK. The easiest way to do this is to use
 the environment variables :envvar:`AWS_ACCESS_KEY_ID` and :envvar:`AWS_SECRET_ACCESS_KEY`. You
-should also set the :envvar:`AWS_DEFAULT_REGION` to the region you want to use.
+should also set the :envvar:`AWS_REGION` to the region you want to use.
 
 For example, on |unixes|, set the variables this way:
 
@@ -91,7 +91,7 @@ For example, on |unixes|, set the variables this way:
 
     export AWS_ACCESS_KEY_ID=your_access_key_id
     export AWS_SECRET_ACCESS_KEY=your_secret_access_key
-    export AWS_DEFAULT_REGION=us-east-1
+    export AWS_REGION=us-east-1
 
 To set these variables on Windows, use these commands:
 
@@ -99,7 +99,7 @@ To set these variables on Windows, use these commands:
 
     set AWS_ACCESS_KEY_ID=your_access_key_id
     set AWS_SECRET_ACCESS_KEY=your_secret_access_key
-    set AWS_DEFAULT_REGION=us-east-1
+    set AWS_REGION=us-east-1
 
 .. important:: Substitute your own access key, secret access key and region information for the
    example values shown here.
