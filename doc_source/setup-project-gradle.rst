@@ -28,7 +28,7 @@ use Gradle's improved POM support feature for importing bill of materials (BOM) 
        .. code-block:: groovy
 
           dependencies {
-              implementation 'com.amazonaws:aws-java-sdk-bom:1.11.228'
+              implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.228')
           }
 
     #. Specify the SDK modules that you'll be using in the *dependencies* section
