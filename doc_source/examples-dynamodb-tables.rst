@@ -53,7 +53,8 @@ Create a Table
 Use the :aws-java-class:`DynamoDB client <services/dynamodbv2/AmazonDynamoDB>`'s
 :methodname:`createTable` method to create a new |DDB| table. You need to construct table
 attributes and a table schema, both of which are used to identify the primary key of your table. You
-must also supply initial provisioned throughput values and a table name.
+must also supply initial provisioned throughput values and a table name. Only define key table attributes 
+when creating your |DDB| table.
 
 .. note:: If a table with the name you chose already exists, an
    :aws-java-class:`AmazonServiceException` is thrown.
@@ -71,7 +72,7 @@ must also supply initial provisioned throughput values and a table name.
 Create a Table with a Simple Primary Key
 ----------------------------------------
 
-This code creates a table with a simple primary key ("Name").
+This code creates a table with a simple primary key ("Name"). 
 
 **Code**
 
