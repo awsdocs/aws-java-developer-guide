@@ -33,15 +33,13 @@ Setting an index document is *required*; all other parameters are optional.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetWebsiteConfiguration.java
-   :lines: 15-18
+.. literalinclude:: s3.java1.s3_set_website_config.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetWebsiteConfiguration.java
+.. literalinclude:: s3.java1.s3_set_website_config.main.txt
    :dedent: 8
-   :lines: 31-50
    :language: java
 
 .. note:: Setting a website configuration does not modify the access permissions for your bucket.
@@ -65,15 +63,13 @@ bucket, then :code-java:`null` will be returned.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetWebsiteConfiguration.java
-   :lines: 15-18
+.. literalinclude:: s3.java1.s3_get_website_config.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/GetWebsiteConfiguration.java
+.. literalinclude:: s3.java1.s3_get_website_config.main.txt
    :dedent: 8
-   :lines: 30-46
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <GetWebsiteConfiguration.java>` on GitHub.
@@ -88,15 +84,13 @@ configuration from.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteWebsiteConfiguration.java
-   :lines: 15-17
+.. literalinclude:: s3.java1.s3_delete_website_config.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteWebsiteConfiguration.java
+.. literalinclude:: s3.java1.s3_delete_website_config.main.txt
    :dedent: 8
-   :lines: 29-36
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteWebsiteConfiguration.java>` on GitHub.
