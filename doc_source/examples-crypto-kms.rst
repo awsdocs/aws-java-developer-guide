@@ -41,8 +41,7 @@ Import the following classes for these examples.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 16-31
+.. literalinclude:: s3.java1.s3_encrypt.import.txt
    :language: java
 
 .. _encryption-only-kms:
@@ -57,8 +56,7 @@ managed key for encryption, pass the |KMS| key ID or alias to the
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-  :lines: 237-243
+.. literalinclude:: s3.java1.s3_encrypt.kms_encryption_only_build.txt
   :dedent: 8
   :language: java
 
@@ -67,8 +65,7 @@ Call the :methodname:`putObject` method on the |S3| encryption client to upload 
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-  :lines: 247
+.. literalinclude:: s3.java1.s3_encrypt.kms_encryption_only_put_object.txt
   :dedent: 8
   :language: java
 
@@ -77,12 +74,11 @@ You can retrieve the object using the same client. This example calls the
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-  :lines: 249
+.. literalinclude:: s3.java1.s3_encrypt.kms_encryption_only_retrieve.txt
   :dedent: 8
   :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L236-L250>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
 
 .. _authenticated-encryption-kms:
 
@@ -106,23 +102,21 @@ To enable this mode, specify the :classname:`AuthenticatedEncryption` value in t
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 257-263
+.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_builder.txt
    :dedent: 8
    :language: java
-
+   
 The :classname:`AuthenticatedEncryption` mode can retrieve unencrypted objects and
 objects encrypted with :classname:`EncryptionOnly` mode. The following example shows the
 |S3| encryption client retrieving an unencrypted object.
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 257-270
+.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_put_object.txt
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L256-L271>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
 
 .. _strict-authenticated-encryption-kms:
 
@@ -138,8 +132,15 @@ To enable this mode, specify the :classname:`StrictAuthenticatedEncryption` valu
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 278-284
+.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_strict_builder.txt
+   :dedent: 8
+   :language: java
+   
+Call the :methodname:`putObject` method on the |S3| encryption client to upload objects.
+
+**Code**
+
+.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_strict_put_object.txt
    :dedent: 8
    :language: java
 
@@ -149,9 +150,8 @@ authenticated mode.
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 278-295
+.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_strict_exception.txt
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L278-L296>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
