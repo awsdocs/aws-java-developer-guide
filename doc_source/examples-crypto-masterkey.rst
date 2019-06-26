@@ -40,8 +40,7 @@ Import the following classes for these examples.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 16-24,26-31
+.. literalinclude:: s3.java1.s3_encrypt.import.txt
    :language: java
 
 .. _encryption-only:
@@ -67,8 +66,7 @@ To use an asymmetric key or a key pair, simply pass the key pair to the same
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-  :lines: 217-223
+.. literalinclude:: s3.java1.s3_encrypt.encryption_only_asymetric_key_build.txt
   :dedent: 8
   :language: java
 
@@ -76,8 +74,7 @@ Call the :methodname:`putObject` method on the |S3| encryption client to upload 
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-  :lines: 227
+.. literalinclude:: s3.java1.s3_encrypt.encryption_only_asymetric_key_put_object.txt
   :dedent: 8
   :language: java
 
@@ -86,12 +83,11 @@ You can retrieve the object using the same client. This example calls the
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-  :lines: 229
+.. literalinclude:: s3.java1.s3_encrypt.encryption_only_asymetric_key_retrieve.txt
   :dedent: 8
   :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L216-L230>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
 
 .. _authenticated-encryption:
 
@@ -114,8 +110,7 @@ To enable this mode, specify the :classname:`AuthenticatedEncryption` value in t
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 67-72
+.. literalinclude:: s3.java1.s3_encrypt.strict_authenticated_encryption_build.txt
    :dedent: 8
    :language: java
 
@@ -125,8 +120,7 @@ objects encrypted with :classname:`EncryptionOnly` mode. The following example s
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 66-79
+.. literalinclude:: s3.java1.s3_encrypt.strict_authenticated_encryption.txt
    :dedent: 8
    :language: java
 
@@ -146,8 +140,7 @@ To enable this mode, specify the :classname:`StrictAuthenticatedEncryption` valu
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 132-137
+.. literalinclude:: s3.java1.s3_encrypt.strict_authenticated_encryption_build.txt
    :dedent: 8
    :language: java
 
@@ -157,9 +150,8 @@ authenticated mode.
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-   :lines: 131-149
+.. literalinclude:: s3.java1.s3_encrypt.strict_authenticated_encryption.txt
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L131-L150>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
