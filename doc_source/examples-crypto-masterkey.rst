@@ -109,7 +109,7 @@ To enable this mode, specify the :classname:`AuthenticatedEncryption` value in t
 
 **Code**
 
-.. literalinclude:: s3.java1.s3_encrypt.strict_authenticated_encryption_build.txt
+.. literalinclude:: s3.java1.s3_encrypt.authenticated_encryption_build.txt
    :dedent: 8
    :language: java
 
@@ -119,7 +119,7 @@ objects encrypted with :classname:`EncryptionOnly` mode. The following example s
 
 **Code**
 
-.. literalinclude:: s3.java1.s3_encrypt.strict_authenticated_encryption.txt
+.. literalinclude:: s3.java1.s3_encrypt.authenticated_encryption.txt
    :dedent: 8
    :language: java
 
