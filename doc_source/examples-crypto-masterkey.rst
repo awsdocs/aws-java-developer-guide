@@ -55,8 +55,7 @@ the :class:`KeyGenerator` Java class generate a symmetric private key.
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java
-  :lines: 198-204
+.. literalinclude:: s3.java1.s3_encrypt.encryption_only.txt
   :dedent: 8
   :language: java
 
