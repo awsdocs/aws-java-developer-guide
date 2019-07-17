@@ -30,9 +30,8 @@ attempt a graceful shutdown of the activity worker.
 
 Here is the complete code:
 
-.. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/ActivityWorkerWithGracefulShutdown.java
+.. literalinclude:: swf.java.activity_worker_with_graceful_shutdown.complete.txt
     :language: java
-    :lines: 16-
 
 In this version, the polling code that was in the ``main`` function in the original version has been
 moved into its own method, ``pollAndExecute``.

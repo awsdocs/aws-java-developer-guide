@@ -185,17 +185,15 @@ interest of time, these steps *will be implied every time you add a new file to 
 #. Add a :code-java:`package` declaration to the beginning of each file to declare its namespace.
    The example project uses:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/HelloTypes.java
+   .. literalinclude:: swf.java.hello_types.package.txt
        :language: java
-       :lines: 16
 
 #. Add :code-java:`import` declarations for the :aws-java-class:`AmazonSimpleWorkflowClient
    <services/simpleworkflow/AmazonSimpleWorkflowClient>` class and for multiple classes in the
    ``com.amazonaws.services.simpleworkflow.model`` namespace. To simplify things, we'll use:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/HelloTypes.java
+   .. literalinclude:: swf.java.hello_types.import.txt
        :language: java
-       :lines: 18-20
 
 .. _swf-hello-hellotypes:
 
@@ -212,9 +210,8 @@ your activity and workflow types, the domain name and the task list name.
 #. Declare the :classname:`HelloTypes` class and provide it with values to use for your registered
    activity and workflow types:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/HelloTypes.java
+   .. literalinclude:: swf.java.hello_types.string_declare.txt
        :language: java
-       :lines: 22-28, 83
 
    These values will be used throughout the code.
 
@@ -222,18 +219,16 @@ your activity and workflow types, the domain name and the task list name.
    <services/simpleworkflow/AmazonSimpleWorkflowClient>` class. This is the basic interface to the
    |SWF| methods provided by the |sdk-java|.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/HelloTypes.java
+   .. literalinclude:: swf.java.hello_types.client.txt
        :language: java
-       :lines: 30-31
        :dedent: 4
 
 #. Add a new function to register a SWF domain. A *domain* is a logical container for a number of
    related SWF activity and workflow types. SWF components can only communicate with each other if
    they exist within the same domain.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/HelloTypes.java
+   .. literalinclude:: swf.java.hello_types.new_function.txt
        :language: java
-       :lines: 33-42
        :dedent: 4
 
    When you register a domain, you provide it with a *name* (any set of 1 |ndash| 256 characters
@@ -254,9 +249,8 @@ your activity and workflow types, the domain name and the task list name.
 #. Add a function to register a new activity type. An *activity* represents a unit of work in your
    workflow.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/HelloTypes.java
+   .. literalinclude:: swf.java.hello_types.new_activity_type.txt
        :language: java
-       :lines: 44-60
        :dedent: 4
 
    An activity type is identified by a *name* and a *version*, which are used to uniquely identify
@@ -276,9 +270,8 @@ your activity and workflow types, the domain name and the task list name.
 #. Add a function to register a new workflow type. A *workflow*, also known as a *decider*
    represents the logic of your workflow's execution.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/HelloTypes.java
+   .. literalinclude:: swf.java.hello_types.new_workflow_type.txt
        :language: java
-       :lines: 62-76
        :dedent: 4
 
    Similar to activity types, workflow types are identified by a *name* and a *version* and also
@@ -292,9 +285,8 @@ your activity and workflow types, the domain name and the task list name.
 #. Finally, make the class executable by providing it a :code-java:`main` method, which will register the
    domain, the activity type, and the workflow type in turn:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/HelloTypes.java
+   .. literalinclude:: swf.java.hello_types.main.txt
        :language: java
-       :lines: 78-82
        :dedent: 4
 
 You can :ref:`build <swf-hello-build>` and :ref:`run <swf-hello-run-register>` the application now
@@ -319,19 +311,20 @@ We'll implement a simple activity worker that drives a single activity.
 
 #. Open your text editor and create the file :file:`ActivityWorker.java`, adding a package
    declaration and imports according to the :ref:`common steps <swf-hello-common>`.
+   
+   .. literalinclude:: swf.java.activity_worker.import.txt
+       :language: java
 
 #. Add the :classname:`ActivityWorker` class to the file, and give it a data member to hold a SWF
    client that we'll use to interact with |SWF|:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/ActivityWorker.java
+   .. literalinclude:: swf.java.activity_worker.client.txt
        :language: java
-       :lines: 22-24, 75
 
 #. Add the method that we'll use as an activity:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/ActivityWorker.java
+   .. literalinclude:: swf.java.activity_worker.sayHello.txt
        :language: java
-       :lines: 26-28
        :dedent: 4
 
    The activity simply takes a string, combines it into a greeting and returns the result. Although
@@ -341,9 +334,8 @@ We'll implement a simple activity worker that drives a single activity.
 #. Add a :methodname:`main` method that we'll use as the activity task polling method. We'll start
    it by adding some code to poll the task list for activity tasks:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/ActivityWorker.java
+   .. literalinclude:: swf.java.activity_worker.poll_method.txt
        :language: java
-       :lines: 30-42, 74
        :dedent: 4
 
    The activity receives tasks from |SWF| by calling the SWF client's
@@ -358,10 +350,9 @@ We'll implement a simple activity worker that drives a single activity.
    :methodname:`main` method, right after the code that polls for the task and retrieves its task
    token.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/ActivityWorker.java
+   .. literalinclude:: swf.java.activity_worker.process_tasks.txt
        :language: java
-       :lines: 44-72
-       :dedent: 12
+       :dedent: 8
 
    If the task token is not :code-java:`null`, then we can start running the activity method
    (:methodname:`sayHello`), providing it with the input data that was sent with the task.
@@ -397,26 +388,23 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 
 #. Add a few additional imports to the file:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/WorkflowWorker.java
+   .. literalinclude:: swf.java.workflow_worker.import.txt
        :language: java
-       :lines: 21-23
 
 #. Declare the :classname:`WorkflowWorker` class, and create an instance of the
    :aws-java-class:`AmazonSimpleWorkflowClient <services/simpleworkflow/AmazonSimpleWorkflowClient>` class
    used to access SWF methods.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/WorkflowWorker.java
+   .. literalinclude:: swf.java.workflow_worker.client.txt
        :language: java
-       :lines: 25-27, 139
 
 #. Add the :methodname:`main` method. The method loops continuously, polling for decision tasks
    using the SWF client's :methodname:`pollForDecisionTask` method. The
    :aws-java-class:`PollForDecisionTaskRequest <services/simpleworkflow/model/PollForDecisionTaskRequest>`
    provides the details.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/WorkflowWorker.java
+   .. literalinclude:: swf.java.workflow_worker.main.txt
        :language: java
-       :lines: 29-52
        :dedent: 4
 
    Once a task is received, we call its :methodname:`getTaskToken` method, which returns a string
@@ -428,9 +416,8 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 #. Add the :methodname:`executeDecisionTask` method, taking the task token (a :classname:`String`)
    and the :classname:`HistoryEvent` list.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/WorkflowWorker.java
+   .. literalinclude:: swf.java.workflow_worker.execute_decision_task_token.txt
        :language: java
-       :lines: 60-67, 138
        :dedent: 4
 
    We also set up some data members to keep track of things such as:
@@ -447,9 +434,8 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
    objects that were sent with the task, based on the event type reported by the
    :methodname:`getEventType` method.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/WorkflowWorker.java
+   .. literalinclude:: swf.java.workflow_worker.execute_decision_task_history_events.txt
        :language: java
-       :lines: 69-102
        :dedent: 8
 
    For the purposes of our workflow, we are most interested in:
@@ -480,9 +466,8 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
 #. After the :code-java:`switch` statement, add more code to respond with an appropriate *decision*
    based on the task that was received.
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/WorkflowWorker.java
+   .. literalinclude:: swf.java.workflow_worker.task_decision.txt
        :language: java
-       :lines: 104-132
        :dedent: 8
 
    * If the activity hasn't been scheduled yet, we respond with a :classname:`ScheduleActivityTask`
@@ -505,9 +490,8 @@ schedule a new activity or not) and takes an appropriate action (such as schedul
    processing the task. Add this code at the end of the :methodname:`executeDecisionTask` method
    that we've been writing:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/WorkflowWorker.java
+   .. literalinclude:: swf.java.workflow_worker.return_decision_objects.txt
        :language: java
-       :lines: 134-138
        :dedent: 8
 
    The SWF client's :methodname:`respondDecisionTaskCompleted` method takes the task token that
@@ -524,9 +508,8 @@ Finally, we'll write some code to start the workflow execution.
 
 #. Add the :classname:`WorkflowStarter` class:
 
-   .. literalinclude:: example_code/swf/src/main/java/aws/example/helloswf/WorkflowStarter.java
+   .. literalinclude:: swf.java.workflow_starter.complete.txt
        :language: java
-       :lines: 22-
 
    The :classname:`WorkflowStarter` class consists of a single method, :methodname:`main`, which
    takes an optional argument passed on the command-line as input data for the workflow.
