@@ -51,16 +51,14 @@ represents the file to upload.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 16-18, 20
+.. literalinclude:: s3.java1.s3_xfer_mgr_upload.import.txt
    :language: java
 
 **Code**
 
 .. uploadFile() method in the example code...
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 93-97, 99, 101-105
+.. literalinclude:: s3.java1.s3_xfer_mgr_upload.single.txt
    :dedent: 8
    :language: java
 
@@ -90,16 +88,14 @@ providing the following:
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 16-17, 19-21
+.. literalinclude:: s3.java1.s3_xfer_mgr_upload.import.txt
    :language: java
 
 **Code**
 
 .. uploadFileList() method in the example code...
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 61-69, 71, 73-77
+.. literalinclude:: s3.java1.s3_xfer_mgr_upload.list_of_files.txt
    :dedent: 8
    :language: java
 
@@ -123,16 +119,14 @@ recursively (*true* or *false*).
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 16-20
+.. literalinclude:: s3.java1.s3_xfer_mgr_upload.import.txt
    :language: java
 
 **Code**
 
 .. uploadDir() method in the example code...
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrUpload.java
-   :lines: 38-42, 44, 46-50
+.. literalinclude:: s3.java1.s3_xfer_mgr_upload.directory.txt
    :dedent: 8
    :language: java
 
@@ -167,16 +161,14 @@ Use the |xfermgr|'s :methodname:`download` method, providing the
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
-   :lines: 16-18, 20
+.. literalinclude:: s3.java1.s3_xfer_mgr_download.import.txt
    :language: java
 
 **Code**
 
 .. downloadFile() method in the example code...
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
-   :lines: 59-62, 64, 66-70
+.. literalinclude:: s3.java1.s3_xfer_mgr_download.single.txt
    :dedent: 8
    :language: java
 
@@ -198,16 +190,14 @@ into on your local system. If the named directory doesn't exist yet, it will be 
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
-   :lines: 16-17, 19-20
+.. literalinclude:: s3.java1.s3_xfer_mgr_download.import.txt
    :language: java
 
 **Code**
 
 .. downloadFile() method in the example code...
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrDownload.java
-   :lines: 37-41, 43, 45-49
+.. literalinclude:: s3.java1.s3_xfer_mgr_download.directory.txt
    :dedent: 8
    :language: java
 
@@ -225,16 +215,14 @@ To copy an object from one S3 bucket to another, use the |xfermgr| :methodname:`
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrCopy.java
-   :lines: 16-18
+.. literalinclude:: s3.java1.s3_xfer_mgr_copy.import.txt
    :language: java
 
 **Code**
 
 .. copyObjectSimple() method in the example code...
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrCopy.java
-   :lines: 35-38, 40, 42-46
+.. literalinclude:: s3.java1.s3_xfer_mgr_copy.copy_object.txt
    :dedent: 8
    :language: java
 
@@ -253,8 +241,7 @@ occurs.
 
 .. the waitForCompletion() function in XferMgrProgress.java
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 35-46
+.. literalinclude:: s3.java1.s3_xfer_mgr_progress.wait_for_transfer.txt
    :dedent: 8
    :language: java
 
@@ -317,16 +304,14 @@ prints its final state.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 22
+.. literalinclude:: s3.java1.s3_xfer_mgr_progress.import.txt
    :language: java
 
 **Code**
 
 .. the showTransferProgress() function in XferMgrProgress.java
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 56-62, 65-68, 71-74
+.. literalinclude:: s3.java1.s3_xfer_mgr_progress.poll.txt
    :dedent: 8
    :language: java
 
@@ -350,16 +335,14 @@ object. You can use the object to get the total bytes of the operation by callin
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 16-18, 23, 25
+.. literalinclude:: s3.java1.s3_xfer_mgr_progress.import.txt
    :language: java
 
 **Code**
 
 .. the uploadFileWithListener() function in XferMgrProgress.java
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 146-150, 153-155, 158-168
+.. literalinclude:: s3.java1.s3_xfer_mgr_progress.progress_listener.txt
    :dedent: 8
    :language: java
 
@@ -379,16 +362,14 @@ subtransfer.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 23-24, 26-27
+.. literalinclude:: s3.java1.s3_xfer_mgr_progress.import.txt
    :language: java
 
 **Code**
 
 .. the showMultiUploadProgress() function in XferMgrProgress.java
 
-.. literalinclude:: example_code/s3/src/main/java/aws/example/s3/XferMgrProgress.java
-   :lines: 83-84
+.. literalinclude:: s3.java1.s3_xfer_mgr_progress.substranferes.txt
    :dedent: 8
    :language: java
 
