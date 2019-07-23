@@ -115,7 +115,7 @@ Create a SWF project
    .. code-block:: sh
 
        mvn archetype:generate -DartifactId=helloswf \
-       -DgroupId=example.swf.hello -DinteractiveMode=false
+       -DgroupId=aws.example.helloswf -DinteractiveMode=false
 
    This will create a new project with a standard maven project structure:
 
@@ -126,9 +126,9 @@ Create a SWF project
        └── src
            ├── main
            │   └── java
-           │       └── example
-           │           └── swf
-           │               └── hello
+           │       └── aws
+           │           └── example
+           │               └── helloswf
            │                   └── App.java
            └── test
                └── ...
