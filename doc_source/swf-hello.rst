@@ -200,7 +200,7 @@ interest of time, these steps *will be implied every time you add a new file to 
 Register a domain, workflow and activity types
 ----------------------------------------------
 
-We'll begin by creating a new executeable class, :file:`HelloTypes.java`. This file will contain shared
+We'll begin by creating a new executable class, :file:`HelloTypes.java`. This file will contain shared
 data that different parts of your workflow will need to know about, such as the name and version of
 your activity and workflow types, the domain name and the task list name.
 
