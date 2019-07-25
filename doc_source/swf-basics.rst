@@ -34,7 +34,7 @@ Basic |SWF| applications will require the following dependencies, which are incl
    you have, but the versions that are supplied with the SDK have been tested for compatibility, and
    are the ones you should use.
 
-|jflow| applications require additonal setup, *and* additional dependencies. See the |jflow-dg|_ for
+|jflow| applications require additional setup, *and* additional dependencies. See the |jflow-dg|_ for
 more information about using the framework.
 
 Imports
