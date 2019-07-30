@@ -580,7 +580,7 @@ applications.
    java -cp target/helloswf-1.0.jar:/path/to/sdk/lib/*:/path/to/sdk/third-party/lib/* \
      example.swf.hello.HelloTypes
 
-The style that you use is up to you. If you had no trouble building the code, buth then try to run
+The style that you use is up to you. If you had no trouble building the code, both then try to run
 the examples and get a series of "NoClassDefFound" errors, it is likely because the classpath is set
 incorrectly.
 
