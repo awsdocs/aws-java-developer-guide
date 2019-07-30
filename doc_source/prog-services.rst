@@ -12,7 +12,14 @@
 |sdk-java| Code Examples
 ########################
 
-This section provides tutorials and examples of using the |sdk-java| to program AWS services.
+This section provides tutorials and examples of using the |sdk-java| v1 to program AWS services.
+
+AWS SDK for Java 2.x
+=====================
+In 2018, AWS released |sdk-java| v2. For more AWS examples, see the `AWS SDK for Java 2.x Developer Guide`_.
+
+.. _`aws sdk for java 2.x developer guide`: http://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
+
 
 .. tip:: See :ref:`additional-resources` for more examples and additional resources available for
    |sdk-java| developers!
