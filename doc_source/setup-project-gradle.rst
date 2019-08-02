@@ -59,7 +59,7 @@ Here's the complete :file:`build.gradle` file:
    }
 
    dependencies {
-       implementation 'com.amazonaws:aws-java-sdk-bom:1.11.228'
+       implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.228')
        implementation 'com.amazonaws:aws-java-sdk-s3'
        testCompile group: 'junit', name: 'junit', version: '4.11'
    }
