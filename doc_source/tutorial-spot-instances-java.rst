@@ -188,7 +188,7 @@ always determine the latest version AMI by following these steps:
     Alternatively, you can use the :code:`DescribeImages` API, but leveraging that command is
     outside the scope of this tutorial.
 
-There are many ways to approach bidding for Spot instances; to get a broad overview of the various
+There are many ways to approach bidding for Spot Instances; to get a broad overview of the various
 approaches you should view the `Bidding for Spot Instances
 <https://www.youtube.com/watch?v=WD9N73F3Fao&feature=player_embedded>`_ video. However, to get
 started, we'll describe three common strategies: bid to ensure cost is less than on-demand pricing;

@@ -16,9 +16,9 @@
 Tutorial: Advanced |EC2| Spot Request Management
 ################################################
 
-|EC2| spot instances allow you to bid on unused |EC2| capacity and run those instances for as long
+|EC2| Spot Instances allow you to bid on unused |EC2| capacity and run those instances for as long
 as your bid exceeds the current *spot price*. |EC2| changes the spot price periodically based on
-supply and demand. For more information about spot instances, see :ec2-ug:`Spot Instances
+supply and demand. For more information about Spot Instances, see :ec2-ug:`Spot Instances
 <using-spot-instances>` in the |EC2-ug|.
 
 
@@ -139,7 +139,7 @@ sample. Note you only need to run this application once to create a new security
 
 .. _tutor-spot-adv-req-opts:
 
-Detailed spot instance request creation options
+Detailed Spot Instance request creation options
 ===============================================
 
 As we explained in :doc:`tutorial-spot-instances-java`, you need to build your request with an
@@ -149,7 +149,7 @@ Let's start by creating a :code:`RequestSpotInstanceRequest` object. The request
 number of instances you want and the bid price. Additionally, we need to set the
 :code:`LaunchSpecification` for the request, which includes the instance type, AMI ID, and security
 group you want to use. After the request is populated, we call the :code:`requestSpotInstances`
-method on the :code:`AmazonEC2Client` object. An example of how to request a Spot instance follows.
+method on the :code:`AmazonEC2Client` object. An example of how to request a Spot Instance follows.
 
 (The following code is the same as what we used in the first tutorial.)
 
@@ -265,13 +265,13 @@ period is shown in the following code.
 
 .. _tutor-spot-adv-grouping:
 
-Grouping your |EC2| spot instance requests
+Grouping your |EC2| Spot Instance requests
 ==========================================
 
-You have the option of grouping your Spot instance requests in several different ways. We'll look at
+You have the option of grouping your Spot Instance requests in several different ways. We'll look at
 the benefits of using launch groups, Availability Zone groups, and placement groups.
 
-If you want to ensure your Spot instances are all launched and terminated together, then you have
+If you want to ensure your Spot Instances are all launched and terminated together, then you have
 the option to leverage a launch group. A launch group is a label that groups a set of bids together.
 All instances in a launch group are started and terminated together. Note, if instances in a launch
 group have already been fulfilled, there is no guarantee that new instances launched with the same
@@ -396,7 +396,7 @@ example shows you how to set an Availability Zone.
         ec2.requestSpotInstances(requestRequest);
 
 Lastly, you can specify a :emphasis:`placement group` if you are using High Performance Computing
-(HPC) Spot instances, such as cluster compute instances or cluster GPU instances. Placement groups
+(HPC) Spot Instances, such as cluster compute instances or cluster GPU instances. Placement groups
 provide you with lower latency and high-bandwidth connectivity between the instances. An example of
 how to set a placement group follows.
 
@@ -452,7 +452,7 @@ class.
 How to persist a root partition after interruption or termination
 =================================================================
 
-One of the easiest ways to manage interruption of your Spot instances is to ensure that your data is
+One of the easiest ways to manage interruption of your Spot Instances is to ensure that your data is
 checkpointed to an |EBSlong| (|EBS|) volume on a regular cadence. By checkpointing periodically, if
 there is an interruption you will lose only the data created since the last checkpoint (assuming no
 other non-idempotent actions are performed in between). To make this process easier, you can
@@ -528,7 +528,7 @@ that we include in the launch specification.
 
 Assuming you wanted to re-attach this volume to your instance on startup, you can also use the block
 device mapping settings. Alternatively, if you attached a non-root partition, you can specify the
-Amazon EBS volumes you want to attach to your Spot instance after it resumes. You do this simply by
+Amazon EBS volumes you want to attach to your Spot Instance after it resumes. You do this simply by
 specifying a snapshot ID in your :code:`EbsBlockDevice` and alternative device name in your
 :code:`BlockDeviceMapping` objects. By leveraging block device mappings, it can be easier to
 bootstrap your instance.
@@ -605,7 +605,7 @@ Canceling spot requests and terminating instances
 Canceling a spot request
 ------------------------
 
-To cancel a spot instance request, call :methodname:`cancelSpotInstanceRequests` on the EC2 client
+To cancel a Spot Instance request, call :methodname:`cancelSpotInstanceRequests` on the EC2 client
 with a :aws-java-class:`CancelSpotInstanceRequestsRequest
 <services/ec2/model/CancelSpotInstanceRequestsRequest>` object.
 
@@ -613,10 +613,10 @@ with a :aws-java-class:`CancelSpotInstanceRequestsRequest
    :lines: 18-27
    :language: java
 
-Terminating spot instances
+Terminating Spot Instances
 --------------------------
 
-You can terminate any spot instances that are running by passing their IDs to the EC2 client's
+You can terminate any Spot Instances that are running by passing their IDs to the EC2 client's
 :methodname:`terminateInstances()` method.
 
 .. literalinclude:: snippets/ec2/cancel-terminate-spot-request.java
