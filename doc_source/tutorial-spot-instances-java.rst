@@ -17,11 +17,11 @@ Tutorial: |EC2| Spot Instances
 Overview
 ========
 
-Spot Instances allow you to bid on unused |EC2long| (|EC2|) capacity and run the acquired instances
-for as long as your bid exceeds the current :emphasis:`Spot Price`. |EC2| changes the Spot Price
-periodically based on supply and demand, and customers whose bids meet or exceed it gain access to
-the available Spot Instances. Like On-Demand Instances and Reserved Instances, Spot Instances
-provide you another option for obtaining more compute capacity.
+Spot Instances enable you to bid on unused |EC2long| (|EC2|) capacity  t up to 90% versus the On-Demand 
+Instance price and run the acquired instances for as long as your bid exceeds the current 
+:emphasis:`Spot Price`. |EC2| changes the Spot Price periodically based on supply and demand, and customers 
+whose bids meet or exceed it gain access to the available Spot Instances. Like On-Demand Instances and 
+Reserved Instances, Spot Instances provide you another option for obtaining more compute capacity.
 
 Spot Instances can significantly lower your |EC2| costs for batch processing, scientific research,
 image processing, video encoding, data and web crawling, financial analysis, and testing.
@@ -207,10 +207,10 @@ quickly as possible.
         On-Demand price), anticipating that your one-time Spot request would most likely be
         fulfilled and run for enough consecutive compute time to complete the job.
 
-    *   Or, you could bid at the lower end of the price range, and plan to combine many instances
-        launched over time through a persistent request. The instances would run long enough--in
-        aggregate--to complete the job at an even lower total cost. (We will explain how to automate
-        this task later in this tutorial.)
+    *   Or, you could specify the amount you are willing to pay for Spot Instances as a % of the On-Demand Instance price
+    , and plan to combine many instances launched over time through a persistent request. If the specified
+    price is exceeded, then the Spot Instance will terminate. (We will explain how to automate this task 
+    later in this tutorial.)
 
 *   :emphasis:`Pay No More than the Value of the Result` You have a data processing job to run. You
     understand the value of the job's results well enough to know how much they are worth in terms
@@ -228,7 +228,10 @@ quickly as possible.
 After you choose your bid price, you are ready to request a Spot Instance. For the purposes of this
 tutorial, we will bid the On-Demand price ($0.03) to maximize the chances that the bid will be
 fulfilled. You can determine the types of available instances and the On-Demand prices for instances
-by going to Amazon EC2 Pricing page. To request a Spot Instance, you simply need to build your
+by going to Amazon EC2 Pricing page. While a Spot Instancee is running, you pay the Spot price that's in effect for 
+the time period your instances are running. Spot Instance prices are set by Amazon EC2 and adjust gradually based 
+on long-term trends in supply and demand for Spot Instance capacity. You can also specify the amount you are willing 
+to pay for a Spot Instance as a % of the On-Demand Instance price.To request a Spot Instance, you simply need to build your
 request with the parameters you chose earlier. We start by creating a
 :code:`RequestSpotInstanceRequest` object. The request object requires the number of instances you
 want to start and the bid price. Additionally, you need to set the :code:`LaunchSpecification` for
