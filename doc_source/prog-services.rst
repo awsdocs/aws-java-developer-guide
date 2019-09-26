@@ -14,6 +14,13 @@
 
 This section provides tutorials and examples of using the |sdk-java| v1 to program AWS services.
 
+Find the source code for these examples and others in the AWS documentation `code examples repository on GitHub <https://github.com/awsdocs/aws-doc-sdk-examples>`_.
+
+To propose a new code example for the AWS documentation team to consider producing, create a new request. 
+The team is looking to produce code examples that cover broader scenarios and use cases, 
+versus simple code snippets that cover only individual API calls. For instructions, 
+see the "Proposing new code examples" section in the `Readme on GitHub <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/README.rst>`_.
+
 AWS SDK for Java 2.x
 =====================
 In 2018, AWS released |sdk-java| v2. For more AWS examples, see the `AWS SDK for Java 2.x Developer Guide`_.

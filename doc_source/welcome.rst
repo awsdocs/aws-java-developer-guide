@@ -58,6 +58,8 @@ developers:
 
   + `Gitter channel <https://gitter.im/aws/aws-sdk-java>`_
 
+* The `AWS Code Sample Catalog <https://docs.aws.amazon.com/code-samples/latest/catalog>`_
+
 * `@awsforjava (Twitter) <https://twitter.com/awsforjava>`_
 
 * `release notes <https://github.com/aws/aws-sdk-java#release-notes>`_

@@ -42,7 +42,7 @@ and pass that object to the
    :dedent: 2
    :language: java
 
-See the :sdk-examples-java-pinpoint:`complete example <CreateApp.java>` on GitHub.
+See the :sdk-examples-java-pinpoint:`complete example <UpdateChannel.java>` on GitHub.
 
 
 More Information

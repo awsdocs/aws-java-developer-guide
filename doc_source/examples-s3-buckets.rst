@@ -42,13 +42,13 @@ exception if the bucket already exists.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
-   :lines: 15-19
+   :lines: 26-32
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
-   :lines: 42-54
+   :lines: 54-66
    :dedent: 8
    :language: java
 
@@ -66,13 +66,13 @@ Use the |s3client| client's :methodname:`listBucket` method. If successful, a li
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
-   :lines: 15-19
+   :lines: 26-31
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
-   :lines: 30-36
+   :lines: 41-46
    :dedent: 8
    :language: java
 
@@ -104,13 +104,13 @@ delete each one.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 15-17, 19-20, 23
+   :lines: 26-32
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 51, 53-70, 94-97
+   :lines: 61-80
    :dedent: 8
    :language: java
 
@@ -130,18 +130,17 @@ objects, and then :methodname:`deleteVersion` to delete each one.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 15-23
+   :lines: 26-32
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 51, 53-90, 94-97
+   :lines: 78-96
    :dedent: 8
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>` on GitHub.
-
 
 Delete an Empty Bucket
 ----------------------
@@ -152,13 +151,13 @@ bucket itself by using the |s3client| client's :methodname:`deleteBucket` method
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 15-17
+   :lines: 26-32
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 51, 53, 93-97
+   :lines: 98-104
    :dedent: 8
    :language: java
 
