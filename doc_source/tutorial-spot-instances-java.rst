@@ -208,9 +208,9 @@ quickly as possible.
         fulfilled and run for enough consecutive compute time to complete the job.
 
     *   Or, you could specify the amount you are willing to pay for Spot Instances as a % of the On-Demand Instance price
-    , and plan to combine many instances launched over time through a persistent request. If the specified
-    price is exceeded, then the Spot Instance will terminate. (We will explain how to automate this task 
-    later in this tutorial.)
+        , and plan to combine many instances launched over time through a persistent request. If the specified
+        price is exceeded, then the Spot Instance will terminate. (We will explain how to automate this task 
+        later in this tutorial.)
 
 *   :emphasis:`Pay No More than the Value of the Result` You have a data processing job to run. You
     understand the value of the job's results well enough to know how much they are worth in terms

@@ -10,8 +10,6 @@
 
 .. |language| replace:: Java
 .. |sdk| replace:: |sdk-java|
-.. |SDKM| replace:: SDK Metrics
-.. |SDKMlong| replace:: AWS SDK Metrics for Enterprise Support
 
 ####################
 Enabling |SDKMlong|

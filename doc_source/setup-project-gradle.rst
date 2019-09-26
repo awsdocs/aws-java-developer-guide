@@ -12,7 +12,7 @@
 Using the SDK with Gradle
 #########################
 
-`Since Gradle_ 4.6<https://docs.gradle.org/4.6/release-notes.html#bom-import>`_ it is possible to
+`Since Gradle 4.6 <https://docs.gradle.org/4.6/release-notes.html#bom-import>`_ it is possible to
 use Gradle's improved POM support feature for importing bill of materials (BOM) files by simply declaring a dependency on a BOM.
 
 .. topic:: To configure the SDK for Gradle 4.6 and upper

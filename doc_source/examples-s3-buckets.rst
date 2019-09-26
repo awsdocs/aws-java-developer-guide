@@ -42,18 +42,17 @@ exception if the bucket already exists.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
-   :lines: 26-32
+   :lines: 16-22
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CreateBucket.java
-   :lines: 54-66
+   :lines: 46-56
    :dedent: 8
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <CreateBucket.java>` on GitHub.
-
 
 .. _list-buckets:
 
@@ -66,18 +65,17 @@ Use the |s3client| client's :methodname:`listBucket` method. If successful, a li
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
-   :lines: 26-31
+   :lines: 16-21
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/ListBuckets.java
-   :lines: 41-46
+   :lines: 32-36
    :dedent: 8
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <ListBuckets.java>` on GitHub.
-
 
 .. _delete-bucket:
 
@@ -104,14 +102,14 @@ delete each one.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 26-32
+   :lines: 16-22
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 61-80
-   :dedent: 8
+   :lines: 50-66
+   :dedent: 12
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>` on GitHub.
@@ -130,14 +128,14 @@ objects, and then :methodname:`deleteVersion` to delete each one.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 26-32
+   :lines: 16-22
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 78-96
-   :dedent: 8
+   :lines: 68-86
+   :dedent: 12
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>` on GitHub.
@@ -151,14 +149,14 @@ bucket itself by using the |s3client| client's :methodname:`deleteBucket` method
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 26-32
+   :lines: 16-22
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/DeleteBucket.java
-   :lines: 98-104
-   :dedent: 8
+   :lines: 88-89
+   :dedent: 12
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <DeleteBucket.java>` on GitHub.
