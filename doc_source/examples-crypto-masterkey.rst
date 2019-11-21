@@ -56,7 +56,7 @@ the :class:`KeyGenerator` Java class generate a symmetric private key.
 **Code**
 
 .. literalinclude:: s3.java1.s3_encrypt.encryption_only.txt
-  :dedent: 8
+  :dedent: 4
   :language: java
 
 To use an asymmetric key or a key pair, simply pass the key pair to the same
