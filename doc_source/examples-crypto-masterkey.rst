@@ -120,7 +120,7 @@ objects encrypted with :classname:`EncryptionOnly` mode. The following example s
 **Code**
 
 .. literalinclude:: s3.java1.s3_encrypt.authenticated_encryption.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3Encrypt.java#L66-L80>` on GitHub.
@@ -150,7 +150,7 @@ authenticated mode.
 **Code**
 
 .. literalinclude:: s3.java1.s3_encrypt.strict_authenticated_encryption.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
