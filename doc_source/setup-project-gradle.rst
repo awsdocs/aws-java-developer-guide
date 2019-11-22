@@ -43,6 +43,9 @@ use Gradle's improved POM support feature for importing bill of materials (BOM) 
 Gradle will automatically resolve the correct version of your SDK dependencies using the information
 from the BOM.
 
+You can also refer to the *AWS Code Catalog* to learn what dependencies to use for a given AWS service. Refer to the POM file under a specific service example.
+For example, if you are interested in the dependencies for the AWS S3 service, see the :sdk-examples-java-s3:`complete example <GetAcl.java>` on GitHub. (Look at the pom under /java/example_code/s3).
+
 Here's the complete :file:`build.gradle` file:
 
 .. code-block:: groovy
