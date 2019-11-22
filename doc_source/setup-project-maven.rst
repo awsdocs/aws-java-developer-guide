@@ -111,7 +111,7 @@ component.
       </dependency>
     </dependencies>
 
-.. tip:: You can also refer to the AWS Code Catalog to learn what dependencies to use for a given AWS service. Refer to the POM file under a specific service example.
+You can also refer to the *AWS Code Catalog* to learn what dependencies to use for a given AWS service. Refer to the POM file under a specific service example.
 For example, if you are interested in the dependencies for the AWS S3 service, see the :sdk-examples-java-s3:`complete example <GetAcl.java>` on GitHub. (Look at the pom under /java/example_code/s3).
 
 .. _configuring-maven-entire-sdk:
