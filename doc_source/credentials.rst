@@ -59,10 +59,10 @@ class. The default credential provider chain looks for credentials in this order
 #. **Amazon ECS container credentials** |ndash| loaded from the |ECS| if the environment
    variable :envvar:`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` is set. The |sdk-java| uses the
    :aws-java-class:`ContainerCredentialsProvider <auth/ContainerCredentialsProvider>` to load these
-   credentials.
+   credentials. You can specify the IP address for this value.
 #. **Instance profile credentials** |ndash| used on EC2 instances, and delivered through the |EC2|
    metadata service. The |sdk-java| uses the :aws-java-class:`InstanceProfileCredentialsProvider
-   <auth/InstanceProfileCredentialsProvider>` to load these credentials.
+   <auth/InstanceProfileCredentialsProvider>` to load these credentials. You can specify the IP address for this value.
 
    .. note:: Instance profile credentials are used only if
       :envvar:`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` is not set. See
