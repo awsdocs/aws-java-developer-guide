@@ -132,7 +132,7 @@ and the destination bucket and name.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CopyObject.java
-   :lines: 46-52
+   :lines: 50-63
    :dedent: 8
    :language: java
 
