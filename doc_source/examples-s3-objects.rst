@@ -121,7 +121,7 @@ Copy, Move, or Rename Objects
 
 You can copy an object from one bucket to another by using the |s3client| client's
 :methodname:`copyObject` method. It takes the name of the bucket to copy from, the object to copy,
-and the destination bucket and name.
+and the destination bucket name.
 
 **Imports**
 
@@ -132,7 +132,7 @@ and the destination bucket and name.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/CopyObject.java
-   :lines: 50-63
+   :lines: 48-64
    :dedent: 8
    :language: java
 
