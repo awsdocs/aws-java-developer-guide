@@ -41,7 +41,7 @@ You can set the bucket policy for a particular S3 bucket by:
 
 .. literalinclude:: example_code/s3/src/main/java/aws/example/s3/SetBucketPolicy.java
    :dedent: 8
-   :lines: 81-88
+   :lines: 81-86
    :language: java
 
 
