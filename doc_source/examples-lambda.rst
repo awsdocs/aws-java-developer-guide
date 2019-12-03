@@ -83,7 +83,7 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 Delete a Lambda function
 ========================
 
-Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
+Build an :aws-java-class:`AWSLambda <services/lambda/AWSLambda>`
 object and invoke its :methodname:`deleteFunction` method.
 Create a :aws-java-class:`DeleteFunctionRequest <services/lambda/model/DeleteFunctionRequest>`
 object and pass it to the :methodname:`deleteFunction` method. This object contains information such as the name of the function to delete.
