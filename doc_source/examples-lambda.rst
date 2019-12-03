@@ -26,15 +26,15 @@ This section provides examples of programming with the Lambda service client by 
 
 .. _invoke-function:
 Invoke a Lambda function
-========================
+========================  
 
-You can invoke a Lambda function by creating a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
+You can invoke a Lambda function by creating a :aws-java-class:`AWSLambda <services/lambda/AWSLambda>`
 object and invoking its :methodname:`invoke` method. Create an :aws-java-class:`InvokeRequest <services/lambda/model/InvokeRequest>`
 object to specify additional information such as the function name and the payload to pass to the Lambda function. Function names
 appear as *arn:aws:lambda:us-west-2:555556330391:function:HelloFunction*. You can retrieve the value by looking at the function in the AWS Console.
 
-To pass payload data to a function, create a :aws-java-class:`SdkBytes <core/SdkBytes>`
-object that contains information. For example, in the following code example, notice the JSON data passed to the Lambda function.
+To pass payload data to a function, invoke the :aws-java-class:`InvokeRequest <services/lambda/model/InvokeRequest>`
+object's :methodname:`withPayload` method and specify a String in JSON format, as shown in the following code example.
 
 **Imports**
 
