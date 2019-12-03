@@ -26,9 +26,9 @@ This section provides examples of programming with the Lambda service client by 
 
 .. _invoke-function:
 Invoke a Lambda function
-========================  
+========================
 
-You can invoke a Lambda function by creating a :aws-java-class:`AWSLambda <services/lambda/AWSLambda>`
+You can invoke a Lambda function by creating an :aws-java-class:`AWSLambda <services/lambda/AWSLambda>`
 object and invoking its :methodname:`invoke` method. Create an :aws-java-class:`InvokeRequest <services/lambda/model/InvokeRequest>`
 object to specify additional information such as the function name and the payload to pass to the Lambda function. Function names
 appear as *arn:aws:lambda:us-west-2:555556330391:function:HelloFunction*. You can retrieve the value by looking at the function in the AWS Console.
@@ -54,12 +54,12 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 .. _list-function:
 
 List Lambda functions
-=========================
+=====================
 
-Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
+Build an :aws-java-class:`AWSLambda <services/lambda/AWSLambda>`
 object and invoke its :methodname:`listFunctions` method.
-This method returns a :aws-java-class:`ListFunctionsResponse <services/lambda/model/ListFunctionsResponse>` object.
-You can invoke this object's :methodname:`functions` method to return a list of :aws-java-class:`FunctionConfiguration <services/lambda/model/FunctionConfiguration>` objects.
+This method returns a :aws-java-class:`ListFunctionsResult <services/lambda/model/ListFunctionsResult>` object.
+You can invoke this object's :methodname:`getFunctions` method to return a list of :aws-java-class:`FunctionConfiguration <services/lambda/model/FunctionConfiguration>` objects.
 You can iterate through the list to retrieve information about the functions. For example, the following Java code example shows how to get each function name.
 
 
