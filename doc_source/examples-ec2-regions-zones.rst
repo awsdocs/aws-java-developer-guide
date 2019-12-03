@@ -68,6 +68,35 @@ objects that represent each Availability Zone.
 
 See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>`.
 
+Describing Accounts
+==================
+
+To describe your account, call the |ec2client|'s :methodname:`describeAccountAttributes`
+method. This method returns a :aws-java-class:`DescribeAccountAttributesResult <services/ec2/model/DescribeAccountAttributesResult>` object.
+Invoke this objects :methodname:`getAccountAttributes` method to get a list of :aws-java-class:`AccountAttribute
+<services/ec2/model/AccountAttribute>` objects. You can iterate through the list to retrieve an
+:aws-java-class:`AccountAttribute <services/ec2/model/AccountAttribute>` object.
+
+You can
+get your account's attribute values by invoking the :aws-java-class:`AccountAttribute <services/ec2/model/AccountAttribute>` object's
+:methodname:`getAttributeValues` method. This method returns a list of :aws-java-class:`AccountAttributeValue
+<services/ec2/model/AccountAttributeValue>` objects. You can iterate through this second list to display the value of attributes (see the following code example).
+
+**Imports**
+
+.. literalinclude:: ec2.java2.describe_region_and_zones.import.txt
+   :language: java
+
+**Code**
+
+.. literalinclude:: ec2.java2.describe_region_and_zones.region.txt
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>` on GitHub.
+
+
+
 
 More Information
 ================
