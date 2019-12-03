@@ -40,6 +40,7 @@ In 2018, AWS released |sdk-java| v2. For more AWS examples, see the `AWS SDK for
    Amazon DynamoDB Examples <examples-dynamodb>
    Amazon EC2 Examples <prog-services-ec2>
    AWS Identity and Access Management (IAM) Examples <examples-iam>
+   Amazon Lambda Examples <lambda-examples>
    Amazon Pinpoint Examples <examples-pinpoint>
    Amazon S3 Examples <examples-s3>
    Amazon SQS Examples <examples-sqs>
