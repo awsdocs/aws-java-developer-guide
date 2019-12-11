@@ -24,6 +24,7 @@
    getting-started
    basics
    Code Examples <prog-services>
+   Security <security>
    document-history
 
 .. include:: about-aws.txt
