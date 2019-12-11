@@ -38,7 +38,7 @@ object's :methodname:`withPayload` method and specify a String in JSON format, a
 
 **Imports**
 
-.. literalinclude:: lambda.java1.invoke.import.txt
+.. literalinclude:: s3.java2.s3_object_operations.import.txt
    :language: java
 
 **Code**
