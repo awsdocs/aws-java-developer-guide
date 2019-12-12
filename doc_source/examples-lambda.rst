@@ -71,7 +71,7 @@ You can iterate through the list to retrieve information about the functions. Fo
 
 **Code**
 
-The following Java code example demonstrates how to retrieve a list of function names.
+The following Java code example demonstrates how to retrieve a list of Lambda function names.
 
 .. literalinclude:: lambda.java1.list.main.txt
    :language: java
