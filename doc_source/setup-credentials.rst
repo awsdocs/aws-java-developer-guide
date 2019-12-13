@@ -59,19 +59,19 @@ That’s frequent enough that a relatively short outage should not impact the pe
 .. code-block:: java
    :linenos:
 
-1. // Refresh credentials using a background thread, automatically every minute. This will log an error if IMDS is down during
-2. // a refresh, but customer's service calls will continue using the cached credentials until the credentials are refreshed
-3. // again one minute later.
-4.
-5. InstanceProfileCredentialsProvider credentials =
-6.     InstanceProfileCredentialsProvider.createAsyncRefreshingProvider(true);
-7.
-8. AmazonS3Client.builder()
-9.              .withCredentials(credentials)
-10.              .build();
-11.
-12. // This is new: When the customer is done with the credentials provider, they must close it to release the background thread.
-23. credentials.close();
+    1. // Refresh credentials using a background thread, automatically every minute. This will log an error if IMDS is down during
+    2. // a refresh, but your service calls will continue using the cached credentials until the credentials are refreshed
+    3. // again one minute later.
+    4.
+    5. InstanceProfileCredentialsProvider credentials =
+    6.     InstanceProfileCredentialsProvider.createAsyncRefreshingProvider(true);
+    7.
+    8. AmazonS3Client.builder()
+    9.              .withCredentials(credentials)
+    10.              .build();
+    11.
+    12. // This is new: When you are done with the credentials provider, you must close it to release the background thread.
+    23. credentials.close();
 
 
 .. _setup-credentials-setting-region:
