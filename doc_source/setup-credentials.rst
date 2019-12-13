@@ -54,7 +54,8 @@ Refreshing IMDS credentials
 ===========================
 
 The |sdk-java| supports opt-in refreshing IMDS credentials in the background every 1 minute, regardless of the credential expiration time.
-That’s frequent enough that a relatively short outage should not impact the perceived AWS availability.
+This allows you to refresh credentials more frequently and reduces the chance that not reaching IMDS impacts
+the perceived AWS availability.
 
 .. code-block:: java
    :linenos:
