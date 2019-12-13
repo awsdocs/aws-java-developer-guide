@@ -72,7 +72,7 @@ the perceived AWS availability.
     10.              .build();
     11.
     12. // This is new: When you are done with the credentials provider, you must close it to release the background thread.
-    23. credentials.close();
+    13. credentials.close();
 
 
 .. _setup-credentials-setting-region:
