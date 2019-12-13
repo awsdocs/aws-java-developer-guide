@@ -56,21 +56,22 @@ Refreshing IMDS credentials
 The|sdk-java| supports opt-in refreshing IMDS credentials in the background every 1 minute, regardless of the credential expiration time.
 That’s frequent enough that a relatively short outage should not impact the perceived AWS availability.
 
-.. code:: java
+.. code-block:: java
+   :linenos:
 
- // Refresh credentials using a background thread, automatically every minute. This will log an error if IMDS is down during
-// a refresh, but customer's service calls will continue using the cached credentials until the credentials are refreshed
-// again one minute later.
-
-InstanceProfileCredentialsProvider credentials =
-    InstanceProfileCredentialsProvider.createAsyncRefreshingProvider(true);
-
-AmazonS3Client.builder()
-              .withCredentials(credentials)
-              .build();
-
-// This is new: When the customer is done with the credentials provider, they must close it to release the background thread.
-credentials.close();
+1. // Refresh credentials using a background thread, automatically every minute. This will log an error if IMDS is down during
+2. // a refresh, but customer's service calls will continue using the cached credentials until the credentials are refreshed
+3. // again one minute later.
+4.
+5. InstanceProfileCredentialsProvider credentials =
+6.     InstanceProfileCredentialsProvider.createAsyncRefreshingProvider(true);
+7.
+8. AmazonS3Client.builder()
+9.              .withCredentials(credentials)
+10.              .build();
+11.
+12. // This is new: When the customer is done with the credentials provider, they must close it to release the background thread.
+23. credentials.close();
 
 
 .. _setup-credentials-setting-region:
