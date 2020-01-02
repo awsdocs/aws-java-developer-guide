@@ -129,9 +129,7 @@ The :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMa
 **Code**
 
 The following Java code example shows you how to add content to the Music table. For information on creating the Music table, see
-:ddb-dg:`Create a Table <getting-started-step-1>` in the |ddb-dg|.
-
-After the content is added to the table, notice that an item is loaded by using the
+:ddb-dg:`Create a Table <getting-started-step-1>` in the |ddb-dg|. After the content is added to the table, notice that an item is loaded by using the
 *Partition* and *Sort* keys. Then the *Awards* item is updated.
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
