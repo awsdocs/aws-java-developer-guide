@@ -138,7 +138,7 @@ After the content is added to the table, notice that an item is loaded by using 
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete example <UpdateItem.java>` on GitHub.
+See the :sdk-examples-java-dynamodb:`complete example <UseDynamoMapping.java>` on GitHub.
 
 More Info
 =========
