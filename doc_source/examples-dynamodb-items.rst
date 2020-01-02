@@ -110,6 +110,30 @@ update.
 
 See the :sdk-examples-java-dynamodb:`complete example <UpdateItem.java>` on GitHub.
 
+Use the DynamoDBMapper class
+==================================
+
+The |sdk-java|_ provides a :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMapper>` class,
+allowing you to map your client-side classes to Amazon DynamoDB tables. To use the :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMapper>` class,
+you define the relationship between items in a DynamoDB table and their corresponding object instances in your code.
+The :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMapper>` class enables you to access your tables; perform various create, read, update, and delete (CRUD) operations; and execute queries.
+
+.. note:: The :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMapper>` class does not allow you to create, update, or delete tables.
+
+**Imports**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
+   :lines: 15-22
+   :language: java
+
+**Code**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
+   :lines: 82-105
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-dynamodb:`complete example <UpdateItem.java>` on GitHub.
 
 More Info
 =========
