@@ -115,7 +115,7 @@ Use the DynamoDBMapper class
 
 The |sdk-java|_ provides a :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMapper>` class,
 allowing you to map your client-side classes to Amazon DynamoDB tables. To use the :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMapper>` class,
-you define the relationship between items in a DynamoDB table and their corresponding object instances in your code.
+you define the relationship between items in a DynamoDB table and their corresponding object instances in your code by using annotations (as shown in the following code example).
 The :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMapper>` class enables you to access your tables; perform various create, read, update, and delete (CRUD) operations; and execute queries.
 
 .. note:: The :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMapper>` class does not allow you to create, update, or delete tables.
