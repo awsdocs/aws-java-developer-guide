@@ -122,8 +122,7 @@ The :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMa
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UseDynamoMapping.java
-   :lines: 24-34
+.. literalinclude:: dynamodb.java.dynamoDB_mapping.import.txt
    :language: java
 
 **Code**
@@ -133,9 +132,8 @@ For information on creating the *Music* table, see :ddb-dg:`Create a Table <gett
 After the content is added to the table, notice that an item is loaded by using the
 *Partition* and *Sort* keys. Then the *Awards* item is updated.
 
-.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UseDynamoMapping.java
-   :lines: 51-90
-   :dedent: 2
+.. literalinclude:: dynamodb.java.dynamoDB_mapping.main.txt
+   :dedent: 8
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <UseDynamoMapping.java>` on GitHub.
