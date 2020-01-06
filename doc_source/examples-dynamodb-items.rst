@@ -133,7 +133,7 @@ After the content is added to the table, notice that an item is loaded by using 
 *Partition* and *Sort* keys. Then the *Awards* item is updated.
 
 .. literalinclude:: dynamodb.java.dynamoDB_mapping.main.txt
-   :dedent: 4
+   :dedent: 2
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <UseDynamoMapping.java>` on GitHub.
