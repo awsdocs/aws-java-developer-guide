@@ -134,8 +134,8 @@ After the content is added to the table, notice that an item is loaded by using 
 *Partition* and *Sort* keys. Then the *Awards* item is updated.
 
 .. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UseDynamoMapping.java
-   :lines: 82-105
-   :dedent: 8
+   :lines: 51-90
+   :dedent: 2
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <UseDynamoMapping.java>` on GitHub.
