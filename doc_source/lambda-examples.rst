@@ -13,10 +13,10 @@ Lambda Examples Using the |sdk-java|
 ##########################################
 
 .. meta::
-   :description: Programming Amazon Lambda using the AWS SDK for Java 2.x
+   :description: Programming Amazon Lambda using the AWS SDK for Java.
    :keywords: AWS SDK for Java code examples
 
-This section provides examples of programming Lambda using the |sdk-java-v2|.
+This section provides examples of programming Lambda using the |sdk-java|.
 
 .. include:: includes/complete-examples-note.txt
 
