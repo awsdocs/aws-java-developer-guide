@@ -132,7 +132,7 @@ After the content is added to the table, notice that an item is loaded by using 
 *Partition* and *Sort* keys. Then the *Awards* item is updated. For information on creating the *Music* table, see :ddb-dg:`Create a Table <getting-started-step-1>` in the |ddb-dg|.
 
 .. literalinclude:: dynamodb.java.dynamoDB_mapping.main.txt
-   :dedent: 8
+   :dedent: 1
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <UseDynamoMapping.java>` on GitHub.
