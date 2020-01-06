@@ -19,7 +19,7 @@ Invoking, Listing, and Deleting Lambda Functions
 
 
 This section provides examples of programming with the Lambda service client by using the AWS SDK for Java. To learn how to
-create a Lambda function, see see :tke:`Tutorial: How to Create, Upload, and Invoke an AWS Lambda Function <lambda-tutorial>` in the |tke|.
+create a Lambda function, see `How to Create AWS Lambda functions <https://docs.aws.amazon.com/toolkit-for-eclipse/v1/user-guide/lambda-tutorial.html>`_.
 
 .. contents::
     :local:
