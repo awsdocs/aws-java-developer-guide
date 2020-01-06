@@ -122,8 +122,8 @@ The :aws-java-class:`DynamoDBMapper <services/dynamodbv2/datamodeling/DynamoDBMa
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateItem.java
-   :lines: 15-22
+.. literalinclude:: example_code/dynamodb/src/main/java/aws/example/dynamodb/UseDynamoMapping.java
+   :lines: 24-34
    :language: java
 
 **Code**
