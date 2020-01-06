@@ -18,7 +18,8 @@ Invoking, Listing, and Deleting Lambda Functions
                deleteFunction, invoke, listFunctions
 
 
-This section provides examples of programming with the Lambda service client by using the AWS SDK for Java.
+This section provides examples of programming with the Lambda service client by using the AWS SDK for Java. To learn how to
+create a Lambda function, see see :AWS Toolkit for Eclipse:`Tutorial: How to Create, Upload, and Invoke an AWS Lambda Function <lambda-tutorial>` in the AWS Toolkit for Eclipse.
 
 .. contents::
     :local:
