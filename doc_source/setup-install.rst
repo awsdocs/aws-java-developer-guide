@@ -47,7 +47,8 @@ system or IDE:
   which will automatically download, install and update the Java SDK for you. For more information
   and setup instructions, see the |tke-ug|_.
 
-If you intend to build your projects using a different IDE, with Apache Ant or by any other means,
+If you are using one the above methods (for example,
+you are using Maven), then you do not need to download and install the AWS JAR files (you can skip the following section). If you intend to build your projects using a different IDE, with Apache Ant or by any other means,
 then download and extract the SDK as shown in the next section.
 
 .. _download-and-extract-sdk:
