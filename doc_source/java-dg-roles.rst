@@ -29,13 +29,15 @@ The default provider chain and EC2 instance profiles
 If your application creates an AWS client using the default constructor, then the client will search
 for credentials using the :emphasis:`default credentials provider chain`, in the following order:
 
-1. In system environment variables: :code:`AWS_ACCESS_KEY_ID` and :code:`AWS_SECRET_ACCESS_KEY`.
+1. In the Java system properties: :code:`aws.accessKeyId` and :code:`aws.secretKey`.
 
-2. In the Java system properties: :code:`aws.accessKeyId` and :code:`aws.secretKey`.
+2. In system environment variables: :code:`AWS_ACCESS_KEY_ID` and :code:`AWS_SECRET_ACCESS_KEY`.
 
 3. In the default credentials file (the location of this file varies by platform).
 
-4. In the :emphasis:`instance profile credentials`, which exist within the instance metadata
+4. Credentials delivered through the Amazon EC2 container service if the :code:`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` environment variable is set and security manager has permission to access the variable.
+
+5. In the :emphasis:`instance profile credentials`, which exist within the instance metadata
    associated with the IAM role for the EC2 instance.
 
 The final step in the default provider chain is available only when running your application on an
