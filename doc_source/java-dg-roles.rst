@@ -40,7 +40,9 @@ for credentials using the :emphasis:`default credentials provider chain`, in the
 5. In the :emphasis:`instance profile credentials`, which exist within the instance metadata
    associated with the IAM role for the EC2 instance.
 
-The final step in the default provider chain is available only when running your application on an
+6. Web Identity Token credentials from the environment or container.
+
+The :emphasis:`instance profile credentials` step in the default provider chain is available only when running your application on an
 |EC2| instance, but provides the greatest ease of use and best security when working with |EC2|
 instances. You can also pass an :aws-java-class:`InstanceProfileCredentialsProvider
 <auth/InstanceProfileCredentialsProvider>` instance directly to the client constructor to get
