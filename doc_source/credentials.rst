@@ -60,6 +60,7 @@ class. The default credential provider chain looks for credentials in this order
    variable :envvar:`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` is set. The |sdk-java| uses the
    :aws-java-class:`ContainerCredentialsProvider <auth/ContainerCredentialsProvider>` to load these
    credentials. You can specify the IP address for this value.
+
 #. **Instance profile credentials** |ndash| used on EC2 instances, and delivered through the |EC2|
    metadata service. The |sdk-java| uses the :aws-java-class:`InstanceProfileCredentialsProvider
    <auth/InstanceProfileCredentialsProvider>` to load these credentials. You can specify the IP address for this value.
@@ -69,6 +70,7 @@ class. The default credential provider chain looks for credentials in this order
       :aws-java-class:`EC2ContainerCredentialsProviderWrapper
       <auth/EC2ContainerCredentialsProviderWrapper>` for more information.
 
+#. **Web Identity Token credentials** from the environment or container.
 
 Setting Credentials
 -------------------
