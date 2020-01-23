@@ -45,6 +45,7 @@ Add a single message to an |SQS| queue by calling the |sqsclient| client's
    :dedent: 8
    :language: java
 
+See the :sdk-examples-java-sqs:`complete example <SendReceiveMessages.java>` on GitHub.
 
 .. _sqs-messages-send-multiple:
 
