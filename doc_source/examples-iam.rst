@@ -16,7 +16,7 @@
    :description: Programming AWS Identity and Access Management using the AWS SDK for Java
    :keywords: AWS SDK for Java code examples, IAM
 
-This section provides examples of programming |iam|_ using the |sdk-java|_.
+This section provides examples of programming |iam|_ by using the |sdk-java|_.
 
 .. include:: common/desc-iam.txt
 
