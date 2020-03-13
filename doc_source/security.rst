@@ -25,6 +25,7 @@ Security for |SERVICENAMETITLE|
    :titlesonly:
 
    Data Protection <data-protection>
+   Java SDK TLS 1.2 <java-tls.rst>
    Identity and Access Management <common/security-iam>
    Compliance Validation <common/compliance-validation>
    Resilience <common/disaster-recovery-resiliency>
