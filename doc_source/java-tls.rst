@@ -1,4 +1,4 @@
-.. Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,23 +9,23 @@
    limitations under the License.
 
 #####################################
-Java SDK TLS 1.2
+AWS SDK for Java support for TLS 1.2
 #####################################
 
 .. meta::
-   :description: Applies to Java SSL implementation (default SSL implementation in the SDK)Learn how the AWS shared responsibility model applies to data protection in this AWS product or service.
+   :description: Applies to Java SSL implementation (default SSL implementation in the SDK). Learn how the AWS shared responsibility model applies to data protection in this AWS product or service.
    :keywords:
 
-The following information only applies to Java SSL implementation (default SSL implementation in the SDK). If you are using a different SSL implementations, you need to
-look at your specific ssl implementation for how to enforce tls versions.
+The following information applies only to Java SSL implementation (the default SSL implementation in the AWS SDK for Java). If you're using a different SSL implementation,
+see your specific SSL implementation to learn how to enforce TLS versions.
 
 TLS support in Java
 ===================
-TLS 1.2 is supported starting from Java 7.
+TLS 1.2 is supported starting in Java 7.
 
-How to check TLS version
-========================
-To check what TLS version is supported in your JVM, you can use the following code.
+How to check the TLS version
+============================
+To check what TLS version is supported in your Java virtual machine (JVM), you can use the following code.
 
 .. code-block:: java
 
@@ -37,28 +37,27 @@ To see the SSL handshake in action and what version of TLS is used, you can use 
 
    java app.jar -Djavax.net.debug=ssl
 
-How to set TLS version
-======================
+How to set the TLS version
+==========================
 
-**AWS Java SDK 1.x**
+**AWS SDK for Java 1.x**
 
-* Apache http client: the SDK always prefers TLS 1.2 if it's supported in the platform.
+* Apache HTTP client: The SDK always prefers TLS 1.2 (if it's supported in the platform).
 
-**AWS Java SDK 2.x**
+**AWS SDK for Java 2.x**
 
-* ApacheHttpClient: the SDK always prefers TLS 1.2 if it's supported in the platform.
+* ApacheHttpClient: The SDK always prefers TLS 1.2 (if it's supported in the platform).
 
-* UrlHttpConnectionClient:
-    * To enforce only tls 1.2, using the system property
+* UrlHttpConnectionClient: To enforce only TLS 1.2, you can use this Java command.
 
 .. code-block:: java
 
    java app.jar -Djdk.tls.client.protocols=TLSv1.2
 
-or in code
+Or use this code.
 
 .. code-block:: java
 
    System.setProperty("jdk.tls.client.protocols", "TLSv1.2");
 
-* NettyNioHttpClient: The SDK dependency Netty by default always prefers TLS 1.2 if it's supported in the platform.
+* NettyNioHttpClient: The SDK dependency for Netty is TLS 1.2 (if it's supported in the platform).
