@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -79,14 +79,19 @@ Choosing a Specific Endpoint
 ============================
 
 Each AWS client can be configured to use a *specific endpoint* within a region by calling the
-:methodname:`setEndpoint` method.
+:methodname:`withEndpointConfiguration` method when creating the client.
 
-For example, to configure the |EC2| client to use the |euwest1-name|, use the following code.
+For example, to configure the |S3| client to use the |euwest1-name|, use the following code.
 
 ::
 
-     AmazonEC2 ec2 = new AmazonEC2(myCredentials);
-     ec2.setEndpoint("https://ec2.eu-west-1.amazonaws.com");
+     AmazonS3 s3 = AmazonS3ClientBuilder.standard()
+          .withEndpointConfiguration(new EndpointConfiguration(
+               "https://s3.eu-west-1.amazonaws.com",
+               "eu-west-1"))
+          .withCredentials(CREDENTIALS_PROVIDER)
+          .build();
+
 
 See |regions-and-endpoints|_ for the current list of regions and their corresponding endpoints for
 all AWS services.
