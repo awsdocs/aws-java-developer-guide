@@ -9,7 +9,7 @@
    limitations under the License.
 
 #######################
-|sdk-java| Code Samples
+Code Samples included with the SDK
 #######################
 
 The |sdk-java| comes packaged with code samples that demonstrate many of the features of

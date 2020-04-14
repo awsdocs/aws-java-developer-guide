@@ -92,3 +92,9 @@ You can use similar techniques to setting credentials to set your default AWS re
 .. The following file is in the shared content at https://github.com/awsdocs/aws-doc-shared-content
 
 .. include:: common/sdk-shared-region.txt
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   prog-services-sts

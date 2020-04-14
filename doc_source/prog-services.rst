@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -35,7 +35,6 @@ In 2018, AWS released |sdk-java| v2. For more AWS examples, see the `AWS SDK for
    :maxdepth: 1
    :titlesonly:
 
-   SDK Code Samples <java-dg-samples>
    Amazon CloudWatch Examples <examples-cloudwatch>
    Amazon DynamoDB Examples <examples-dynamodb>
    Amazon EC2 Examples <prog-services-ec2>
@@ -44,5 +43,5 @@ In 2018, AWS released |sdk-java| v2. For more AWS examples, see the `AWS SDK for
    Amazon Pinpoint Examples <examples-pinpoint>
    Amazon S3 Examples <examples-s3>
    Amazon SQS Examples <examples-sqs>
-   prog-services-sts
    Amazon SWF Examples <prog-services-swf>
+   Code Samples included with the SDK <java-dg-samples>

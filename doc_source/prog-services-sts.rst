@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -66,24 +66,11 @@ Retrieve temporary security credentials from |STS|
 
        .. code-block:: java
 
-          AWSSecurityTokenService sts_client = new AWSSecurityTokenServiceClientBuilder().standard().withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("sts-endpoint.amazonaws.com", "signing-region")).build()
+          AWSSecurityTokenServiceClientBuilder sts_client = new AWSSecurityTokenServiceClientBuilder().standard().withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("sts-endpoint.amazonaws.com", "signing-region")).build()
 
-       When creating the client with no arguments (:code:`AWSSecurityTokenServiceClient sts_client = new AWSSecurityTokenServiceClientBuilder().standard().build();`), the default credential provider chain is used to
+       When creating the client with no arguments (:code:`AWSSecurityTokenServiceClientBuilder sts_client = new AWSSecurityTokenServiceClientBuilder().standard().build();`), the default credential provider chain is used to
        retrieve credentials. You can provide a specific credential provider if you want. For more
        information, see Providing AWS Credentials in the AWS SDK for Java.
-
-    #. :emphasis:`Optional`; requires that you have activated the region) Set the endpoint for the
-       STS client:
-
-       .. code-block:: java
-
-          sts_client.setEndpoint("sts-endpoint.amazonaws.com");
-
-       where :emphasis:`sts-endpoint` represents the STS endpoint for your region.
-
-       .. important:: Do not use the :methodname:`setRegion` method to set a regional endpoint
-          |mdash| for backwards compatibility, that method continues to use the single global
-          endpoint of sts.amazonaws.com.
 
     #. Create a :aws-java-class:`GetSessionTokenRequest
        <services/securitytoken/model/GetSessionTokenRequest>` object, and optionally set the
