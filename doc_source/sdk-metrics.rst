@@ -62,30 +62,14 @@ Enabling |SDKM| is independent of configuring your credentials to use an AWS ser
 
 You can enable |SDKM| using one of 4 options.
 
-* :ref:`csm-enable-agent-code`
 * :ref:`csm-enable-agent-environ`
+* :ref:`csm-enable-agent-code`
 * :ref:`csm-enable-agent-java-prop`
 * :ref:`csm-enable-agent-shared-config`
 
-.. _csm-enable-agent-code:
-
-Option 1: Set |SDKM| in Code
-----------------------------
-
-The |language| implementation allows you to set |SDKM| configurations within code when building
-a service client.
-The values set in code override any configurations set in the other options described below.
-
-.. code-block:: java
-
-   CsmConfiguration csmConfig = new CsmConfiguration(true, MY_PORT, MY_CLIENT_ID);
-   AmazonDynamoDB dynamodb = AmazonDynamoDBClientBuilder.standard()
-      .withClientSideMonitoringConfigurationProvider(new StaticCsmConfigurationProvider(csmConfig))
-      .build();
-
 .. _csm-enable-agent-environ:
 
-Option 2: Set Environment Variables
+Option 1: Set Environment Variables
 -----------------------------------
 
 If :code:`AWS_CSM_ENABLED` is not set, the SDK first checks the profile specified in
@@ -101,6 +85,22 @@ To turn on |SDKM|, add the following to your environmental variables.
 :ref:`Other configuration settings<csm-update-agent>` are available.
 
 Note: Enabling |SDKM| does not configure your credentials to use an AWS service.
+
+.. _csm-enable-agent-code:
+
+Option 2: Set |SDKM| in Code
+----------------------------
+
+The |language| implementation allows you to set |SDKM| configurations within code when building
+a service client.
+The values set in code override any configurations set in the other options described below.
+
+.. code-block:: java
+
+   CsmConfiguration csmConfig = new CsmConfiguration(true, MY_PORT, MY_CLIENT_ID);
+   AmazonDynamoDB dynamodb = AmazonDynamoDBClientBuilder.standard()
+      .withClientSideMonitoringConfigurationProvider(new StaticCsmConfigurationProvider(csmConfig))
+      .build();
 
 .. _csm-enable-agent-java-prop:
 

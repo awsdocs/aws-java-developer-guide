@@ -1,4 +1,4 @@
-.. Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -13,21 +13,27 @@ Using the SDK with Gradle
 #########################
 
 
+.. meta::
+   :description: How to use Gradle to set up your AWS SDK for Java project
+   :keywords: AWS SDK for Java, Gradle, BOM, install, download, setup
+
+
+To manage SDK dependencies for your Gradle_ project, import the Maven BOM for the |sdk-java| into the :file:`build.gradle` file.
+
+.. note:: In the following examples, replace *1.11.X* in the build file with a valid version of the |sdk-java|. Find the latest version in the 
+          `AWS SDK for Java 1.11.x Reference <https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html>`_.
+
+
 Project setup for Gradle 4.6 or higher
 ===============
 
-`Since Gradle 4.6 <https://docs.gradle.org/4.6/release-notes.html#bom-import>`_ it is possible to
-use Gradle's improved POM support feature for importing bill of materials (BOM) files by simply declaring a dependency on a BOM.
-
-To manage SDK dependencies for your Gradle_ project, import the |sdk-java|'s Maven Bill of Materials (BOM) into the :file:`build.gradle` file.
-
-.. note:: Replace *1.11.X* in the build file examples below with a valid version of the |sdk-java|. Find the latest version in the 
-          `AWS SDK for Java 1.11.x Reference <https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html>`_
+`Since Gradle 4.6 <https://docs.gradle.org/4.6/release-notes.html#bom-import>`_, you can
+use Gradle's improved POM support feature for importing bill of materials (BOM) files by declaring a dependency on a BOM.
 
 
-.. topic:: To configure the |sdk-java| for Gradle 4.6 or higher:
+.. topic:: To configure the |sdk-java| for Gradle 4.6 or later
 
-    #. If you are using Gradle 5.0 or higher, skip to Step 2. Otherwise, enable the `IMPROVED_POM_SUPPORT` feature in the :file:`settings.gradle` file
+    #. If you're using Gradle 5.0 or later, skip to step 2. Otherwise, enable the *IMPROVED_POM_SUPPORT* feature in the :file:`settings.gradle` file.
 
        .. code-block:: groovy
 
@@ -45,7 +51,7 @@ To manage SDK dependencies for your Gradle_ project, import the |sdk-java|'s Mav
               ...
           }
 
-    #. Specify the SDK modules you want to use in the *dependencies* section. For example, the following includes a dependency for |S3long|.
+    #. Specify the SDK modules to use in the *dependencies* section. For example, the following includes a dependency for |S3long| (|S3|).
 
        .. code-block:: groovy
 
@@ -55,9 +61,9 @@ To manage SDK dependencies for your Gradle_ project, import the |sdk-java|'s Mav
               ...
           }
 
-Gradle automatically resolves the correct version of your SDK dependencies using the information from the BOM.
+Gradle automatically resolves the correct version of your SDK dependencies by using the information from the BOM.
 
-The following is an example of a complete :file:`build.gradle` file that includes a dependency for |S3|:
+The following is an example of a complete :file:`build.gradle` file that includes a dependency for |S3|.
 
 .. code-block:: groovy
 
@@ -78,20 +84,17 @@ The following is an example of a complete :file:`build.gradle` file that include
      testCompile group: 'junit', name: 'junit', version: '4.11'
    }
 
-.. note:: Replace the dependency for |S3| above with the dependency or dependencies of the Amazon service(s) you will be using in your project. The modules (dependencies) that are managed by the |sdk-java| BOM are listed on Maven Central (https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-bom/latest).
+.. note:: In the previous example, replace the dependency for |S3| with the dependencies of the AWS services you will use in your project. The modules (dependencies) that are managed by the |sdk-java| BOM are listed on Maven central repository (https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-bom/latest).
 
 
-Project setup for Gradle versions prior to 4.6
+Project setup for Gradle versions earlier than 4.6
 ===============
 
-Gradle versions prior to 4.6 lack native BOM support. To manage |sdk-java| dependencies for your project,
+Gradle versions earlier than 4.6 lack native BOM support. To manage |sdk-java| dependencies for your project,
 use Spring's `dependency management plugin
-<https://github.com/spring-gradle-plugins/dependency-management-plugin>`_ for Gradle to import the SDK's Maven Bill of Materials (BOM).
+<https://github.com/spring-gradle-plugins/dependency-management-plugin>`_ for Gradle to import the Maven BOM for the SDK.
 
-.. note:: Replace *1.11.X* in the build file examples below with a valid version of the |sdk-java|. Find the latest version in the 
-          `AWS SDK for Java 1.11.x Reference <https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html>`_
-
-.. topic:: To configure the SDK for Gradle versions prior to 4.6:
+.. topic:: To configure the SDK for Gradle versions earlier than 4.6
 
     #. Add the dependency management plugin to your :file:`build.gradle` file.
 
@@ -118,7 +121,7 @@ use Spring's `dependency management plugin
               }
           }
 
-    #. Specify the SDK modules that you'll be using in the *dependencies* section. For example, the following includes a dependency for |S3long|.
+    #. Specify the SDK modules that you'll use in the *dependencies* section. For example, the following includes a dependency for |S3|.
 
        .. code-block:: groovy
 
@@ -126,9 +129,9 @@ use Spring's `dependency management plugin
               compile 'com.amazonaws:aws-java-sdk-s3'
           }
 
-Gradle automatically resolves the correct version of your SDK dependencies using the information from the BOM.
+Gradle automatically resolves the correct version of your SDK dependencies by using the information from the BOM.
 
-The following is an example of a complete :file:`build.gradle` file that includes a dependency for |S3|:
+The following is an example of a complete :file:`build.gradle` file that includes a dependency for |S3|.
 
 .. code-block:: groovy
 
@@ -165,7 +168,7 @@ The following is an example of a complete :file:`build.gradle` file that include
      testCompile group: 'junit', name: 'junit', version: '4.11'
    }
 
-.. note:: Replace the dependency for |S3| above with the dependency or dependencies of the Amazon service(s) you will be using in your project. The modules (dependencies) that are managed by the |sdk-java| BOM are listed on Maven Central (https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-bom/latest).
+.. note:: In the previous example, replace the dependency for |S3| with the dependencies of the AWS service you will use in your project. The modules (dependencies) that are managed by the |sdk-java| BOM are listed on Maven central repository (https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-bom/latest).
 
-For more detail about specifying SDK dependencies using the BOM, see
+For more information about specifying SDK dependencies by using the BOM, see
 :doc:`setup-project-maven`.
