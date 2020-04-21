@@ -119,7 +119,7 @@ Large buffer sizes (e.g., 2 MB) allow the operating system to buffer more data i
 requiring the remote server to acknowledge receipt of that information, and so can be particularly
 useful when the network has high latency.
 
-This is only a *hint*, and the operating system might not to honor it. When using this option, users
+This is only a *hint*, and the operating system might not honor it. When using this option, users
 should always check the operating system's configured limits and defaults. Most operating systems
 have a maximum TCP buffer size limit configured, and won't let you go beyond that limit unless you
 explicitly raise the maximum TCP buffer size limit.
