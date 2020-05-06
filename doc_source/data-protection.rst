@@ -29,7 +29,7 @@ For data protection purposes, we recommend that you protect |AWS| account creden
 you secure your data in the following ways:
 
 * Use multi-factor authentication (MFA) with each account.
-* Use SSL/TLS to communicate with |AWS| resources.
+* Use SSL/TLS to communicate with |AWS| resources. To use a minimum TLS version of 1.2, see `Enforcing TLS 1.2 <security-java-tls.html>`_.
 * Set up API and user activity logging with |CTlong|.
 * Use |AWS| encryption solutions, along with all default security controls within |AWS| services.
 * Use advanced managed security services such as |MCElong|, which assists in discovering and securing personal data that 

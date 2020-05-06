@@ -1,4 +1,4 @@
-.. Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -26,7 +26,7 @@ Security for |SERVICENAMETITLE|
 
    Data Protection <data-protection>
    Enforcing TLS 1.2 <security-java-tls>
-   Identity and Access Management <common/security-iam>
-   Compliance Validation <common/compliance-validation>
-   Resilience <common/disaster-recovery-resiliency>
-   Infrastructure Security <common/infrastructure-security>
+   Identity and Access Management security-iam>
+   Compliance Validation <compliance-validation>
+   Resilience <disaster-recovery-resiliency>
+   Infrastructure Security <infrastructure-security>
