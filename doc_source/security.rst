@@ -26,7 +26,7 @@ Security for |SERVICENAMETITLE|
 
    Data Protection <data-protection>
    Enforcing TLS 1.2 <security-java-tls>
-   Identity and Access Management security-iam>
+   Identity and Access Management <security-iam>
    Compliance Validation <compliance-validation>
    Resilience <disaster-recovery-resiliency>
    Infrastructure Security <infrastructure-security>
