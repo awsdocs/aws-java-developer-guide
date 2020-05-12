@@ -45,7 +45,7 @@ Upload Files and Directories
 Upload a Single File
 --------------------
 
-Call the |xfermgr| :methodname:`upload` method, providing an |S3|
+Call |xfermgr|'s :methodname:`upload` method, providing an |S3|
 bucket name, a key (object) name, and a standard Java :javase-ref:`File <java/io/File>` object that
 represents the file to upload.
 
