@@ -25,7 +25,7 @@ To manage SDK dependencies for your Gradle_ project, import the Maven BOM for th
 
 
 Project setup for Gradle 4.6 or higher
-===============
+======================================
 
 `Since Gradle 4.6 <https://docs.gradle.org/4.6/release-notes.html#bom-import>`_, you can
 use Gradle's improved POM support feature for importing bill of materials (BOM) files by declaring a dependency on a BOM.
@@ -88,7 +88,7 @@ The following is an example of a complete :file:`build.gradle` file that include
 
 
 Project setup for Gradle versions earlier than 4.6
-===============
+==================================================
 
 Gradle versions earlier than 4.6 lack native BOM support. To manage |sdk-java| dependencies for your project,
 use Spring's `dependency management plugin
