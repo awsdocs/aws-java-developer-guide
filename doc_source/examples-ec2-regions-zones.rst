@@ -29,7 +29,7 @@ each Region.
 
 **Imports**
 
-.. literalinclude:: ec2.java.describe_region_and_zones.import.txt
+.. literalinclude:: ec2.java1.describe_region_and_zones.import.txt
    :language: java
 
 **Code**
@@ -53,7 +53,7 @@ objects that represent each Availability Zone.
 
 **Imports**
 
-.. literalinclude:: ec2.java.describe_region_and_zones.import.txt
+.. literalinclude:: ec2.java1.describe_region_and_zones.import.txt
    :language: java
 
 **Code**
