@@ -48,6 +48,8 @@ class. The default credential provider chain looks for credentials in this order
    The |sdk-java| uses the :aws-java-class:`SystemPropertiesCredentialsProvider <auth/SystemPropertiesCredentialsProvider>`
    to load these credentials.
 
+#. **Web Identity Token credentials** from the environment or container.
+
 #. **The default credential profiles file** |ndash| typically located at :file:`~/.aws/credentials`
    (location can vary per platform), and shared by many of the AWS SDKs and by the AWS CLI. The
    |sdk-java| uses the :aws-java-class:`ProfileCredentialsProvider <auth/profile/ProfileCredentialsProvider>` to load these credentials.
@@ -69,8 +71,6 @@ class. The default credential provider chain looks for credentials in this order
       :envvar:`AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` is not set. See
       :aws-java-class:`EC2ContainerCredentialsProviderWrapper
       <auth/EC2ContainerCredentialsProviderWrapper>` for more information.
-
-#. **Web Identity Token credentials** from the environment or container.
 
 Setting Credentials
 -------------------
