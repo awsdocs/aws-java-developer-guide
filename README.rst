@@ -92,8 +92,7 @@ Copyright and license
 All content in this repository, unless otherwise stated, is Copyright © 2010-2016, Amazon Web
 Services, Inc. or its affiliates. All rights reserved.
 
-Except where otherwise noted, this work is licensed under a `Creative Commons
-Attribution-NonCommercial-ShareAlike 4.0 International License
+Except where otherwise noted, this work is licensed under a `Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (the "License"). Use the preceding link for a
 human-readable summary of the license terms. The full license text is available at:
 http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode and in the LICENSE file accompanying this
