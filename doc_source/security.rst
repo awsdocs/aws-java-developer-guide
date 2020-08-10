@@ -24,9 +24,10 @@ Security for |SERVICENAMETITLE|
    :maxdepth: 1
    :titlesonly:
 
+   Compliance Validation <compliance-validation>
    Data Protection <data-protection>
    Enforcing TLS 1.2 <security-java-tls>
    Identity and Access Management <security-iam>
-   Compliance Validation <compliance-validation>
-   Resilience <disaster-recovery-resiliency>
    Infrastructure Security <infrastructure-security>
+   Resilience <disaster-recovery-resiliency>
+   S3 Encryption Client Migration <s3-encryption-migration>

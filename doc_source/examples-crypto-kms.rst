@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 ###################################################
-|S3| Client-Side Encryption with |KMS| Managed Keys
+|S3| client-side encryption with |KMS| managed keys
 ###################################################
 
 .. meta::
@@ -17,7 +17,7 @@
    :keywords: AWS SDK for Java code examples, cryptography, encryption
 
 The following examples use the
-:aws-java-class:`AmazonS3EncryptionClientBuilder <services/s3/AmazonS3EncryptionClientBuilder>` class
+:aws-java-class:`AmazonS3EncryptionClientV2Builder <services/s3/AmazonS3EncryptionClientV2Builder>` class
 to create an |S3| client with client-side encryption enabled. Once configured,
 any objects you upload to |S3| using this client
 will be encrypted. Any objects you get from |S3| using this client are automatically
@@ -28,61 +28,82 @@ decrypted.
    encryption with |KMS| managed keys. To learn how to use encryption with your own keys,
    see :doc:`examples-crypto-masterkey`.
 
-You can choose from three encryption modes when enabling client-side |S3| encryption: encryption-only,
-authenticated, and strict authenticated.
+You can choose from two encryption modes when enabling client-side |S3| encryption: strict
+authenticated or authenticated.
 The following sections show how to enable each type. To learn which algorithms each mode uses,
 see the :aws-java-class:`CryptoMode <services/s3/model/CryptoMode>` definition.
 
 
-Required Imports
+Required imports
 ================
 
 Import the following classes for these examples.
 
 **Imports**
 
-.. literalinclude:: s3.java1.s3_encrypt.import.txt
-   :language: java
+.. code-block:: java
 
-.. _encryption-only-kms:
+   import com.amazonaws.ClientConfiguration;
+   import com.amazonaws.regions.Regions;
+   import com.amazonaws.services.kms.AWSKMS;
+   import com.amazonaws.services.kms.AWSKMSClientBuilder;
+   import com.amazonaws.services.kms.model.GenerateDataKeyRequest;
+   import com.amazonaws.services.kms.model.GenerateDataKeyResult;
+   import com.amazonaws.services.s3.AmazonS3EncryptionClientV2Builder;
+   import com.amazonaws.services.s3.AmazonS3EncryptionV2;
+   import com.amazonaws.services.s3.model.CryptoConfigurationV2;
+   import com.amazonaws.services.s3.model.CryptoMode;
+   import com.amazonaws.services.s3.model.EncryptionMaterials;
+   import com.amazonaws.services.s3.model.KMSEncryptionMaterialsProvider;
 
-Encryption-Only Mode
-====================
+.. _strict-authenticated-encryption-kms:
 
-Encryption-only is the default mode, if no :classname:`CryptoMode` is specified.
-To use an |KMS|
-managed key for encryption, pass the |KMS| key ID or alias to the
-:aws-java-class:`KMSEncryptionMaterialsProvider` constructor.
+Strict authenticated encryption
+===============================
+
+Strict authenticated encryption is the default mode if no :classname:`CryptoMode` is specified.
+
+To explicitly enable this mode, specify the :classname:`StrictAuthenticatedEncryption` value in the
+:methodName:`withCryptoConfiguration` method.
+
+.. note:: To use client-side authenticated encryption, you must include the latest
+          `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_ file
+          in the classpath of your application.
 
 **Code**
 
-.. literalinclude:: s3.java1.s3_encrypt.kms_encryption_only_build.txt
-  :dedent: 8
-  :language: java
+.. code-block:: java
+
+   AmazonS3EncryptionV2 s3Encryption = AmazonS3EncryptionClientV2Builder.standard()
+            .withRegion(Regions.US_WEST_2)
+            .withCryptoConfiguration(new CryptoConfigurationV2().withCryptoMode((CryptoMode.StrictAuthenticatedEncryption)))
+            .withEncryptionMaterialsProvider(new KMSEncryptionMaterialsProvider(keyId))
+            .build();
+
+   s3Encryption.putObject(bucket_name, ENCRYPTED_KEY3, "This is the 3rd content to encrypt with a key created in the AWS Console");
+   System.out.println(s3Encryption.getObjectAsString(bucket_name, ENCRYPTED_KEY3));
 
 
 Call the :methodname:`putObject` method on the |S3| encryption client to upload objects.
 
 **Code**
 
-.. literalinclude:: s3.java1.s3_encrypt.kms_encryption_only_put_object.txt
-  :dedent: 8
-  :language: java
+.. code-block:: java
+
+   s3Encryption.putObject(bucket_name, ENCRYPTED_KEY3, "This is the 3rd content to encrypt with a key created in the AWS Console");
 
 You can retrieve the object using the same client. This example calls the
 :methodname:`getObjectAsString` method to retrieve the string that was stored.
 
 **Code**
 
-.. literalinclude:: s3.java1.s3_encrypt.kms_encryption_only_retrieve.txt
-  :dedent: 8
-  :language: java
+.. code-block:: java
 
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
+   System.out.println(s3Encryption.getObjectAsString(bucket_name, ENCRYPTED_KEY3));
 
 .. _authenticated-encryption-kms:
 
-Authenticated Encryption Mode
+Authenticated encryption mode
 =============================
 
 When you use :classname:`AuthenticatedEncryption` mode, an improved key wrapping algorithm is
@@ -102,56 +123,11 @@ To enable this mode, specify the :classname:`AuthenticatedEncryption` value in t
 
 **Code**
 
-.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_builder.txt
-   :dedent: 8
-   :language: java
+.. code-block:: java
+
+   AmazonS3EncryptionV2 s3Encryption = AmazonS3EncryptionClientV2Builder.standard()
+            .withRegion(Regions.US_WEST_2)
+            .withCryptoConfiguration(new CryptoConfigurationV2().withCryptoMode((CryptoMode.AuthenticatedEncryption)))
+            .withEncryptionMaterialsProvider(new KMSEncryptionMaterialsProvider(keyId))
+            .build();
    
-The :classname:`AuthenticatedEncryption` mode can retrieve unencrypted objects and
-objects encrypted with :classname:`EncryptionOnly` mode. The following example shows the
-|S3| encryption client retrieving an unencrypted object.
-
-**Code**
-
-.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_put_object.txt
-   :dedent: 8
-   :language: java
-
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
-
-.. _strict-authenticated-encryption-kms:
-
-Strict Authenticated Encryption
-===============================
-
-To enable this mode, specify the :classname:`StrictAuthenticatedEncryption` value in the
-:methodName:`withCryptoConfiguration` method.
-
-.. note:: To use client-side authenticated encryption, you must include the latest
-          `Bouncy Castle jar <https://www.bouncycastle.org/latest_releases.html>`_ file
-          in the classpath of your application.
-
-**Code**
-
-.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_strict_builder.txt
-   :dedent: 8
-   :language: java
-   
-Call the :methodname:`putObject` method on the |S3| encryption client to upload objects.
-
-**Code**
-
-.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_strict_put_object.txt
-   :dedent: 8
-   :language: java
-
-In :classname:`StrictAuthenticatedEncryption` mode, the |S3| client throws an
-exception when retrieving an object that was not encrypted using an
-authenticated mode.
-
-**Code**
-
-.. literalinclude:: s3.java1.s3_encrypt.kms_authenticated_encryption_strict_exception.txt
-   :dedent: 8
-   :language: java
-
-See the :sdk-examples-java-s3:`complete example <S3Encrypt.java>` on GitHub.
