@@ -28,18 +28,19 @@ process.
 Prerequisites
 =============
 
-* |S3| client-side encryption requires Java 8 or later to be installed in your application
-  environment.
-  The |sdk-java| works with the
+|S3| client-side encryption requires the following:
+
+* Java 8 or later installed in your application environment. The |sdk-java| works with the
   `Oracle Java SE Development Kit <https://www.oracle.com/java/technologies/javase-downloads.html>`_
   and with distributions of Open Java Development Kit (OpenJDK) such as
   `Amazon Corretto <https://aws.amazon.com/corretto/>`_,
   `Red Hat OpenJDK <https://developers.redhat.com/products/openjdk>`_,
   and `AdoptOpenJDK <https://adoptopenjdk.net/>`_.
 
-* You need to take a dependency on BouncyCastle. If you don't already have this,
-  go to https://bouncycastle.org/latest_releases.html and download the provider file that corresponds to your JDK.
-  Alternatively, you can pick it up from Maven (groupId: org.bouncycastle, artifactId: bcprov-ext-jdk15on)."
+* The `Bouncy Castle Crypto package <https://bouncycastle.org/latest_releases.html>`_. You can
+  place the Bouncy Castle .jar file on the classpath of your application environment, or add a
+  dependency on the artifactId :code:`bcprov-ext-jdk15on` (with the groupId of
+  :code:`org.bouncycastle`) to your Maven :file:`pom.xml` file.
 
 .. _s3-cse-overview:
 
