@@ -1,0 +1,47 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+
+[."topic"]
+[[java-dg-jvm-ttl,java-dg-jvm-ttl.title]]
+= [[setting-the-jvm-ttl-for-dns-name-lookups, Setting the JVM TTL for DNS Name Lookups]]Setting the JVM TTL for DNS Name Lookups
+:info_doctype: section
+:info_title: Setting the JVM TTL for DNS Name Lookups
+:info_abstract: How to set Java virtual machine (JVM) for DNS name lookups using the {sdk-java}.
+
+[abstract]
+--
+How to set Java virtual machine (JVM) for DNS name lookups using the {sdk-java}.
+--
+
+The Java virtual machine (JVM) caches DNS name lookups. When the JVM resolves a hostname to an IP address, it caches the IP address for a specified period of time, known as the  _time-to-live_ (TTL).
+
+Because {AWS} resources use DNS name entries that occasionally change, we recommend that you configure your JVM with a TTL value of no more than 60 seconds. This ensures that when a resource's IP address changes, your application will be able to receive and use the resource's new IP address by requerying the DNS.
+
+On some Java configurations, the JVM default TTL is set so that it will _never_ refresh DNS entries until the JVM is restarted. Thus, if the IP address for an {AWS} resource changes while your application is still running, it won't be able to use that resource until you _manually restart_ the JVM and the cached IP information is refreshed. In this case, it's crucial to set the JVM's TTL so that it will periodically refresh its cached IP information.
+
+[NOTE]
+====
+
+The default TTL can vary according to the version of your JVM and whether a http://docs.oracle.com/javase/tutorial/essential/environment/security.html[security manager] is installed. Many JVMs provide a default TTL less than 60 seconds. If you're using such a JVM and not using a security manager, you can ignore the remainder of this topic.
+
+====
+
+[[how-to-set-the-jvm-ttl,how-to-set-the-jvm-ttl.title]]
+== How to Set the JVM TTL
+
+To modify the JVM's TTL, set the  http://docs.oracle.com/javase/7/docs/technotes/guides/net/properties.html[networkaddress.cache.ttl] property value. Use one of the following methods, depending on your needs:
+
+
+
+* **globally, for all applications that use the JVM**. Set `networkaddress.cache.ttl` in the [path]``$JAVA_HOME/jre/lib/security/java.security`` file:
++
+[source,java]
+----
+networkaddress.cache.ttl=60
+----
+* **for your application only**, set `networkaddress.cache.ttl` in your application's initialization code:
++
+[source,java]
+----
+java.security.Security.setProperty("networkaddress.cache.ttl" , "60");
+----

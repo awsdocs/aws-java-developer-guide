@@ -1,0 +1,245 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---docs-aws-amazon-com-IAM-latest-APIReference-API-DetachRolePolicy-html: {url-doc-domain}IAM/latest/APIReference/API_DetachRolePolicy.html
+:https---docs-aws-amazon-com-IAM-latest-APIReference-API-ListAttachedRolePolicies-html: {url-doc-domain}IAM/latest/APIReference/API_ListAttachedRolePolicies.html
+:https---docs-aws-amazon-com-IAM-latest-APIReference-API-AttachRolePolicy-html: {url-doc-domain}IAM/latest/APIReference/API_AttachRolePolicy.html
+:https---docs-aws-amazon-com-IAM-latest-APIReference-API-GetPolicy-html: {url-doc-domain}IAM/latest/APIReference/API_GetPolicy.html
+:https---docs-aws-amazon-com-IAM-latest-APIReference-API-CreatePolicy-html: {url-doc-domain}IAM/latest/APIReference/API_CreatePolicy.html
+:https---docs-aws-amazon-com-IAM-latest-UserGuide-reference-policies-html: {url-doc-domain}IAM/latest/UserGuide/reference_policies.html
+:https---docs-aws-amazon-com-IAM-latest-UserGuide-access-policies-html: {url-doc-domain}IAM/latest/UserGuide/access_policies.html
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-DetachRolePolicy-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/iam/src/main/java/aws/example/iam/DetachRolePolicy.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-AttachRolePolicy-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/iam/src/main/java/aws/example/iam/AttachRolePolicy.java
+:https---docs-aws-amazon-com-IAM-latest-UserGuide-id-roles-html: {url-doc-domain}IAM/latest/UserGuide/id_roles.html
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-GetPolicy-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/iam/src/main/java/aws/example/iam/GetPolicy.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-CreatePolicy-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/iam/src/main/java/aws/example/iam/CreatePolicy.java
+:https---docs-aws-amazon-com-IAM-latest-UserGuide-reference-policies-grammar-html: {url-doc-domain}IAM/latest/UserGuide/reference_policies_grammar.html
+
+[."topic"]
+[[examples-iam-policies,examples-iam-policies.title]]
+= [[working-with-iam-policies, Working with IAM Policies]]Working with IAM Policies
+:info_doctype: section
+:info_title: Working with IAM Policies
+:info_abstract: How to set, get, and delete a policy for an {S3} bucket.
+:info_keywordset: sdk-javacode examplesbucket policies
+
+[abstract]
+--
+How to set, get, and delete a policy for an {S3} bucket.
+--
+
+[[creating-a-policy,creating-a-policy.title]]
+== Creating a Policy
+
+To create a new policy, provide the policy's name and a JSON-formatted policy document in a  link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/CreatePolicyRequest.html["CreatePolicyRequest", type="documentation"] to the AmazonIdentityManagementClient's `createPolicy` method.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
+import com.amazonaws.services.identitymanagement.model.CreatePolicyRequest;
+import com.amazonaws.services.identitymanagement.model.CreatePolicyResult;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonIdentityManagement iam =
+    AmazonIdentityManagementClientBuilder.defaultClient();
+
+CreatePolicyRequest request = new CreatePolicyRequest()
+    .withPolicyName(policy_name)
+    .withPolicyDocument(POLICY_DOCUMENT);
+
+CreatePolicyResult response = iam.createPolicy(request);
+----
+
+IAM policy documents are JSON strings with a  {https---docs-aws-amazon-com-IAM-latest-UserGuide-reference-policies-grammar-html}[well-documented syntax]. Here is an example that provides access to make particular requests to {DDB}.
+
+[source,java]
+----
+public static final String POLICY_DOCUMENT =
+    "{" +
+    "  \"Version\": \"2012-10-17\"," +
+    "  \"Statement\": [" +
+    "    {" +
+    "        \"Effect\": \"Allow\"," +
+    "        \"Action\": \"logs:CreateLogGroup\"," +
+    "        \"Resource\": \"%s\"" +
+    "    }," +
+    "    {" +
+    "        \"Effect\": \"Allow\"," +
+    "        \"Action\": [" +
+    "            \"dynamodb:DeleteItem\"," +
+    "            \"dynamodb:GetItem\"," +
+    "            \"dynamodb:PutItem\"," +
+    "            \"dynamodb:Scan\"," +
+    "            \"dynamodb:UpdateItem\"" +
+    "       ]," +
+    "       \"Resource\": \"RESOURCE_ARN\"" +
+    "    }" +
+    "   ]" +
+    "}";
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-CreatePolicy-java}[complete example] on GitHub.
+
+[[getting-a-policy,getting-a-policy.title]]
+== Getting a Policy
+
+To retrieve an existing policy, call the AmazonIdentityManagementClient's  `getPolicy` method, providing the policy's ARN within a link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/GetPolicyRequest.html["GetPolicyRequest", type="documentation"] object.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
+import com.amazonaws.services.identitymanagement.model.GetPolicyRequest;
+import com.amazonaws.services.identitymanagement.model.GetPolicyResult;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonIdentityManagement iam =
+    AmazonIdentityManagementClientBuilder.defaultClient();
+
+GetPolicyRequest request = new GetPolicyRequest()
+    .withPolicyArn(policy_arn);
+
+GetPolicyResult response = iam.getPolicy(request);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-GetPolicy-java}[complete example] on GitHub.
+
+[[attaching-a-role-policy,attaching-a-role-policy.title]]
+== Attaching a Role Policy
+
+You can attach a policy to an IAM{https---docs-aws-amazon-com-IAM-latest-UserGuide-id-roles-html}[role] by calling the AmazonIdentityManagementClient's `attachRolePolicy` method, providing it with the role name and policy ARN in an link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/AttachRolePolicyRequest.html["AttachRolePolicyRequest", type="documentation"].
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
+import com.amazonaws.services.identitymanagement.model.AttachRolePolicyRequest;
+import com.amazonaws.services.identitymanagement.model.AttachedPolicy;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonIdentityManagement iam =
+    AmazonIdentityManagementClientBuilder.defaultClient();
+
+AttachRolePolicyRequest attach_request =
+    new AttachRolePolicyRequest()
+        .withRoleName(role_name)
+        .withPolicyArn(POLICY_ARN);
+
+iam.attachRolePolicy(attach_request);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-AttachRolePolicy-java}[complete example] on GitHub.
+
+[[listing-attached-role-policies,listing-attached-role-policies.title]]
+== Listing Attached Role Policies
+
+List attached policies on a role by calling the AmazonIdentityManagementClient's  `listAttachedRolePolicies` method. It takes a link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/ListAttachedRolePoliciesRequest.html["ListAttachedRolePoliciesRequest", type="documentation"] object that contains the role name to list the policies for.
+
+Call `getAttachedPolicies` on the returned link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/ListAttachedRolePoliciesResult.html["ListAttachedRolePoliciesResult", type="documentation"] object to get the list of attached policies. Results may be truncated; if the `ListAttachedRolePoliciesResult` object's `getIsTruncated` method returns ``true``, call the `ListAttachedRolePoliciesRequest` object's `setMarker` method and use it to call `listAttachedRolePolicies` again to get the next batch of results.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
+import com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesRequest;
+import com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonIdentityManagement iam =
+    AmazonIdentityManagementClientBuilder.defaultClient();
+
+ListAttachedRolePoliciesRequest request =
+    new ListAttachedRolePoliciesRequest()
+        .withRoleName(role_name);
+
+List<AttachedPolicy> matching_policies = new ArrayList<>();
+
+boolean done = false;
+
+while(!done) {
+    ListAttachedRolePoliciesResult response =
+        iam.listAttachedRolePolicies(request);
+
+    matching_policies.addAll(
+            response.getAttachedPolicies()
+                    .stream()
+                    .filter(p -> p.getPolicyName().equals(role_name))
+                    .collect(Collectors.toList()));
+
+    if(!response.getIsTruncated()) {
+        done = true;
+    }
+    request.setMarker(response.getMarker());
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-AttachRolePolicy-java}[complete example] on GitHub.
+
+[[detaching-a-role-policy,detaching-a-role-policy.title]]
+== Detaching a Role Policy
+
+To detach a policy from a role, call the AmazonIdentityManagementClient's  `detachRolePolicy` method, providing it with the role name and policy ARN in a link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/DetachRolePolicyRequest.html["DetachRolePolicyRequest", type="documentation"].
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
+import com.amazonaws.services.identitymanagement.model.DetachRolePolicyRequest;
+import com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonIdentityManagement iam =
+    AmazonIdentityManagementClientBuilder.defaultClient();
+
+DetachRolePolicyRequest request = new DetachRolePolicyRequest()
+    .withRoleName(role_name)
+    .withPolicyArn(policy_arn);
+
+DetachRolePolicyResult response = iam.detachRolePolicy(request);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-DetachRolePolicy-java}[complete example] on GitHub.
+
+[[more-information,more-information.title]]
+== More Information
+
+* {https---docs-aws-amazon-com-IAM-latest-UserGuide-access-policies-html}[Overview of IAM Policies] in the {guide-iam-user}.
+* {https---docs-aws-amazon-com-IAM-latest-UserGuide-reference-policies-html}[{AWS} IAM Policy Reference] in the {guide-iam-user}.
+* {https---docs-aws-amazon-com-IAM-latest-APIReference-API-CreatePolicy-html}[CreatePolicy] in the IAM API Reference
+* {https---docs-aws-amazon-com-IAM-latest-APIReference-API-GetPolicy-html}[GetPolicy] in the IAM API Reference
+* {https---docs-aws-amazon-com-IAM-latest-APIReference-API-AttachRolePolicy-html}[AttachRolePolicy] in the IAM API Reference
+* {https---docs-aws-amazon-com-IAM-latest-APIReference-API-ListAttachedRolePolicies-html}[ListAttachedRolePolicies] in the IAM API Reference
+* {https---docs-aws-amazon-com-IAM-latest-APIReference-API-DetachRolePolicy-html}[DetachRolePolicy] in the IAM API Reference

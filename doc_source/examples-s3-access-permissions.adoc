@@ -1,0 +1,199 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-SetAcl-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/s3/src/main/java/aws/example/s3/SetAcl.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-GetAcl-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/s3/src/main/java/aws/example/s3/GetAcl.java
+
+[."topic"]
+[[examples-s3-access-permissions,examples-s3-access-permissions.title]]
+= [[managing-s3-access-permissions-for-buckets-and-objects, Managing S3 Access Permissions for Buckets and Objects]]Managing {S3} Access Permissions for Buckets and Objects
+:info_doctype: section
+:info_title: Managing {S3} Access Permissions for Buckets and Objects
+:info_abstract: How to retrieve or set the access control list for an {S3} bucket.
+:info_keywordset: sdk-javacode examplesbucket access permissions
+
+[abstract]
+--
+How to retrieve or set the access control list for an {S3} bucket.
+--
+
+You can use access control lists (ACLs) for {S3} buckets and objects for fine-grained control over your {S3} resources.
+
+[NOTE]
+====
+
+These code examples assume that you understand the material in xref:basics[Using the {sdk-java},linkend=basics] and have configured default {AWS} credentials using the information in xref:setup-credentials[Set up {AWS} Credentials and Region for Development,linkend=setup-credentials].
+
+====
+
+[[get-the-access-control-list-for-a-bucket,get-the-access-control-list-for-a-bucket.title]]
+== Get the Access Control List for a Bucket
+
+To get the current ACL for a bucket, call the AmazonS3's  `getBucketAcl` method, passing it the _bucket name_ to query. This method returns an link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/AccessControlList.html["AccessControlList", type="documentation"] object. To get each access grant in the list, call its `getGrantsAsList` method, which will return a standard Java list of link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/Grant.html["Grant", type="documentation"] objects.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.AccessControlList;
+import com.amazonaws.services.s3.model.Grant;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+try {
+    AccessControlList acl = s3.getBucketAcl(bucket_name);
+    List<Grant> grants = acl.getGrantsAsList();
+    for (Grant grant : grants) {
+        System.out.format("  %s: %s\n", grant.getGrantee().getIdentifier(),
+                grant.getPermission().toString());
+    }
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.exit(1);
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-GetAcl-java}[complete example] on GitHub.
+
+[[set-the-access-control-list-for-a-bucket,set-the-access-control-list-for-a-bucket.title]]
+== Set the Access Control List for a Bucket
+
+To add or modify permissions to an ACL for a bucket, call the AmazonS3's  `setBucketAcl` method. It takes an link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/AccessControlList.html["AccessControlList", type="documentation"] object that contains a list of grantees and access levels to set.
+
+*Imports*
+
+[source,java]
+----
+
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.AccessControlList;
+import com.amazonaws.services.s3.model.EmailAddressGrantee;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+try {
+    // get the current ACL
+    AccessControlList acl = s3.getBucketAcl(bucket_name);
+    // set access for the grantee
+    EmailAddressGrantee grantee = new EmailAddressGrantee(email);
+    Permission permission = Permission.valueOf(access);
+    acl.grantPermission(grantee, permission);
+    s3.setBucketAcl(bucket_name, acl);
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.exit(1);
+}
+----
+
+[NOTE]
+====
+
+You can provide the grantee's unique identifier directly using the  link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/Grantee.html["Grantee", type="documentation"] class, or use the link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/EmailAddressGrantee.html["EmailAddressGrantee", type="documentation"] class to set the grantee by email, as we've done here.
+
+====
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-SetAcl-java}[complete example] on GitHub.
+
+[[get-the-access-control-list-for-an-object,get-the-access-control-list-for-an-object.title]]
+== Get the Access Control List for an Object
+
+To get the current ACL for an object, call the AmazonS3's  `getObjectAcl` method, passing it the _bucket name_ and _object name_ to query. Like ``getBucketAcl``, this method returns an link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/AccessControlList.html["AccessControlList", type="documentation"] object that you can use to examine each link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/Grant.html["Grant", type="documentation"].
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.AccessControlList;
+import com.amazonaws.services.s3.model.Grant;
+----
+
+*Code*
+
+[source,java]
+----
+try {
+    AccessControlList acl = s3.getObjectAcl(bucket_name, object_key);
+    List<Grant> grants = acl.getGrantsAsList();
+    for (Grant grant : grants) {
+        System.out.format("  %s: %s\n", grant.getGrantee().getIdentifier(),
+                grant.getPermission().toString());
+    }
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.exit(1);
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-GetAcl-java}[complete example] on GitHub.
+
+[[set-the-access-control-list-for-an-object,set-the-access-control-list-for-an-object.title]]
+== Set the Access Control List for an Object
+
+To add or modify permissions to an ACL for an object, call the AmazonS3's  `setObjectAcl` method. It takes an link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/AccessControlList.html["AccessControlList", type="documentation"] object that contains a list of grantees and access levels to set.
+
+*Imports*
+
+[source,java]
+----
+
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.AccessControlList;
+import com.amazonaws.services.s3.model.EmailAddressGrantee;
+----
+
+*Code*
+
+[source,java]
+----
+    try {
+        // get the current ACL
+        AccessControlList acl = s3.getObjectAcl(bucket_name, object_key);
+        // set access for the grantee
+        EmailAddressGrantee grantee = new EmailAddressGrantee(email);
+        Permission permission = Permission.valueOf(access);
+        acl.grantPermission(grantee, permission);
+        s3.setObjectAcl(bucket_name, object_key, acl);
+    } catch (AmazonServiceException e) {
+        System.err.println(e.getErrorMessage());
+        System.exit(1);
+    }
+}
+----
+
+[NOTE]
+====
+
+You can provide the grantee's unique identifier directly using the  link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/Grantee.html["Grantee", type="documentation"] class, or use the link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/EmailAddressGrantee.html["EmailAddressGrantee", type="documentation"] class to set the grantee by email, as we've done here.
+
+====
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-SetAcl-java}[complete example] on GitHub.
+
+[[more-information,more-information.title]]
+== More Information
+
+* {url-s3-api}RESTBucketGETacl.html[GET Bucket acl] in the {S3} API Reference
+* {url-s3-api}RESTBucketPUTacl.html[PUT Bucket acl] in the {S3} API Reference
+* {url-s3-api}RESTObjectGETacl.html[GET Object acl] in the {S3} API Reference
+* {url-s3-api}RESTObjectPUTacl.html[PUT Object acl] in the {S3} API Reference

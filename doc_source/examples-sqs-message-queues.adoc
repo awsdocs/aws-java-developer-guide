@@ -1,0 +1,173 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---docs-aws-amazon-com-AWSSimpleQueueService-latest-APIReference-API-DeleteQueues-html: {url-doc-domain}AWSSimpleQueueService/latest/APIReference/API_DeleteQueues.html
+:https---docs-aws-amazon-com-AWSSimpleQueueService-latest-APIReference-API-ListQueues-html: {url-doc-domain}AWSSimpleQueueService/latest/APIReference/API_ListQueues.html
+:https---docs-aws-amazon-com-AWSSimpleQueueService-latest-APIReference-API-GetQueueUrl-html: {url-doc-domain}AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html
+:https---docs-aws-amazon-com-AWSSimpleQueueService-latest-APIReference-API-CreateQueue-html: {url-doc-domain}AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-sqs-src-main-java-aws-example-sqs-UsingQueues-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/sqs/src/main/java/aws/example/sqs/UsingQueues.java
+
+[."topic"]
+[[examples-sqs-message-queues,examples-sqs-message-queues.title]]
+= [[working-with-sqs-message-queues, Working with {SQS} Message Queues]]Working with {SQS} Message Queues
+:info_doctype: section
+:info_title: Working with {SQS} Message Queues
+:info_abstract: How to create, list, delete, and get an {SQS} queue's URL.
+:info_keywordset: sdk-javacode examplequeue operations
+
+[abstract]
+--
+How to create, list, delete, and get an {SQS} queue's URL.
+--
+
+A  _message queue_ is the logical container used for sending messages reliably in {SQS}. There are two types of queues: _standard_ and _first-in, first-out_ (FIFO). To learn more about queues and the differences between these types, see the link:AWSSimpleQueueService/latest/SQSDeveloperGuide/["pass:q[[.shared\]`SQS`] Developer Guide", type="documentation"].
+
+This topic describes how to create, list, delete, and get the URL of an {SQS} queue by using the {sdk-java}.
+
+[[sqs-create-queue,sqs-create-queue.title]]
+== Create a Queue
+
+Use the AmazonSQS client's  `createQueue` method, providing a link:sdk-for-java/v1/reference/com/amazonaws/services/sqs/model/CreateQueueRequest.html["CreateQueueRequest", type="documentation"] object that describes the queue parameters.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
+import com.amazonaws.services.sqs.model.AmazonSQSException;
+import com.amazonaws.services.sqs.model.CreateQueueRequest;
+----
+
+*Code*
+
+[source,java]
+----
+AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
+CreateQueueRequest create_request = new CreateQueueRequest(QUEUE_NAME)
+        .addAttributesEntry("DelaySeconds", "60")
+        .addAttributesEntry("MessageRetentionPeriod", "86400");
+
+try {
+    sqs.createQueue(create_request);
+} catch (AmazonSQSException e) {
+    if (!e.getErrorCode().equals("QueueAlreadyExists")) {
+        throw e;
+    }
+}
+----
+
+You can use the simplified form of  ``createQueue``, which needs only a queue name, to create a standard queue.
+
+[source,java]
+----
+sqs.createQueue("MyQueue" + new Date().getTime());
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-sqs-src-main-java-aws-example-sqs-UsingQueues-java}[complete example] on GitHub.
+
+[[sqs-list-queues,sqs-list-queues.title]]
+== Listing Queues
+
+To list the {SQS} queues for your account, call the AmazonSQS client's  `listQueues` method.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
+import com.amazonaws.services.sqs.model.ListQueuesResult;
+----
+
+*Code*
+
+[source,java]
+----
+AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
+ListQueuesResult lq_result = sqs.listQueues();
+System.out.println("Your SQS Queue URLs:");
+for (String url : lq_result.getQueueUrls()) {
+    System.out.println(url);
+}
+----
+
+Using the  `listQueues` overload without any parameters returns __all queues__. You can filter the returned results by passing it a `ListQueuesRequest` object.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
+import com.amazonaws.services.sqs.model.ListQueuesRequest;
+----
+
+*Code*
+
+[source,java]
+----
+AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
+String name_prefix = "Queue";
+lq_result = sqs.listQueues(new ListQueuesRequest(name_prefix));
+System.out.println("Queue URLs with prefix: " + name_prefix);
+for (String url : lq_result.getQueueUrls()) {
+    System.out.println(url);
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-sqs-src-main-java-aws-example-sqs-UsingQueues-java}[complete example] on GitHub.
+
+[[sqs-get-queue-url,sqs-get-queue-url.title]]
+== Get the URL for a Queue
+
+Call the AmazonSQS client's  `getQueueUrl` method.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
+----
+
+*Code*
+
+[source,java]
+----
+AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
+String queue_url = sqs.getQueueUrl(QUEUE_NAME).getQueueUrl();
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-sqs-src-main-java-aws-example-sqs-UsingQueues-java}[complete example] on GitHub.
+
+[[sqs-delete-queue,sqs-delete-queue.title]]
+== Delete a Queue
+
+Provide the queue's  xref:sqs-get-queue-url[URL,linkend=sqs-get-queue-url] to the AmazonSQS client's `deleteQueue` method.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
+----
+
+*Code*
+
+[source,java]
+----
+AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
+sqs.deleteQueue(queue_url);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-sqs-src-main-java-aws-example-sqs-UsingQueues-java}[complete example] on GitHub.
+
+[[more-info,more-info.title]]
+== More Info
+
+* link:AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-how-it-works.html["How pass:q[[.shared\]`SQS`] Queues Work", type="documentation"] in the {SQS} Developer Guide
+* {https---docs-aws-amazon-com-AWSSimpleQueueService-latest-APIReference-API-CreateQueue-html}[CreateQueue] in the {SQS} API Reference
+* {https---docs-aws-amazon-com-AWSSimpleQueueService-latest-APIReference-API-GetQueueUrl-html}[GetQueueUrl] in the {SQS} API Reference
+* {https---docs-aws-amazon-com-AWSSimpleQueueService-latest-APIReference-API-ListQueues-html}[ListQueues] in the {SQS} API Reference
+* {https---docs-aws-amazon-com-AWSSimpleQueueService-latest-APIReference-API-DeleteQueues-html}[DeleteQueues] in the {SQS} API Reference

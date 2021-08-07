@@ -1,0 +1,43 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-sqs,examples-sqs.title]]
+= [[sqs-examples-using-the-sdk-java, SQS Examples Using the SDK for Java]]{SQS} Examples Using the {sdk-java}
+:info_doctype: section
+:info_title: {SQS} Examples Using the {sdk-java}
+:info_titleabbrev: {SQS} Examples
+:info_abstract: Programming {SQS} using the {sdk-java}
+:info_keywordset: sdk-javacode examples
+
+[abstract]
+--
+Programming {SQS} using the {sdk-java}
+--
+
+This section provides examples of programming  link:sqs/["pass:q[[.shared\]`SQS`]", type="marketing"]
+using the link:sdk-for-java/["pass:q[[.shared\]`Javalong`]", type="marketing"].
+
+[NOTE]
+====
+
+The examples include only the code needed to demonstrate each technique. The {url-awsdocs-github}aws-doc-sdk-examples/tree/master/java[complete example code is available on GitHub]. From there, you can download a single source file or clone the repository locally to get all the examples to build and run.
+
+====
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::examples-sqs-message-queues.adoc[leveloffset=+1]
+
+
+include::examples-sqs-messages.adoc[leveloffset=+1]
+
+
+include::examples-sqs-long-polling.adoc[leveloffset=+1]
+
+
+include::examples-sqs-visibility-timeout.adoc[leveloffset=+1]
+
+
+include::examples-sqs-dead-letter-queues.adoc[leveloffset=+1]

@@ -1,0 +1,33 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-dynamodb,examples-dynamodb.title]]
+= [[ddb-examples-using-the-sdk-java, DynamoDB Examples Using the SDK for Java]]{DDB} Examples Using the {sdk-java}
+:info_doctype: section
+:info_title: {DDB} Examples Using the {sdk-java}
+:info_titleabbrev: {DDBlong} Examples
+:info_abstract: Programming {DDBlong} using the {sdk-java}
+:info_keywordset: sdk-javacode examples
+
+[abstract]
+--
+Programming {DDBlong} using the {sdk-java}
+--
+
+This section provides examples of programming  link:dynamodb/["pass:q[[.shared\]`DDB`]", type="marketing"] using the link:sdk-for-java/["pass:q[[.shared\]`Javalong`]", type="marketing"].
+
+[NOTE]
+====
+
+The examples include only the code needed to demonstrate each technique. The {url-awsdocs-github}aws-doc-sdk-examples/tree/master/java[complete example code is available on GitHub]. From there, you can download a single source file or clone the repository locally to get all the examples to build and run.
+
+====
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::examples-dynamodb-tables.adoc[leveloffset=+1]
+
+
+include::examples-dynamodb-items.adoc[leveloffset=+1]

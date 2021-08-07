@@ -1,0 +1,71 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+
+[."topic"]
+[[security-java-tls,security-java-tls.title]]
+= [[aws-sdk-for-java-support-for-tls-1-2, SDK for Java support for TLS 1.2]]{sdk-java} support for TLS 1.2
+:info_doctype: section
+:info_title: {sdk-java} support for TLS 1.2
+:info_titleabbrev: Enforcing TLS 1.2
+:info_abstract: Applies to Java SSL implementation (default SSL implementation in the SDK). Learn how the {AWS} shared responsibility model applies to data protection in this {AWS} product or service.
+
+[abstract]
+--
+Applies to Java SSL implementation (default SSL implementation in the SDK). Learn how the {AWS} shared responsibility model applies to data protection in this {AWS} product or service.
+--
+
+The following information applies only to Java SSL implementation (the default SSL implementation in the {sdk-java}). If you're using a different SSL implementation, see your specific SSL implementation to learn how to enforce TLS versions.
+
+[[tls-support-in-java,tls-support-in-java.title]]
+== TLS support in Java
+
+TLS 1.2 is supported starting in Java 7.
+
+[[how-to-check-the-tls-version,how-to-check-the-tls-version.title]]
+== How to check the TLS version
+
+To check what TLS version is supported in your Java virtual machine (JVM), you can use the following code.
+
+[source,java]
+----
+System*.out.println(*Arrays*.toString(*SSLContext*.getDefault().getSupportedSSLParameters().getProtocols()));
+----
+
+To see the SSL handshake in action and what version of TLS is used, you can use the system property  **javax.net.debug**.
+
+[source,java]
+----
+java app.jar -Djavax.net.debug=ssl
+----
+
+
+[[how-to-set-the-tls-version,how-to-set-the-tls-version.title]]
+== How to set the TLS version
+
+*{sdk-java} 1.x*
+
+
+
+* Apache HTTP client: The SDK always prefers TLS 1.2 (if it's supported in the platform).
+
+*{sdkjavav2}*
+
+
+
+* ApacheHttpClient: The SDK always prefers TLS 1.2 (if it's supported in the platform).
+* UrlHttpConnectionClient: To enforce only TLS 1.2, you can use this Java command.
+
+
+[source,java]
+----
+java app.jar -Djdk.tls.client.protocols=TLSv1.2
+----
+
+Or use this code.
+
+[source,java]
+----
+System.setProperty("jdk.tls.client.protocols", "TLSv1.2");
+----
+
+* NettyNioHttpClient: The SDK dependency for Netty is TLS 1.2 (if it's supported in the platform).

@@ -1,0 +1,80 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-DeleteApp-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/pinpoint/src/main/java/com/example/pinpoint/DeleteApp.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-CreateApp-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/pinpoint/src/main/java/com/example/pinpoint/CreateApp.java
+
+[."topic"]
+[[examples-pinpoint-create-app,examples-pinpoint-create-app.title]]
+= [[creating-and-deleting-apps-in-pinlong, Creating and Deleting Apps in {PINlong}]]Creating and Deleting Apps in {PINlong}
+:info_doctype: section
+:info_title: Creating and Deleting Apps in {PINlong}
+:info_abstract: How to create or delete an app in Amazon pinpoint.
+:info_keywordset: sdk-javacode examplesamazon pinpoint
+
+[abstract]
+--
+How to create or delete an app in Amazon pinpoint.
+--
+
+An app is an {PINlong} project in which you define the audience for a distinct application, and you engage this audience with tailored messages. The examples on this page demonstrate how to create a new app or delete an existing one.
+
+[[create-an-app,create-an-app.title]]
+== Create an App
+
+Create a new app in {PINlong} by providing an app name to the  link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/CreateAppRequest.html["CreateAppRequest", type="documentation"] object, and then passing that object to the AmazonPinpointClient's `createApp` method.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.pinpoint.AmazonPinpoint;
+import com.amazonaws.services.pinpoint.AmazonPinpointClientBuilder;
+import com.amazonaws.services.pinpoint.model.CreateAppRequest;
+import com.amazonaws.services.pinpoint.model.CreateAppResult;
+import com.amazonaws.services.pinpoint.model.CreateApplicationRequest;
+----
+
+*Code*
+
+[source,java]
+----
+CreateApplicationRequest appRequest = new CreateApplicationRequest()
+		.withName(appName);
+
+CreateAppRequest request = new CreateAppRequest();
+request.withCreateApplicationRequest(appRequest);
+CreateAppResult result = pinpoint.createApp(request);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-CreateApp-java}[complete example] on GitHub.
+
+[[delete-an-app,delete-an-app.title]]
+== Delete an App
+
+To delete an app, call the AmazonPinpointClient's  `deleteApp` request with a link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/DeleteAppRequest.html["DeleteAppRequest", type="documentation"] object that's set with the app name to delete.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.pinpoint.AmazonPinpoint;
+import com.amazonaws.services.pinpoint.AmazonPinpointClientBuilder;
+----
+
+*Code*
+
+[source,java]
+----
+DeleteAppRequest deleteRequest = new DeleteAppRequest()
+		.withApplicationId(appID);
+
+pinpoint.deleteApp(deleteRequest);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-DeleteApp-java}[complete example] on GitHub.
+
+[[more-information,more-information.title]]
+== More Information
+
+* {url-pin-api}rest-api-apps.html[Apps] in the {guide-pin-api}
+* {url-pin-api}rest-api-app.html[App] in the {guide-pin-api}

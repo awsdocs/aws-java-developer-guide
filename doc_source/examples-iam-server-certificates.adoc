@@ -1,0 +1,185 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---docs-aws-amazon-com-IAM-latest-APIReference-API-DeleteServerCertificate-html: {url-doc-domain}IAM/latest/APIReference/API_DeleteServerCertificate.html
+:https---docs-aws-amazon-com-IAM-latest-APIReference-API-UpdateServerCertificate-html: {url-doc-domain}IAM/latest/APIReference/API_UpdateServerCertificate.html
+:https---docs-aws-amazon-com-IAM-latest-APIReference-API-ListServerCertificates-html: {url-doc-domain}IAM/latest/APIReference/API_ListServerCertificates.html
+:https---docs-aws-amazon-com-IAM-latest-APIReference-API-GetServerCertificate-html: {url-doc-domain}IAM/latest/APIReference/API_GetServerCertificate.html
+:https---docs-aws-amazon-com-IAM-latest-UserGuide-id-credentials-server-certs-html: {url-doc-domain}IAM/latest/UserGuide/id_credentials_server-certs.html
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-DeleteServerCertificate-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/iam/src/main/java/aws/example/iam/DeleteServerCertificate.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-UpdateServerCertificate-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/iam/src/main/java/aws/example/iam/UpdateServerCertificate.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-ListServerCertificates-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/iam/src/main/java/aws/example/iam/ListServerCertificates.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-GetServerCertificate-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/iam/src/main/java/aws/example/iam/GetServerCertificate.java
+
+[."topic"]
+[[examples-iam-server-certificates,examples-iam-server-certificates.title]]
+= [[working-with-iam-server-certificates, Working with IAM Server Certificates]]Working with IAM Server Certificates
+:info_doctype: section
+:info_title: Working with IAM Server Certificates
+:info_abstract: How to set, get, and delete a policy for an {S3} bucket.
+:info_keywordset: sdk-javacode examplesbucket policies
+
+[abstract]
+--
+How to set, get, and delete a policy for an {S3} bucket.
+--
+
+To enable HTTPS connections to your website or application on {AWS}, you need an SSL/TLS  __server certificate__. You can use a server certificate provided by {AWS} Certificate Manager or one that you obtained from an external provider.
+
+We recommend that you use ACM to provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to your {AWS} resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more information about ACM , see the link:acm/latest/userguide/["ACM User Guide", type="documentation"].
+
+[[getting-a-server-certificate,getting-a-server-certificate.title]]
+== Getting a Server Certificate
+
+You can retrieve a server certificate by calling the AmazonIdentityManagementClient's  `getServerCertificate` method, passing it a link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/GetServerCertificateRequest.html["GetServerCertificateRequest", type="documentation"] with the certificate's name.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
+import com.amazonaws.services.identitymanagement.model.GetServerCertificateRequest;
+import com.amazonaws.services.identitymanagement.model.GetServerCertificateResult;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonIdentityManagement iam =
+    AmazonIdentityManagementClientBuilder.defaultClient();
+
+GetServerCertificateRequest request = new GetServerCertificateRequest()
+            .withServerCertificateName(cert_name);
+
+GetServerCertificateResult response = iam.getServerCertificate(request);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-GetServerCertificate-java}[complete example] on GitHub.
+
+[[listing-server-certificates,listing-server-certificates.title]]
+== Listing Server Certificates
+
+To list your server certificates, call the AmazonIdentityManagementClient's  `listServerCertificates` method with a link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/ListServerCertificatesRequest.html["ListServerCertificatesRequest", type="documentation"]. It returns a link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/ListServerCertificatesResult.html["ListServerCertificatesResult", type="documentation"].
+
+Call the returned `ListServerCertificateResult` object's `getServerCertificateMetadataList` method to get a list of link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/ServerCertificateMetadata.html["ServerCertificateMetadata", type="documentation"] objects that you can use to get information about each certificate.
+
+Results may be truncated; if the `ListServerCertificateResult` object's `getIsTruncated` method returns ``true``, call the `ListServerCertificatesRequest` object's `setMarker` method and use it to call `listServerCertificates` again to get the next batch of results.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
+import com.amazonaws.services.identitymanagement.model.ListServerCertificatesRequest;
+import com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult;
+import com.amazonaws.services.identitymanagement.model.ServerCertificateMetadata;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonIdentityManagement iam =
+    AmazonIdentityManagementClientBuilder.defaultClient();
+
+boolean done = false;
+ListServerCertificatesRequest request =
+        new ListServerCertificatesRequest();
+
+while(!done) {
+
+    ListServerCertificatesResult response =
+        iam.listServerCertificates(request);
+
+    for(ServerCertificateMetadata metadata :
+            response.getServerCertificateMetadataList()) {
+        System.out.printf("Retrieved server certificate %s",
+                metadata.getServerCertificateName());
+    }
+
+    request.setMarker(response.getMarker());
+
+    if(!response.getIsTruncated()) {
+        done = true;
+    }
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-ListServerCertificates-java}[complete example] on GitHub.
+
+[[updating-a-server-certificate,updating-a-server-certificate.title]]
+== Updating a Server Certificate
+
+You can update a server certificate's name or path by calling the AmazonIdentityManagementClient's  `updateServerCertificate` method. It takes a link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/UpdateServerCertificateRequest.html["UpdateServerCertificateRequest", type="documentation"] object set with the server certificate's current name and either a new name or new path to use.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
+import com.amazonaws.services.identitymanagement.model.UpdateServerCertificateRequest;
+import com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonIdentityManagement iam =
+    AmazonIdentityManagementClientBuilder.defaultClient();
+
+UpdateServerCertificateRequest request =
+    new UpdateServerCertificateRequest()
+        .withServerCertificateName(cur_name)
+        .withNewServerCertificateName(new_name);
+
+UpdateServerCertificateResult response =
+    iam.updateServerCertificate(request);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-UpdateServerCertificate-java}[complete example] on GitHub.
+
+[[deleting-a-server-certificate,deleting-a-server-certificate.title]]
+== Deleting a Server Certificate
+
+To delete a server certificate, call the AmazonIdentityManagementClient's  `deleteServerCertificate` method with a link:sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/DeleteServerCertificateRequest.html["DeleteServerCertificateRequest", type="documentation"] containing the certificate's name.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
+import com.amazonaws.services.identitymanagement.model.DeleteServerCertificateRequest;
+import com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonIdentityManagement iam =
+    AmazonIdentityManagementClientBuilder.defaultClient();
+
+DeleteServerCertificateRequest request =
+    new DeleteServerCertificateRequest()
+        .withServerCertificateName(cert_name);
+
+DeleteServerCertificateResult response =
+    iam.deleteServerCertificate(request);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-iam-src-main-java-aws-example-iam-DeleteServerCertificate-java}[complete example] on GitHub.
+
+[[more-information,more-information.title]]
+== More Information
+
+* {https---docs-aws-amazon-com-IAM-latest-UserGuide-id-credentials-server-certs-html}[Working with Server Certificates] in the {guide-iam-user}
+* {https---docs-aws-amazon-com-IAM-latest-APIReference-API-GetServerCertificate-html}[GetServerCertificate] in the IAM API Reference
+* {https---docs-aws-amazon-com-IAM-latest-APIReference-API-ListServerCertificates-html}[ListServerCertificates] in the IAM API Reference
+* {https---docs-aws-amazon-com-IAM-latest-APIReference-API-UpdateServerCertificate-html}[UpdateServerCertificate] in the IAM API Reference
+* {https---docs-aws-amazon-com-IAM-latest-APIReference-API-DeleteServerCertificate-html}[DeleteServerCertificate] in the IAM API Reference
+* link:acm/latest/userguide/["ACM User Guide", type="documentation"]

@@ -1,0 +1,248 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---docs-aws-amazon-com-AWSEC2-latest-UserGuide-EC2-GetStarted-html: {url-ec2-user}EC2_GetStarted.html
+
+[."topic"]
+[[java-dg-roles,java-dg-roles.title]]
+= [[using-iam-roles-to-grant-access-to-aws-resources-on-ec2, Using IAM Roles to Grant Access to AWS Resources on EC2]]Using IAM Roles to Grant Access to {AWS} Resources on {EC2}
+:info_doctype: section
+:info_title: Using IAM Roles to Grant Access to {AWS} Resources on {EC2}
+
+All requests to {AWSlong} ({AWS}) must be cryptographically signed using credentials issued by {AWS}. You can use  _IAM roles_ to conveniently grant secure access to {AWS} resources from your {EC2} instances.
+
+This topic provides information about how to use IAM roles with Java SDK applications running on {EC2}. For more information about IAM instances, see {url-ec2-user}iam-roles-for-amazon-ec2.html[IAM Roles for {EC2}] in the {guide-ec2-user}.
+
+[[default-provider-chain,default-provider-chain.title]]
+== The default provider chain and EC2 instance profiles
+
+If your application creates an {AWS} client using the default constructor, then the client will search for credentials using the  __default credentials provider chain__, in the following order:
+
+. In the Java system properties: `aws.accessKeyId` and ``aws.secretKey``.
+. In system environment variables: `AWS_ACCESS_KEY_ID` and ``AWS_SECRET_ACCESS_KEY``.
+. In the default credentials file (the location of this file varies by platform).
+. Credentials delivered through the {EC2} container service if the `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` environment variable is set and security manager has permission to access the variable.
+. In the __instance profile credentials__, which exist within the instance metadata associated with the IAM role for the EC2 instance.
+. Web Identity Token credentials from the environment or container.
+
+The  _instance profile credentials_ step in the default provider chain is available only when running your application on an {EC2} instance, but provides the greatest ease of use and best security when working with {EC2} instances. You can also pass an link:sdk-for-java/v1/reference/com/amazonaws/auth/InstanceProfileCredentialsProvider.html["InstanceProfileCredentialsProvider", type="documentation"] instance directly to the client constructor to get instance profile credentials without proceeding through the entire default provider chain.
+
+For example:
+
+[source,java]
+----
+AmazonS3 s3 = AmazonS3ClientBuilder.standard()
+              .withCredentials(new InstanceProfileCredentialsProvider(false))
+              .build();
+----
+
+When using this approach, the SDK retrieves temporary {AWS} credentials that have the same permissions as those associated with the IAM role associated with the {EC2} instance in its instance profile. Although these credentials are temporary and would eventually expire,  `InstanceProfileCredentialsProvider` periodically refreshes them for you so that the obtained credentials continue to allow access to {AWS}.
+
+[IMPORTANT]
+====
+
+The automatic credentials refresh happens _only_ when you use the default client constructor, which creates its own `InstanceProfileCredentialsProvider` as part of the default provider chain, or when you pass an `InstanceProfileCredentialsProvider` instance directly to the client constructor. If you use another method to obtain or pass instance profile credentials, you are responsible for checking for and refreshing expired credentials.
+
+====
+
+If the client constructor can't find credentials using the credentials provider chain, it will throw an  link:sdk-for-java/v1/reference/com/amazonaws/AmazonClientException.html["AmazonClientException", type="documentation"].
+
+[[roles-walkthrough,roles-walkthrough.title]]
+== Walkthrough: Using IAM roles for EC2 instances
+
+The following walkthrough shows you how to retrieve an object from {S3} using an IAM role to manage access.
+
+[[java-dg-create-the-role,java-dg-create-the-role.title]]
+=== Create an IAM Role
+
+Create an IAM role that grants read-only access to {S3}.
+
+. Open the https://console.aws.amazon.com/iam/home[IAM console].
+. In the navigation pane, select **Roles**, then  **Create New Role**.
+. Enter a name for the role, then select **Next Step**. Remember this name, since you'll need it when you launch your {EC2} instance.
+. On the *Select Role Type* page, under  **{AWS-service} Roles**, select  **{EC2}**.
+. On the *Set Permissions* page, under  **Select Policy Template**, select  **{S3} Read Only Access**, then  **Next Step**.
+. On the *Review* page, select  **Create Role**.
+
+
+[[java-dg-launch-ec2-instance-with-instance-profile,java-dg-launch-ec2-instance-with-instance-profile.title]]
+=== Launch an EC2 Instance and Specify Your IAM Role
+
+You can launch an {EC2} instance with an IAM role using the {EC2} console or the {sdk-java}.
+
+
+
+* To launch an {EC2} instance using the console, follow the directions in {https---docs-aws-amazon-com-AWSEC2-latest-UserGuide-EC2-GetStarted-html}[Getting Started with {EC2} Linux Instances] in the {guide-ec2-user}.
++
+
+When you reach the *Review Instance Launch* page, select  **Edit instance details**. In  **IAM role**, choose the IAM role that you created previously. Complete the procedure as directed.
++
+NOTE: You'll need to create or use an existing security group and key pair to connect to the instance.
+* To launch an {EC2} instance with an IAM role using the {sdk-java}, see xref:run-instance[Run an {EC2} Instance,linkend=run-instance].
+
+
+[[java-dg-remove-the-credentials,java-dg-remove-the-credentials.title]]
+=== Create your Application
+
+Let's build the sample application to run on the EC2 instance. First, create a directory that you can use to hold your tutorial files (for example,  [path]``GetS3ObjectApp``).
+
+Next, copy the {sdk-java} libraries into your newly-created directory. If you downloaded the {sdk-java} to your [path]``~/Downloads`` directory, you can copy them using the following commands:
+
+[source,sh]
+----
+cp -r ~/Downloads/aws-java-sdk-{1.7.5}/lib .
+cp -r ~/Downloads/aws-java-sdk-{1.7.5}/third-party .
+----
+
+Open a new file, call it  [path]``GetS3Object.java``, and add the following code:
+
+[source,java]
+----
+
+import java.io.*;
+
+import com.amazonaws.auth.*;
+import com.amazonaws.services.s3.*;
+import com.amazonaws.services.s3.model.*;
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.AmazonServiceException;
+
+public class GetS3Object {
+  private static final String bucketName = "text-content";
+  private static final String key = "text-object.txt";
+
+  public static void main(String[] args) throws IOException
+  {
+    AmazonS3 s3Client = AmazonS3ClientBuilder.defaultClient();
+
+    try {
+      System.out.println("Downloading an object");
+      S3Object s3object = s3Client.getObject(
+          new GetObjectRequest(bucketName, key));
+      displayTextInputStream(s3object.getObjectContent());
+    }
+    catch(AmazonServiceException ase) {
+      System.err.println("Exception was thrown by the service");
+    }
+    catch(AmazonClientException ace) {
+      System.err.println("Exception was thrown by the client");
+    }
+  }
+
+  private static void displayTextInputStream(InputStream input) throws IOException
+  {
+    // Read one text line at a time and display.
+    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+    while(true)
+    {
+      String line = reader.readLine();
+      if(line == null) break;
+      System.out.println( "    " + line );
+    }
+    System.out.println();
+  }
+}
+----
+
+Open a new file, call it  [path]``build.xml``, and add the following lines:
+
+[source,xml]
+----
+
+<project name="Get {S3} Object" default="run" basedir=".">
+  <path id="aws.java.sdk.classpath">
+    <fileset dir="./lib" includes="**/*.jar"/>
+    <fileset dir="./third-party" includes="**/*.jar"/>
+    <pathelement location="lib"/>
+    <pathelement location="."/>
+  </path>
+
+  <target name="build">
+  <javac debug="true"
+    includeantruntime="false"
+    srcdir="."
+    destdir="."
+    classpathref="aws.java.sdk.classpath"/>
+  </target>
+
+  <target name="run" depends="build">
+    <java classname="GetS3Object" classpathref="aws.java.sdk.classpath" fork="true"/>
+  </target>
+</project>
+----
+
+Build and run the modified program. Note that there are no credentials are stored in the program. Therefore, unless you have your {AWS} credentials specified already, the code will throw  ``AmazonServiceException``. For example:
+
+[source,sh]
+----
+$ ant
+Buildfile: /path/to/my/GetS3ObjectApp/build.xml
+
+build:
+  [javac] Compiling 1 source file to /path/to/my/GetS3ObjectApp
+
+run:
+   [java] Downloading an object
+   [java] AmazonServiceException
+
+BUILD SUCCESSFUL
+----
+
+
+[[java-dg-transfer-compiled-program-to-ec2-instance,java-dg-transfer-compiled-program-to-ec2-instance.title]]
+=== Transfer the Compiled Program to Your EC2 Instance
+
+Transfer the program to your {EC2} instance using secure copy (**``**scp**``**), along with the {sdk-java} libraries. The sequence of commands looks something like the following.
+
+[source,sh]
+----
+scp -p -i {my-key-pair}.pem GetS3Object.class ec2-user@{public_dns}:GetS3Object.class
+scp -p -i {my-key-pair}.pem build.xml ec2-user@{public_dns}:build.xml
+scp -r -p -i {my-key-pair}.pem lib ec2-user@{public_dns}:lib
+scp -r -p -i {my-key-pair}.pem third-party ec2-user@{public_dns}:third-party
+----
+
+[NOTE]
+====
+
+Depending on the Linux distribution that you used, the  _user name_ might be "`ec2-user`", "`root`", or "`ubuntu`". To get the public DNS name of your instance, open the https://console.aws.amazon.com/ec2/home[EC2 console] and look for the *Public DNS* value in the  *Description* tab (for example,  ``ec2-198-51-100-1.compute-1.amazonaws.com``).
+
+====
+
+In the preceding commands:
+
+
+
+* `GetS3Object.class` is your compiled program
+* `build.xml` is the ant file used to build and run your program
+* the `lib` and `third-party` directories are the corresponding library folders from the {sdk-java}.
+* The `-r` switch indicates that `scp` should do a recursive copy of all of the contents of the [path]``library`` and  [path]``third-party`` directories in the {sdk-java} distribution.
+* The `-p` switch indicates that `scp` should preserve the permissions of the source files when it copies them to the destination.
++
+NOTE: The `-p` switch works only on Linux, macOS, or Unix. If you are copying files from Windows, you may need to fix the file permissions on your instance using the following command:
+
+[source,sh]
+----
+chmod -R u+rwx GetS3Object.class build.xml lib third-party
+----
+
+
+[[java-dg-run-the-program,java-dg-run-the-program.title]]
+=== Run the Sample Program on the EC2 Instance
+
+To run the program, connect to your {EC2} instance. For more information, see  {url-ec2-user}AccessingInstances.html[Connect to Your Linux Instance] in the {guide-ec2-user}.
+
+If *``**ant**``* is not available on your instance, install it using the following command:
+
+[source,sh]
+----
+sudo yum install ant
+----
+
+Then, run the program using  `ant` as follows:
+
+[source,sh]
+----
+ant run
+----
+
+The program will write the contents of your {S3} object to your command window.

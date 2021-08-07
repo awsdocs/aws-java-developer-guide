@@ -1,0 +1,43 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+
+[."topic"]
+[[examples-pinpoint,examples-pinpoint.title]]
+= [[pinlong-examples-using-the-sdk-java, Pinpoint Examples Using the SDK for Java]]{PINlong} Examples Using the {sdk-java}
+:info_doctype: section
+:info_title: {PINlong} Examples Using the {sdk-java}
+:info_titleabbrev: {PINlong} Examples
+:info_abstract: Programming {PINlong} using the {sdk-java}
+:info_keywordset: sdk-javacode examples
+
+[abstract]
+--
+Programming {PINlong} using the {sdk-java}
+--
+
+This section provides examples of programming  link:pinpoint/["pass:q[[.shared\]`PINlong`]", type="marketing"] using the link:sdk-for-java/["pass:q[[.shared\]`Javalong`]", type="marketing"].
+
+[NOTE]
+====
+
+The examples include only the code needed to demonstrate each technique. The {url-awsdocs-github}aws-doc-sdk-examples/tree/master/java[complete example code is available on GitHub]. From there, you can download a single source file or clone the repository locally to get all the examples to build and run.
+
+====
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::examples-pinpoint-create-app.adoc[leveloffset=+1]
+
+
+include::examples-pinpoint-create-endpoint.adoc[leveloffset=+1]
+
+
+include::examples-pinpoint-create-segment.adoc[leveloffset=+1]
+
+
+include::examples-pinpoint-create-campaign.adoc[leveloffset=+1]
+
+
+include::examples-pinpoint-update-channel.adoc[leveloffset=+1]

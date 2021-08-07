@@ -1,0 +1,144 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+
+[."topic"]
+[[creating-clients,creating-clients.title]]
+= [[creating-service-clients, Creating Service Clients]]Creating Service Clients
+:info_doctype: section
+:info_title: Creating Service Clients
+:info_abstract: How to create service clients by using the {sdk-java}.
+
+[abstract]
+--
+How to create service clients by using the {sdk-java}.
+--
+
+To make requests to {AWSlong}, you first create a service client object. The recommended way is to use the service client builder.
+
+Each {AWS-service} has a service interface with methods for each action in the service API. For
+example, the service interface for {DDBlong} is named
+link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDB
+.html["AmazonDynamoDB", type="documentation"]. Each service interface has a corresponding client
+builder you can use to construct an implementation of the service interface. The client builder
+class for {DDB} is named link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDBClientBuilder.html["AmazonDynamoDBClientBuilder", type="documentation"].
+
+[[obtaining-a-client-builder,obtaining-a-client-builder.title]]
+== Obtaining a Client Builder
+
+To obtain an instance of the client builder, use the static factory method  ``standard``, as shown in the following example.
+
+[source,java]
+----
+AmazonDynamoDBClientBuilder builder = AmazonDynamoDBClientBuilder.standard();
+----
+
+Once you have a builder, you can customize the client's properties by using many fluent setters in the builder API. For example, you can set a custom region and a custom credentials provider, as follows.
+
+[source,java]
+----
+AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.standard()
+                        .withRegion(Regions.US_WEST_2)
+                        .withCredentials(new ProfileCredentialsProvider("myProfile"))
+                        .build();
+----
+
+[NOTE]
+====
+
+The fluent  `withXXX` methods return the `builder` object so that you can chain the method calls for convenience and for more readable code. After you configure the properties you want, you can call the `build` method to create the client. Once a client is created, it's immutable and any calls to `setRegion` or `setEndpoint` will fail.
+
+====
+
+A builder can create multiple clients with the same configuration. When you're writing your application, be aware that the builder is mutable and not thread-safe.
+
+The following code uses the builder as a factory for client instances.
+
+[source,java]
+----
+public class DynamoDBClientFactory {
+    private final AmazonDynamoDBClientBuilder builder =
+        AmazonDynamoDBClientBuilder.standard()
+            .withRegion(Regions.US_WEST_2)
+            .withCredentials(new ProfileCredentialsProvider("myProfile"));
+
+    public AmazonDynamoDB createClient() {
+        return builder.build();
+    }
+}
+----
+
+The builder also exposes fluent setters for  link:sdk-for-java/v1/reference/com/amazonaws/ClientConfiguration.html["ClientConfiguration", type="documentation"] and link:sdk-for-java/v1/reference/com/amazonaws/metrics/RequestMetricCollector.html["RequestMetricCollector", type="documentation"], and a custom list of link:sdk-for-java/v1/reference/com/amazonaws/handlers/RequestHandler2.html["RequestHandler2", type="documentation"].
+
+The following is a complete example that overrides all configurable properties.
+
+[source,java]
+----
+AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.standard()
+        .withRegion(Regions.US_WEST_2)
+        .withCredentials(new ProfileCredentialsProvider("myProfile"))
+        .withClientConfiguration(new ClientConfiguration().withRequestTimeout(5000))
+        .withMetricsCollector(new MyCustomMetricsCollector())
+        .withRequestHandlers(new MyCustomRequestHandler(), new MyOtherCustomRequestHandler)
+        .build();
+----
+
+
+[[creating-async-clients,creating-async-clients.title]]
+== Creating Async Clients
+
+The {sdk-java} has asynchronous (or async) clients for every service (except for {S3}), and a corresponding async client builder for every service.
+
+[[w3aab9c13b9b5]]
+=== To create an async DynamoDB client with the default ExecutorService
+
+[source,java]
+----
+AmazonDynamoDBAsync ddbAsync = AmazonDynamoDBAsyncClientBuilder.standard()
+        .withRegion(Regions.US_WEST_2)
+        .withCredentials(new ProfileCredentialsProvider("myProfile"))
+        .build();
+----
+
+In addition to the configuration options that the synchronous (or sync) client builder supports, the async client enables you to set a custom  link:sdk-for-java/v1/reference/com/amazonaws/client/builder/ExecutorFactory.html["ExecutorFactory", type="documentation"] to change the `ExecutorService` that the async client uses. `ExecutorFactory` is a functional interface, so it interoperates with Java 8 lambda expressions and method references.
+
+[[w3aab9c13b9b9]]
+=== To create an async client with a custom executor
+
+[source,java]
+----
+AmazonDynamoDBAsync ddbAsync = AmazonDynamoDBAsyncClientBuilder.standard()
+            .withExecutorFactory(() -> Executors.newFixedThreadPool(10))
+            .build();
+----
+
+
+[[using-defaultclient,using-defaultclient.title]]
+== Using DefaultClient
+
+Both the sync and async client builders have another factory method named  ``defaultClient``. This method creates a service client with the default configuration, using the default provider chain to load credentials and the {AWS-Region}. If credentials or the region can't be determined from the environment that the application is running in, the call to `defaultClient` fails. See xref:credentials[Working with {AWS} Credentials,linkend=credentials] and xref:java-dg-region-selection[{AWS-Region} Selection,linkend=java-dg-region-selection] for more information about how credentials and region are determined.
+
+[[w3aab9c13c11b5]]
+=== To create a default service client
+
+[source,java]
+----
+AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+----
+
+
+[[client-lifecycle,client-lifecycle.title]]
+== Client Lifecycle
+
+Service clients in the SDK are thread-safe and, for best performance, you should treat them as long-lived objects. Each client has its own connection pool resource. Explicitly shut down clients when they are no longer needed to avoid resource leaks.
+
+To explicitly shut down a client, call the `shutdown` method. After calling ``shutdown``, all client resources are released and the client is unusable.
+
+[[w3aab9c13c13b7]]
+=== To shut down a client
+
+[source,java]
+----
+AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+ddb.shutdown();
+// Client is now unusable
+----

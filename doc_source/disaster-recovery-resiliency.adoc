@@ -1,0 +1,28 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:java-aws-securitydocs: {url-doc-domain}security/?id=docs_gateway#aws-security
+[."topic"]
+[[disaster-recovery-resiliency,disaster-recovery-resiliency.title]]
+= [[resilience-for-this-aws-product-or-service, Resilience for this Product or Service]]Resilience for this {AWS} Product or Service
+:info_doctype: section
+:info_title: Resilience for this {AWS} Product or Service
+:info_titleabbrev: Resilience
+
+The {AWSlong} ({AWS}) global infrastructure is built around {AWS-Regions} and Availability Zones.
+
+{AWS-Regions} provide multiple physically separated and isolated Availability Zones, which are
+connected with low-latency, high-throughput, and highly redundant networking.
+
+With Availability Zones, you can design and operate applications and databases that automatically
+fail over between Availability Zones without interruption. Availability Zones are more highly
+available, fault tolerant, and scalable than traditional single or multiple data center
+infrastructures.
+
+For more information about {AWS-Regions} and Availability Zones, see
+link:about-aws/global-infrastructure/["pass:q[[.shared\]`AWS`] Global Infrastructure", type="marketing"].
+
+This {AWS} product or service follows the
+link:compliance/shared-responsibility-model/["shared responsibility model", type="marketing"] through the
+specific {AWSlong} ({AWS}) services it supports. For {AWS-service} security
+information, see the {java-aws-securitydocs}[{AWS-service} security documentation page]
+and link:compliance/services-in-scope/["pass:q[[.shared\]`AWS`] services that are in scope of pass:q[[.shared\]`AWS`] compliance efforts by compliance program", type="marketing"].

@@ -1,0 +1,48 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-s3,examples-s3.title]]
+= [[s3-examples-using-the-sdk-java, S3 Examples Using the SDK for Java]]{S3} Examples Using the {sdk-java}
+:info_doctype: section
+:info_title: {S3} Examples Using the {sdk-java}
+:info_titleabbrev: {S3} Examples
+:info_abstract: Programming {S3} using the {sdk-java}
+:info_keywordset: sdk-javacode examples
+
+[abstract]
+--
+Programming {S3} using the {sdk-java}
+--
+
+This section provides examples of programming  link:s3/["pass:q[[.shared\]`S3`]", type="marketing"] using the link:sdk-for-java/["pass:q[[.shared\]`Javalong`]", type="marketing"].
+
+[NOTE]
+====
+
+The examples include only the code needed to demonstrate each technique. The {url-awsdocs-github}aws-doc-sdk-examples/tree/master/java[complete example code is available on GitHub]. From there, you can download a single source file or clone the repository locally to get all the examples to build and run.
+
+====
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::examples-s3-buckets.adoc[leveloffset=+1]
+
+
+include::examples-s3-objects.adoc[leveloffset=+1]
+
+
+include::examples-s3-access-permissions.adoc[leveloffset=+1]
+
+
+include::examples-s3-bucket-policies.adoc[leveloffset=+1]
+
+
+include::examples-s3-transfermanager.adoc[leveloffset=+1]
+
+
+include::examples-s3-website-configuration.adoc[leveloffset=+1]
+
+
+include::examples-crypto.adoc[leveloffset=+1]

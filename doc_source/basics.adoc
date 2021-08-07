@@ -1,0 +1,63 @@
+//!!NODE_ROOT <chapter>
+include::../../includes.txt[]
+[."topic"]
+[[basics,basics.title]]
+= [[using-the-sdk-java, Using the SDK for Java]]Using the {sdk-java}
+:doctype: book
+:sectnums:
+:toc: left
+:icons: font
+:experimental:
+:idprefix:
+:idseparator: -
+:sourcedir: .
+:info_doctype: chapter
+:info_title: Using the {sdk-java}
+:info_abstract: Programming information for the {sdk-java}
+
+[abstract]
+--
+Programming information for the {sdk-java}
+--
+
+This section provides important general information about programming with the {sdk-java} that
+applies to all services you might use with the SDK.
+
+For service-specific programming information and examples (for {EC2}, {S3}, {SWF},
+etc.), see xref:prog-services[{sdk-java} Code Examples,linkend=prog-services].
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::best-practices.adoc[leveloffset=+1]
+
+
+include::creating-clients.adoc[leveloffset=+1]
+
+
+include::credentials.adoc[leveloffset=+1]
+
+
+include::java-dg-region-selection.adoc[leveloffset=+1]
+
+
+include::java-dg-exceptions.adoc[leveloffset=+1]
+
+
+include::basics-async.adoc[leveloffset=+1]
+
+
+include::java-dg-logging.adoc[leveloffset=+1]
+
+
+include::section-client-configuration.adoc[leveloffset=+1]
+
+
+include::java-dg-access-control.adoc[leveloffset=+1]
+
+
+include::java-dg-jvm-ttl.adoc[leveloffset=+1]
+
+
+include::generating-sdk-metrics.adoc[leveloffset=+1]

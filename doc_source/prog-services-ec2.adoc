@@ -1,0 +1,48 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+
+[."topic"]
+[[prog-services-ec2,prog-services-ec2.title]]
+= [[ec2-examples-using-the-sdk-java, EC2 Examples Using the SDK for Java]]{EC2} Examples Using the {sdk-java}
+:info_doctype: section
+:info_title: {EC2} Examples Using the {sdk-java}
+:info_titleabbrev: {EC2} Examples
+:info_abstract: Programming {EC2} using the {sdk-java}
+:info_keywordset: sdk-javacode examples
+
+[abstract]
+--
+Programming {EC2} using the {sdk-java}
+--
+
+This section provides examples of programming  link:ec2/["pass:q[[.shared\]`EC2`]", type="marketing"] with the {sdk-java}.
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::how-to-ec2.adoc[leveloffset=+1]
+
+
+include::java-dg-roles.adoc[leveloffset=+1]
+
+
+include::tutorial-spot-instances-java.adoc[leveloffset=+1]
+
+
+include::tutorial-spot-adv-java.adoc[leveloffset=+1]
+
+
+include::examples-ec2-instances.adoc[leveloffset=+1]
+
+
+include::examples-ec2-elastic-ip.adoc[leveloffset=+1]
+
+
+include::examples-ec2-regions-zones.adoc[leveloffset=+1]
+
+
+include::examples-ec2-key-pairs.adoc[leveloffset=+1]
+
+
+include::examples-ec2-security-groups.adoc[leveloffset=+1]

@@ -1,0 +1,33 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---docs-aws-amazon-com-AWSJavaSDK-latest-javadoc-com-amazonaws-services-simpleworkflow-AmazonSimpleWorkflowClient-html-registerDomain-com-amazonaws-services-simpleworkflow-model-RegisterDomainRequest-: {v1javadocs}com/amazonaws/services/simpleworkflow/AmazonSimpleWorkflowClient.html#registerDomain-com.amazonaws.services.simpleworkflow.model.RegisterDomainRequest-
+[."topic"]
+[[prog-services-swf-register-domain,prog-services-swf-register-domain.title]]
+= [[registering-domains, Registering Domains]]Registering Domains
+:info_doctype: section
+:info_title: Registering Domains
+
+Every workflow and activity in  link:swf/["pass:q[[.shared\]`SWF`]", type="marketing"] needs a _domain_ to run in.
+
+. Create a new link:sdk-for-java/v1/reference/com/amazonaws/services/simpleworkflow/model/RegisterDomainRequest.html["RegisterDomainRequest", type="documentation"] object, providing it with at least the domain name and workflow execution retention period (these parameters are both required).
+. Call the {https---docs-aws-amazon-com-AWSJavaSDK-latest-javadoc-com-amazonaws-services-simpleworkflow-AmazonSimpleWorkflowClient-html-registerDomain-com-amazonaws-services-simpleworkflow-model-RegisterDomainRequest-}[AmazonSimpleWorkflowClient.registerDomain] method with the _RegisterDomainRequest_ object.
+. Catch the link:sdk-for-java/v1/reference/com/amazonaws/services/simpleworkflow/model/DomainAlreadyExistsException.html["DomainAlreadyExistsException", type="documentation"] if the domain you're requesting already exists (in which case, no action is usually required).
+
+The following code demonstrates this procedure:
+
+[source,java]
+----
+public void register_swf_domain(AmazonSimpleWorkflowClient swf, String name)
+{
+    RegisterDomainRequest request = new RegisterDomainRequest().withName(name);
+    request.setWorkflowExecutionRetentionPeriodInDays("10");
+    try
+    {
+        swf.registerDomain(request);
+    }
+    catch (DomainAlreadyExistsException e)
+    {
+        System.out.println("Domain already exists!");
+    }
+}
+----

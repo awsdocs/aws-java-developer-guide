@@ -1,0 +1,57 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:java-oracle-file: https://docs.oracle.com/javase/8/docs/api/index.html?java/io/File.html
+:java-oracle-fileinputstream: https://docs.oracle.com/javase/8/docs/api/index.html?java/io/FileInputStream.html
+[."topic"]
+[[best-practices,best-practices.title]]
+= [[best-practices-for-aws-development-with-the-sdk-java, Best Practices for development with the SDK for Java]]Best Practices for {AWS} Development with the {sdk-java}
+:info_doctype: section
+:info_title: Best Practices for {AWS} Development with the {sdk-java}
+:info_abstract: {AWS} coding best practices using the {sdk-java}.
+
+[abstract]
+--
+{AWS} coding best practices using the {sdk-java}.
+--
+
+The following best practices can help you avoid issues or trouble as you develop {AWS}
+applications with the {sdk-java}. We've organized best practices by service.
+
+[[s3,s3.title]]
+== S3
+
+[[s3-avoid-resetexception,s3-avoid-resetexception.title]]
+=== Avoid ResetExceptions
+
+When you upload objects to {S3} by using streams (either through an `AmazonS3` client or
+`TransferManager`), you might encounter network connectivity or timeout issues. By default, the
+{sdk-java} attempts to retry failed transfers by marking the input stream before the start of a
+transfer and then resetting it before retrying.
+
+If the stream doesn't support mark and reset, the SDK throws a
+link:sdk-for-java/v1/reference/com/amazonaws/ResetException.html["ResetException", type="documentation"]
+when there are transient failures and retries are enabled.
+
+*Best Practice*
+
+We recommend that you use streams that support mark and reset operations.
+
+The most reliable way to avoid a
+link:sdk-for-java/v1/reference/com/amazonaws/ResetException.html["ResetException", type="documentation"]
+is to provide data by using a
+{java-oracle-file}[File]
+or
+{java-oracle-fileinputstream}[FileInputStream],
+which the {sdk-java} can handle without being constrained by mark and reset limits.
+
+If the stream isn't a
+{java-oracle-fileinputstream}[FileInputStream]
+but does support mark and reset, you can set the mark limit by using the `setReadLimit` method of
+link:sdk-for-java/v1/reference/com/amazonaws/RequestClientOptions.html["RequestClientOptions", type="documentation"].
+Its default value is 128 KB. Setting the read limit value to _one byte greater than the size of
+stream_ will reliably avoid a
+link:sdk-for-java/v1/reference/com/amazonaws/ResetException.html["ResetException", type="documentation"].
+
+For example, if the maximum expected size of a stream is 100,000 bytes, set the read limit to
+100,001 (100,000 + 1) bytes. The mark and reset will always work for 100,000 bytes or less. Be
+aware that this might cause some streams to buffer that number of bytes into memory.

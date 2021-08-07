@@ -1,0 +1,98 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:java-oracle-future: https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Future.html
+[."topic"]
+[[swf-basics,swf-basics.title]]
+= SWF basics
+:info_doctype: section
+:info_title: {SWF} basics
+
+These are general patterns for working with {SWF} using the {sdk-java}. It is meant primarily for
+reference. For a more complete introductory tutorial, see
+xref:swf-hello[Building a Simple {SWF} Application,linkend=swf-hello].
+
+[[dependencies,dependencies.title]]
+== Dependencies
+
+Basic {SWF} applications will require the following dependencies, which are included with the
+{sdk-java}:
+
+
+
+* aws-java-sdk-1.12.*.jar
+* commons-logging-1.2.*.jar
+* httpclient-4.3.*.jar
+* httpcore-4.3.*.jar
+* jackson-annotations-2.12.*.jar
+* jackson-core-2.12.*.jar
+* jackson-databind-2.12.*.jar
+* joda-time-2.8.*.jar
+
+
+[NOTE]
+====
+
+The version numbers of these packages will differ depending on the version of the SDK that you
+have, but the versions that are supplied with the SDK have been tested for compatibility, and are
+the ones you should use.
+
+====
+
+{FFlong} for Java applications require additional setup,  _and_ additional dependencies. See the
+link:amazonswf/latest/awsflowguide/["pass:q[[.shared\]`FFlong`] for Java Developer Guide", type="documentation"]
+for more information about using the framework.
+
+[[imports,imports.title]]
+== Imports
+
+In general, you can use the following imports for code development:
+
+[source,java]
+----
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
+import com.amazonaws.services.simpleworkflow.model.*;
+----
+
+It's a good practice to import only the classes you require, however. You will likely end up
+specifying particular classes in the  `com.amazonaws.services.simpleworkflow.model` workspace:
+
+[source,java]
+----
+import com.amazonaws.services.simpleworkflow.model.PollForActivityTaskRequest;
+import com.amazonaws.services.simpleworkflow.model.RespondActivityTaskCompletedRequest;
+import com.amazonaws.services.simpleworkflow.model.RespondActivityTaskFailedRequest;
+import com.amazonaws.services.simpleworkflow.model.TaskList;
+----
+
+If you are using the {FFlong} for Java, you will import classes from the
+`com.amazonaws.services.simpleworkflow.flow` workspace. For example:
+
+[source,java]
+----
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
+import com.amazonaws.services.simpleworkflow.flow.ActivityWorker;
+----
+
+[NOTE]
+====
+
+The {FFlong} for Java has additional requirements beyond those of the base {sdk-java}. For more
+information, see the
+link:amazonswf/latest/awsflowguide/["pass:q[[.shared\]`FFlong`] for Java Developer Guide", type="documentation"].
+
+====
+
+[[using-the-swf-client-class,using-the-swf-client-class.title]]
+== Using the SWF client class
+
+Your basic interface to {SWF} is through either the
+link:sdk-for-java/v1/reference/com/amazonaws/services/simpleworkflow/AmazonSimpleWorkflowClient.html["AmazonSimpleWorkflowClient", type="documentation"]
+or
+link:sdk-for-java/v1/reference/com/amazonaws/services/simpleworkflow/AmazonSimpleWorkflowAsyncClient.html["AmazonSimpleWorkflowAsyncClient", type="documentation"]
+classes. The main difference between these is that the `\*AsyncClient` class return
+{java-oracle-future}[Future] objects for concurrent (asynchronous) programming.
+
+[source,java]
+----
+AmazonSimpleWorkflowClient swf = AmazonSimpleWorkflowClientBuilder.defaultClient();
+----

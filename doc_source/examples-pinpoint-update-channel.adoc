@@ -1,0 +1,66 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-UpdateChannel-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/pinpoint/src/main/java/com/example/pinpoint/UpdateChannel.java
+
+[."topic"]
+[[examples-pinpoint-update-channel,examples-pinpoint-update-channel.title]]
+= [[updating-channels-in-pinlong, Updating Channels in {PINlong}]]Updating Channels in {PINlong}
+:info_doctype: section
+:info_title: Updating Channels in {PINlong}
+:info_abstract: How to update an app channel in Amazon pinpoint.
+:info_keywordset: sdk-javacode examplesamazon pinpoint channel
+
+[abstract]
+--
+How to update an app channel in Amazon pinpoint.
+--
+
+A channel defines the types of platforms to which you can deliver messages. This example shows how to use the APNs channel to send a message.
+
+[[update-a-channel,update-a-channel.title]]
+== Update a Channel
+
+Enable a channel in {PINlong} by providing an app ID and a request object of the channel type you want to update. This example updates the APNs channel, which requires the  link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/APNSChannelRequest.html["APNSChannelRequest", type="documentation"] object. Set these in the link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/UpdateApnsChannelRequest.html["UpdateApnsChannelRequest", type="documentation"] and pass that object to the AmazonPinpointClient's `updateApnsChannel` method.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.pinpoint.AmazonPinpoint;
+import com.amazonaws.services.pinpoint.AmazonPinpointClientBuilder;
+import com.amazonaws.services.pinpoint.model.APNSChannelRequest;
+import com.amazonaws.services.pinpoint.model.APNSChannelResponse;
+import com.amazonaws.services.pinpoint.model.GetApnsChannelRequest;
+import com.amazonaws.services.pinpoint.model.GetApnsChannelResult;
+import com.amazonaws.services.pinpoint.model.UpdateApnsChannelRequest;
+import com.amazonaws.services.pinpoint.model.UpdateApnsChannelResult;
+----
+
+*Code*
+
+[source,java]
+----
+APNSChannelRequest request = new APNSChannelRequest()
+		.withEnabled(enabled);
+
+UpdateApnsChannelRequest updateRequest = new UpdateApnsChannelRequest()
+		.withAPNSChannelRequest(request)
+		.withApplicationId(appId);
+UpdateApnsChannelResult result = client.updateApnsChannel(updateRequest);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-UpdateChannel-java}[complete example] on GitHub.
+
+[[more-information,more-information.title]]
+== More Information
+
+* link:pinpoint/latest/userguide/channels.html["pass:q[[.shared\]`PINlong`] Channels", type="documentation"] in the {guide-pin-ug}
+* {url-pin-api}rest-api-adm-channel.html[ADM Channel] in the {guide-pin-api}
+* {url-pin-api}rest-api-apns-channel.html[APNs Channel] in the {guide-pin-api}
+* {url-pin-api}rest-api-apns-sandbox-channel.html[APNs Sandbox Channel] in the {guide-pin-api}
+* {url-pin-api}rest-api-apns-voip-channel.html[APNs VoIP Channel] in the {guide-pin-api}
+* {url-pin-api}rest-api-apns-voip-sandbox-channel.html[APNs VoIP Sandbox Channel] in the {guide-pin-api}
+* {url-pin-api}rest-api-baidu-channel.html[Baidu Channel] in the {guide-pin-api}
+* {url-pin-api}rest-api-email-channel.html[Email Channel] in the {guide-pin-api}
+* {url-pin-api}rest-api-gcm-channel.html[GCM Channel] in the {guide-pin-api}
+* {url-pin-api}rest-api-sms-channel.html[SMS Channel] in the {guide-pin-api}

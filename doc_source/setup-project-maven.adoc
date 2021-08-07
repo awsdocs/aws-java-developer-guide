@@ -1,0 +1,137 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-GetAcl-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/s3/src/main/java/aws/example/s3/GetAcl.java
+
+[."topic"]
+[[setup-project-maven,setup-project-maven.title]]
+= [[using-the-sdk-with-apache-maven, Using the SDK with Apache Maven]]Using the SDK with Apache Maven
+:info_doctype: section
+:info_title: Using the SDK with Apache Maven
+
+You can use  https://maven.apache.org/[Apache Maven] to configure and build {sdk-java} projects, or to build the SDK itself.
+
+[NOTE]
+====
+
+You must have Maven installed to use the guidance in this topic. If it isn't already installed, visit http://maven.apache.org/ to download and install it.
+
+====
+
+[[create-a-new-maven-package,create-a-new-maven-package.title]]
+== Create a new Maven package
+
+To create a basic Maven package, open a terminal (command-line) window and run:
+
+[source,sh]
+----
+mvn -B archetype:generate \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DgroupId=org.example.basicapp \
+  -DartifactId=myapp
+----
+
+Replace  _org.example.basicapp_ with the full package namespace of your application, and _myapp_ with the name of your project (this will become the name of the directory for your project).
+
+By default,  creates a project template for you using the http://maven.apache.org/archetypes/maven-archetype-quickstart/[quickstart] archetype, which is a good starting place for many projects. There are more archetypes available; visit the https://maven.apache.org/archetypes/index.html[Maven archetypes] page for a list of archetypes packaged with . You can choose a particular archetype to use by adding the `-DarchetypeArtifactId` argument to the `archetype:generate` command. For example:
+
+[source,sh]
+----
+mvn archetype:generate \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DarchetypeArtifactId=maven-archetype-webapp \
+  -DgroupId=org.example.webapp \
+  -DartifactId=mywebapp
+----
+
+[NOTE]
+====
+
+Much more information about creating and configuring  projects is provided in the  https://maven.apache.org/guides/getting-started/[Maven Getting Started Guide].
+
+====
+
+[[configuring-maven,configuring-maven.title]]
+== Configure the SDK as a Maven dependency
+
+To use the {sdk-java} in your project, you'll need to declare it as a dependency in your project's  [path]``pom.xml`` file. Beginning with version 1.9.0, you can import  xref:configuring-maven-individual-components[individual components,linkend=configuring-maven-individual-components] or the xref:configuring-maven-entire-sdk[entire SDK,linkend=configuring-maven-entire-sdk].
+
+[[configuring-maven-individual-components,configuring-maven-individual-components.title]]
+=== Specifying individual SDK modules
+
+To select individual SDK modules, use the {sdk-java} bill of materials (BOM) for Maven, which will ensure that the modules you specify use the same version of the SDK and that they're compatible with each other.
+
+To use the BOM, add a `<dependencyManagement>` section to your application's [path]``pom.xml`` file, adding  `aws-java-sdk-bom` as a dependency and specifying the version of the SDK you want to use:
+
+[source,xml]
+----
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-bom</artifactId>
+      <version>1.11.1000</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+----
+
+To view the latest version of the {sdk-java} BOM that is available on Maven Central, visit:  https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-bom. You can also use this page to see which modules (dependencies) are managed by the BOM that you can include within the `<dependencies>` section of your project's [path]``pom.xml`` file.
+
+You can now select individual modules from the SDK that you use in your application. Because you already declared the SDK version in the BOM, you don't need to specify the version number for each component.
+
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk-s3</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk-dynamodb</artifactId>
+  </dependency>
+</dependencies>
+----
+
+You can also refer to the  _{SDKCodeSampCat}_ to learn what dependencies to use for a given {AWS-service}. Refer to the POM file under a specific service example. For example, if you are interested in the dependencies for the {AWS} S3 service, see the {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-GetAcl-java}[complete example] on GitHub. (Look at the pom under /java/example_code/s3).
+
+[[configuring-maven-entire-sdk,configuring-maven-entire-sdk.title]]
+=== Importing all SDK modules
+
+If you would like to pull in the  _entire_ SDK as a dependency, don't use the BOM method, but simply declare it in your [path]``pom.xml`` like this:
+
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk</artifactId>
+    <version>1.11.1000</version>
+  </dependency>
+</dependencies>
+----
+
+
+[[build-your-project,build-your-project.title]]
+== Build your project
+
+Once you have your project set up, you can build it using Maven's  `package` command:
+
+[source,java]
+----
+mvn package
+----
+
+This will create your  `$$.$$jar` file in the `target` directory.
+
+[[building-with-maven,building-with-maven.title]]
+== Build the SDK with Maven
+
+You can use Apache Maven to build the SDK from source. To do so,  {url-aws-github}aws-sdk-java[download the SDK code from GitHub], unpack it locally, and then execute the following Maven command:
+
+[source,java]
+----
+mvn clean install
+----

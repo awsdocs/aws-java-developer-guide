@@ -1,0 +1,177 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---docs-aws-amazon-com-AWSEC2-latest-APIReference-API-AuthorizeSecurityGroupIngress-html: {url-doc-domain}AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html
+:https---docs-aws-amazon-com-AWSEC2-latest-APIReference-API-DeleteSecurityGroup-html: {url-doc-domain}AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html
+:https---docs-aws-amazon-com-AWSEC2-latest-APIReference-API-DescribeSecurityGroups-html: {url-doc-domain}AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html
+:https---docs-aws-amazon-com-AWSEC2-latest-APIReference-API-CreateSecurityGroup-html: {url-doc-domain}AWSEC2/latest/APIReference/API_CreateSecurityGroup.html
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-ec2-src-main-java-aws-example-ec2-DeleteSecurityGroup-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/ec2/src/main/java/aws/example/ec2/DeleteSecurityGroup.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-ec2-src-main-java-aws-example-ec2-DescribeSecurityGroups-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/ec2/src/main/java/aws/example/ec2/DescribeSecurityGroups.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-ec2-src-main-java-aws-example-ec2-CreateSecurityGroup-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/ec2/src/main/java/aws/example/ec2/CreateSecurityGroup.java
+
+[."topic"]
+[[examples-ec2-security-groups,examples-ec2-security-groups.title]]
+= [[working-with-security-groups-in-ec2, Working with Security Groups in EC2]]Working with Security Groups in {EC2}
+:info_doctype: section
+:info_title: Working with Security Groups in {EC2}
+:info_abstract: How to create, configure and delete EC2 security groups with the {sdk-java}.
+:info_keywordset: sdk-javacodeexamplesEC2 security groupscreate a security groupingress rulesegress rulesIP permissionsEC2 access
+
+[abstract]
+--
+How to create, configure and delete EC2 security groups with the {sdk-java}.
+--
+
+[[creating-a-security-group,creating-a-security-group.title]]
+== Creating a Security Group
+
+To create a security group, call the AmazonEC2Client's  `createSecurityGroup` method with a link:sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/CreateSecurityGroupRequest.html["CreateSecurityGroupRequest", type="documentation"] that contains the key's name.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.ec2.AmazonEC2;
+import com.amazonaws.services.ec2.AmazonEC2ClientBuilder;
+import com.amazonaws.services.ec2.model.CreateSecurityGroupRequest;
+import com.amazonaws.services.ec2.model.CreateSecurityGroupResult;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+
+CreateSecurityGroupRequest create_request = new
+    CreateSecurityGroupRequest()
+        .withGroupName(group_name)
+        .withDescription(group_desc)
+        .withVpcId(vpc_id);
+
+CreateSecurityGroupResult create_response =
+    ec2.createSecurityGroup(create_request);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-ec2-src-main-java-aws-example-ec2-CreateSecurityGroup-java}[complete example].
+
+[[configuring-a-security-group,configuring-a-security-group.title]]
+== Configuring a Security Group
+
+A security group can control both inbound (ingress) and outbound (egress) traffic to your {EC2} instances.
+
+To add ingress rules to your security group, use the AmazonEC2Client's `authorizeSecurityGroupIngress` method, providing the name of the security group and the access rules (link:sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/IpPermission.html["IpPermission", type="documentation"]) you want to assign to it within an link:sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/AuthorizeSecurityGroupIngressRequest.html["AuthorizeSecurityGroupIngressRequest", type="documentation"] object. The following example shows how to add IP permissions to a security group.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.ec2.AmazonEC2;
+import com.amazonaws.services.ec2.AmazonEC2ClientBuilder;
+import com.amazonaws.services.ec2.model.CreateSecurityGroupRequest;
+import com.amazonaws.services.ec2.model.CreateSecurityGroupResult;
+----
+
+*Code*
+
+[source,java]
+----
+IpRange ip_range = new IpRange()
+    .withCidrIp("0.0.0.0/0");
+
+IpPermission ip_perm = new IpPermission()
+    .withIpProtocol("tcp")
+    .withToPort(80)
+    .withFromPort(80)
+    .withIpv4Ranges(ip_range);
+
+IpPermission ip_perm2 = new IpPermission()
+    .withIpProtocol("tcp")
+    .withToPort(22)
+    .withFromPort(22)
+    .withIpv4Ranges(ip_range);
+
+AuthorizeSecurityGroupIngressRequest auth_request = new
+    AuthorizeSecurityGroupIngressRequest()
+        .withGroupName(group_name)
+        .withIpPermissions(ip_perm, ip_perm2);
+
+AuthorizeSecurityGroupIngressResult auth_response =
+    ec2.authorizeSecurityGroupIngress(auth_request);
+----
+
+To add an egress rule to the security group, provide similar data in an  link:sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/AuthorizeSecurityGroupEgressRequest.html["AuthorizeSecurityGroupEgressRequest", type="documentation"] to the AmazonEC2Client's `authorizeSecurityGroupEgress` method.
+
+See the {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-ec2-src-main-java-aws-example-ec2-CreateSecurityGroup-java}[complete example].
+
+[[describing-security-groups,describing-security-groups.title]]
+== Describing Security Groups
+
+To describe your security groups or get information about them, call the AmazonEC2Client's  `describeSecurityGroups` method. It returns a link:sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/DescribeSecurityGroupsResult.html["DescribeSecurityGroupsResult", type="documentation"] that you can use to access the list of security groups by calling its `getSecurityGroups` method, which returns a list of link:sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/SecurityGroupInfo.html["SecurityGroupInfo", type="documentation"] objects.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.ec2.AmazonEC2;
+import com.amazonaws.services.ec2.AmazonEC2ClientBuilder;
+import com.amazonaws.services.ec2.model.DescribeSecurityGroupsRequest;
+import com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult;
+----
+
+*Code*
+
+[source,java]
+----
+
+final String USAGE =
+    "To run this example, supply a group id\n" +
+    "Ex: DescribeSecurityGroups <group-id>\n";
+
+if (args.length != 1) {
+    System.out.println(USAGE);
+    System.exit(1);
+}
+
+String group_id = args[0];
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-ec2-src-main-java-aws-example-ec2-DescribeSecurityGroups-java}[complete example].
+
+[[deleting-a-security-group,deleting-a-security-group.title]]
+== Deleting a Security Group
+
+To delete a security group, call the AmazonEC2Client's  `deleteSecurityGroup` method, passing it a link:sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/DeleteSecurityGroupRequest.html["DeleteSecurityGroupRequest", type="documentation"] that contains the ID of the security group to delete.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.ec2.AmazonEC2;
+import com.amazonaws.services.ec2.AmazonEC2ClientBuilder;
+import com.amazonaws.services.ec2.model.DeleteSecurityGroupRequest;
+import com.amazonaws.services.ec2.model.DeleteSecurityGroupResult;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+
+DeleteSecurityGroupRequest request = new DeleteSecurityGroupRequest()
+    .withGroupId(group_id);
+
+DeleteSecurityGroupResult response = ec2.deleteSecurityGroup(request);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-ec2-src-main-java-aws-example-ec2-DeleteSecurityGroup-java}[complete example].
+
+[[more-information,more-information.title]]
+== More Information
+
+* {url-ec2-user}ec2-key-pairs.html[{EC2} Security Groups] in the {guide-ec2-user}
+* {url-ec2-user}authorizing-access-to-an-instance.html[Authorizing Inbound Traffic for Your Linux Instances] in the {guide-ec2-user}
+* {https---docs-aws-amazon-com-AWSEC2-latest-APIReference-API-CreateSecurityGroup-html}[CreateSecurityGroup] in the {EC2} API Reference
+* {https---docs-aws-amazon-com-AWSEC2-latest-APIReference-API-DescribeSecurityGroups-html}[DescribeSecurityGroups] in the {EC2} API Reference
+* {https---docs-aws-amazon-com-AWSEC2-latest-APIReference-API-DeleteSecurityGroup-html}[DeleteSecurityGroup] in the {EC2} API Reference
+* {https---docs-aws-amazon-com-AWSEC2-latest-APIReference-API-AuthorizeSecurityGroupIngress-html}[AuthorizeSecurityGroupIngress] in the {EC2} API Reference

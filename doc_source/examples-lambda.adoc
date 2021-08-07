@@ -1,0 +1,206 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-lambda-src-main-java-com-example-lambda-DeleteFunction-java:
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-lambda-src-main-java-com-example-lambda-ListFunctions-java:
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-lambda-src-main-java-com-example-lambda-LambdaInvokeFunction-java:
+
+[."topic"]
+[[examples-lambda,examples-lambda.title]]
+= [[invoking-listing-and-deleting-lambda-functions, Invoking, Listing, and Deleting Lambda Functions]]Invoking, Listing, and Deleting {LAM} Functions
+:info_doctype: section
+:info_title: Invoking, Listing, and Deleting {LAM} Functions
+:info_titleabbrev: Service operations
+:info_abstract: How to invoke, list, and delete a {LAM} function by using the {sdkjavav2}.
+:info_keywordset: LAMlong{sdkjavav2} {LAM} code examples deleteFunction invokelistFunctions
+
+[abstract]
+--
+How to invoke, list, and delete a {LAM} function by using the {sdkjavav2}.
+--
+
+This section provides examples of programming with the {LAM} service client by using the
+{sdk-java}. To learn how to create a {LAM} function, see
+link:toolkit-for-eclipse/v1/user-guide/lambda-tutorial.html["How to Create pass:q[[.shared\]`LAMlong`] functions", type="documentation"].
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+[[invoke-function,invoke-function.title]]
+== Invoke a function
+
+You can invoke a {LAM} function by creating an
+link:sdk-for-java/v1/reference/com/amazonaws/services/lambda/AWSLambda.html["AWSLambda", type="documentation"]
+object and invoking its `invoke` method. Create an
+link:sdk-for-java/v1/reference/com/amazonaws/services/lambda/model/InvokeRequest.html["InvokeRequest", type="documentation"]
+object to specify additional information such as the function name and the payload to pass to the
+{LAM} function. Function names appear as
+__{region-arn}lambda:{region_api_default}:555556330391:function:HelloFunction__. You can retrieve
+the value by looking at the function in the {console}.
+
+To pass payload data to a function, invoke the
+link:sdk-for-java/v1/reference/com/amazonaws/services/lambda/model/InvokeRequest.html["InvokeRequest", type="documentation"]
+object's `withPayload` method and specify a String in JSON format, as shown in the following
+code example.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.lambda.AWSLambda;
+import com.amazonaws.services.lambda.AWSLambdaClientBuilder;
+import com.amazonaws.services.lambda.model.InvokeRequest;
+import com.amazonaws.services.lambda.model.InvokeResult;
+import com.amazonaws.services.lambda.model.ServiceException;
+
+import java.nio.charset.StandardCharsets;
+----
+
+*Code*
+
+The following code example demonstrates how to invoke a {LAM} function.
+
+[source,java]
+----
+        String functionName = args[0];
+
+        InvokeRequest invokeRequest = new InvokeRequest()
+                .withFunctionName(functionName)
+                .withPayload("{\n" +
+                        " \"Hello \": \"Paris\",\n" +
+                        " \"countryCode\": \"FR\"\n" +
+                        "}");
+        InvokeResult invokeResult = null;
+
+        try {
+            AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
+                    .withCredentials(new ProfileCredentialsProvider())
+                    .withRegion(Regions.US_WEST_2).build();
+
+            invokeResult = awsLambda.invoke(invokeRequest);
+
+            String ans = new String(invokeResult.getPayload().array(), StandardCharsets.UTF_8);
+
+            //write out the return value
+            System.out.println(ans);
+
+        } catch (ServiceException e) {
+            System.out.println(e);
+        }
+
+        System.out.println(invokeResult.getStatusCode());
+----
+
+See the complete example on
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/lambda/src/main/java/com/example/lambda/LambdaInvokeFunction.java[Github].
+
+[[list-function,list-function.title]]
+== List functions
+
+Build an
+link:sdk-for-java/v1/reference/com/amazonaws/services/lambda/AWSLambda.html["AWSLambda", type="documentation"]
+object and invoke its `listFunctions` method. This method returns a
+link:sdk-for-java/v1/reference/com/amazonaws/services/lambda/model/ListFunctionsResult.html["ListFunctionsResult", type="documentation"]
+object. You can invoke this object's `getFunctions` method to return a list of
+link:sdk-for-java/v1/reference/com/amazonaws/services/lambda/model/FunctionConfiguration.html["FunctionConfiguration", type="documentation"]
+objects. You can iterate through the list to retrieve information about the functions. For
+example, the following Java code example shows how to get each function name.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.lambda.AWSLambda;
+import com.amazonaws.services.lambda.AWSLambdaClientBuilder;
+import com.amazonaws.services.lambda.model.FunctionConfiguration;
+import com.amazonaws.services.lambda.model.ListFunctionsResult;
+import com.amazonaws.services.lambda.model.ServiceException;
+import java.util.Iterator;
+import java.util.List;
+----
+
+*Code*
+
+The following Java code example demonstrates how to retrieve a list of {LAM} function names.
+
+[source,java]
+----
+        ListFunctionsResult functionResult = null;
+
+        try {
+            AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
+                    .withCredentials(new ProfileCredentialsProvider())
+                    .withRegion(Regions.US_WEST_2).build();
+
+            functionResult = awsLambda.listFunctions();
+
+            List<FunctionConfiguration> list = functionResult.getFunctions();
+
+            for (Iterator iter = list.iterator(); iter.hasNext(); ) {
+                FunctionConfiguration config = (FunctionConfiguration)iter.next();
+
+                System.out.println("The function name is "+config.getFunctionName());
+            }
+
+        } catch (ServiceException e) {
+            System.out.println(e);
+        }
+----
+
+See the complete example on
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/lambda/src/main/java/com/example/lambda/ListFunctions.java[Github].
+
+[[delete-function,delete-function.title]]
+== Delete a function
+
+Build an
+link:sdk-for-java/v1/reference/com/amazonaws/services/lambda/AWSLambda.html["AWSLambda", type="documentation"]
+object and invoke its `deleteFunction` method. Create a
+link:sdk-for-java/v1/reference/com/amazonaws/services/lambda/model/DeleteFunctionRequest.html["DeleteFunctionRequest", type="documentation"]
+object and pass it to the `deleteFunction` method. This object contains information such as the
+name of the function to delete. Function names appear as
+__{region-arn}lambda:{region_api_default}:555556330391:function:HelloFunction__. You can retrieve
+the value by looking at the function in the {console}.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.lambda.AWSLambda;
+import com.amazonaws.services.lambda.AWSLambdaClientBuilder;
+import com.amazonaws.services.lambda.model.ServiceException;
+import com.amazonaws.services.lambda.model.DeleteFunctionRequest;
+----
+
+*Code*
+
+The following Java code demonstrates how to delete a {LAM} function.
+
+[source,java]
+----
+        String functionName = args[0];
+        try {
+            AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
+                    .withCredentials(new ProfileCredentialsProvider())
+                    .withRegion(Regions.US_WEST_2).build();
+
+            DeleteFunctionRequest delFunc = new DeleteFunctionRequest();
+            delFunc.withFunctionName(functionName);
+
+            //Delete the function
+            awsLambda.deleteFunction(delFunc);
+            System.out.println("The function is deleted");
+
+        } catch (ServiceException e) {
+            System.out.println(e);
+        }
+----
+
+See the complete example on
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/lambda/src/main/java/com/example/lambda/DeleteFunction.java[Github].

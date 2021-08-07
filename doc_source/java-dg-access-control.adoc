@@ -1,0 +1,94 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+
+[."topic"]
+[[java-dg-access-control,java-dg-access-control.title]]
+= [[access-control-policies, Access Control Policies]]Access Control Policies
+:info_doctype: section
+:info_title: Access Control Policies
+:info_abstract: How to specify access control policies using the {sdk-java}, with examples for {S3}, {SQS}, and Amazon SNS.
+
+[abstract]
+--
+How to specify access control policies using the {sdk-java}, with examples for {S3}, {SQS}, and Amazon SNS.
+--
+
+{AWS}  _access control policies_ enable you to specify fine-grained access controls on your {AWS} resources. An access control policy consists of a collection of __statements__, which take the form:
+
+_Account A_ has permission to perform _action B_ on _resource C_ where _condition D_ applies.
+
+Where:
+
+
+
+* _A_ is the __principal__- The {AWS-account} that is making a request to access or modify one of your {AWS} resources.
+* _B_ is the __action__- The way in which your {AWS} resource is being accessed or modified, such as sending a message to an {SQS} queue, or storing an object in an {S3} bucket.
+* _C_ is the __resource__- The {AWS} entity that the principal wants to access, such as an {SQS} queue, or an object stored in {S3}.
+* _D_ is a __set of conditions__- The optional constraints that specify when to allow or deny access for the principal to access your resource. Many expressive conditions are available, some specific to each service. For example, you can use date conditions to allow access to your resources only after or before a specific time.
+
+
+[[s3-example,s3-example.title]]
+== {S3} Example
+
+The following example demonstrates a policy that allows anyone access to read all the objects in a bucket, but restricts access to uploading objects to that bucket to two specific {AWS-account}s (in addition to the bucket owner's account).
+
+[source,java]
+----
+Statement allowPublicReadStatement = new Statement(Effect.Allow)
+    .withPrincipals(Principal.AllUsers)
+    .withActions(S3Actions.GetObject)
+    .withResources(new S3ObjectResource(myBucketName, "*"));
+Statement allowRestrictedWriteStatement = new Statement(Effect.Allow)
+    .withPrincipals(new Principal("123456789"), new Principal("876543210"))
+    .withActions(S3Actions.PutObject)
+    .withResources(new S3ObjectResource(myBucketName, "*"));
+
+Policy policy = new Policy()
+    .withStatements(allowPublicReadStatement, allowRestrictedWriteStatement);
+
+AmazonS3 s3 = AmazonS3ClientBuilder.defaultClient();
+s3.setBucketPolicy(myBucketName, policy.toJson());
+----
+
+
+[[sqs-example,sqs-example.title]]
+== {SQS} Example
+
+One common use of policies is to authorize an {SQS} queue to receive messages from an Amazon SNS topic.
+
+[source,java]
+----
+Policy policy = new Policy().withStatements(
+    new Statement(Effect.Allow)
+        .withPrincipals(Principal.AllUsers)
+        .withActions(SQSActions.SendMessage)
+        .withConditions(ConditionFactory.newSourceArnCondition(myTopicArn)));
+
+Map queueAttributes = new HashMap();
+queueAttributes.put(QueueAttributeName.Policy.toString(), policy.toJson());
+
+AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
+sqs.setQueueAttributes(new SetQueueAttributesRequest(myQueueUrl, queueAttributes));
+----
+
+
+[[sns-example,sns-example.title]]
+== Amazon SNS Example
+
+Some services offer additional conditions that can be used in policies. Amazon SNS provides conditions for allowing or denying subscriptions to SNS topics based on the protocol (e.g., email, HTTP, HTTPS, {SQS}) and endpoint (e.g., email address, URL, {SQS} ARN) of the request to subscribe to a topic.
+
+[source,java]
+----
+Condition endpointCondition =
+    SNSConditionFactory.newEndpointCondition("*@mycompany.com");
+
+Policy policy = new Policy().withStatements(
+    new Statement(Effect.Allow)
+        .withPrincipals(Principal.AllUsers)
+        .withActions(SNSActions.Subscribe)
+        .withConditions(endpointCondition));
+
+AmazonSNS sns = AmazonSNSClientBuilder.defaultClient();
+sns.setTopicAttributes(
+    new SetTopicAttributesRequest(myTopicArn, "Policy", policy.toJson()));
+----

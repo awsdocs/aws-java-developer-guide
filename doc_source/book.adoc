@@ -1,0 +1,49 @@
+//!!NODE_ROOT <book>
+include::../../includes.txt[]
+[[top]]
+= {sdk-java}
+:doctype: book
+:toc: left
+:icons: font
+:experimental:
+:idprefix:
+:idseparator: -
+:info_doctype: book
+:info_title: {sdk-java}
+:info_subtitle: Developer Guide
+:info_abstract: Describes how to use the legacy version (1.x) of the {sdk-java}
+:description: Describes how to use the legacy version (1.x) of the {sdk-java}
+:info_keywordset: javasdkaws
+:keywords: javasdkaws
+:info_copyright: {AWSlong}, Inc. and/or its affiliates. All rights reserved.
+:info_legalnotice: Amazon's trademarks and trade dress may not be used in  \
+     connection with any product or service that is not Amazon's,  \
+     in any manner that is likely to cause confusion among customers,  \
+     or in any manner that disparages or discredits Amazon. All other  \
+     trademarks not owned by Amazon are the property of their respective \
+     owners, who may or may not be affiliated with, connected to, or  \
+     sponsored by Amazon.
+:front-cover-image: image::../images/aws_cover.jpg[]
+
+[abstract]
+--
+Describes how to use the legacy version (1.x) of the {sdk-java}
+--
+:sectnums:
+
+include::welcome.adoc[leveloffset=+1]
+
+
+include::getting-started.adoc[leveloffset=+1]
+
+
+include::basics.adoc[leveloffset=+1]
+
+
+include::prog-services.adoc[leveloffset=+1]
+
+
+include::security.adoc[leveloffset=+1]
+
+
+include::document-history.adoc[leveloffset=+1]

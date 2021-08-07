@@ -1,0 +1,165 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-DeleteWebsiteConfiguration-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/s3/src/main/java/aws/example/s3/DeleteWebsiteConfiguration.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-GetWebsiteConfiguration-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/s3/src/main/java/aws/example/s3/GetWebsiteConfiguration.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-SetWebsiteConfiguration-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/s3/src/main/java/aws/example/s3/SetWebsiteConfiguration.java
+
+[."topic"]
+[[examples-s3-website-configuration,examples-s3-website-configuration.title]]
+= [[configuring-an-s3-bucket-as-a-website, Configuring an S3 Bucket as a Website]]Configuring an {S3} Bucket as a Website
+:info_doctype: section
+:info_title: Configuring an {S3} Bucket as a Website
+:info_abstract: How to set, retrieve, or delete an S3 bucket's website configuration.
+:info_keywordset: sdk-javacode exampless3websitewebsite configuration
+
+[abstract]
+--
+How to set, retrieve, or delete an S3 bucket's website configuration.
+--
+
+You can configure an {S3} bucket to behave as a website. To do this, you need to set its website configuration.
+
+[NOTE]
+====
+
+These code examples assume that you understand the material in xref:basics[Using the {sdk-java},linkend=basics] and have configured default {AWS} credentials using the information in xref:setup-credentials[Set up {AWS} Credentials and Region for Development,linkend=setup-credentials].
+
+====
+
+[[set-a-bucket-s-website-configuration,set-a-bucket-s-website-configuration.title]]
+== Set a Bucket's Website Configuration
+
+To set an {S3} bucket's website configuration, call the AmazonS3's  `setWebsiteConfiguration` method with the bucket name to set the configuration for, and a link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/BucketWebsiteConfiguration.html["BucketWebsiteConfiguration", type="documentation"] object containing the bucket's website configuration.
+
+Setting an index document is __required__; all other parameters are optional.
+
+*Imports*
+
+[source,java]
+----
+
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.BucketWebsiteConfiguration;
+----
+
+*Code*
+
+[source,java]
+----
+    String bucket_name, String index_doc, String error_doc) {
+BucketWebsiteConfiguration website_config = null;
+
+if (index_doc == null) {
+    website_config = new BucketWebsiteConfiguration();
+} else if (error_doc == null) {
+    website_config = new BucketWebsiteConfiguration(index_doc);
+} else {
+    website_config = new BucketWebsiteConfiguration(index_doc, error_doc);
+}
+
+final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+try {
+    s3.setBucketWebsiteConfiguration(bucket_name, website_config);
+} catch (AmazonServiceException e) {
+    System.out.format(
+            "Failed to set website configuration for bucket '%s'!\n",
+            bucket_name);
+    System.err.println(e.getErrorMessage());
+    System.exit(1);
+}
+----
+
+[NOTE]
+====
+
+Setting a website configuration does not modify the access permissions for your bucket. To make your files visible on the web, you will also need to set a  _bucket policy_ that allows public read access to the files in the bucket. For more information, see xref:examples-s3-bucket-policies[Managing Access to {S3} Buckets Using Bucket Policies,linkend=examples-s3-bucket-policies].
+
+====
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-SetWebsiteConfiguration-java}[complete example] on GitHub.
+
+[[get-a-bucket-s-website-configuration,get-a-bucket-s-website-configuration.title]]
+== Get a Bucket's Website Configuration
+
+To get an {S3} bucket's website configuration, call the AmazonS3's  `getWebsiteConfiguration` method with the name of the bucket to retrieve the configuration for.
+
+The configuration will be returned as a link:sdk-for-java/v1/reference/com/amazonaws/services/s3/model/BucketWebsiteConfiguration.html["BucketWebsiteConfiguration", type="documentation"] object. If there is no website configuration for the bucket, then `null` will be returned.
+
+*Imports*
+
+[source,java]
+----
+
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.BucketWebsiteConfiguration;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+try {
+    BucketWebsiteConfiguration config =
+            s3.getBucketWebsiteConfiguration(bucket_name);
+    if (config == null) {
+        System.out.println("No website configuration found!");
+    } else {
+        System.out.format("Index document: %s\n",
+                config.getIndexDocumentSuffix());
+        System.out.format("Error document: %s\n",
+                config.getErrorDocument());
+    }
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.out.println("Failed to get website configuration!");
+    System.exit(1);
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-GetWebsiteConfiguration-java}[complete example] on GitHub.
+
+[[delete-a-bucket-s-website-configuration,delete-a-bucket-s-website-configuration.title]]
+== Delete a Bucket's Website Configuration
+
+To delete an {S3} bucket's website configuration, call the AmazonS3's  `deleteWebsiteConfiguration` method with the name of the bucket to delete the configuration from.
+
+*Imports*
+
+[source,java]
+----
+
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+try {
+    s3.deleteBucketWebsiteConfiguration(bucket_name);
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.out.println("Failed to delete website configuration!");
+    System.exit(1);
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-s3-src-main-java-aws-example-s3-DeleteWebsiteConfiguration-java}[complete example] on GitHub.
+
+[[more-information,more-information.title]]
+== More Information
+
+* {url-s3-api}RESTBucketPUTwebsite.html[PUT Bucket website] in the {S3} API Reference
+* {url-s3-api}RESTBucketGETwebsite.html[GET Bucket website] in the {S3} API Reference
+* {url-s3-api}RESTBucketDELETEwebsite.html[DELETE Bucket website] in the {S3} API Reference

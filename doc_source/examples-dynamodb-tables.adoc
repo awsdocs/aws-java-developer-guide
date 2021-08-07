@@ -1,0 +1,347 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-DeleteTable-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/dynamodb/src/main/java/aws/example/dynamodb/DeleteTable.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-UpdateTable-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/dynamodb/src/main/java/aws/example/dynamodb/UpdateTable.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-DescribeTable-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/dynamodb/src/main/java/aws/example/dynamodb/DescribeTable.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-ListTables-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-CreateTableCompositeKey-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTableCompositeKey.java
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-CreateTable-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/dynamodb/src/main/java/aws/example/dynamodb/CreateTable.java
+
+[."topic"]
+[[examples-dynamodb-tables,examples-dynamodb-tables.title]]
+= [[working-with-tables-in-ddb, Working with Tables in DynamoDB]]Working with Tables in {DDB}
+:info_doctype: section
+:info_title: Working with Tables in {DDB}
+:info_abstract: How to create, describe, modify (update) and delete {DDBlong} tables.
+:info_keywordset: sdk-javacode examplesDynamoDB tables
+
+[abstract]
+--
+How to create, describe, modify (update) and delete {DDBlong} tables.
+--
+
+Tables are the containers for all items in a {DDB} database. Before you can add or remove data from {DDB}, you must create a table.
+
+For each table, you must define:
+
+
+
+* A table _name_ that is unique for your account and region.
+* A _primary key_ for which every value must be unique; no two items in your table can have the same primary key value.
++
+
+A primary key can be __simple__, consisting of a single partition (HASH) key, or __composite__, consisting of a partition and a sort (RANGE) key.
++
+
+Each key value has an associated __data type__, enumerated by the link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/model/ScalarAttributeType.html["ScalarAttributeType", type="documentation"] class. The key value can be binary (B), numeric (N), or a string (S). For more information, see {url-ddb-dev}HowItWorks.NamingRulesDataTypes.html[Naming Rules and Data Types] in the {guide-ddb-dev}.
+* _Provisioned throughput_ values that define the number of reserved read/write capacity units for the table.
++
+NOTE: link:dynamodb/pricing/["pass:q[[.shared\]`DDBlong`] pricing", type="marketing"] is based on the provisioned throughput values that you set on your tables, so reserve only as much capacity as you think you'll need for your table.
+
+Provisioned throughput for a table can be modified at any time, so you can adjust capacity if your needs change.
+
+
+[[dynamodb-create-table,dynamodb-create-table.title]]
+== Create a Table
+
+Use the  link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.html["pass:q[[.shared\]`DDB`] client", type="documentation"]'s `createTable` method to create a new {DDB} table. You need to construct table attributes and a table schema, both of which are used to identify the primary key of your table. You must also supply initial provisioned throughput values and a table name. Only define key table attributes when creating your {DDB} table.
+
+[NOTE]
+====
+
+If a table with the name you chose already exists, an link:sdk-for-java/v1/reference/com/amazonaws/AmazonServiceException.html["AmazonServiceException", type="documentation"] is thrown.
+
+====
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.model.AttributeDefinition;
+import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
+import com.amazonaws.services.dynamodbv2.model.CreateTableResult;
+import com.amazonaws.services.dynamodbv2.model.KeySchemaElement;
+import com.amazonaws.services.dynamodbv2.model.KeyType;
+import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
+import com.amazonaws.services.dynamodbv2.model.ScalarAttributeType;
+----
+
+
+[[dynamodb-create-table-simple,dynamodb-create-table-simple.title]]
+=== Create a Table with a Simple Primary Key
+
+This code creates a table with a simple primary key ("`Name`").
+
+*Code*
+
+[source,java]
+----
+CreateTableRequest request = new CreateTableRequest()
+    .withAttributeDefinitions(new AttributeDefinition(
+             "Name", ScalarAttributeType.S))
+    .withKeySchema(new KeySchemaElement("Name", KeyType.HASH))
+    .withProvisionedThroughput(new ProvisionedThroughput(
+             new Long(10), new Long(10)))
+    .withTableName(table_name);
+
+final AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+
+try {
+    CreateTableResult result = ddb.createTable(request);
+    System.out.println(result.getTableDescription().getTableName());
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.exit(1);
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-CreateTable-java}[complete example] on GitHub.
+
+[[dynamodb-create-table-composite,dynamodb-create-table-composite.title]]
+=== Create a Table with a Composite Primary Key
+
+Add another  link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/model/AttributeDefinition.html["AttributeDefinition", type="documentation"] and link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/model/KeySchemaElement.html["KeySchemaElement", type="documentation"] to link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/model/CreateTableRequest.html["CreateTableRequest", type="documentation"].
+
+*Code*
+
+[source,java]
+----
+CreateTableRequest request = new CreateTableRequest()
+    .withAttributeDefinitions(
+          new AttributeDefinition("Language", ScalarAttributeType.S),
+          new AttributeDefinition("Greeting", ScalarAttributeType.S))
+    .withKeySchema(
+          new KeySchemaElement("Language", KeyType.HASH),
+          new KeySchemaElement("Greeting", KeyType.RANGE))
+    .withProvisionedThroughput(
+          new ProvisionedThroughput(new Long(10), new Long(10)))
+    .withTableName(table_name);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-CreateTableCompositeKey-java}[complete example] on GitHub.
+
+[[dynamodb-list-tables,dynamodb-list-tables.title]]
+== List Tables
+
+You can list the tables in a particular region by calling the  link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.html["pass:q[[.shared\]`DDB`] client", type="documentation"]'s `listTables` method.
+
+[NOTE]
+====
+
+If the named table doesn't exist for your account and region, a link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/model/ResourceNotFoundException.html["ResourceNotFoundException", type="documentation"] is thrown.
+
+====
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.model.ListTablesRequest;
+import com.amazonaws.services.dynamodbv2.model.ListTablesResult;
+----
+
+*Code*
+
+[source,java]
+----
+
+final AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+
+ListTablesRequest request;
+
+boolean more_tables = true;
+String last_name = null;
+
+while(more_tables) {
+    try {
+        if (last_name == null) {
+        	request = new ListTablesRequest().withLimit(10);
+        }
+        else {
+        	request = new ListTablesRequest()
+        			.withLimit(10)
+        			.withExclusiveStartTableName(last_name);
+        }
+
+        ListTablesResult table_list = ddb.listTables(request);
+        List<String> table_names = table_list.getTableNames();
+
+        if (table_names.size() > 0) {
+            for (String cur_name : table_names) {
+                System.out.format("* %s\n", cur_name);
+            }
+        } else {
+            System.out.println("No tables found!");
+            System.exit(0);
+        }
+
+        last_name = table_list.getLastEvaluatedTableName();
+        if (last_name == null) {
+            more_tables = false;
+        }
+----
+
+By default, up to 100 tables are returned per call--use  `getLastEvaluatedTableName` on the returned link:sdk-for-java/v1/reference/com/amazonaws/ListTablesResult.html["ListTablesResult", type="documentation"] object to get the last table that was evaluated. You can use this value to start the listing after the last returned value of the previous listing.
+
+See the {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-ListTables-java}[complete example] on GitHub.
+
+[[dynamodb-describe-table,dynamodb-describe-table.title]]
+== Describe (Get Information about) a Table
+
+Call the  link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.html["pass:q[[.shared\]`DDB`] client", type="documentation"]'s `describeTable` method.
+
+[NOTE]
+====
+
+If the named table doesn't exist for your account and region, a link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/model/ResourceNotFoundException.html["ResourceNotFoundException", type="documentation"] is thrown.
+
+====
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.model.AttributeDefinition;
+import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughputDescription;
+import com.amazonaws.services.dynamodbv2.model.TableDescription;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+
+try {
+    TableDescription table_info =
+       ddb.describeTable(table_name).getTable();
+
+    if (table_info != null) {
+        System.out.format("Table name  : %s\n",
+              table_info.getTableName());
+        System.out.format("Table ARN   : %s\n",
+              table_info.getTableArn());
+        System.out.format("Status      : %s\n",
+              table_info.getTableStatus());
+        System.out.format("Item count  : %d\n",
+              table_info.getItemCount().longValue());
+        System.out.format("Size (bytes): %d\n",
+              table_info.getTableSizeBytes().longValue());
+
+        ProvisionedThroughputDescription throughput_info =
+           table_info.getProvisionedThroughput();
+        System.out.println("Throughput");
+        System.out.format("  Read Capacity : %d\n",
+              throughput_info.getReadCapacityUnits().longValue());
+        System.out.format("  Write Capacity: %d\n",
+              throughput_info.getWriteCapacityUnits().longValue());
+
+        List<AttributeDefinition> attributes =
+           table_info.getAttributeDefinitions();
+        System.out.println("Attributes");
+        for (AttributeDefinition a : attributes) {
+            System.out.format("  %s (%s)\n",
+                  a.getAttributeName(), a.getAttributeType());
+        }
+    }
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.exit(1);
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-DescribeTable-java}[complete example] on GitHub.
+
+[[dynamodb-update-table,dynamodb-update-table.title]]
+== Modify (Update) a Table
+
+You can modify your table's provisioned throughput values at any time by calling the  link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.html["pass:q[[.shared\]`DDB`] client", type="documentation"]'s `updateTable` method.
+
+[NOTE]
+====
+
+If the named table doesn't exist for your account and region, a link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/model/ResourceNotFoundException.html["ResourceNotFoundException", type="documentation"] is thrown.
+
+====
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
+import com.amazonaws.AmazonServiceException;
+----
+
+*Code*
+
+[source,java]
+----
+
+ProvisionedThroughput table_throughput = new ProvisionedThroughput(
+      read_capacity, write_capacity);
+
+final AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+
+try {
+    ddb.updateTable(table_name, table_throughput);
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.exit(1);
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-UpdateTable-java}[complete example] on GitHub.
+
+[[dynamodb-delete-table,dynamodb-delete-table.title]]
+== Delete a Table
+
+Call the  link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.html["pass:q[[.shared\]`DDB`] client", type="documentation"]'s `deleteTable` method and pass it the table's name.
+
+[NOTE]
+====
+
+If the named table doesn't exist for your account and region, a link:sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/model/ResourceNotFoundException.html["ResourceNotFoundException", type="documentation"] is thrown.
+
+====
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+----
+
+*Code*
+
+[source,java]
+----
+final AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
+
+try {
+    ddb.deleteTable(table_name);
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.exit(1);
+}
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-dynamodb-src-main-java-aws-example-dynamodb-DeleteTable-java}[complete example] on GitHub.
+
+[[more-info,more-info.title]]
+== More Info
+
+* {url-ddb-dev}GuidelinesForTables.html[Guidelines for Working with Tables] in the {guide-ddb-dev}
+* {url-ddb-dev}WorkingWithTables.html[Working with Tables in {DDB}] in the {guide-ddb-dev}

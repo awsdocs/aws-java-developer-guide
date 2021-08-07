@@ -1,0 +1,114 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-CreateEndpoint-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/pinpoint/src/main/java/com/example/pinpoint/CreateEndpoint.java
+
+[."topic"]
+[[examples-pinpoint-create-endpoint,examples-pinpoint-create-endpoint.title]]
+= [[creating-endpoints-in-pinlong, Creating Endpoints in {PINlong}]]Creating Endpoints in {PINlong}
+:info_doctype: section
+:info_title: Creating Endpoints in {PINlong}
+:info_abstract: How to update an app endpoint in Amazon pinpoint.
+:info_keywordset: sdk-javacode examplesamazon pinpoint endpoint
+
+[abstract]
+--
+How to update an app endpoint in Amazon pinpoint.
+--
+
+An endpoint uniquely identifies a user device to which you can send push notifications with {PINlong}. If your app is enabled with {PINlong} support, your app automatically registers an endpoint with {PINlong} when a new user opens your app. The following example demonstrates how to add a new endpoint programmatically.
+
+[[create-an-endpoint,create-an-endpoint.title]]
+== Create an Endpoint
+
+Create a new endpoint in {PINlong} by providing the endpoint data in an  link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/EndpointRequest.html["EndpointRequest", type="documentation"] object.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.pinpoint.AmazonPinpoint;
+import com.amazonaws.services.pinpoint.AmazonPinpointClientBuilder;
+import com.amazonaws.services.pinpoint.model.UpdateEndpointRequest;
+import com.amazonaws.services.pinpoint.model.UpdateEndpointResult;
+import com.amazonaws.services.pinpoint.model.EndpointDemographic;
+import com.amazonaws.services.pinpoint.model.EndpointLocation;
+import com.amazonaws.services.pinpoint.model.EndpointRequest;
+import com.amazonaws.services.pinpoint.model.EndpointResponse;
+import com.amazonaws.services.pinpoint.model.EndpointUser;
+import com.amazonaws.services.pinpoint.model.GetEndpointRequest;
+import com.amazonaws.services.pinpoint.model.GetEndpointResult;
+----
+
+*Code*
+
+[source,java]
+----
+HashMap<String, List<String>> customAttributes = new HashMap<>();
+List<String> favoriteTeams = new ArrayList<>();
+favoriteTeams.add("Lakers");
+favoriteTeams.add("Warriors");
+customAttributes.put("team", favoriteTeams);
+
+
+EndpointDemographic demographic = new EndpointDemographic()
+        .withAppVersion("1.0")
+        .withMake("apple")
+        .withModel("iPhone")
+        .withModelVersion("7")
+        .withPlatform("ios")
+        .withPlatformVersion("10.1.1")
+        .withTimezone("America/Los_Angeles");
+
+EndpointLocation location = new EndpointLocation()
+        .withCity("Los Angeles")
+        .withCountry("US")
+        .withLatitude(34.0)
+        .withLongitude(-118.2)
+        .withPostalCode("90068")
+        .withRegion("CA");
+
+Map<String,Double> metrics = new HashMap<>();
+metrics.put("health", 100.00);
+metrics.put("luck", 75.00);
+
+EndpointUser user = new EndpointUser()
+        .withUserId(UUID.randomUUID().toString());
+
+DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'"); // Quoted "Z" to indicate UTC, no timezone offset
+String nowAsISO = df.format(new Date());
+
+EndpointRequest endpointRequest = new EndpointRequest()
+        .withAddress(UUID.randomUUID().toString())
+        .withAttributes(customAttributes)
+        .withChannelType("APNS")
+        .withDemographic(demographic)
+        .withEffectiveDate(nowAsISO)
+        .withLocation(location)
+        .withMetrics(metrics)
+        .withOptOut("NONE")
+        .withRequestId(UUID.randomUUID().toString())
+        .withUser(user);
+----
+
+Then create an  link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/UpdateEndpointRequest.html["UpdateEndpointRequest", type="documentation"] object with that EndpointRequest object. Finally, pass the UpdateEndpointRequest object to the AmazonPinpointClient's `updateEndpoint` method.
+
+*Code*
+
+[source,java]
+----
+UpdateEndpointRequest updateEndpointRequest = new UpdateEndpointRequest()
+        .withApplicationId(appId)
+        .withEndpointId(endpointId)
+        .withEndpointRequest(endpointRequest);
+
+UpdateEndpointResult updateEndpointResponse = client.updateEndpoint(updateEndpointRequest);
+System.out.println("Update Endpoint Response: " + updateEndpointResponse.getMessageBody());
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-CreateEndpoint-java}[complete example] on GitHub.
+
+[[more-information,more-information.title]]
+== More Information
+
+* {url-pin-dg}endpoints.html[Adding Endpoint] in the {guide-pin-dg}
+* {url-pin-api}rest-api-endpoint.html[Endpoint] in the {guide-pin-api}

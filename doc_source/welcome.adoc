@@ -1,0 +1,107 @@
+//!!NODE_ROOT <chapter>
+include::../../includes.txt[]
+:java-releasenotes: {url-aws-github}aws-sdk-java#release-notes
+[."topic"]
+[[welcome,welcome.title]]
+= [[developer-guide-sdk-java-1-x, Developer Guide - SDK for Java 1.x]]Developer Guide - {sdk-java} 1.x
+:doctype: book
+:sectnums:
+:toc: left
+:icons: font
+:experimental:
+:idprefix:
+:idseparator: -
+:sourcedir: .
+:info_doctype: chapter
+:info_title: Developer Guide - {sdk-java} 1.x
+:info_titleabbrev: {sdk-java} 1.x
+
+The
+link:sdk-for-java/["pass:q[[.shared\]`Javalong`]", type="marketing"] provides a Java API for {AWS-services}. Using
+the SDK, you can easily build Java applications that work with {S3}, {EC2}, {DDB}, and
+more. We regularly add support for new services to the {sdk-java}. For a list of the supported
+services and their API versions that are included with each release of the SDK, view the
+{java-releasenotes}[release notes] for the version that you're working with.
+
+[[new-version-released-aws-sdk-for-java-2-x,new-version-released-aws-sdk-for-java-2-x.title]]
+== Version 2 of the SDK released
+
+Take a look at the new {sdkjavav2} at
+{url-aws-github}aws-sdk-java-v2/. It includes much awaited features, such as a way to plug in an
+HTTP implementation. To get started, see the
+link:sdk-for-java/latest/developer-guide["pass:q[[.shared\]`Javalong`] 2.x Developer Guide", type="documentation"].
+
+[[additional-resources,additional-resources.title]]
+== Additional Documentation and Resources
+
+In addition to this guide, the following are valuable online resources for {sdk-java} developers:
+
+
+
+* link:AWSJavaSDK/latest/javadoc/["pass:q[[.shared\]`Javalong`] API Reference", type="documentation"]
+* link:developer/category/java["Java developer blog", type="blog"]
+* link:forum.jspa?forumID=70["Java developer forums", type="forum"]
+* GitHub:
++
+** {url-awsdocs-github}aws-java-developer-guide[Documentation source]
+** {url-awsdocs-github}aws-java-developer-guide/issues[Documentation issues]
+** {url-aws-github}aws-sdk-java[SDK source]
+** {url-aws-github}aws-sdk-java/issues[SDK issues]
+** {url-aws-github}aws-sdk-java/tree/master/src/samples[SDK samples]
+** https://gitter.im/aws/aws-sdk-java[Gitter channel]
+* The {url-sdkcodesampcat}[{SDKCodeSampCat}]
+* https://twitter.com/awsforjava[@awsforjava (Twitter)]
+* {java-releasenotes}[release notes]
+
+
+[[eclipse-support,eclipse-support.title]]
+== Eclipse IDE Support
+
+If you develop code using the Eclipse IDE, you can use the
+link:eclipse/["pass:q[[.shared\]`TElong`]", type="marketing"]
+to add the {sdk-java} to an existing Eclipse project or to create a new {sdk-java} project. The
+toolkit also supports creating and uploading {LAM} functions, launching and monitoring {EC2}
+instances, managing {IAM} users and security groups, a {CFNlong} template editor, and more.
+
+See the
+link:toolkit-for-eclipse/v1/user-guide/["pass:q[[.shared\]`TElong`] User Guide", type="documentation"]
+for full documentation.
+
+[[android-support,android-support.title]]
+== Developing Applications for Android
+
+If you're an Android developer, {AWSlong} publishes an SDK made specifically for Android
+development: the link:mobile/sdk/["pass:q[[.shared\]`Androidlong`]", type="marketing"].
+See the
+{url-android-dev}[{Androidlong} Developer Guide] for full documentation.
+
+[[java-sdk-history,java-sdk-history.title]]
+== Viewing the SDK's Revision History
+
+To view the release history of the {sdk-java}, including changes and supported services per SDK
+version, see the SDK's  {java-releasenotes}[release notes].
+
+[[build-old-reference-docs,build-old-reference-docs.title]]
+== Building Java Reference Documentation for Earlier SDK versions
+
+The link:AWSJavaSDK/latest/javadoc/["pass:q[[.shared\]`Javalong`] API Reference", type="documentation"]
+represents the most recent build of version 1.x of the SDK. If you're using an earlier build of
+the 1.x version, you might want to access the SDK reference documentation that matches the
+version you're using.
+
+The easiest way to build the documentation is using Apache's
+https://maven.apache.org/[Maven] build tool. __Download and install Maven first if you don't
+already have it on your system__, then use the following instructions to build the reference
+documentation.
+
+. Locate and select the SDK version that you're using on the {url-aws-github}aws-sdk-java/releases[releases] page of the SDK repository on GitHub.
+. Choose either the [path]``zip`` (most platforms, including Windows) or  [path]``tar.gz`` (Linux, macOS, or Unix) link to download the SDK to your computer.
+. Unpack the archive to a local directory.
+. On the command line, navigate to the directory where you unpacked the archive, and type the following.
++
+[source,java]
+----
+mvn javadoc:javadoc
+----
+. After building is complete, you'll find the generated HTML documentation in the
+[path]``aws-java-sdk/target/site/apidocs/`` directory.

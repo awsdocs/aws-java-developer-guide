@@ -1,0 +1,90 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-CreateSegment-java: {url-awsdocs-github}aws-doc-sdk-examples/blob/master/java/example_code/pinpoint/src/main/java/com/example/pinpoint/CreateSegment.java
+
+[."topic"]
+[[examples-pinpoint-create-segment,examples-pinpoint-create-segment.title]]
+= [[creating-segments-in-pinlong, Creating Segments in {PINlong}]]Creating Segments in {PINlong}
+:info_doctype: section
+:info_title: Creating Segments in {PINlong}
+:info_abstract: How to update an app segment in Amazon pinpoint.
+:info_keywordset: sdk-javacode examplesamazon pinpoint segment
+
+[abstract]
+--
+How to update an app segment in Amazon pinpoint.
+--
+
+A user segment represents a subset of your users that's based on shared characteristics, such as how recently a user opened your app or which device they use. The following example demonstrates how to define a segment of users.
+
+[[create-a-segment,create-a-segment.title]]
+== Create a Segment
+
+Create a new segment in {PINlong} by defining dimensions of the segment in a  link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/SegmentDimensions.html["SegmentDimensions", type="documentation"] object.
+
+*Imports*
+
+[source,java]
+----
+import com.amazonaws.services.pinpoint.AmazonPinpoint;
+import com.amazonaws.services.pinpoint.AmazonPinpointClientBuilder;
+import com.amazonaws.services.pinpoint.model.CreateSegmentRequest;
+import com.amazonaws.services.pinpoint.model.CreateSegmentResult;
+import com.amazonaws.services.pinpoint.model.AttributeDimension;
+import com.amazonaws.services.pinpoint.model.AttributeType;
+import com.amazonaws.services.pinpoint.model.RecencyDimension;
+import com.amazonaws.services.pinpoint.model.SegmentBehaviors;
+import com.amazonaws.services.pinpoint.model.SegmentDemographics;
+import com.amazonaws.services.pinpoint.model.SegmentDimensions;
+import com.amazonaws.services.pinpoint.model.SegmentLocation;
+import com.amazonaws.services.pinpoint.model.SegmentResponse;
+import com.amazonaws.services.pinpoint.model.WriteSegmentRequest;
+----
+
+*Code*
+
+[source,java]
+----
+Pinpoint pinpoint = AmazonPinpointClientBuilder.standard().withRegion(Regions.US_EAST_1).build();
+Map<String, AttributeDimension> segmentAttributes = new HashMap<>();
+segmentAttributes.put("Team", new AttributeDimension().withAttributeType(AttributeType.INCLUSIVE).withValues("Lakers"));
+
+SegmentBehaviors segmentBehaviors = new SegmentBehaviors();
+SegmentDemographics segmentDemographics = new SegmentDemographics();
+SegmentLocation segmentLocation = new SegmentLocation();
+
+RecencyDimension recencyDimension = new RecencyDimension();
+recencyDimension.withDuration("DAY_30").withRecencyType("ACTIVE");
+segmentBehaviors.setRecency(recencyDimension);
+
+SegmentDimensions dimensions = new SegmentDimensions()
+        .withAttributes(segmentAttributes)
+        .withBehavior(segmentBehaviors)
+        .withDemographic(segmentDemographics)
+        .withLocation(segmentLocation);
+----
+
+Next set the  link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/SegmentDimensions.html["SegmentDimensions", type="documentation"] object in a link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/WriteSegmentRequest.html["WriteSegmentRequest", type="documentation"], which in turn is used to create a link:sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/CreateSegmentRequest.html["CreateSegmentRequest", type="documentation"] object. Then pass the CreateSegmentRequest object to the AmazonPinpointClient's `createSegment` method.
+
+*Code*
+
+[source,java]
+----
+WriteSegmentRequest writeSegmentRequest = new WriteSegmentRequest()
+        .withName("MySegment").withDimensions(dimensions);
+
+CreateSegmentRequest createSegmentRequest = new CreateSegmentRequest()
+        .withApplicationId(appId).withWriteSegmentRequest(writeSegmentRequest);
+
+CreateSegmentResult createSegmentResult = client.createSegment(createSegmentRequest);
+----
+
+See the  {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-java-example-code-pinpoint-src-main-java-com-example-pinpoint-CreateSegment-java}[complete example] on GitHub.
+
+[[more-information,more-information.title]]
+== More Information
+
+* link:pinpoint/latest/userguide/segments.html["pass:q[[.shared\]`PINlong`] Segments", type="documentation"] in the {guide-pin-ug}
+* {url-pin-dg}segments.html[Creating Segments] in the {guide-pin-dg}
+* {url-pin-api}rest-api-segments.html[Segments] in the {guide-pin-api}
+* {url-pin-api}rest-api-segment.html[Segment] in the {guide-pin-api}

@@ -1,0 +1,31 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+
+[."topic"]
+[[lambda-examples,lambda-examples.title]]
+= [[lambda-examples-using-the-sdk-java, Lambda Examples Using the SDK for Java]]Lambda Examples Using the {sdk-java}
+:info_doctype: section
+:info_title: {LAM} Examples Using the {sdk-java}
+:info_titleabbrev: Amazon {LAM} Examples
+:info_abstract: Programming Amazon {LAM} using the {sdk-java}.
+:info_keywordset: sdk-javacode examples
+
+[abstract]
+--
+Programming Amazon {LAM} using the {sdk-java}.
+--
+
+This section provides examples of programming {LAM} using the {sdk-java}.
+
+[NOTE]
+====
+
+The examples include only the code needed to demonstrate each technique. The {url-awsdocs-github}aws-doc-sdk-examples/tree/master/java[complete example code is available on GitHub]. From there, you can download a single source file or clone the repository locally to get all the examples to build and run.
+
+====
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::examples-lambda.adoc[leveloffset=+1]

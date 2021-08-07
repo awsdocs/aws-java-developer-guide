@@ -1,0 +1,36 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+
+[."topic"]
+[[prog-services-swf,prog-services-swf.title]]
+= [[swf-examples-using-the-sdk-java, SWF Examples Using the SDK for Java]]{SWF} Examples Using the {sdk-java}
+:info_doctype: section
+:info_title: {SWF} Examples Using the {sdk-java}
+:info_titleabbrev: {SWF} Examples
+
+link:swf/["pass:q[[.shared\]`SWF`]", type="marketing"] is a workflow-management service that helps developers build and scale distributed workflows that can have parallel or sequential steps consisting of activities, child workflows or even link:lambda/["Lambda", type="marketing"] tasks.
+
+There are two ways to work with {SWF} using the {sdk-java}, by using the SWF _client_ object, or by using the {FFlong} for Java. The {FFlong} for Java is more difficult to configure initially, since it makes heavy use of annotations and relies on additional libraries such as AspectJ and the Spring Framework. However, for large or complex projects, you will save coding time by using the {FFlong} for Java. For more information, see the link:amazonswf/latest/awsflowguide/["pass:q[[.shared\]`FFlong`] for Java Developer Guide", type="documentation"].
+
+This section provides examples of programming {SWF} by using the {sdk-java} client directly.
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::swf-basics.adoc[leveloffset=+1]
+
+
+include::swf-hello.adoc[leveloffset=+1]
+
+
+include::swf-lambda-task.adoc[leveloffset=+1]
+
+
+include::swf-graceful-shutdown.adoc[leveloffset=+1]
+
+
+include::prog-services-swf-register-domain.adoc[leveloffset=+1]
+
+
+include::prog-services-swf-list-domains.adoc[leveloffset=+1]

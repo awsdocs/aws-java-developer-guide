@@ -1,0 +1,37 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:java-aws-securitydocs: {url-doc-domain}security/?id=docs_gateway#aws-security
+:java-aws-quickstart: {url-mkt-domain}quickstart/?quickstart-all.sort-by=item.additionalFields.updateDate&amp;quickstart-all.sort-order=desc&amp;awsf.quickstart-homepage-filter=categories%23security-identity-compliance
+[."topic"]
+[[compliance-validation,compliance-validation.title]]
+= [[compliance-validation-for-this-aws-product-or-service, Compliance Validation for this Product or Service]]Compliance Validation for this {AWS} Product or Service
+:info_doctype: section
+:info_title: Compliance Validation for this {AWS} Product or Service
+:info_titleabbrev: Compliance Validation
+
+This {AWS} product or service follows the
+link:compliance/shared-responsibility-model/["shared responsibility model", type="marketing"] through the
+specific {AWSlong} ({AWS}) services it supports. For {AWS-service} security information, see the
+{java-aws-securitydocs}[{AWS-service} security documentation page]
+and
+link:compliance/services-in-scope/["pass:q[[.shared\]`AWS`] services that are in scope of pass:q[[.shared\]`AWS`] compliance efforts by compliance program", type="marketing"].
+
+The security and compliance of {AWS-services} is assessed by third-party auditors as part of
+multiple {AWS} compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others. {AWS}
+provides a frequently updated list of {AWS-services} in scope of specific compliance programs at
+link:compliance/services-in-scope/["pass:q[[.shared\]`AWS`] services in Scope by Compliance
+Program", type="marketing"].
+
+Third-party audit reports are available for you to download using {ART}. For more information, see link:artifact/latest/ug/downloading-documents.html["Downloading Reports in pass:q[[.shared\]`ART`]", type="documentation"].
+
+For more information about {AWS} compliance programs, see link:compliance/programs/["pass:q[[.shared\]`AWS`] Compliance Programs", type="marketing"].
+
+Your compliance responsibility when using this {AWS} product or service to access an {AWS-service} is determined by the sensitivity of your data, your organization's compliance objectives, and applicable laws and regulations. If your use of an {AWS-service} is subject to compliance with standards such as HIPAA, PCI, or FedRAMP, {AWS} provides resources to help:
+
+
+
+* {java-aws-quickstart}[Security and Compliance Quick Start Guides] - Deployment guides that discuss architectural considerations and provide steps for deploying security-focused and compliance-focused baseline environments on {AWS}.
+* https://d0.awsstatic.com/whitepapers/compliance/AWS_HIPAA_Compliance_Whitepaper.pdf[Architecting for HIPAA Security and Compliance Whitepaper] - A whitepaper that describes how companies can use {AWS} to create HIPAA-compliant applications.
+* link:compliance/resources/["pass:q[[.shared\]`AWS`] Compliance Resources", type="marketing"] - A collection of workbooks and guides that might apply to your industry and location.
+* link:config/["pass:q[[.shared\]`AWS`] Config", type="marketing"] - A service that assesses how well your resource configurations comply with internal practices, industry guidelines, and regulations.
+* link:security-hub/["pass:q[[.shared\]`AWS`] Security Hub", type="marketing"] - A comprehensive view of your security state within {AWS} that helps you check your compliance with security industry standards and best practices.
