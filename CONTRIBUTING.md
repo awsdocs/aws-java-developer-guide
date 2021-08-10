@@ -53,4 +53,4 @@ If you discover a potential security issue, please notify AWS Security via our [
 
 ## Licensing
 
-See the [LICENSE](https://github.com/awsdocs/aws-java-developer-guide/blob/master/LICENSE) file for this project's licensing. We will ask you to confirm the licensing of your contribution. We may ask you to sign a [Contributor License Agreement (CLA)](http://en.wikipedia.org/wiki/Contributor_License_Agreement) for larger changes.
+See the [LICENSE](LICENSE) file for this project's licensing. We will ask you to confirm the licensing of your contribution. We may ask you to sign a [Contributor License Agreement (CLA)](http://en.wikipedia.org/wiki/Contributor_License_Agreement) for larger changes.

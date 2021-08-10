@@ -55,9 +55,9 @@ For more information about activating STS regions and for a list of the availabl
 AWSSecurityTokenService sts_client = new AWSSecurityTokenServiceClientBuilder().standard().withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("sts-endpoint.amazonaws.com", "signing-region")).build()
 ----
 +
-
-When creating the client with no arguments (``AWSSecurityTokenService sts_client = new AWSSecurityTokenServiceClientBuilder().standard().build();``), the default credential provider chain is used to retrieve credentials. You can provide a specific credential provider if you want. For more information, see Providing {AWS} Credentials in the {sdk-java}.
+When creating the client with no arguments (``AWSSecurityTokenService sts_client = new AWSSecurityTokenServiceClientBuilder().standard().build();``), the default credential provider chain is used to retrieve credentials. You can provide a specific credential provider if you want. For more information, see <<credentials,Providing {AWS} Credentials in the {sdk-java}>>.
 . Create a link:sdk-for-java/v1/reference/com/amazonaws/services/securitytoken/model/GetSessionTokenRequest.html["GetSessionTokenRequest", type="documentation"] object, and optionally set the duration in seconds for which the temporary credentials are valid:
+=======
 +
 [source,java]
 ----

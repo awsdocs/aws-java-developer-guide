@@ -23,7 +23,7 @@ include::../../includes.txt[]
      trademarks not owned by Amazon are the property of their respective \
      owners, who may or may not be affiliated with, connected to, or  \
      sponsored by Amazon.
-:front-cover-image: image:aws_cover.jpg[Front Cover]
+:front-cover-image: image::../images/aws_cover.jpg[]
 
 [abstract]
 --
