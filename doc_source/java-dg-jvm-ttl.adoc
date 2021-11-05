@@ -33,7 +33,7 @@ To modify the JVM's TTL, set the  http://docs.oracle.com/javase/7/docs/technotes
 
 
 
-* **globally, for all applications that use the JVM**. Set `networkaddress.cache.ttl` in the [path]``$JAVA_HOME/jre/lib/security/java.security`` file:
+* **globally, for all applications that use the JVM**. Set `networkaddress.cache.ttl` in [path]``$JAVA_HOME/jre/lib/security/java.security`` for Java 8 or [path]``$JAVA_HOME/conf/security/java.security`` for Java 11 and on:
 +
 [source,java]
 ----
