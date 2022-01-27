@@ -15,13 +15,13 @@ aws-java-developer-guide
 This repository contains source content for the official `AWS Java Developer Guide`_. The source
 code for the `AWS SDK for Java`_ is also on GitHub, at https://github.com/aws/aws-sdk-java/.
 
-The guide content is written in reStructuredText_ and built using Sphinx_. It relies upon content
-which is provided in the AWS documentation team's `shared content`_ and `SDK examples`_
-repositories.
+The guide content is written in `AsciiDoc`_. It relies
+upon content which is provided in the AWS documentation team's `shared content`_ and
+`SDK examples`_ repositories.
 
-AWS SDK for Java 2.0 Developer Preview
-======================================
-Take a look at the new AWS SDK for Java 2.0 developer preview at https://github.com/aws/aws-sdk-java-v2/.
+AWS SDK for Java 2.0
+====================
+Take a look at the newer AWS SDK for Java 2.0 at https://github.com/aws/aws-sdk-java-v2/.
 It includes much awaited features, such as a way to plug in a HTTP implementation. To get started,
 see the `AWS SDK for Java 2.0 Developer Guide`_.
 
@@ -103,6 +103,7 @@ repository.
 .. Links used in the README. For sanity's sake, keep this list sorted alphabetically
 .. =================================================================================
 
+.. _`AsciiDoc`: https://asciidoc-py.github.io/index.html
 .. _`available sphinx builders`: http://www.sphinx-doc.org/en/stable/builders.html
 .. _`aws java developer guide`: http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html
 .. _`aws sdk for java 2.0 developer guide`: http://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
