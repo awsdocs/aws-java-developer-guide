@@ -32,6 +32,3 @@ include::setup-project-maven.adoc[leveloffset=+1]
 
 
 include::setup-project-gradle.adoc[leveloffset=+1]
-
-
-include::sdk-metrics.adoc[leveloffset=+1]
