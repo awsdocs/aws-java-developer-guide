@@ -8,19 +8,9 @@ include::../../includes.txt[]
 
 The {sdk-java} can generate metrics for visualization and monitoring with  link:cloudwatch/["CloudWatch", type="marketing"] that measure:
 
-
-
 * your application's performance when accessing {AWS}
 * the performance of your JVMs when used with {AWS}
 * runtime environment details such as heap memory, number of threads, and opened file descriptors
-
-
-[NOTE]
-====
-
-The {AWS} SDK Metrics for Enterprise Support is another option for gathering metrics about your application. SDK Metrics is an {AWS-service} that publishes data to {CWlong} and enables you to share metric data with {AWS} Support for easier troubleshooting. See  xref:sdk-metrics[Enabling {AWS} SDK Metrics for Enterprise Support,linkend=sdk-metrics] to learn how to enable the SDK Metrics service for your application.
-
-====
 
 [[how-to-enable-sdk-java-metric-generation,how-to-enable-sdk-java-metric-generation.title]]
 == How to Enable Java SDK Metric Generation
