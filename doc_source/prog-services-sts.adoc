@@ -52,7 +52,7 @@ For more information about activating STS regions and for a list of the availabl
 +
 [source,java]
 ----
-AWSSecurityTokenService sts_client = new AWSSecurityTokenServiceClientBuilder().standard().withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("sts-endpoint.amazonaws.com", "signing-region")).build()
+AWSSecurityTokenService sts_client = AWSSecurityTokenServiceClientBuilder.standard().withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("sts-endpoint.amazonaws.com", "signing-region")).build()
 ----
 +
 When creating the client with no arguments (``AWSSecurityTokenService sts_client = new AWSSecurityTokenServiceClientBuilder().standard().build();``), the default credential provider chain is used to retrieve credentials. You can provide a specific credential provider if you want. For more information, see <<credentials,Providing {AWS} Credentials in the {sdk-java}>>.
