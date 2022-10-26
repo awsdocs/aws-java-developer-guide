@@ -173,5 +173,5 @@ CryptoConfigurationV2 cryptoConfiguration = new CryptoConfigurationV2()
 // Allows range gets using AES/CTR and AES/CBC, for V1 and V2 objects
 CryptoConfigurationV2 cryptoConfiguration = new CryptoConfigurationV2()
        .withCryptoMode(CryptoMode.AuthenticatedEncryption)
-       .withRangeGetMode(CryptoRangeGetMode.ALL);
+       .withRangeGetMode(CryptoRangeGetMode.ALL); Is this relevant as CryptoRangeGetMode.ALL is deprecated?
 ```
