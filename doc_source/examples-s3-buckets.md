@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Creating, Listing, and Deleting Amazon S3 Buckets<a name="examples-s3-buckets"></a>
 
 Every object \(file\) in Amazon S3 must reside within a *bucket*, which represents a collection \(container\) of objects\. Each bucket is known by a *key* \(name\), which must be unique\. For detailed information about buckets and their configuration, see [Working with Amazon S3 Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html) in the Amazon Simple Storage Service User Guide\.

@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Developer Guide \- AWS SDK for Java 1\.x<a name="welcome"></a>
 
 The [AWS SDK for Java](http://aws.amazon.com/sdk-for-java/) provides a Java API for AWS services\. Using the SDK, you can easily build Java applications that work with Amazon S3, Amazon EC2, DynamoDB, and more\. We regularly add support for new services to the AWS SDK for Java\. For a list of the supported services and their API versions that are included with each release of the SDK, view the [release notes](https://github.com/aws/aws-sdk-java#release-notes) for the version that you’re working with\.

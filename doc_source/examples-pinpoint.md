@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Amazon Pinpoint Examples Using the AWS SDK for Java<a name="examples-pinpoint"></a>
 
 This section provides examples of programming [Amazon Pinpoint](http://aws.amazon.com/pinpoint/) using the [AWS SDK for Java](http://aws.amazon.com/sdk-for-java/)\.

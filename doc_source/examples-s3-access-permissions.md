@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Managing Amazon S3 Access Permissions for Buckets and Objects<a name="examples-s3-access-permissions"></a>
 
 You can use access control lists \(ACLs\) for Amazon S3 buckets and objects for fine\-grained control over your Amazon S3 resources\.

@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Managing Access to Amazon S3 Buckets Using Bucket Policies<a name="examples-s3-bucket-policies"></a>
 
 You can set, get, or delete a *bucket policy* to manage access to your Amazon S3 buckets\.

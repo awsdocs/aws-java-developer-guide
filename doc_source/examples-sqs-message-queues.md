@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Working with Amazon SQS Message Queues<a name="examples-sqs-message-queues"></a>
 
 A *message queue* is the logical container used for sending messages reliably in Amazon SQS\. There are two types of queues: *standard* and *first\-in, first\-out* \(FIFO\)\. To learn more about queues and the differences between these types, see the [Amazon SQS Developer Guide](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/)\.

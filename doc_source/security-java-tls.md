@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # AWS SDK for Java support for TLS<a name="security-java-tls"></a>
 
 The following information applies only to Java SSL implementation \(the default SSL implementation in the AWS SDK for Java\)\. If you’re using a different SSL implementation, see your specific SSL implementation to learn how to enforce TLS versions\.

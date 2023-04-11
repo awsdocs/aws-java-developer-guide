@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Getting Metrics from CloudWatch<a name="examples-cloudwatch-get-metrics"></a>
 
 ## Listing Metrics<a name="listing-metrics"></a>

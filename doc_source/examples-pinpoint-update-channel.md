@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Updating Channels in Amazon Pinpoint<a name="examples-pinpoint-update-channel"></a>
 
 A channel defines the types of platforms to which you can deliver messages\. This example shows how to use the APNs channel to send a message\.

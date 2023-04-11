@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Working with IAM Policies<a name="examples-iam-policies"></a>
 
 ## Creating a Policy<a name="creating-a-policy"></a>

@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Working with CloudWatch Alarms<a name="examples-cloudwatch-create-alarms"></a>
 
 ## Create an Alarm<a name="create-an-alarm"></a>

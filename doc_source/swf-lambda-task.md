@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Lambda Tasks<a name="swf-lambda-task"></a>
 
 As an alternative to, or in conjunction with, Amazon SWF activities, you can use [Lambda](http://aws.amazon.com/lambda/) functions to represent units of work in your workflows, and schedule them similarly to activities\.

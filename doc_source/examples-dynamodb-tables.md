@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Working with Tables in DynamoDB<a name="examples-dynamodb-tables"></a>
 
 Tables are the containers for all items in a DynamoDB database\. Before you can add or remove data from DynamoDB, you must create a table\.

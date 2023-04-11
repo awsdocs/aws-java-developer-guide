@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Using Dead Letter Queues in Amazon SQS<a name="examples-sqs-dead-letter-queues"></a>
 
  Amazon SQS provides support for *dead letter queues*\. A dead letter queue is a queue that other \(source\) queues can target for messages that can’t be processed successfully\. You can set aside and isolate these messages in the dead letter queue to determine why their processing did not succeed\.

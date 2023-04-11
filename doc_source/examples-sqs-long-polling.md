@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Enabling Long Polling for Amazon SQS Message Queues<a name="examples-sqs-long-polling"></a>
 
  Amazon SQS uses *short polling* by default, querying only a subset of the servers—​based on a weighted random distribution—​to determine whether any messages are available for inclusion in the response\.

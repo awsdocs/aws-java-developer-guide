@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Registering Domains<a name="prog-services-swf-register-domain"></a>
 
 Every workflow and activity in [Amazon SWF](http://aws.amazon.com/swf/) needs a *domain* to run in\.

@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Code Samples included with the SDK<a name="java-dg-samples"></a>
 
 The AWS SDK for Java comes packaged with code samples that demonstrate many of the features of the SDK in buildable, runnable programs\. You can study or modify these to implement your own AWS solutions using the AWS SDK for Java\.

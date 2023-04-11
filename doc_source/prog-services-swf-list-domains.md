@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Listing Domains<a name="prog-services-swf-list-domains"></a>
 
 You can list the [Amazon SWF](http://aws.amazon.com/swf/) domains associated with your account and AWS region by registration type\.

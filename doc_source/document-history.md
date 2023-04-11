@@ -1,14 +1,11 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Document History<a name="document-history"></a>
 
 This topic describes important changes to the AWS SDK for Java Developer Guide over the course of its history\.
 
- **This documentation was built on:** 2022\-07\-28
+ **This documentation was built on:** 2023\-03\-14
+
+March 14, 2023  
++ Updated guide to align with the IAM best practices\. For more information, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)\.
 
 July 28, 2022  
 + Added an alert that EC2\-Classic is retiring on August 15, 2022\.

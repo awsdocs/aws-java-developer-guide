@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Run an Amazon EC2 Instance<a name="run-instance"></a>
 
 Use the following procedure to launch one or more identically configured EC2 instances from the same Amazon Machine Image \(AMI\)\. After you create your EC2 instances, you can check their status\. After your EC2 instances are running, you can connect to them\.

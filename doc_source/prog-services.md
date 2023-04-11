@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # AWS SDK for Java Code Examples<a name="prog-services"></a>
 
 This section provides tutorials and examples of using the AWS SDK for Java v1 to program AWS services\.
@@ -14,7 +8,7 @@ To propose a new code example for the AWS documentation team to consider produci
 
 ## AWS SDK for Java 2\.x<a name="aws-sdk-for-java-2-x"></a>
 
-In 2018, AWS released AWS SDK for Java v2\. For more AWS examples, see the link:sdk\-for\-java/v2/developer\-guide/welcome\.html\["AWS SDK for Java\\ 2\.x Developer Guide", type="documentation"\.
+In 2018, AWS released the [AWS SDK for Java 2\.x](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html)\. This guide contains instructions on using the latest Java SDK along with example code\.
 
 **Note**  
 See [Additional Documentation and Resources](welcome.md#additional-resources) for more examples and additional resources available for AWS SDK for Java developers\!

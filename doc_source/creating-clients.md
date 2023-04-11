@@ -1,14 +1,8 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Creating Service Clients<a name="creating-clients"></a>
 
 To make requests to Amazon Web Services, you first create a service client object\. The recommended way is to use the service client builder\.
 
-Each AWS service has a service interface with methods for each action in the service API\. For example, the service interface for Amazon DynamoDB is named link:sdk\-for\-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDB \.html\["AmazonDynamoDB", type="documentation"\]\. Each service interface has a corresponding client builder you can use to construct an implementation of the service interface\. The client builder class for DynamoDB is named [AmazonDynamoDBClientBuilder](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDBClientBuilder.html)\.
+Each AWS service has a service interface with methods for each action in the service API\. For example, the service interface for DynamoDB is named [AmazonDynamoDBClient](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/AmazonDynamoDBClient.html)\. Each service interface has a corresponding client builder you can use to construct an implementation of the service interface\. The client builder class for DynamoDB is named [AmazonDynamoDBClientBuilder](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/dynamodbv2/AmazonDynamoDBClientBuilder.html)\.
 
 ## Obtaining a Client Builder<a name="obtaining-a-client-builder"></a>
 

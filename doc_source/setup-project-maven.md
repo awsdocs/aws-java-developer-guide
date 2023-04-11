@@ -1,10 +1,4 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
-# Using the SDK with Apache Maven<a name="setup-project-maven"></a>
+# Use the SDK with Apache Maven<a name="setup-project-maven"></a>
 
 You can use [Apache Maven](https://maven.apache.org/) to configure and build AWS SDK for Java projects, or to build the SDK itself\.
 

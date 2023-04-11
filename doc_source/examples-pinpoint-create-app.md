@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Creating and Deleting Apps in Amazon Pinpoint<a name="examples-pinpoint-create-app"></a>
 
 An app is an Amazon Pinpoint project in which you define the audience for a distinct application, and you engage this audience with tailored messages\. The examples on this page demonstrate how to create a new app or delete an existing one\.

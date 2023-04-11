@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Managing IAM Access Keys<a name="examples-iam-access-keys"></a>
 
 ## Creating an Access Key<a name="creating-an-access-key"></a>

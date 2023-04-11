@@ -1,55 +1,39 @@
---------
+# Set up AWS temporary credentials and AWS Region for development<a name="setup-credentials"></a>
 
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
+To connect to any of the supported services with the AWS SDK for Java, you must provide AWS temporary credentials\. The AWS SDKs and CLIs use *provider chains* to look for AWS temporary credentials in a number of different places, including system/user environment variables and local AWS configuration files\.
 
---------
-
-# Set up AWS Credentials and Region for Development<a name="setup-credentials"></a>
-
-To connect to any of the supported services with the AWS SDK for Java, you must provide AWS credentials\. The AWS SDKs and CLIs use *provider chains* to look for AWS credentials in a number of different places, including system/user environment variables and local AWS configuration files\.
-
-This topic provides basic information about setting up your AWS credentials for local application development using the AWS SDK for Java\. If you need to set up credentials for use within an EC2 instance or if you’re using the Eclipse IDE for development, refer to the following topics instead:
+This topic provides basic information about setting up your AWS temporary credentials for local application development using the AWS SDK for Java\. If you need to set up credentials for use within an EC2 instance or if you’re using the Eclipse IDE for development, refer to the following topics instead:
 + When using an EC2 instance, create an IAM role and then give your EC2 instance access to that role as shown in [Using IAM Roles to Grant Access to AWS Resources on Amazon EC2](java-dg-roles.md)\.
 + Set up AWS credentials within Eclipse using the [AWS Toolkit for Eclipse](http://aws.amazon.com/eclipse/)\. See [Set up AWS Credentials](https://docs.aws.amazon.com/toolkit-for-eclipse/v1/user-guide/setup-credentials.html) in the [AWS Toolkit for Eclipse User Guide](https://docs.aws.amazon.com/toolkit-for-eclipse/v1/user-guide/) for more information\.
 
-## Setting Credentials<a name="setup-credentials-setting"></a>
+## Configure temporary credentials<a name="setup-credentials-setting"></a>
 
-Setting your credentials for use by the AWS SDK for Java can be done in a number of ways, but here are the recommended approaches:
-+ Set credentials in the AWS credentials profile file on your local system, located at:
+You can configure temporary credentials for the AWS SDK for Java in a number of ways, but here are the recommended approaches:
++ Set tempoaray credentials in the AWS credentials profile file on your local system, located at:
   +  `~/.aws/credentials` on Linux, macOS, or Unix
   +  `C:\Users\USERNAME\.aws\credentials` on Windows
 
-  This file should contain lines in the following format:
+  See the [Set up temporary credentials for the SDK](signup-create-iam-user.md#setup-temp-creds) in this guide for instructions on how to get your temporary credentials\.
++ Set the `AWS_ACCESS_KEY_ID`,`AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN` environment variables\.
 
-  \+
-
-  ```
-  [default]
-  aws_access_key_id = your_access_key_id
-  aws_secret_access_key = your_secret_access_key
-  ```
-
-  \+
-
-  Substitute your own AWS credentials values for the values *your\_access\_key\_id* and *your\_secret\_access\_key*\.
-+ Set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables\.
-
-  To set these variables on Linux, macOS, or Unix, use ** `` **:
+  To set these variables on Linux, macOS, or Unix, use :
 
   ```
   export AWS_ACCESS_KEY_ID=your_access_key_id
   export AWS_SECRET_ACCESS_KEY=your_secret_access_key
+  export AWS_SESSION_TOKEN=your_session_token
   ```
 
-  To set these variables on Windows, use ** `` **:
+  To set these variables on Windows, use:
 
   ```
   set AWS_ACCESS_KEY_ID=your_access_key_id
   set AWS_SECRET_ACCESS_KEY=your_secret_access_key
+  set AWS_SESSION_TOKEN=your_session_token
   ```
 + For an EC2 instance, specify an IAM role and then give your EC2 instance access to that role\. See [IAM Roles for Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the Amazon EC2 User Guide for Linux Instances for a detailed discussion about how this works\.
 
-Once you have set your AWS credentials using one of these methods, they will be loaded automatically by the AWS SDK for Java by using the default credential provider chain\. For further information about working with AWS credentials in your Java applications, see [Working with AWS Credentials](credentials.md)\.
+Once you have set your AWS temporary credentials using one of these methods, they will be loaded automatically by the AWS SDK for Java by using the default credential provider chain\. For further information about working with AWS credentials in your Java applications, see [Working with AWS Credentials](credentials.md)\.
 
 ## Refreshing IMDS credentials<a name="refresh-credentials"></a>
 
@@ -71,7 +55,7 @@ The AWS SDK for Java supports opt\-in refreshing IMDS credentials in the backgro
  13. credentials.close();
 ```
 
-## Setting the Region<a name="setup-credentials-setting-region"></a>
+## Set the AWS Region<a name="setup-credentials-setting-region"></a>
 
 You should set a default AWS Region that will be used for accessing AWS services with the AWS SDK for Java\. For the best network performance, choose a region that’s geographically close to you \(or to your customers\)\. For a list of regions for each service, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the Amazon Web Services General Reference\.
 
@@ -110,5 +94,3 @@ You can use similar techniques to setting credentials to set your default AWS re
   ```
 
   Where *your\_aws\_region* is the desired AWS Region name\.
-
-**Topics**

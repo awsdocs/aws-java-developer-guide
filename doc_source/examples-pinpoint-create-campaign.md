@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Creating Campaigns in Amazon Pinpoint<a name="examples-pinpoint-create-campaign"></a>
 
 You can use campaigns to help increase engagement between your app and your users\. You can create a campaign to reach out to a particular segment of your users with tailored messages or special promotions\. This example demonstrates how to create a new standard campaign that sends a custom push notification to a specified segment\.

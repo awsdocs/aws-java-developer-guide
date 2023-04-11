@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # AWS Region Selection<a name="java-dg-region-selection"></a>
 
 Regions enable you to access AWS services that physically reside in a specific geographic area\. This can be useful both for redundancy and to keep your data and applications running close to where you and your users will access them\.

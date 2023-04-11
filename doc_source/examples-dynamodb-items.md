@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Working with Items in DynamoDB<a name="examples-dynamodb-items"></a>
 
 In DynamoDB, an item is a collection of *attributes*, each of which has a *name* and a *value*\. An attribute value can be a scalar, set, or document type\. For more information, see [Naming Rules and Data Types](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html) in the Amazon DynamoDB Developer Guide\.

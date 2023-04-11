@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Best Practices for AWS Development with the AWS SDK for Java<a name="best-practices"></a>
 
 The following best practices can help you avoid issues or trouble as you develop AWS applications with the AWS SDK for Java\. We’ve organized best practices by service\.

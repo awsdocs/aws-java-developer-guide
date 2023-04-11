@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Configuring an Amazon S3 Bucket as a Website<a name="examples-s3-website-configuration"></a>
 
 You can configure an Amazon S3 bucket to behave as a website\. To do this, you need to set its website configuration\.

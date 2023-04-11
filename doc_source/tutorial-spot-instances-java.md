@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Tutorial: Amazon EC2 Spot Instances<a name="tutorial-spot-instances-java"></a>
 
 ## Overview<a name="tutor-spot-java-overview"></a>

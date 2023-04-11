@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Use Amazon S3 client\-side encryption<a name="examples-crypto"></a>
 
 Encrypting data using the Amazon S3 encryption client is one way you can provide an additional layer of protection for sensitive information you store in Amazon S3\. The examples in this section demonstrate how to create and configure the Amazon S3 encryption client for your application\.

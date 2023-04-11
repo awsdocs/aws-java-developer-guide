@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Working with Security Groups in Amazon EC2<a name="examples-ec2-security-groups"></a>
 
 ## Creating a Security Group<a name="creating-a-security-group"></a>

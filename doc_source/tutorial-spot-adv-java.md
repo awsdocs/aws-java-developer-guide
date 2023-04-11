@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Tutorial: Advanced Amazon EC2 Spot Request Management<a name="tutorial-spot-adv-java"></a>
 
  Amazon EC2 Spot Instances allow you to bid on unused Amazon EC2 capacity and run those instances for as long as your bid exceeds the current *spot price*\. Amazon EC2 changes the spot price periodically based on supply and demand\. For more information about Spot Instances, see [Spot Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html) in the Amazon EC2 User Guide for Linux Instances\.

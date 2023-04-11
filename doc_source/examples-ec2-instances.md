@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Managing Amazon EC2 Instances<a name="examples-ec2-instances"></a>
 
 ## Creating an Instance<a name="creating-an-instance"></a>

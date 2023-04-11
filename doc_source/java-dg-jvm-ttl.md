@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Setting the JVM TTL for DNS Name Lookups<a name="java-dg-jvm-ttl"></a>
 
 The Java virtual machine \(JVM\) caches DNS name lookups\. When the JVM resolves a hostname to an IP address, it caches the IP address for a specified period of time, known as the *time\-to\-live* \(TTL\)\.
@@ -18,7 +12,7 @@ The default TTL can vary according to the version of your JVM and whether a [sec
 ## How to Set the JVM TTL<a name="how-to-set-the-jvm-ttl"></a>
 
 To modify the JVM’s TTL, set the [networkaddress\.cache\.ttl](http://docs.oracle.com/javase/7/docs/technotes/guides/net/properties.html) property value\. Use one of the following methods, depending on your needs:
-+  **globally, for all applications that use the JVM**\. Set `networkaddress.cache.ttl` in the `$JAVA_HOME/jre/lib/security/java.security` file:
++  **globally, for all applications that use the JVM**\. Set `networkaddress.cache.ttl` in the `$JAVA_HOME/jre/lib/security/java.security` file for Java 8 or `$JAVA_HOME/conf/security/java.security` file for Java 11 or higher:
 
   ```
   networkaddress.cache.ttl=60

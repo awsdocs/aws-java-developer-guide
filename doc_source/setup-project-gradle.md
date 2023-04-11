@@ -1,10 +1,4 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
-# Using the SDK with Gradle<a name="setup-project-gradle"></a>
+# Use the SDK with Gradle<a name="setup-project-gradle"></a>
 
 To manage SDK dependencies for your [Gradle](https://gradle.com/) project, import the Maven BOM for the AWS SDK for Java into the `build.gradle` file\.
 

@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Creating Segments in Amazon Pinpoint<a name="examples-pinpoint-create-segment"></a>
 
 A user segment represents a subset of your users that’s based on shared characteristics, such as how recently a user opened your app or which device they use\. The following example demonstrates how to define a segment of users\.

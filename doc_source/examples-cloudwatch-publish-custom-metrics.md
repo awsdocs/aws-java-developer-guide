@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Publishing Custom Metric Data<a name="examples-cloudwatch-publish-custom-metrics"></a>
 
 A number of AWS services publish [their own metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-namespaces.html) in namespaces beginning with " `AWS` " You can also publish custom metric data using your own namespace \(as long as it doesn’t begin with " `AWS` "\)\.

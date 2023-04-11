@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Amazon SWF Examples Using the AWS SDK for Java<a name="prog-services-swf"></a>
 
  [Amazon SWF](http://aws.amazon.com/swf/) is a workflow\-management service that helps developers build and scale distributed workflows that can have parallel or sequential steps consisting of activities, child workflows or even [Lambda](http://aws.amazon.com/lambda/) tasks\.

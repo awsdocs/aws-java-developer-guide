@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Invoking, Listing, and Deleting Lambda Functions<a name="examples-lambda"></a>
 
 This section provides examples of programming with the Lambda service client by using the AWS SDK for Java\. To learn how to create a Lambda function, see [How to Create AWS Lambda functions](https://docs.aws.amazon.com/toolkit-for-eclipse/v1/user-guide/lambda-tutorial.html)\.

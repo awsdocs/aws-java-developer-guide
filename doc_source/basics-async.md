@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Asynchronous Programming<a name="basics-async"></a>
 
 You can use either *synchronous* or *asynchronous* methods to call operations on AWS services\. Synchronous methods block your thread’s execution until the client receives a response from the service\. Asynchronous methods return immediately, giving control back to the calling thread without waiting for a response\.

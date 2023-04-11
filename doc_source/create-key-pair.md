@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Create a Key Pair<a name="create-key-pair"></a>
 
 You must specify a key pair when you launch an EC2 instance and then specify the private key of the key pair when you connect to the instance\. You can create a key pair or use an existing key pair that you’ve used when launching other instances\. For more information, see [Amazon EC2 Key Pairs](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the Amazon EC2 User Guide for Linux Instances\.

@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Exception Handling<a name="java-dg-exceptions"></a>
 
 Understanding how and when the AWS SDK for Java throws exceptions is important to building high\-quality applications using the SDK\. The following sections describe the different cases of exceptions that are thrown by the SDK and how to handle them appropriately\.

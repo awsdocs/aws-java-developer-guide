@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Creating Endpoints in Amazon Pinpoint<a name="examples-pinpoint-create-endpoint"></a>
 
 An endpoint uniquely identifies a user device to which you can send push notifications with Amazon Pinpoint\. If your app is enabled with Amazon Pinpoint support, your app automatically registers an endpoint with Amazon Pinpoint when a new user opens your app\. The following example demonstrates how to add a new endpoint programmatically\.

@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Using TransferManager for Amazon S3 Operations<a name="examples-s3-transfermanager"></a>
 
 You can use the AWS SDK for Java TransferManager class to reliably transfer files from the local environment to Amazon S3 and to copy objects from one S3 location to another\. `TransferManager` can get the progress of a transfer and pause or resume uploads and downloads\.

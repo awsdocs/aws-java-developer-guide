@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Amazon S3 client\-side encryption with client master keys<a name="examples-crypto-masterkey"></a>
 
 The following examples use the [AmazonS3EncryptionClientV2Builder](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/s3/AmazonS3EncryptionClientV2Builder.html) class to create an Amazon S3 client with client\-side encryption enabled\. Once enabled, any objects you upload to Amazon S3 using this client will be encrypted\. Any objects you get from Amazon S3 using this client will automatically be decrypted\.

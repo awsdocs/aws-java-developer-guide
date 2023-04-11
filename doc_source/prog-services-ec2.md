@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Amazon EC2 Examples Using the AWS SDK for Java<a name="prog-services-ec2"></a>
 
 This section provides examples of programming [Amazon EC2](http://aws.amazon.com/ec2/) with the AWS SDK for Java\.

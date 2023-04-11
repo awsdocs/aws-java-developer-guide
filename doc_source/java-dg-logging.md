@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Logging AWS SDK for Java Calls<a name="java-dg-logging"></a>
 
 The AWS SDK for Java is instrumented with [Apache Commons Logging](http://commons.apache.org/proper/commons-logging/guide.html), which is an abstraction layer that enables the use of any one of several logging systems at runtime\.

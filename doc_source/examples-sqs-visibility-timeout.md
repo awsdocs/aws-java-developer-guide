@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Setting Visibility Timeout in Amazon SQS<a name="examples-sqs-visibility-timeout"></a>
 
 When a message is received in Amazon SQS, it remains on the queue until it’s deleted in order to ensure receipt\. A message that was received, but not deleted, will be available in subsequent requests after a given *visibility timeout* to help prevent the message from being received more than once before it can be processed and deleted\.

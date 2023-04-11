@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Tutorial: Starting an EC2 Instance<a name="how-to-ec2"></a>
 
 This tutorial demonstrates how to use the AWS SDK for Java to start an EC2 instance\.

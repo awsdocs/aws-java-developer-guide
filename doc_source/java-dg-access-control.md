@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Access Control Policies<a name="java-dg-access-control"></a>
 
  AWS *access control policies* enable you to specify fine\-grained access controls on your AWS resources\. An access control policy consists of a collection of *statements*, which take the form:

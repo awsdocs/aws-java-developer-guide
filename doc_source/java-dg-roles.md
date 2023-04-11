@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Using IAM Roles to Grant Access to AWS Resources on Amazon EC2<a name="java-dg-roles"></a>
 
 All requests to Amazon Web Services \(AWS\) must be cryptographically signed using credentials issued by AWS\. You can use *IAM roles* to conveniently grant secure access to AWS resources from your Amazon EC2 instances\.

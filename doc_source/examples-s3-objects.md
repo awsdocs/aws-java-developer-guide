@@ -1,9 +1,3 @@
---------
-
-The AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156) that are excited about open source software and the AWS developer experience\!
-
---------
-
 # Performing Operations on Amazon S3 Objects<a name="examples-s3-objects"></a>
 
 An Amazon S3 object represents a *file* or collection of data\. Every object must reside within a [bucket](examples-s3-buckets.md)\.
