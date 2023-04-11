@@ -8,9 +8,8 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-########################
 aws-java-developer-guide
-########################
+========================
 
 This repository contains source content for the official `AWS Java Developer Guide`_. The source
 code for the `AWS SDK for Java`_ is also on GitHub, at https://github.com/aws/aws-sdk-java/.
