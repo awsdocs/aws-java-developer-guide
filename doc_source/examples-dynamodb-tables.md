@@ -142,7 +142,7 @@ while(more_tables) {
         }
 ```
 
-By default, up to 100 tables are returned per call—​use `getLastEvaluatedTableName` on the returned [ListTablesResult](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/ListTablesResult.html) object to get the last table that was evaluated\. You can use this value to start the listing after the last returned value of the previous listing\.
+By default, up to 100 tables are returned per call—​use `getLastEvaluatedTableName` on the returned [ListTablesResult](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/model/ListTablesResult.html) object to get the last table that was evaluated\. You can use this value to start the listing after the last returned value of the previous listing\.
 
 See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/java/example_code/dynamodb/src/main/java/aws/example/dynamodb/ListTables.java) on GitHub\.
 

@@ -78,7 +78,7 @@ See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/
 
 ## Describing Security Groups<a name="describing-security-groups"></a>
 
-To describe your security groups or get information about them, call the AmazonEC2Client’s `describeSecurityGroups` method\. It returns a [DescribeSecurityGroupsResult](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/DescribeSecurityGroupsResult.html) that you can use to access the list of security groups by calling its `getSecurityGroups` method, which returns a list of [SecurityGroupInfo](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/SecurityGroupInfo.html) objects\.
+To describe your security groups or get information about them, call the AmazonEC2Client’s `describeSecurityGroups` method\. It returns a [DescribeSecurityGroupsResult](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/ec2/model/DescribeSecurityGroupsResult.html) that you can use to access the list of security groups by calling its `getSecurityGroups` method, which returns a list of [SecurityGroup](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/ec2/model/SecurityGroup.html) objects\.
 
  **Imports** 
 

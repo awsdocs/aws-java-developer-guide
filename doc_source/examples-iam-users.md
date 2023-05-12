@@ -29,7 +29,7 @@ See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/
 
 ## Listing Users<a name="listing-users"></a>
 
-To list the IAM users for your account, create a new [ListUsersRequest](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/ListUsersRequest.html) and pass it to the AmazonIdentityManagementClient’s `listUsers` method\. You can retrieve the list of users by calling `getUsers` on the returned [ListUsersResponse](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/ListUsersResponse.html) object\.
+To list the IAM users for your account, create a new [ListUsersRequest](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/ListUsersRequest.html) and pass it to the AmazonIdentityManagementClient’s `listUsers` method\. You can retrieve the list of users by calling `getUsers` on the returned [ListUsersResult](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/identitymanagement/model/ListUsersResult.html) object\.
 
 The list of users returned by `listUsers` is paged\. You can check to see there are more results to retrieve by calling the response object’s `getIsTruncated` method\. If it returns `true`, then call the request object’s `setMarker()` method, passing it the return value of the response object’s `getMarker()` method\.
 

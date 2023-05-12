@@ -31,7 +31,7 @@ See the [AWS Toolkit for Eclipse User Guide](https://docs.aws.amazon.com/toolkit
 
 ## Developing Applications for Android<a name="android-support"></a>
 
-If you’re an Android developer, Amazon Web Services publishes an SDK made specifically for Android development: the [AWS Mobile SDK for Android](http://aws.amazon.com/mobile/sdk/)\. See the [AWS Mobile SDK for Android Developer Guide](http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/) for full documentation\.
+If you’re an Android developer, Amazon Web Services publishes an SDK made specifically for Android development: the [Amplify Android \(AWS Mobile SDK for Android\)](https://docs.aws.amazon.com/sdk-for-android/index.html)\.
 
 ## Viewing the SDK’s Revision History<a name="java-sdk-history"></a>
 

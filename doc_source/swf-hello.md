@@ -467,7 +467,7 @@ When the workflow worker receives a task, it makes some sort of decision \(usual
 
    The other event types can be used if your workflow requires them\. See the [HistoryEvent](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/simpleworkflow/model/HistoryEvent.html) class description for information about each event type\.
 
-   \+ NOTE: Strings in `switch` statements were introduced in Java 7\. If you’re using an earlier version of Java, you can make use of the [EventType](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services.simpleworkflow.model.EventType.html) class to convert the `String` returned by `history_event.getType()` to an enum value and then back to a `String` if necessary:
+   \+ NOTE: Strings in `switch` statements were introduced in Java 7\. If you’re using an earlier version of Java, you can make use of the [EventType](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/simpleworkflow/model/EventType.html) class to convert the `String` returned by `history_event.getType()` to an enum value and then back to a `String` if necessary:
 
 ```
 EventType et = EventType.fromValue(event.getEventType());

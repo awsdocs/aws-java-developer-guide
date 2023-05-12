@@ -37,7 +37,7 @@ See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/
 To list your account’s alias, if any, call the AmazonIdentityManagementClient’s `listAccountAliases` method\.
 
 **Note**  
-The returned [ListAccountAliasesResponse](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/identitymanagement/model/ListAccountAliasesResponse.html) supports the same `getIsTruncated` and `getMarker` methods as other AWS SDK for Java *list* methods, but an AWS account can have only *one* account alias\.
+The returned [ListAccountAliasesResult](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/identitymanagement/model/ListAccountAliasesResult.html) supports the same `getIsTruncated` and `getMarker` methods as other AWS SDK for Java *list* methods, but an AWS account can have only *one* account alias\.
 
  **imports** 
 

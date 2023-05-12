@@ -7,7 +7,7 @@ Supported logging systems include the Java Logging Framework and Apache Log4j, a
 To learn more about [Log4j](http://logging.apache.org/log4j/2.x/), see the [Apache website](http://www.apache.org/)\.
 
 **Note**  
-This topic focuses on Log4j 1\.x\. Log4j2 doesn’t directly support Apache Commons Logging, but provides an adapter that directs logging calls automatically to Log4j2 using the Apache Commons Logging interface\. For more information, see [Commons Logging Bridge](http://logging.apache.org/log4j/2.x/log4j-jcl/index.html) in the Log4j2 documentation\.
+This topic focuses on Log4j 1\.x\. Log4j2 doesn’t directly support Apache Commons Logging, but provides an adapter that directs logging calls automatically to Log4j2 using the Apache Commons Logging interface\. For more information, see [Commons Logging Bridge](https://logging.apache.org/log4j/2.x/log4j-jcl.html) in the Log4j2 documentation\.
 
 ## Download the Log4J JAR<a name="download-the-log4j-jar"></a>
 

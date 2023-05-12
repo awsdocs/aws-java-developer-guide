@@ -43,7 +43,7 @@ WriteCampaignRequest request = new WriteCampaignRequest()
         .withMessageConfiguration(messageConfiguration);
 ```
 
-Then create a new campaign in Amazon Pinpoint by providing the [WriteCampaignRequest](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/WriteCampaignRequest.html) with the campaign configuration to a [CreateCampaignRequest](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/CreateCampaignRequest.html) object\. Finally, pass the CreateCampaignRequest object to the AmazonPinpointClient’s `createCampaign` method\.
+Then create a new campaign in Amazon Pinpoint by providing the [WriteCampaignRequest](https://docs.aws.amazon.com/sdk-for-java/v1/reference/com/amazonaws/services/pinpoint/model/WriteCampaignRequest.html) with the campaign configuration to a [CreateCampaignRequest](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/pinpoint/model/CreateCampaignRequest.html) object\. Finally, pass the CreateCampaignRequest object to the AmazonPinpointClient’s `createCampaign` method\.
 
  **Code** 
 

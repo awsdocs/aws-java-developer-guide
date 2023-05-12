@@ -9,7 +9,7 @@ This topic provides basic information about setting up your AWS temporary creden
 ## Configure temporary credentials<a name="setup-credentials-setting"></a>
 
 You can configure temporary credentials for the AWS SDK for Java in a number of ways, but here are the recommended approaches:
-+ Set tempoaray credentials in the AWS credentials profile file on your local system, located at:
++ Set temporary credentials in the AWS credentials profile file on your local system, located at:
   +  `~/.aws/credentials` on Linux, macOS, or Unix
   +  `C:\Users\USERNAME\.aws\credentials` on Windows
 
