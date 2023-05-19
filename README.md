@@ -1,3 +1,9 @@
+# Announcement
+
+This repository will be archived and marked read-only next month (June 2023). For more information, read [the announcement on the AWS News Blog](https://aws.amazon.com/blogs/aws/retiring-the-aws-documentation-on-github/).
+
+You can find the corresponding content for this repo on [the AWS Documentation website](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide). If you'd like to continue contributing to the quality of AWS documentation, you can submit feedback and suggestions for improvement there.
+
 .. Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
